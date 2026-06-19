@@ -30,59 +30,59 @@ const STEPS = [
     n: "01",
     title: "Discovery & Research",
     icon: Search,
-    bar: "bg-gradient-to-r from-[#1c9cd8] to-[#37b8ee]",
-    hoverBorder: "hover:border-[#37b8ee]",
-    hoverIcon: "group-hover:text-[#37b8ee]",
+    bar: "bg-gradient-to-r from-[#0037CA] to-[#4d7bf8]",
+    hoverBorder: "hover:border-[#4d7bf8]",
+    hoverIcon: "group-hover:text-[#4d7bf8]",
     body: "First we understand your business. This means auditing your current digital marketing performance, understanding your audience, looking at your competitors, and figuring out the biggest opportunities. We ask the right questions before we make any recommendations—because strategy based on assumptions rarely delivers.",
   },
   {
     n: "02",
     title: "Strategic Planning",
     icon: Compass,
-    bar: "bg-gradient-to-r from-[#e8890a] to-[#fab52e]",
-    hoverBorder: "hover:border-[#fab52e]",
-    hoverIcon: "group-hover:text-[#fab52e]",
+    bar: "bg-gradient-to-r from-[#FA9F43] to-[#FF8000]",
+    hoverBorder: "hover:border-[#FA9F43]",
+    hoverIcon: "group-hover:text-[#FA9F43]",
     body: "Knowing where you are and where you want to go, we build a customised growth roadmap. This includes SEO priorities, paid advertising structure, automation workflows, content strategy, and clear milestones — all in sync with your business goals and budget. You get to see the entire plan before anything goes live.",
   },
   {
     n: "03",
     title: "Implementation",
     icon: Rocket,
-    bar: "bg-gradient-to-r from-[#d63e12] to-[#f1592b]",
-    hoverBorder: "hover:border-[#f1592b]",
-    hoverIcon: "group-hover:text-[#f1592b]",
+    bar: "bg-gradient-to-r from-[#0037CA] to-[#4d7bf8]",
+    hoverBorder: "hover:border-[#4d7bf8]",
+    hoverIcon: "group-hover:text-[#4d7bf8]",
     body: "That’s where the work is done. Our specialist team will kick off your campaigns, develop your assets, deploy your automation systems, and get everything live. We work quickly, communicate well at every stage, and keep you in the loop without swamping you with unnecessary detail.",
   },
   {
     n: "04",
     title: "Optimisation",
     icon: Gauge,
-    bar: "bg-gradient-to-r from-[#0037CA] to-[#4d7bf8]",
-    hoverBorder: "hover:border-[#4d7bf8]",
-    hoverIcon: "group-hover:text-[#4d7bf8]",
+    bar: "bg-gradient-to-r from-[#FA9F43] to-[#FF8000]",
+    hoverBorder: "hover:border-[#FA9F43]",
+    hoverIcon: "group-hover:text-[#FA9F43]",
     body: "Once your campaigns are live, we continuously monitor performance, analyse the data, and make improvements. We try new things, we get better at targeting our audience, we improve conversion rates, and we cut the stuff that doesn’t work. Digital marketing is never a set-and-forget exercise – it’s constant optimisation that separates average results from exceptional ones.",
   },
   {
     n: "05",
     title: "Scaling",
     icon: TrendingUp,
-    bar: "bg-gradient-to-r from-[#119a4e] to-[#2bc56a]",
-    hoverBorder: "hover:border-[#2bc56a]",
-    hoverIcon: "group-hover:text-[#2bc56a]",
+    bar: "bg-gradient-to-r from-[#0037CA] to-[#4d7bf8]",
+    hoverBorder: "hover:border-[#4d7bf8]",
+    hoverIcon: "group-hover:text-[#4d7bf8]",
     body: "If a strategy is consistently working, we scale it out. We identify the best-performing channels and campaigns and invest more resources into them – so your growth accelerates rather than plateaus. This is how good digital marketing multiplies over time.",
   },
 ];
 
 export default function ProcessSection() {
   return (
-    <section className="relative isolate overflow-hidden antialiased text-[#0f1729] bg-blue-50/50 bg-[radial-gradient(120%_80%_at_85%_-10%,rgba(239,116,44,0.05),transparent_55%)] [padding:clamp(34px,5vw,30px)_clamp(18px,4.5vw,72px)] font-['Hanken_Grotesk',ui-sans-serif,system-ui,sans-serif]">
+    <section className="relative isolate font-[poppins] overflow-hidden antialiased text-[#0f1729] bg-blue-50/50 bg-[radial-gradient(120%_80%_at_85%_-10%,rgba(239,116,44,0.05),transparent_55%)] [padding:clamp(34px,5vw,30px)_clamp(18px,4.5vw,72px)] font-['Hanken_Grotesk',ui-sans-serif,system-ui,sans-serif]">
       <div className="mx-auto max-w-[1600px]">
         {/* header */}
         <div className="flex items-center px-20 gap-[clamp(14px,2vw,22px)]">
           <div className="grid flex-none place-items-center w-[46px] h-[46px] rounded-full text-[#20140b]  bg-white shadow-md">
             <Workflow size={22} strokeWidth={2.1} />
           </div>
-          <h2 className="m-0 font-['Bricolage_Grotesque',ui-sans-serif,system-ui,sans-serif] font-extrabold uppercase tracking-[-0.01em] whitespace-nowrap text-[clamp(26px,4.4vw,46px)] max-[540px]:whitespace-normal">
+          <h2 className="m-0 font-['Bricolage_Grotesque',ui-sans-serif,system-ui,sans-serif] font-[poppins] font-bold uppercase tracking-[-0.01em] whitespace-nowrap text-[clamp(26px,4.4vw,46px)] max-[540px]:whitespace-normal">
             Our Process
           </h2>
           <span className="relative flex-1 h-[2px] min-w-[24px] rounded-[2px] bg-gradient-to-r from-[rgba(15,23,41,0.7)] to-[rgba(15,23,41,0.12)] before:content-[''] before:absolute before:-left-[2px] before:top-1/2 before:h-2 before:w-2 before:-translate-y-1/2 before:rounded-[1.5px] before:bg-[#0f1729]" />

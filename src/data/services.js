@@ -1967,17 +1967,16 @@ export const SERVICES = [
     ],
     heroHeadline: "Close more deals with AI-powered lead management",
     heroSubline:
-      "Built for sales-driven teams tired of losing leads in spreadsheets and missed follow-ups. SkyUp CRM captures leads from Facebook, Google, and your website, assigns them to agents in seconds, and tracks every interaction to conversion.",
+      "Built for sales-driven teams who are tired of losing leads in spreadsheets and missed follow-ups. Skyup CRM gives your team one unified platform to capture leads from Facebook, Google & your website; assign them to agents in seconds; and track them.",
     statsTitle: "SkyUp CRM in numbers",
     stats: [
       { value: "12+", label: "Integrated modules" },
       { value: "3", label: "User roles & hierarchy" },
       { value: "10+", label: "Third-party integrations" },
-      { value: "Rs 999/mo", label: "Starting price" },
       { value: "14 days", label: "Free trial — no card" },
     ],
     painPoints: {
-      title: "Sound familiar? The pain points every sales manager knows",
+      title: "Sound Familiar ? These Are the Pain Points Every Sales Manager Knows",
       intro:
         "Before discovering the right CRM, most sales teams struggle with the same challenges. SkyUp CRM was built specifically to eliminate them.",
       points: [

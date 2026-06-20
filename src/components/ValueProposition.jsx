@@ -92,12 +92,12 @@ export default function ValueProposition() {
               Helping brands turn digital marketing into consistent revenue
             </h2>
 
-            <p className="mt-6 max-w-[560px] text-base leading-relaxed text-neutral-600">
+            <p className="mt-6 max-w-[560px] text-base leading-relaxed">
               Skyup Digital Solutions focuses on what actually matters —
               qualified leads, increased conversion rates, better ROI, and
               sustainable growth.
             </p>
-            <p className="mt-4 max-w-[560px] text-base leading-relaxed text-neutral-600">
+            <p className="mt-4 max-w-[560px] text-base leading-relaxed ">
               We're a full-service agency combining creative execution with
               AI-powered automation, advanced analytics, and conversion-focused
               strategy. The result: a marketing engine that works harder, spends
@@ -133,7 +133,7 @@ export default function ValueProposition() {
                     <span className="font-semibold text-neutral-900">
                       {item.title}
                     </span>
-                    <span className="text-neutral-500"> — {item.desc}</span>
+                    <span > — {item.desc}</span>
                   </span>
                 </li>
               ))}
@@ -189,7 +189,7 @@ export default function ValueProposition() {
                 </span>
               </div>
 
-              <p className="text-sm leading-relaxed text-neutral-600">
+              <p className="text-sm leading-relaxed">
                 {p.desc}
               </p>
             </div>

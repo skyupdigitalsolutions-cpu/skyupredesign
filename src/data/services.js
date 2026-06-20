@@ -242,9 +242,9 @@ export const SERVICES = [
       "Analytics — reach, engagement & conversion tracking",
     ],
     heroHeadline:
-      "Grow faster with professional social media marketing in Bangalore",
+      "Grow Faster with Professional Social Media marketing services in Bangalore",
     heroSubline:
-      "Drive real business growth with data-driven social strategies for brands in Bangalore. We don't just manage your social media — we make it your most powerful sales and branding channel.",
+      "Drive real business growth with data-driven social media strategies for businesses and brands in Bangalore. At Skyup Digital Solutions we don’t just manage your social media, we make it your most powerful sales and branding channel.",
     overview: [
       "Social media marketing (SMM) uses platforms like Instagram, Facebook, LinkedIn, YouTube, and WhatsApp to build brand awareness, bring in qualified leads, and convert audiences into paying customers. Social is no longer just a channel — it's a primary growth driver in digital marketing.",
       "India is on track to be the world's largest digital consumer market, with around 900 million users by 2026. With over 500 million social media users and social commerce growing more than 68% year over year, businesses that invest in professional social media marketing now will lead their markets for years.",

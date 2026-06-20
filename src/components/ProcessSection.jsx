@@ -89,7 +89,7 @@ export default function ProcessSection() {
         </div>
 
         {/* subhead */}
-        <p className="mt-4 mb-[clamp(30px,4vw,52px)] text-[clamp(16px,1.3vw,16.5px)] leading-[1.6] text-[#4b5563] lg:max-w-[850px] px-20">
+        <p className="mt-4 mb-[clamp(30px,4vw,52px)] text-[clamp(16px,1.3vw,16.5px)] leading-[1.6] lg:max-w-[850px] px-20">
           We have a clear and repeatable process that removes the guesswork from
           digital marketing. Every client starts with step one-because unless you
           understand your business properly, you can&rsquo;t build a strategy that
@@ -118,14 +118,14 @@ export default function ProcessSection() {
                 </header>
 
                 {/* body */}
-                <p className="mx-[18px] mt-4 text-justify text-[14px] leading-[1.62] text-[#4b5563]">
+                <p className="mx-[18px] mt-4 text-justify text-[14px] leading-[1.62] ">
                   {step.body}
                 </p>
 
                 {/* footer: icon + connector rail */}
                 <div className="mx-[18px] mt-auto flex items-center gap-3 pt-[10px]">
                   <span
-                    className={`flex-none text-[#334155] transition-[color,transform] duration-300 group-hover:-translate-y-[2px] ${step.hoverIcon}`}
+                    className={`flex-none transition-[color,transform] duration-300 group-hover:-translate-y-[2px] ${step.hoverIcon}`}
                   >
                     <Icon size={34} strokeWidth={1.6} />
                   </span>

@@ -98,22 +98,22 @@ export default function DemoHero({
         />
 
         {/* Faint accent glow (per-service hue) */}
-        <div
+        {/* <div
           className="pointer-events-none absolute -left-24 top-24 h-72 w-72 rounded-full opacity-30 blur-3xl"
           style={{ background: accentColor }}
           aria-hidden="true"
-        />
+        /> */}
 
         <div className="relative mx-auto max-w-6xl px-6 pb-24 pt-14 sm:pt-16 lg:px-8 lg:pb-28">
           <Breadcrumb items={breadcrumb} />
 
           {/* H1 */}
-          <h1 className="mt-5 max-w-4xl text-[34px] font-extrabold leading-[1.08] tracking-tight text-white sm:text-[44px] lg:text-[54px]">
+          <h1 className="mt-5 max-w-5xl text-[34px] font-extrabold leading-[1.08] tracking-tight text-white sm:text-[44px] lg:text-[54px]">
             {title}
           </h1>
 
           {/* Sub-headline */}
-          <p className="mt-5 max-w-2xl text-[16px] leading-relaxed text-white/80 sm:text-[18px]">
+          <p className="mt-5 max-w-3xl text-[16px] leading-relaxed text-white/80 sm:text-[18px]">
             {subtitle}
           </p>
 

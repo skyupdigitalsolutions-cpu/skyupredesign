@@ -116,7 +116,7 @@ export default function GoogleReviews() {
                   <p className="text-[15px] font-semibold text-gray-900">
                     {r.name}
                   </p>
-                  <p className="text-xs text-gray-500">{r.time}</p>
+                  <p className="text-xs ">{r.time}</p>
                 </div>
               </div>
 
@@ -124,7 +124,7 @@ export default function GoogleReviews() {
                 <Stars rating={r.rating} size={16} />
               </div>
 
-              <p className="mt-2.5 text-sm leading-relaxed text-gray-600 text-justify">
+              <p className="mt-2.5 text-sm leading-relaxed text-justify">
                 {r.text}
               </p>
             </article>

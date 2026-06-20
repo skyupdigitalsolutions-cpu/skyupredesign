@@ -144,13 +144,12 @@ function ServiceCard({ service }) {
           <h3 className="font-bold text-xl leading-snug" style={{ color: "#1C1C1C" }}>
             {service.title}
           </h3>
-          <h4 className="text-sm mt-2 leading-snug text-left font-medium" style={{ color: "#3A3A3A" }}>
+          <h4 className="text-sm mt-2 leading-snug text-left font-medium" >
             {service.subtitle}
           </h4>
         </div>
         <p
           className="text-sm leading-normal flex-1 text-left pt-3"
-          style={{ color: "#4B4B4B" }}
         >
           {service.description}
         </p>
@@ -188,7 +187,7 @@ export default function DigitalGrowth() {
           Digital Marketing Services Designed for
           <span className="text-[#0037CA]">&nbsp;Modern Businesses</span>
         </h2>
-        <p className="mt-2 px-4 text-neutral-600">
+        <p className="mt-2 px-4 ">
           Whether you need to be found on Google, reach your audience on social
           media, or build systems that bring in leads while you sleep—Skyup
           Digital Solutions offers the full suite of digital marketing services

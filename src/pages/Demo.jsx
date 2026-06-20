@@ -3,8 +3,6 @@ import PainPoints from "@/components/demo/PainPoints";
 import ServicesGrid from "@/components/demo/ServicesGrid";
 import DemoProcess from "@/components/demo/DemoProcess";
 import WhyChooseUs from "@/components/demo/WhyChooseUs";
-import Testimonial from "@/components/demo/Testimonial";
-import BottomCta from "@/components/demo/BottomCta";
 import RelatedServices from "@/components/demo/RelatedServices";
 import FaqSection from "@/components/FaqSection";
 import Footer from "@/components/Footer";

@@ -1,58 +1,99 @@
-import DemoProcess from "@/components/demo/DemoProcess";
-import FeaturesSplit from "@/components/demo/FeaturesSplit";
-import WebDevBanner from "@/components/demo/WebDevBanner";
-import WebDevInfoGrid from "@/components/demo/WebDevInfoGrid";
 import DemoHero from "@/components/DemoHero";
+import PainPoints from "@/components/demo/PainPoints";
+import ServicesGrid from "@/components/demo/ServicesGrid";
+import DemoProcess from "@/components/demo/DemoProcess";
+import WhyChooseUs from "@/components/demo/WhyChooseUs";
+import Testimonial from "@/components/demo/Testimonial";
+import BottomCta from "@/components/demo/BottomCta";
+import RelatedServices from "@/components/demo/RelatedServices";
 import FaqSection from "@/components/FaqSection";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 
+// SEO-specific 6-step process (component map section 04).
+// DemoProcess maps `steps` into a 2-col grid, so 6 steps render as 3 rows of 2.
+const SEO_STEPS = [
+  {
+    n: "01",
+    title: "SEO Audit",
+    body: "A full technical and content audit to uncover exactly what's holding your rankings back.",
+  },
+  {
+    n: "02",
+    title: "Keyword Research",
+    body: "We map the buyer-intent search terms worth winning and prioritise the quickest wins.",
+  },
+  {
+    n: "03",
+    title: "Strategy & Planning",
+    body: "A clear roadmap covering on-page, content, and off-page work tied to your business goals.",
+  },
+  {
+    n: "04",
+    title: "On-Page Optimisation",
+    body: "We optimise structure, content, and technical health so every page can rank.",
+  },
+  {
+    n: "05",
+    title: "Link Building",
+    body: "We earn high-authority backlinks that build trust and lift your domain's strength.",
+  },
+  {
+    n: "06",
+    title: "Reporting & Improvement",
+    body: "Plain-English monthly reports and continuous optimisation based on real results.",
+  },
+];
+
 export default function Demo() {
   const FAQ_questions = [
     {
-      q: "What is Skyup Digital Solutions?",
-      a: "Skyup Digital Solutions is a modern AI-powered digital marketing agency and marketing and web development company that helps businesses improve online visibility, generate qualified leads, increase conversions, and achieve long-term business growth through strategic digital marketing services.",
+      q: "Why does SEO matter for my business?",
+      a: "SEO puts your business in front of customers at the exact moment they're searching for what you offer. Unlike paid ads, organic rankings keep working long after the initial effort, delivering compounding traffic and leads over time.",
     },
     {
-      q: "What services does Skyup Digital Solutions offer?",
-      a: "Skyup Digital Solutions offers complete digital marketing services including SEO services, Google Ads management, PPC advertising, social media marketing, web development, UI/UX design, graphic design, email marketing, AI-powered automation, machine learning solutions, branding, and conversion-focused growth strategies.",
+      q: "How long does SEO take to show results?",
+      a: "Most businesses see early movement within the first few months, with meaningful traffic and lead growth typically building from months four to six onward. SEO is a compounding investment — the results accelerate as authority grows.",
     },
     {
-      q: "Why should I choose Skyup Digital Solutions as my digital marketing agency?",
-      a: "Skyup Digital Solutions combines data-driven marketing, AI-powered automation, creative strategy, and performance-focused execution to help businesses achieve measurable growth. Unlike traditional agencies, we focus on transparency, ROI, lead quality, and long-term digital success.",
+      q: "What types of SEO do you cover?",
+      a: "We cover technical SEO, on-page optimisation, content strategy, off-page link building, and local SEO, plus specialised e-commerce SEO for online stores.",
     },
     {
-      q: "How does an AI-powered growth agency help businesses grow?",
-      a: "An AI-powered growth agency uses automation, analytics, customer behavior insights, and intelligent optimization strategies to improve marketing performance, audience targeting, lead generation, and business scalability while reducing wasted marketing spend.",
+      q: "What's included in an SEO audit?",
+      a: "Our audit reviews your site's technical health, on-page content, site structure, backlink profile, keyword positioning, and competitor landscape — then prioritises the highest-impact fixes.",
     },
     {
-      q: "Do you provide SEO services for businesses?",
-      a: "Yes. Our SEO services help businesses improve search engine rankings, organic traffic, local visibility, website authority, and lead generation through technical SEO, keyword optimization, content strategy, and performance tracking.",
+      q: "What are backlinks and why do they matter?",
+      a: "Backlinks are links from other websites to yours. They act as votes of confidence that tell search engines your site is trustworthy and authoritative, which is one of the strongest drivers of higher rankings.",
     },
     {
-      q: "Do you provide Google Ads and PPC advertising services?",
-      a: "Yes. We create and manage Google Ads and PPC advertising campaigns designed to generate high-quality leads, increase website traffic, improve conversions, and maximize advertising ROI through strategic audience targeting and campaign optimization.",
+      q: "How do you do keyword research?",
+      a: "We analyse search volume, competition, and buyer intent to find the terms your ideal customers actually use, then prioritise keywords that balance achievability with business value.",
     },
     {
-      q: "Do you offer social media marketing services?",
-      a: "Yes. Our social media marketing services help businesses build brand awareness, improve engagement, reach targeted audiences, and generate leads across platforms like Facebook, Instagram, LinkedIn, and other social channels.",
+      q: "Why should I choose Skyup for SEO?",
+      a: "We offer transparent pricing, no lock-in contracts, ROI-first reporting, and enterprise-grade tools included. You stay because the results are good — not because a contract traps you.",
     },
     {
-      q: "Do you provide website design and web development services?",
-      a: "Yes. As a marketing and web development company, we design and develop responsive, SEO-friendly, fast-loading, and conversion-focused websites tailored to business goals and customer experience.",
+      q: "SEO vs paid ads — which is better?",
+      a: "Paid ads deliver instant visibility but stop the moment you stop paying. SEO builds lasting organic traffic that compounds over time. The strongest strategies use both, and we can help you balance them.",
     },
     {
-      q: "Do you provide AI automation and machine learning solutions?",
-      a: "Yes. We provide AI-powered automation and machine learning solutions that help businesses streamline marketing workflows, automate lead nurturing, improve customer communication, optimize campaign performance, and increase operational efficiency.",
+      q: "What does SEO optimisation actually involve?",
+      a: "It involves improving your site's technical foundation, optimising content and structure for target keywords, earning authoritative backlinks, and continuously refining based on performance data.",
     },
     {
-      q: "How can I get started with Skyup Digital Solutions?",
-      a: "You can get started by contacting Skyup Digital Solutions through our website inquiry form or consultation channels to discuss your business goals, digital marketing requirements, and growth opportunities with our team.",
+      q: "Do you offer SEO for small businesses?",
+      a: "Yes. We tailor our SEO services and pricing to businesses of every size, with a strong focus on local SEO to help small businesses get found by customers nearby.",
     },
   ];
+
   return (
     <div>
       <Header />
+
+      {/* 01 — Hero */}
       <DemoHero
         breadcrumb={[
           { label: "Home", href: "/" },
@@ -66,22 +107,41 @@ export default function Demo() {
           href: "/contact-us",
         }}
         secondaryCta={{ label: "See pricing", href: "#pricing" }}
-        stats={[
-          { value: "3.4x", label: "Avg. Traffic Increase" },
-          {
-            value: "1,600+",
-            label: "Keywords Ranked",
-            sub: "Page 1 of Google",
-          },
-          { value: "40%", label: "Lower Cost Per Lead" },
-          { value: "14 days", label: "To First Results" },
-        ]}
+        accentColor="#22D3EE"
+      
       />
-      <DemoProcess />
-      <WebDevBanner/>
-      <WebDevInfoGrid/>
-      <FeaturesSplit/>
-      <FaqSection faqs={FAQ_questions}/>
+
+      {/* 02 — Pain Point Block */}
+      <PainPoints />
+
+      {/* 03 — Services Grid */}
+      <ServicesGrid />
+
+      {/* 04 — Process Steps (SEO, 6 steps) */}
+      <DemoProcess
+        title="The SEO process we follow"
+        promo={{
+          eyebrow: "HOW WE WORK",
+          heading: "A proven, repeatable path to higher rankings",
+          body: "Every engagement follows the same transparent process — so you always know what we're doing, why, and what to expect next.",
+          cta: { label: "Book a Free Audit", href: "/contact-us" },
+          image: "",
+        }}
+        steps={SEO_STEPS}
+      />
+
+      {/* 05 — Why Choose Us + case study */}
+      <WhyChooseUs />
+
+      {/* 06 — Testimonial */}
+      <Testimonial />
+
+      {/* 07 — FAQ Accordion */}
+      <FaqSection faqs={FAQ_questions} />
+
+      {/* 08 — Related Services */}
+      <RelatedServices />
+
       <Footer />
     </div>
   );

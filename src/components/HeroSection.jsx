@@ -117,7 +117,7 @@ export default function HeroSection() {
               businesses—from SEO and paid ads to AI automation and
               high-converting web experiences.
             </p>
-            <p className="text-sm sm:text-base text-justify leading-relaxed text-neutral-600 mb-4">
+            <p className="text-sm sm:text-base text-justify leading-relaxed  mb-4">
               We are a trusted digital marketing company in Bangalore and help
               in building an online presence for your business that keeps on
               attracting, engaging, and converting customers month after month.
@@ -126,7 +126,7 @@ export default function HeroSection() {
               that actually converts visitors.
             </p>
 
-            <p className="text-sm text-justify sm:text-base leading-relaxed text-neutral-500">
+            <p className="text-sm text-justify sm:text-base leading-relaxed">
               Looking for the best digital marketing company in Bangalore that
               offers{" "}
               <strong className="text-neutral-800 font-semibold">

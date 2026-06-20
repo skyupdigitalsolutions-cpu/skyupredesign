@@ -47,7 +47,7 @@ const CARDS = [
     ],
   },
   {
-    bg: "#E7F5EE",
+    bg: "#E9F1FB",
     title: "Website maintenance and support",
     paragraphs: [
       "Nextwebi provide complete website maintenance and support including content and image updates, bug fixing, SSL installation, version upgrades, and vital security updates to name a few. Our expert team of professionals has several years of experience and is ready to face any challenges to keep your website running seamlessly and efficiently. Get a secured and hassle-free website maintenance experience customized to meet any size of business.",
@@ -65,7 +65,7 @@ const CARDS = [
     ],
   },
   {
-    bg: "#ECEFF4",
+    bg: "#ffe4c0",
     title: "Web Development cost",
     paragraphs: [
       "The web development services cost varies from business to business and is based on a number of different criteria. Planning to develop a new website or redesign an existing one the cost will vary based on the requirements. The web development costs depend on multiple factors like the degree of technical difficulty, the length of the development process, etc. The web development costs also vary based on each company's experience, expertise, and skills, this estimate may vary. Major factors affecting the cost of web development include:",

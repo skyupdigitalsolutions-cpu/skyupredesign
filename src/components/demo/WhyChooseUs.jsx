@@ -19,26 +19,26 @@ function Check({ className = "h-5 w-5" }) {
 
 const VALUES = [
   {
-    title: "Transparent pricing",
-    body: "Clear, fixed monthly pricing. No hidden fees, no surprise invoices — ever.",
+    title: "You Always Know What You're Paying For",
+    body: "There are no optimizations; all deliverables are known in advance.",
   },
   {
-    title: "No lock-in contracts",
-    body: "Stay because the results are good, not because a contract traps you.",
+    title: " No Pressure, No Lock-In",
+    body: "Our work is on a monthly basis. If we are not delivering, then you can walk away. We can assure you we don't lock you into a contract.",
   },
   {
-    title: "ROI-first metrics",
-    body: "We report on leads and revenue, not vanity rankings that don't pay the bills.",
+    title: "ROI Is the Only Metric We Care About",
+    body: "We’re not gamblers. We measure organic traffic, qualified leads, revenue influence, and the tangible benefits of SEO and how they translate to your business.",
   },
   {
-    title: "Industry-leading tools",
-    body: "Enterprise SEO tooling and data, included — no extra subscriptions on your side.",
+    title: "Industry-Leading Tools, Real Expertise",
+    body: "We use Ahrefs, Screaming Frog, Semrush, Google Analytics, and Google Search Console. It is important to note that the right tool will help with decision-making, but strategy comes first. We are a “results-driven” SEO service provider in Bangalore, which means we don’t use too many tools and techniques but the right ones based on our knowledge and expertise. ",
   },
 ];
 
 export default function WhyChooseUs({
   eyebrow = "WHY CHOOSE US",
-  title = "An SEO partner that actually has your back",
+  title = "Why Brands Choose Skyup for SEO",
   values = VALUES,
   caseStudy = {
     industry: "B2B SaaS",

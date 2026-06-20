@@ -56,29 +56,29 @@ function LockIcon({ className = "h-6 w-6" }) {
 const PAINS = [
   {
     icon: EyeOffIcon,
-    title: "You're invisible on Google",
-    body: "Your customers are searching right now — but they're finding your competitors, not you.",
+    title: "Not visible on Google",
+    body: " So if you're not on the first page of Google, you're out of sight and out of mind for 90% of somebody who is surfing the Web, right? Companies invest in optimizing for both better visibility and improved ranking, knowing that SEO is essential for them to be discovered where their customers are looking.",
   },
   {
     icon: MazeIcon,
-    title: "Content that goes nowhere",
-    body: "Blogs and pages get published, then sink without ranking, traffic, or a single lead to show for it.",
+    title: "Content That Goes Nowhere",
+    body: "Blogs built without SEO keyword research, a bad structure, or a weak technical SEO foundation.",
   },
   {
     icon: ChartUnclearIcon,
-    title: "No clarity in reporting",
-    body: "Vanity metrics and jargon-filled dashboards that never answer the only question that matters: is this working?",
+    title: "No Reporting, No Clarity",
+    body: "You don’t know what’s working. Old agency reports were extremely difficult. We make each SEO audit report simple, so you always know where you stand for growth.",
   },
   {
     icon: LockIcon,
-    title: "Locked into long contracts",
-    body: "Tied to an agency for 12 months with no flexibility, even when the results never arrive.",
+    title: "Locked Into Contracts",
+    body: "Paying month after month with no evidence your SEO services in Bangalore are going the right direction?",
   },
 ];
 
 export default function PainPoints({
-  title = "Sound familiar?",
-  subtitle = "Most businesses don't have an SEO problem — they have an SEO frustration.",
+  title = "Your competitors are ranking. You're stuck on page 3",
+  subtitle = "You've posted blogs. Maybe hire a freelancer. But traffic stays flat, leads don't come from search, and nobody can explain why. It's frustrating—and it's fixable.",
   pains = PAINS,
 }) {
   return (

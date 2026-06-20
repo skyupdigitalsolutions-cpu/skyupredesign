@@ -9,83 +9,84 @@ import RelatedServices from "@/components/demo/RelatedServices";
 import FaqSection from "@/components/FaqSection";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
+import GoogleReviews from "@/components/GoogleReviews";
 
 // SEO-specific 6-step process (component map section 04).
 // DemoProcess maps `steps` into a 2-col grid, so 6 steps render as 3 rows of 2.
 const SEO_STEPS = [
   {
     n: "01",
-    title: "SEO Audit",
-    body: "A full technical and content audit to uncover exactly what's holding your rankings back.",
+    title: "Website SEO Audit",
+    body: "We analyze your website and its technical condition, on-page parameters, website quality, profile of backlinks, and competitive analysis. It means that you have a goal, and a goal is accompanied by the things that you’re going to do to overcome it. ",
   },
   {
     n: "02",
-    title: "Keyword Research",
-    body: "We map the buyer-intent search terms worth winning and prioritise the quickest wins.",
+    title: "Keyword Research & Mapping",
+    body: "Our SEO specialists have the capacity and expertise to perform an extensive keyword analysis to find the high-priority, high-intent keyword phrases your audience is searching for. Then we put keywords on the right pages of your website, and we do it strategically.",
   },
   {
     n: "03",
-    title: "Strategy & Planning",
-    body: "A clear roadmap covering on-page, content, and off-page work tied to your business goals.",
+    title: "SEO Strategy & Planning",
+    body: "The results of these plus keyword research help us develop a customized SEO strategy, which in the short term will provide us with immediate results but in the long term, better ranking. Your tactics will depend on your objectives, competitors, and industry.",
   },
   {
     n: "04",
     title: "On-Page Optimisation",
-    body: "We optimise structure, content, and technical health so every page can rank.",
+    body: "All on-page optimizations performed in the audit, including all optimized content, fixes, optimized navigational links, etc., are performed.",
   },
   {
     n: "05",
-    title: "Link Building",
-    body: "We earn high-authority backlinks that build trust and lift your domain's strength.",
+    title: "Off-Page SEO & Link Building",
+    body: "We use white hat off-page SEO techniques to get good quality backlinks from authoritative and relevant sites, which help enhance search ranking and domain authority.",
   },
   {
     n: "06",
-    title: "Reporting & Improvement",
-    body: "Plain-English monthly reports and continuous optimisation based on real results.",
+    title: "Reporting & Continuous Improvement",
+    body: "Unabridged monthly reports on keywords, visits, leads, and ROI will be provided. SEO marketing is a continuous process — we continuously work on strategies based on the real data.",
   },
 ];
 
 export default function Demo() {
   const FAQ_questions = [
     {
-      q: "Why does SEO matter for my business?",
-      a: "SEO puts your business in front of customers at the exact moment they're searching for what you offer. Unlike paid ads, organic rankings keep working long after the initial effort, delivering compounding traffic and leads over time.",
+      q: "Why is SEO important for businesses?",
+      a: "SEO marketing helps businesses increase online visibility, attract qualified traffic, and generate long-term organic leads. One of the biggest advantages of SEO is that it continues delivering traffic even after content is published — unlike paid ads that stop the moment your budget runs out.",
     },
     {
       q: "How long does SEO take to show results?",
-      a: "Most businesses see early movement within the first few months, with meaningful traffic and lead growth typically building from months four to six onward. SEO is a compounding investment — the results accelerate as authority grows.",
+      a: "Most websites begin seeing early SEO ranking improvements within 6–12 weeks. Competitive industries may take longer, but SEO creates sustainable long-term growth.",
     },
     {
-      q: "What types of SEO do you cover?",
-      a: "We cover technical SEO, on-page optimisation, content strategy, off-page link building, and local SEO, plus specialised e-commerce SEO for online stores.",
+      q: "What are the different types of SEO? ",
+      a: "The main types of SEO include: On-Page SEO Technical SEO Off-Page SEO Local SEO E-Commerce SEO Each plays a role in improving search visibility and website performance.",
     },
     {
-      q: "What's included in an SEO audit?",
-      a: "Our audit reviews your site's technical health, on-page content, site structure, backlink profile, keyword positioning, and competitor landscape — then prioritises the highest-impact fixes.",
+      q: "What is included in an SEO audit? ",
+      a: "An SEO audit checks your website's technical health, page structure, keyword optimization, backlinks, speed, mobile performance, and indexing issues. Professional SEO audit tools help identify what's limiting your rankings.",
     },
     {
-      q: "What are backlinks and why do they matter?",
-      a: "Backlinks are links from other websites to yours. They act as votes of confidence that tell search engines your site is trustworthy and authoritative, which is one of the strongest drivers of higher rankings.",
+      q: "What are SEO backlinks?",
+      a: "SEO backlinks are links from other websites pointing to yours. High-quality backlinks are a core part of off-page SEO and help improve your website's authority and search engine rankings.",
     },
     {
-      q: "How do you do keyword research?",
-      a: "We analyse search volume, competition, and buyer intent to find the terms your ideal customers actually use, then prioritise keywords that balance achievability with business value.",
+      q: "What is SEO keyword research? ",
+      a: "SEO keyword research is the process of finding the exact words and phrases your target audience searches on Google. Proper keyword research underpins both on-page SEO and content strategy to attract relevant traffic.",
     },
     {
-      q: "Why should I choose Skyup for SEO?",
-      a: "We offer transparent pricing, no lock-in contracts, ROI-first reporting, and enterprise-grade tools included. You stay because the results are good — not because a contract traps you.",
+      q: "What makes Skyup a trusted SEO company in Bangalore?",
+      a: "As a dedicated SEO agency in Bangalore, Skyup focuses on transparent reporting, ROI-driven strategies, technical SEO expertise, and long-term organic growth—without lock-in contracts.",
     },
     {
-      q: "SEO vs paid ads — which is better?",
-      a: "Paid ads deliver instant visibility but stop the moment you stop paying. SEO builds lasting organic traffic that compounds over time. The strongest strategies use both, and we can help you balance them.",
+      q: "What are the benefits of SEO compared to paid ads?",
+      a: "Unlike paid ads, SEO continues generating traffic without paying for every click. The benefits of SEO include better brand visibility, consistent leads, improved trust, and lower long-term acquisition costs.",
     },
     {
-      q: "What does SEO optimisation actually involve?",
-      a: "It involves improving your site's technical foundation, optimising content and structure for target keywords, earning authoritative backlinks, and continuously refining based on performance data.",
+      q: "What is SEO optimization?",
+      a: "SEO optimization is the process of improving website pages, content, and technical performance to help them rank higher in search engines and attract more relevant visitors.",
     },
     {
-      q: "Do you offer SEO for small businesses?",
-      a: "Yes. We tailor our SEO services and pricing to businesses of every size, with a strong focus on local SEO to help small businesses get found by customers nearby.",
+      q: "Do small businesses need SEO marketing?",
+      a: "Absolutely. SEO marketing helps small businesses compete with larger brands by targeting niche keywords, local searches, and high-intent customer queries—making it one of the most cost-effective channels available.",
     },
   ];
 
@@ -101,14 +102,12 @@ export default function Demo() {
           { label: "SEO Services" },
         ]}
         title="Rank Higher, Get Found, Grow Faster with Expert SEO"
-        subtitle="Data-backed SEO strategies that put your brand at the top of search results."
+        subtitle="We develop SEO that gets results. It's obviously profitable while you're sleeping! As a trusted SEO firm in Bangalore, however, Skyup's goal is to deliver lasting visibility, enhance the SEO rank, and achieve measurable business development."
         primaryCta={{
           label: "Request a Free Strategy Call",
-          href: "/contact-us",
+          href: "/contact",
         }}
-        secondaryCta={{ label: "See pricing", href: "#pricing" }}
         accentColor="#22D3EE"
-      
       />
 
       {/* 02 — Pain Point Block */}
@@ -119,11 +118,11 @@ export default function Demo() {
 
       {/* 04 — Process Steps (SEO, 6 steps) */}
       <DemoProcess
-        title="The SEO process we follow"
+        title="Our Proven SEO Process — Step by Step"
         promo={{
           eyebrow: "HOW WE WORK",
           heading: "A proven, repeatable path to higher rankings",
-          body: "Every engagement follows the same transparent process — so you always know what we're doing, why, and what to expect next.",
+          body: "Yes, we are an SEO agency in Bangalore and have a scientific approach to SEO and follow data-driven processes so that we can ensure consistent and measurable results to each and every client.",
           cta: { label: "Book a Free Audit", href: "/contact-us" },
           image: "",
         }}
@@ -134,7 +133,7 @@ export default function Demo() {
       <WhyChooseUs />
 
       {/* 06 — Testimonial */}
-      <Testimonial />
+      <GoogleReviews />
 
       {/* 07 — FAQ Accordion */}
       <FaqSection faqs={FAQ_questions} />
@@ -142,7 +141,14 @@ export default function Demo() {
       {/* 08 — Related Services */}
       <RelatedServices />
 
-      <Footer />
+      <Footer
+        ctaProps={{
+          title: "Ready to Stop Paying for Every Click?",
+
+          description:
+            "No contracts. No jargon. Just a free audit and a plan that makes sense.",
+        }}
+      />
     </div>
   );
 }

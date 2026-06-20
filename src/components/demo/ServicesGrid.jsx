@@ -28,58 +28,58 @@ const I = (paths) => function Icon({ className = "h-6 w-6" }) {
 
 const SERVICES = [
   {
-    title: "Technical SEO Audit",
-    body: "A full crawl of your site to fix what's silently holding your rankings back.",
+    title: "Technical SEO Audit & Fixes",
+    body: "We crawl your site to determine what is causing your website to slow down or even prevent Google from crawling it. Faster load times, a cleaner structure, and improved crawlability with advanced technical SEO improvements and professional SEO audit tools. ",
     href: "#",
     Icon: I(<><circle cx="11" cy="11" r="7" /><path d="m21 21-4.3-4.3" /><path d="M8 11h6M11 8v6" /></>),
   },
   {
-    title: "Keyword Research",
-    body: "Find the exact terms your buyers search — and the ones worth winning.",
+    title: "Keyword Research & Strategy",
+    body: "We find out what your buyers are searching for. The keywords we target with our SEO are keywords with high intent, which means that these keywords will generate the traffic that is relevant, not random. ",
     href: "#",
     Icon: I(<><circle cx="11" cy="11" r="7" /><path d="m21 21-4.3-4.3" /></>),
   },
   {
     title: "On-Page Optimisation",
-    body: "Titles, structure, and content tuned so every page earns its rank.",
+    body: "Whether it's the type of tags or internal links, all the pages are holding the search engines hostage as authoritative. Smart on-page SEO utilizes your existing content and optimises it. ",
     href: "#",
     Icon: I(<><path d="M4 4h16v16H4z" /><path d="M8 8h8M8 12h8M8 16h5" /></>),
   },
   {
-    title: "Content Strategy",
-    body: "A topic plan that builds authority and pulls in organic traffic over time.",
+    title: "Content Strategy & Creation",
+    body: "We develop content with a good strategy, which is rated and performs well, so as to facilitate the conversion. For each piece, the intent of the search, business goal, and tactics tested that are effective are the elements that tie this piece into other pieces. The intent of the search, the business goal, and the business tactics tested that are effective are elements that tie each piece to the other pieces.",
     href: "#",
     Icon: I(<><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" /><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" /></>),
   },
   {
     title: "Link Building",
-    body: "Earn high-authority backlinks that tell Google you're the real deal.",
+    body: "Outreach and digital PR efforts will result in links pointing to our website, either organically or by us reaching out to other sites to offer our own. Off-Page SEO helps build your website's authority — which will help grow your ranking potential.",
     href: "#",
     Icon: I(<><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.5 1.5" /><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.5-1.5" /></>),
   },
   {
     title: "Local SEO",
-    body: "Dominate the map pack and get found by customers near you.",
+    body: "Optimises your business for local searches and helps local customers easily find you in Google Search & Google Maps. Whether you're leveraging local keywords through Google Business Profile, citations, or location SEO, we ensure that your local business is seen more and more and that more calls, leads, and visitors are coming to your local business.",
     href: "#",
     Icon: I(<><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z" /><circle cx="12" cy="10" r="3" /></>),
   },
   {
     title: "E-Commerce SEO",
-    body: "Product and category pages built to rank and convert at scale.",
+    body: "Simplified product pages, category pages, and site structure for D2C brands. Increased organic product discovery, reduced ad spend, and increased SEO ranking performance.",
     href: "#",
     Icon: I(<><circle cx="9" cy="21" r="1" /><circle cx="20" cy="21" r="1" /><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6" /></>),
   },
   {
     title: "Monthly Reporting",
-    body: "Plain-English reports that show exactly what changed and why.",
+    body: "Monthly reporting of dashboards, rankings, traffic, and leads in a non-technical way. Only the numbers that impact your business.",
     href: "#",
     Icon: I(<><path d="M3 3v18h18" /><path d="M7 15l3-4 3 2 4-6" /></>),
   },
 ];
 
 export default function ServicesGrid({
-  eyebrow = "WHAT WE OFFER",
-  title = "Everything you need to rank — under one roof",
+  eyebrow = "WHAT WE PROVIDE",
+  title = "Visibility That Covers All Corners of Your SEO",
   services = SERVICES,
 }) {
   return (

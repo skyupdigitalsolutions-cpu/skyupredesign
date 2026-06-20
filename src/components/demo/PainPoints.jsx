@@ -57,7 +57,7 @@ const PAINS = [
   {
     icon: EyeOffIcon,
     title: "Not visible on Google",
-    body: " So if you're not on the first page of Google, you're out of sight and out of mind for 90% of somebody who is surfing the Web, right? Companies invest in optimizing for both better visibility and improved ranking, knowing that SEO is essential for them to be discovered where their customers are looking.",
+    body: "If you're not on Google's first page, you're invisible to 90% of searchers. Smart companies invest in SEO to get discovered where their customers are already looking.",
   },
   {
     icon: MazeIcon,

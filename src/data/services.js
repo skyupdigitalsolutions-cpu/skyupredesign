@@ -1,18 +1,3 @@
-// src/data/services.js
-// Single source of truth for the Services list (ServiceSection card grid) and
-// the per-service detail pages (ServiceDetail). The ServiceDetail template
-// renders sections in a FIXED order; each service below fills only the blocks
-// it needs and omits the rest.
-//
-// CARD fields (always required): slug, name, Icon, href, from, to, accent, tagline, items
-// DETAIL fields (all optional): heroHeadline, heroSubline, overview, stats(+statsTitle),
-//   painPoints, offerings, audience, process(+processIntro), benefits(+benefitsTitle),
-//   whyChooseUs, tools(+toolsTitle/Note), platforms(+platformsTitle/Note),
-//   integrations(+integrationsTitle), pricing(+pricingTitle), caseStudy/caseStudies,
-//   testimonial/testimonials, faqs(+faqTitle), cta, related
-//
-// NOTE: items marked "Dummy" use placeholder client data — replace before publishing.
-
 import {
   Search,
   Share2,
@@ -30,7 +15,7 @@ export const SERVICES = [
   // ─────────────────────────────────────────────────────────── SEO ──
   {
     slug: "seo",
-    name: "Search Engine Optimization",
+    name: "Proven SEO",
     Icon: Search,
     href: "/service/seo",
     from: "#FEF3C7",
@@ -46,95 +31,95 @@ export const SERVICES = [
       "Local SEO — Google Business Profile & citations",
       "Reporting — monthly rank tracking & analytics",
     ],
-    heroHeadline: "Rank higher. Get found. Grow organically.",
+    heroHeadline: "Rank Higher, Get Found, Grow Faster with Expert SEO",
     heroSubline:
-      "We build SEO that delivers results — visibility that keeps working while you sleep. As a trusted SEO firm in Bangalore, Skyup is focused on lasting visibility, stronger rankings, and measurable business growth.",
+      "We develop SEO that gets results. It's obviously profitable while you're sleeping! As a trusted SEO firm in Bangalore, however, Skyup's goal is to deliver lasting visibility, enhance the SEO rank, and achieve measurable business development.",
     painPoints: {
       title: "Your competitors are ranking. You're stuck on page 3.",
       intro:
-        "You've posted blogs. Maybe hired a freelancer. But traffic stays flat, leads don't come from search, and nobody can explain why. It's frustrating — and it's fixable.",
+        "You've posted blogs. Maybe hire a freelancer. But traffic stays flat, leads don't come from search, and nobody can explain why. It's frustrating—and it's fixable.",
       points: [
         {
           title: "Not visible on Google",
-          desc: "If you're not on the first page, you're out of sight for the ~90% of searchers who never scroll past it. SEO is how you get discovered where your customers are already looking.",
+          desc: "If you're not on Google's first page, you're invisible to 90% of searchers. Smart companies invest in SEO to get discovered where their customers are already looking.",
         },
         {
           title: "Content that goes nowhere",
-          desc: "Blogs built without keyword research, a clear structure, or a solid technical SEO foundation simply don't rank.",
+          desc: "Blogs built without SEO keyword research, a bad structure, or a weak technical SEO foundation.",
         },
         {
           title: "No reporting, no clarity",
-          desc: "Old agency reports were impossible to read. We make every SEO audit report simple, so you always know exactly where you stand.",
+          desc: "You don’t know what’s working. Old agency reports were extremely difficult. We make each SEO audit report simple, so you always know where you stand for growth.",
         },
         {
           title: "Locked into contracts",
-          desc: "Paying month after month with no evidence your SEO services in Bangalore are heading the right way? That ends here.",
+          desc: "Paying month after month with no evidence your SEO services in Bangalore are going the right direction?",
         },
       ],
     },
     offerings: {
-      title: "Visibility that covers every corner of your SEO",
+      title: "Visibility That Covers All Corners of Your SEO",
       points: [
         {
           title: "Technical SEO Audit & Fixes",
-          desc: "We crawl your site to find what's slowing it down or stopping Google from indexing it — then fix it. Faster load times, a cleaner structure, and better crawlability using professional SEO audit tools.",
+          desc: "We crawl your site to determine what is causing your website to slow down or even prevent Google from crawling it. Faster load times, a cleaner structure, and improved crawlability with advanced technical SEO improvements and professional SEO audit tools.",
         },
         {
           title: "Keyword Research & Strategy",
-          desc: "We find what your buyers actually search for and target high-intent keywords, so you attract relevant traffic instead of random clicks.",
+          desc: "We find out what your buyers are searching for. The keywords we target with our SEO are keywords with high intent, which means that these keywords will generate the traffic that is relevant, not random.",
         },
         {
           title: "On-Page Optimisation",
-          desc: "From title tags to internal links, we optimise every page so search engines read it as authoritative — making the most of the content you already have.",
+          desc: "Whether it's the type of tags or internal links, all the pages are holding the search engines hostage as authoritative. Smart on-page SEO utilizes your existing content and optimises it.",
         },
         {
           title: "Content Strategy & Creation",
-          desc: "We create content tied to search intent and business goals, structured to rank and built to convert, with each piece reinforcing the others.",
+          desc: "We craft strategic content that ranks, performs, and converts. Every piece aligns search intent with business goals and proven tactics, creating a cohesive content ecosystem where each asset supports and strengthens the others.",
         },
         {
           title: "Link Building",
-          desc: "Outreach and digital PR earn high-quality backlinks to your site. Off-page SEO builds the authority that grows your ranking potential.",
+          desc: "Outreach and digital PR efforts will result in links pointing to our website, either organically or by us reaching out to other sites to offer our own. Off-Page SEO helps build your website's authority — which will help grow your ranking potential. ",
         },
         {
           title: "Local SEO",
-          desc: "We optimise your Google Business Profile, citations, and location pages so nearby customers find you in Search and Maps — driving more calls, leads, and visits.",
+          desc: "We optimize your business for local searches, making it easy for nearby customers to find you on Google Search and Maps. Through local keywords, Google Business Profile, and citations, we drive more calls, leads, and visitors to you.",
         },
         {
           title: "E-Commerce SEO",
-          desc: "Streamlined product pages, category pages, and site structure for D2C brands — lifting organic product discovery and reducing ad spend.",
+          desc: "Simplified product pages, category pages, and site structure for D2C brands. Increased organic product discovery, reduced ad spend, and increased SEO ranking performance.",
         },
         {
           title: "Monthly SEO Reporting",
-          desc: "Clear monthly dashboards covering rankings, traffic, and leads — only the numbers that affect your business, explained in plain language.",
+          desc: "Monthly reporting of dashboards, rankings, traffic, and leads in a non-technical way. Only the numbers that impact your business.",
         },
       ],
     },
     processIntro:
-      "As an SEO agency in Bangalore, we follow a scientific, data-driven process so every client gets consistent, measurable results.",
+      "Yes, we are an SEO agency in Bangalore and have a scientific approach to SEO and follow data-driven processes so that we can ensure consistent and measurable results to each and every client.",
     process: [
       {
         title: "Website SEO Audit",
-        desc: "We assess your technical health, on-page factors, content quality, backlink profile, and competitors — turning that into a clear goal and a plan to reach it.",
+        desc: "We analyze your website and its technical condition, on-page parameters, website quality, profile of backlinks, and competitive analysis. It means that you have a goal, and a goal is accompanied by the things that you’re going to do to overcome it. ",
       },
       {
         title: "Keyword Research & Mapping",
-        desc: "Our specialists run deep keyword analysis to find the high-intent terms your audience uses, then map each one to the right page.",
+        desc: "Our SEO specialists have the capacity and expertise to perform an extensive keyword analysis to find the high-priority, high-intent keyword phrases your audience is searching for. Then we put keywords on the right pages of your website, and we do it strategically.",
       },
       {
         title: "SEO Strategy & Planning",
-        desc: "We build a custom strategy from the audit and research — quick wins now, stronger rankings long term, tuned to your goals, competitors, and industry.",
+        desc: "The results of these plus keyword research help us develop a customized SEO strategy, which in the short term will provide us with immediate results but in the long term, better ranking. Your tactics will depend on your objectives, competitors, and industry.",
       },
       {
         title: "On-Page Optimisation",
-        desc: "We implement every fix from the audit: optimised content, technical corrections, and cleaner internal linking.",
+        desc: "All on-page optimizations performed in the audit, including all optimized content, fixes, optimized navigational links, etc., are performed.",
       },
       {
         title: "Off-Page SEO & Link Building",
-        desc: "White-hat link building earns quality backlinks from authoritative, relevant sites to lift rankings and domain authority.",
+        desc: "We use white hat off-page SEO techniques to get good quality backlinks from authoritative and relevant sites, which help enhance search ranking and domain authority.",
       },
       {
         title: "Reporting & Continuous Improvement",
-        desc: "Full monthly reports on keywords, traffic, leads, and ROI — plus ongoing refinement based on real data, because SEO is continuous.",
+        desc: "Unabridged monthly reports on keywords, visits, leads, and ROI will be provided. SEO marketing is a continuous process — we continuously work on strategies based on the real data.",
       },
     ],
     whyChooseUs: {
@@ -142,19 +127,19 @@ export const SERVICES = [
       points: [
         {
           title: "You always know what you're paying for",
-          desc: "Every deliverable is defined up front. No vague 'optimisations.'",
+          desc: "There are no optimizations; all deliverables are known in advance.",
         },
         {
           title: "No pressure, no lock-in",
-          desc: "We work month to month. If we're not delivering, you can walk away — no contract traps.",
+          desc: "Our work is on a monthly basis. If we are not delivering, then you can walk away. We can assure you we don't lock you into a contract.",
         },
         {
           title: "ROI is the only metric we care about",
-          desc: "We track organic traffic, qualified leads, and revenue impact — the tangible results that matter to your business.",
+          desc: "We’re not gamblers. We measure organic traffic, qualified leads, revenue influence, and the tangible benefits of SEO and how they translate to your business.",
         },
         {
           title: "Industry-leading tools, real expertise",
-          desc: "We use Ahrefs, Screaming Frog, Semrush, Google Analytics, and Search Console — but strategy comes first.",
+          desc: "We leverage Ahrefs, Semrush, Screaming frog, Google Analytics, and more — but strategy always leads. As Bangalore's results-driven SEO experts, we use the right tools, not the most tools.",
         },
       ],
     },
@@ -178,11 +163,11 @@ export const SERVICES = [
     faqs: [
       {
         q: "Why is SEO important for businesses?",
-        a: "SEO helps businesses increase online visibility, attract qualified traffic, and generate long-term organic leads. Its biggest advantage is that it keeps delivering traffic after content is published — unlike paid ads, which stop the moment your budget runs out.",
+        a: "SEO marketing helps businesses increase online visibility, attract qualified traffic, and generate long-term organic leads. One of the biggest advantages of SEO is that it continues delivering traffic even after content is published — unlike paid ads that stop the moment your budget runs out.",
       },
       {
         q: "How long does SEO take to show results?",
-        a: "Most websites begin seeing early ranking improvements within 6-12 weeks. Competitive industries may take longer, but SEO creates sustainable long-term growth.",
+        a: "Most websites begin seeing early SEO ranking improvements within 6–12 weeks. Competitive industries may take longer, but SEO creates sustainable long-term growth.",
       },
       {
         q: "What are the different types of SEO?",
@@ -190,31 +175,31 @@ export const SERVICES = [
       },
       {
         q: "What is included in an SEO audit?",
-        a: "An SEO audit checks your website's technical health, page structure, keyword optimisation, backlinks, speed, mobile performance, and indexing issues.",
+        a: "An SEO audit checks your website's technical health, page structure, keyword optimization, backlinks, speed, mobile performance, and indexing issues. Professional SEO audit tools help identify what's limiting your rankings.",
       },
       {
         q: "What are SEO backlinks?",
-        a: "Backlinks are links from other websites pointing to yours. High-quality backlinks are a core part of off-page SEO and help improve your website's authority and search rankings.",
+        a: "SEO backlinks are links from other websites pointing to yours. High-quality backlinks are a core part of off-page SEO and help improve your website's authority and search engine rankings.",
       },
       {
         q: "What is SEO keyword research?",
-        a: "Keyword research is the process of finding the exact words and phrases your target audience searches on Google. It underpins both on-page SEO and content strategy.",
+        a: "SEO keyword research is the process of finding the exact words and phrases your target audience searches on Google. Proper keyword research underpins both on-page SEO and content strategy to attract relevant traffic.",
       },
       {
         q: "What makes Skyup a trusted SEO company in Bangalore?",
-        a: "As a dedicated SEO agency in Bangalore, Skyup focuses on transparent reporting, ROI-driven strategies, technical SEO expertise, and long-term organic growth — without lock-in contracts.",
+        a: "As a dedicated SEO agency in Bangalore, Skyup focuses on transparent reporting, ROI-driven strategies, technical SEO expertise, and long-term organic growth—without lock-in contracts.",
       },
       {
         q: "What are the benefits of SEO compared to paid ads?",
-        a: "Unlike paid ads, SEO keeps generating traffic without paying for every click. The benefits include better brand visibility, consistent leads, improved trust, and lower long-term acquisition costs.",
+        a: "Unlike paid ads, SEO continues generating traffic without paying for every click. The benefits of SEO include better brand visibility, consistent leads, improved trust, and lower long-term acquisition costs.",
       },
       {
         q: "What is SEO optimization?",
-        a: "SEO optimization is the process of improving website pages, content, and technical performance so they rank higher in search engines and attract more relevant visitors.",
+        a: "SEO optimization is the process of improving website pages, content, and technical performance to help them rank higher in search engines and attract more relevant visitors.",
       },
       {
         q: "Do small businesses need SEO marketing?",
-        a: "Absolutely. SEO helps small businesses compete with larger brands by targeting niche keywords, local searches, and high-intent queries — one of the most cost-effective channels available.",
+        a: "Absolutely. SEO marketing helps small businesses compete with larger brands by targeting niche keywords, local searches, and high-intent customer queries—making it one of the most cost-effective channels available.",
       },
     ],
     cta: {

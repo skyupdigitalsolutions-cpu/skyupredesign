@@ -2,6 +2,7 @@ import React from "react";
 
 // Section 06 — Testimonial (Social Proof)
 // Single testimonial rendered as a large centered pull-quote, not a small card.
+// `role` and `company` are joined gracefully — omit either with no stray comma.
 
 const BRAND = "#0037CA";
 const STAR = "#F5A623";
@@ -25,11 +26,13 @@ export default function Testimonial({
 }) {
   const fallbackInitials =
     initials ||
-    name
+    (name || "")
       .split(" ")
       .map((w) => w[0])
       .slice(0, 2)
       .join("");
+
+  const subline = [role, company].filter(Boolean).join(", ");
 
   return (
     <section className="bg-white py-14 sm:py-20">
@@ -60,9 +63,7 @@ export default function Testimonial({
           </span>
           <div className="text-left">
             <div className="text-[15px] font-bold text-slate-900">{name}</div>
-            <div className="text-[13px] text-slate-500">
-              {role}, {company}
-            </div>
+            {subline && <div className="text-[13px] text-slate-500">{subline}</div>}
           </div>
         </figcaption>
       </div>

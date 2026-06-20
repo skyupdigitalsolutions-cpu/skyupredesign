@@ -67,13 +67,27 @@ const CheckIcon = (p) => (
 export default function ContactDetails() {
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = async (values, { setSubmitting, resetForm }) => {
+  const handleSubmit = async (values, { setSubmitting, resetForm, setStatus }) => {
     try {
-      // TODO: send `values` to your backend / form service, e.g.
-      // await fetch("/api/contact", { method: "POST", body: JSON.stringify(values) });
-      console.log("Contact form submitted:", values);
+      const apiBase =
+        import.meta.env.VITE_API_BASE_URL ||
+        "https://skyupredesign-backend.onrender.com";
+
+      const res = await fetch(`${apiBase}/api/contacts`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        // Field names match the backend model exactly — no mapping needed.
+        body: JSON.stringify(values),
+      });
+
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.message || "Something went wrong.");
+
       setSubmitted(true);
       resetForm();
+    } catch (error) {
+      console.error("Contact form error:", error);
+      setStatus({ error: error.message || "Something went wrong. Please try again." });
     } finally {
       setSubmitting(false);
     }
@@ -166,7 +180,7 @@ export default function ContactDetails() {
             </div>
           ) : (
             <Formik initialValues={initialValues} validationSchema={ContactSchema} onSubmit={handleSubmit}>
-              {({ values, errors, touched, setFieldValue, isSubmitting }) => {
+              {({ values, errors, touched, setFieldValue, isSubmitting, status }) => {
                 const fieldClass = (name) =>
                   `${inputBase} ${touched[name] && errors[name] ? "border-[#0037CA] bg-white" : "border-[#CDDBFB]"}`;
                 const ErrText = ({ name }) => (
@@ -177,6 +191,13 @@ export default function ContactDetails() {
 
                 return (
                   <Form noValidate>
+                    {/* API error banner */}
+                    {status?.error && (
+                      <div className="mb-5 rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-[14px] text-red-600">
+                        {status.error}
+                      </div>
+                    )}
+
                     <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
                       <div>
                         <label htmlFor="name" className={labelClass}>
@@ -208,7 +229,7 @@ export default function ContactDetails() {
                       </div>
                     </div>
 
-                    {/* Service — custom styled select */}
+                    {/* Service */}
                     <div className="mt-5">
                       <label htmlFor="service" className={labelClass}>
                         Service Interested In <span className="text-[#0037CA]">*</span>
@@ -243,7 +264,7 @@ export default function ContactDetails() {
                       <ErrText name="service" />
                     </div>
 
-                    {/* Budget — interactive pills */}
+                    {/* Budget */}
                     <div className="mt-5">
                       <label className={labelClass}>
                         Budget <span className="text-[#0037CA]">*</span>

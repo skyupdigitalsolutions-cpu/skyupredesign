@@ -73,7 +73,7 @@ export default function WhyChooseUs({
   return (
     <section className="bg-slate-50 py-12 sm:py-16">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="mx-auto max-w-2xl text-center">
+        <div className="mx-auto max-w-4xl text-center">
           <p className="text-[13px] font-bold uppercase tracking-[0.18em]" style={{ color: BRAND }}>
             {eyebrow}
           </p>

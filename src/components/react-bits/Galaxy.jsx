@@ -198,11 +198,29 @@ export default function Galaxy({
   useEffect(() => {
     if (!ctnDom.current) return;
     const ctn = ctnDom.current;
-    const renderer = new Renderer({
-      alpha: transparent,
-      premultipliedAlpha: false
-    });
+
+    // WebGL can be unavailable (hardware acceleration disabled, the GPU on the
+    // browser's blocklist, or a remote/VM session). ogl's Renderer throws in
+    // that case — guard it so we degrade gracefully instead of unmounting the
+    // whole app and showing a blank page.
+    let renderer;
+    try {
+      renderer = new Renderer({
+        alpha: transparent,
+        premultipliedAlpha: false
+      });
+    } catch (err) {
+      console.warn(
+        "[Galaxy] WebGL unavailable — skipping animated background.",
+        err
+      );
+      return;
+    }
     const gl = renderer.gl;
+    if (!gl) {
+      console.warn("[Galaxy] No WebGL context — skipping animated background.");
+      return;
+    }
 
     if (transparent) {
       gl.enable(gl.BLEND);

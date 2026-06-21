@@ -84,7 +84,7 @@ export default function PainPoints({
   return (
     <section className="bg-white py-12 sm:py-16">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="mx-auto max-w-2xl text-center">
+        <div className="mx-auto max-w-3xl text-center">
           <h2
             className="text-[30px] font-bold leading-tight tracking-tight sm:text-[40px]"
             style={{ color: HEADING_NAVY }}

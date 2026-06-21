@@ -241,210 +241,197 @@ export const SERVICES = [
       "Paid social — lead, sales & awareness campaigns",
       "Analytics — reach, engagement & conversion tracking",
     ],
+    socialPlatforms: {
+      title: "Social Media Platforms We Manage",
+      note: "Not all brands need to be on all platforms, so we determine the appropriate mix for your business based on your audience, industry, and goals.",
+      items: [
+        { name: "Instagram", icon: "/images/instagram.svg" },
+        { name: "Facebook", icon: "/images/facebook.svg" },
+        { name: "Youtube", icon: "/images/youtube.svg" },
+        { name: "Twitter", icon: "/images/Twitter.svg" },
+        { name: "Pinterest", icon: "/images/Pinterest.svg" },
+      ],
+    },
     heroHeadline:
       "Grow Faster with Professional Social Media marketing services in Bangalore",
     heroSubline:
-      "Drive real business growth with data-driven social media strategies for businesses and brands in Bangalore. At Skyup Digital Solutions we don’t just manage your social media, we make it your most powerful sales and branding channel.",
-    overview: [
-      "Social media marketing (SMM) uses platforms like Instagram, Facebook, LinkedIn, YouTube, and WhatsApp to build brand awareness, bring in qualified leads, and convert audiences into paying customers. Social is no longer just a channel — it's a primary growth driver in digital marketing.",
-      "India is on track to be the world's largest digital consumer market, with around 900 million users by 2026. With over 500 million social media users and social commerce growing more than 68% year over year, businesses that invest in professional social media marketing now will lead their markets for years.",
-      "For brands hoping to be discovered rather than ignored in a market as competitive as Bangalore, a steady, planned social strategy isn't optional — it's essential.",
-    ],
-    statsTitle: "Key statistics you should know",
-    stats: [
-      "India's social media advertising market is valued at over Rs 14,700 crore in 2026.",
-      "Social media usage in India grew 5.23% from 2024 to 2026, while global usage declined.",
-      "The average Indian spends nearly 2 hours 44 minutes on social platforms daily.",
-      "D2C brands in India see 30-40% of sales driven directly from social media.",
-      "LinkedIn content consumption has grown 42% over the past 18 months for B2B brands.",
-    ],
+      "Drive real business growth with data-driven social media strategies for businesses and brands in Bangalore. At Skyup Digital Solutions we don’t just manage your social media, we make it your most powerful sales and branding channel. ",
+    painPoints: {
+      title:
+        "Your competitors are getting attention. You’re still posting with no leads.",
+      intro:
+        "You’ve posted reels, creatives, and offers. Maybe even hired a designer. But reach stays low, enquiries don’t come, and nobody knows what content is actually working. It’s frustrating — and it’s fixable.",
+      points: [
+        {
+          title: "Posting but no enquiries",
+          desc: "You’re active on social media, but your posts are not turning viewers into calls, WhatsApp messages, or leads. Without the right content strategy, posting becomes activity without business results.",
+        },
+        {
+          title: "Low reach and engagement",
+          desc: "Your content is not reaching the right audience, or people are scrolling past without taking action. Strong social media needs hooks, storytelling, consistency, and platform-specific content.",
+        },
+        {
+          title: "Good designs, weak strategy",
+          desc: "Attractive posts alone don’t generate customers. Your content needs a clear message, customer pain points, service positioning, trust-building, and a strong call-to-action.",
+        },
+        {
+          title: "No tracking, no clarity",
+          desc: "You don’t know which post, reel, campaign, or platform is bringing enquiries. Without proper reporting, you keep posting randomly without knowing what is actually growing your business.",
+        },
+      ],
+    },
     offerings: {
-      title: "Our social media marketing services in Bangalore",
+      title: "Our Social Media Marketing Services in Bangalore",
+      subtitle:
+        "Skyup Digital Solutions, a social media marketing agency in Bangalore offers social media marketing solutions, and is focused on performance, not activity. Every strategy we have is based upon your business goals, your audience's actions and intelligence provided by the platform.",
       points: [
         {
           title: "Social Media Strategy & Content Planning",
-          desc: "Platform strategies grounded in research, competitor analysis, and keyword intelligence — content pillars, a posting schedule, your brand voice, and a monthly content calendar.",
+          desc: "We develop platform strategies based on research, competitor analysis, and keyword intelligence. This includes your content pillars, posts schedule, brand voice and a monthly content calendar; so that your team never has to panic for ideas.",
         },
         {
           title: "Content Creation — Short-Form Video, Reels & Graphics",
-          desc: "Scroll-stopping, platform-specific creative: reels, short-form video, carousels, and graphics designed to match each platform and earn engagement.",
+          desc: "We create platform-specific content strategies that are informed by audience research, competitor analysis, and keyword intelligence. This means deciding what your content pillars are, how often you’re going to post, what your brand voice will be, and creating a content calendar on a monthly basis — so your team isn’t left scrambling to come up with ideas.",
         },
         {
           title: "Community Management & Audience Engagement",
-          desc: "We manage comments, DMs, mentions, and conversations so your brand stays responsive, human, and trustworthy.",
+          desc: "Attracting followers is just as crucial as cultivating a loyal community. All comments, DMs, mentions and conversations in the community are managed, helping you to be responsive, human and trustworthy at all times.",
         },
         {
           title: "Paid Social Media Advertising",
-          desc: "Certified specialists build and run campaigns toward your goals — leads, sales, or awareness — at an optimal cost per qualified lead, with continuous optimisation.",
+          desc: "Our paid social team is certified and can build and deploy social media ads that meet our client's objectives – whether it's getting them qualified leads, sales, or brand awareness, all of which at an optimal cost per qualified lead (CQL). Continuous monitoring, streamlining and recording of all currencies.",
         },
         {
           title: "Analytics, Reporting & Optimisation",
-          desc: "Monthly reports cover reach, engagement, lead quality, cost per lead, follower growth, and conversion attribution — so you see ROI and know the next move.",
+          desc: "We're not just giving you vanity metrics. Our monthly reports provide you with high-level metrics of reach, engagement rate, lead quality, cost per lead, follower growth and conversion attribution so you can see ROI and know what to do next every month.",
         },
       ],
     },
     processIntro:
-      "Every Skyup engagement follows a proven, repeatable process that removes guesswork and makes your social investment compound over time.",
+      "All Skyup Digital Solutions client engagements have a proven, repeatable process that removes any guesswork and guarantees your social media investment provides compounding returns.",
+    processTitle: "How We Work — Our 5-Step Social Media Marketing Process",
     process: [
       {
         title: "Discovery & Social Media Audit",
-        desc: "An in-depth review of your current presence — what's working, what isn't, and where the biggest opportunity is — benchmarked against your Bangalore competitors.",
+        desc: "We start with an in-depth review of your current social media footprint – identifying what's successful, what isn't and where your greatest potential is. You are compared with the competition in Bangalore and your industry.",
       },
       {
         title: "Goal Setting & Strategy Development",
-        desc: "We set clear KPIs and build a 90-day strategy aligned to your business goals, shared with you before any content is created.",
+        desc: "Based on the audit insight, we set clear KPIs (reach, engagement, lead volume, cost per lead or revenue) and develop a strategy that can be executed over a 90-day period that is aligned to your business goals. You will be shown this strategy for your review prior to creating any content.",
       },
       {
         title: "Content Creation & Calendar Approval",
-        desc: "Content is produced in focused batches for quality. You review and approve every post before it's published.",
+        desc: "All content is created in an isolated batch session for quality and consistency. Each post is reviewed and approved before it's published, so you always have the final say on what's created, and we take the burden of doing the work.",
       },
       {
         title: "Publishing, Engagement & Community Building",
-        desc: "Posts go out at optimal times, we actively engage your audience, and we respond across channels — turning your pages into live business tools.",
+        desc: "They're published at the optimum time for algorithmic reach, they're actively involved with your audience and they're responding to inbound requests on all channels, meaning your social pages are live business tools.",
       },
       {
         title: "Measure, Report & Optimise",
-        desc: "Each month you get a simple performance report with the key metrics, insights, and our recommended optimisations for the next month.",
-      },
-    ],
-    benefitsTitle: "Benefits of social media marketing for your business",
-    benefits: [
-      {
-        title: "Brand awareness at scale",
-        desc: "Reach thousands of potential customers with consistent, algorithm-optimised content across the right platforms.",
-      },
-      {
-        title: "Qualified lead generation",
-        desc: "Attract audiences genuinely interested in what you sell — organically and through precise paid campaigns.",
-      },
-      {
-        title: "Better search visibility",
-        desc: "Active profiles and high-engagement content strengthen your digital footprint and support search performance.",
-      },
-      {
-        title: "Cost-effective marketing",
-        desc: "Social advertising delivers far higher ROI than traditional channels, with full transparency on every rupee.",
-      },
-      {
-        title: "Real-time customer interaction",
-        desc: "Build authentic relationships by communicating and engaging with your community instantly.",
-      },
-      {
-        title: "Competitive advantage",
-        desc: "Consistent, strategic social marketing sets you apart from competitors posting blind.",
-      },
-      {
-        title: "A strong, owned presence",
-        desc: "A genuine following and steady engagement reduce reliance on third-party platforms and algorithm swings.",
+        desc: "Every month we send you a simple performance report that gives you the main metrics, the insights and our recommended optimisations for the next month. Strategy is always evolving, we tailor it as platform evolves and audience behaviour changes.",
       },
     ],
     whyChooseUs: {
       title:
-        "Why choose Skyup as your social media marketing agency in Bangalore",
+        "Why Choose Skyup Digital Solutions as Your Social Media Marketing Agency in Bangalore?",
       points: [
         {
-          title: "Deep local market knowledge",
-          desc: "We know Bangalore's industries, consumers, and competition, and build solutions that fit your market.",
+          title: "Content That Engages & Converts",
+          desc: "Our team produces creative pieces, reels, videos and engaging copy that engage and inspire response.",
         },
         {
-          title: "Results-driven strategies",
-          desc: "We don't just create content; we build strategies that grow awareness, qualified leads, and your business.",
+          title: " Platform-Specific Expertise",
+          desc: "From Facebook and Instagram to LinkedIn and YouTube, we tailor campaigns to each platform for maximum reach and engagement.",
         },
         {
-          title: "Content that engages & converts",
-          desc: "Creative, reels, video, and copy designed to spark response — not just fill a calendar.",
+          title: "Performance Tracking & Reporting",
+          desc: "All campaigns are data supported. Key metrics monitored, performance analysed and strategies optimised for better results.",
         },
         {
-          title: "Platform-specific expertise",
-          desc: "Campaigns tailored to each platform for maximum reach and engagement.",
-        },
-        {
-          title: "Consistent brand presence",
-          desc: "A structured content calendar and regular engagement keep your brand active and visible.",
-        },
-        {
-          title: "Performance tracking & reporting",
-          desc: "Every campaign is data-backed: we monitor, analyse, and optimise for better results.",
-        },
-        {
-          title: "Lead-generation focus",
-          desc: "Campaigns built to attract the right visitors, capture leads, and lift conversions.",
-        },
-        {
-          title: "A dedicated team",
-          desc: "Work directly with experienced strategists, designers, and content creators.",
-        },
-        {
-          title: "Full-stack social capability",
-          desc: "From strategy to content to paid media and analytics, one team handles it all.",
-        },
-        {
-          title: "No lock-in, full transparency",
-          desc: "Plain-language reporting, transparent pricing, and full access to your accounts and analytics.",
+          title: "Lead Generation Focus",
+          desc: "We develop social media marketing campaigns that attract the right visitors to your site, capture leads and enhance your conversions for your business.",
         },
       ],
     },
-    platformsTitle: "Social media platforms we manage",
-    platforms: [
-      "Instagram",
-      "Facebook",
-      "LinkedIn",
-      "YouTube",
-      "WhatsApp Business",
-      "X (Twitter)",
-      "Pinterest",
-    ],
-    platformsNote:
-      "Not every brand needs to be on every platform — we pick the right mix for your audience, industry, and goals.",
-    faqTitle:
-      "Frequently asked questions about social media marketing in Bangalore",
+    // Dummy — replace with a real client result.
+    caseStudy: {
+      industry: "D2C Skincare Brand, Bangalore",
+      problem:
+        "Rs 80K/month on Google Ads, near-zero organic traffic, and no content strategy in place.",
+      whatWeDid:
+        "A full technical audit, 40+ keyword-mapped blogs, category-page optimisation, and 60 quality backlinks over five months.",
+      result:
+        "Organic sessions grew from 900 to 11,400/month. Ad spend cut by 55% while revenue grew.",
+    },
+    testimonial: {
+      quote:
+        "We'd been burned by two SEO agencies before Skyup. Within 60 days our traffic started climbing. By month four we ranked in the top 3 for our main product keywords — and the monthly report actually made sense.",
+      author: "Rohan K.",
+      role: "Founder, D2C Wellness Brand",
+    },
+    faqTitle: "Honest answers to your questions",
     faqs: [
       {
-        q: "What is social media marketing?",
-        a: "Promoting your business through platforms like Facebook, Instagram, LinkedIn, and X to increase brand awareness, engagement, and sales.",
+        q: "Why is SEO important for businesses?",
+        a: "SEO marketing helps businesses increase online visibility, attract qualified traffic, and generate long-term organic leads. One of the biggest advantages of SEO is that it continues delivering traffic even after content is published — unlike paid ads that stop the moment your budget runs out.",
       },
       {
-        q: "Why is social media marketing important?",
-        a: "It helps businesses reach their target audience, build trust, generate leads, and improve customer relationships.",
+        q: "How long does SEO take to show results?",
+        a: "Most websites begin seeing early SEO ranking improvements within 6–12 weeks. Competitive industries may take longer, but SEO creates sustainable long-term growth.",
       },
       {
-        q: "Which platforms are best for my business?",
-        a: "It depends on your audience and goals. Facebook, Instagram, LinkedIn, and YouTube are among the most effective options.",
+        q: "What are the different types of SEO?",
+        a: "The main types are On-Page SEO, Technical SEO, Off-Page SEO, Local SEO, and E-Commerce SEO. Each plays a role in improving search visibility and website performance.",
       },
       {
-        q: "How often should I post?",
-        a: "Most businesses benefit from posting 3-5 times per week with consistent engagement.",
+        q: "What is included in an SEO audit?",
+        a: "An SEO audit checks your website's technical health, page structure, keyword optimization, backlinks, speed, mobile performance, and indexing issues. Professional SEO audit tools help identify what's limiting your rankings.",
       },
       {
-        q: "How long does it take to see results?",
-        a: "Organic growth typically takes a few months, while paid campaigns can generate visibility and leads much faster.",
+        q: "What are SEO backlinks?",
+        a: "SEO backlinks are links from other websites pointing to yours. High-quality backlinks are a core part of off-page SEO and help improve your website's authority and search engine rankings.",
       },
       {
-        q: "Can social media marketing generate leads?",
-        a: "Yes — a well-planned strategy can attract qualified leads and increase conversions.",
+        q: "What is SEO keyword research?",
+        a: "SEO keyword research is the process of finding the exact words and phrases your target audience searches on Google. Proper keyword research underpins both on-page SEO and content strategy to attract relevant traffic.",
       },
       {
-        q: "What content performs best?",
-        a: "Videos, reels, carousels, testimonials, educational posts, and behind-the-scenes content often perform well.",
+        q: "What makes Skyup a trusted SEO company in Bangalore?",
+        a: "As a dedicated SEO agency in Bangalore, Skyup focuses on transparent reporting, ROI-driven strategies, technical SEO expertise, and long-term organic growth—without lock-in contracts.",
       },
       {
-        q: "Do I need paid advertising?",
-        a: "Paid ads aren't mandatory, but they can significantly improve reach, traffic, and lead generation.",
+        q: "What are the benefits of SEO compared to paid ads?",
+        a: "Unlike paid ads, SEO continues generating traffic without paying for every click. The benefits of SEO include better brand visibility, consistent leads, improved trust, and lower long-term acquisition costs.",
       },
       {
-        q: "How do you measure success?",
-        a: "Through engagement, reach, follower growth, website traffic, leads, and conversions.",
+        q: "What is SEO optimization?",
+        a: "SEO optimization is the process of improving website pages, content, and technical performance to help them rank higher in search engines and attract more relevant visitors.",
       },
       {
-        q: "Why hire a social media marketing agency?",
-        a: "An agency creates strategies, manages campaigns, produces content, and optimises performance for better results.",
+        q: "Do small businesses need SEO marketing?",
+        a: "Absolutely. SEO marketing helps small businesses compete with larger brands by targeting niche keywords, local searches, and high-intent customer queries—making it one of the most cost-effective channels available.",
       },
     ],
     cta: {
-      title: "Ready to grow your brand on social media?",
+      title: "Ready to stop paying for every click?",
       subtitle:
-        "Our team in Bangalore will audit your profiles, uncover your biggest growth opportunities, and build a strategy unique to your business.",
+        "No contracts. No jargon. Just a free audit and a plan that makes sense.",
     },
+    related: [
+      {
+        slug: "graphic-design",
+        desc: "Great content needs great visuals. Design makes your blogs readable and your brand memorable — and supports your SEO.",
+      },
+      {
+        slug: "web-development",
+        desc: "A poorly structured site caps your technical SEO. We fix it at the root.",
+      },
+      {
+        slug: "performance-marketing",
+        desc: "Run PPC while SEO gains traction, so you capture leads across the whole funnel.",
+      },
+    ],
   },
 
   // ───────────────────────────────────────────── Performance Marketing ──
@@ -1961,7 +1948,8 @@ export const SERVICES = [
       { value: "14 days", label: "Free trial — no card" },
     ],
     painPoints: {
-      title: "Sound Familiar ? These Are the Pain Points Every Sales Manager Knows",
+      title:
+        "Sound Familiar ? These Are the Pain Points Every Sales Manager Knows",
       intro:
         "Before discovering the right CRM, most sales teams struggle with the same challenges. SkyUp CRM was built specifically to eliminate them.",
       points: [

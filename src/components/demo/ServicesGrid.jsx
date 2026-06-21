@@ -80,12 +80,13 @@ const SERVICES = [
 export default function ServicesGrid({
   eyebrow = "WHAT WE PROVIDE",
   title = "Visibility That Covers All Corners of Your SEO",
+  subtitle="",
   services = SERVICES,
 }) {
   return (
     <section className="bg-slate-50 py-12 sm:py-16">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="mx-auto max-w-2xl text-center">
+        <div className="mx-auto max-w-3xl text-center">
           <p
             className="text-[13px] font-bold uppercase tracking-[0.18em]"
             style={{ color: BRAND }}
@@ -98,6 +99,7 @@ export default function ServicesGrid({
           >
             {title}
           </h2>
+          <p className="mt-4 text-[16px] leading-relaxed text-slate-600">{subtitle}</p>
         </div>
 
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">

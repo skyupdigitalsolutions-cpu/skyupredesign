@@ -2,6 +2,7 @@
 import "../src/index.css";
 import { usePageContext } from "vike-react/usePageContext";
 import { useEffect } from "react";
+import ErrorBoundary from "../src/components/ErrorBoundary";
 
 // ── Dynamic SEO for slug pages ──────────────────────────────────
 // If/when the redesign has these data files, uncomment the imports
@@ -74,5 +75,5 @@ export default function Layout({ children }) {
     );
   }, [urlPathname, config]);
 
-  return <>{children}</>;
+  return <ErrorBoundary>{children}</ErrorBoundary>;
 }

@@ -47,7 +47,7 @@ const STEPS = [
 ];
 
 export default function DemoProcess({
-  title = "The Process we follow for Digital Marketing Services",
+  subtitle = "",
   promo = {
     eyebrow: "HOW WE WORK",
     heading: "Nextwebi your technology partner",
@@ -61,11 +61,11 @@ export default function DemoProcess({
     <section>
       <div className="mx-auto max-w-7xl px-6 lg:px-8 ">
         {/* Heading */}
-        <h2
-          className="text-center text-[30px] font-bold leading-tight tracking-tight sm:text-[40px]"
-        >
-          {title}
-        </h2>
+        <div className="flex justify-center">
+          <h2 className="text-center max-w-4xl text-[30px] font-bold leading-tight tracking-tight sm:text-[40px]">
+            {subtitle}
+          </h2>
+        </div>
 
         <div className="mt-12 grid gap-6 lg:grid-cols-3">
           {/* Promo card */}

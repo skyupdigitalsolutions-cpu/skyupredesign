@@ -2,15 +2,11 @@
 // Demo-styled service template. Every /service/<slug> page renders the SAME
 // lighter section set as the demo page, but driven by each service's own data
 // in @/data/services. Sections render only when their data exists, so a service
-// missing (e.g.) a testimonial simply skips that block.
+// missing (e.g.) a testimonial or socialPlatforms simply skips that block.
 //
 // Section order (mirrors the demo page):
 //   Hero → Pain points → Offerings grid → Process → Why us (+case study)
-//   → Testimonial → FAQ → Related → Footer CTA
-//
-// Intentionally NOT rendered (simplified per design decision): stats ribbon,
-// audience, benefits, tools, platforms, integrations, pricing, multi-case lists.
-// The data for those still lives in services.js — re-add a block here if needed.
+//   → [Social platforms] → Reviews → FAQ → Related → Footer CTA
 
 import React from "react";
 import { usePageContext } from "vike-react/usePageContext";
@@ -96,8 +92,10 @@ export default function ServiceDetail() {
     items = [],
     process = [],
     processIntro,
+    processTitle,
     whyChooseUs,
     caseStudy,
+    socialPlatforms,
     testimonial,
     testimonials,
     faqs = [],
@@ -135,7 +133,10 @@ export default function ServiceDetail() {
     body: step.desc,
   }));
 
-  const values = whyChooseUs?.points?.map((w) => ({ title: w.title, body: w.desc }));
+  const values = whyChooseUs?.points?.map((w) => ({
+    title: w.title,
+    body: w.desc,
+  }));
 
   // Pass the service's freeform case study straight through — the updated
   // WhyChooseUs handles {industry, problem, whatWeDid, result} natively.
@@ -148,13 +149,17 @@ export default function ServiceDetail() {
   const relatedFromData = (related || [])
     .map((r) => {
       const s = SERVICES.find((x) => x.slug === r.slug);
-      return s ? { name: s.name, benefit: r.desc || s.tagline, href: s.href } : null;
+      return s
+        ? { name: s.name, benefit: r.desc || s.tagline, href: s.href }
+        : null;
     })
     .filter(Boolean);
   const relatedFallback = SERVICES.filter((s) => s.slug !== slug)
     .slice(0, 3)
     .map((s) => ({ name: s.name, benefit: s.tagline, href: s.href }));
-  const relatedList = relatedFromData.length ? relatedFromData : relatedFallback;
+  const relatedList = relatedFromData.length
+    ? relatedFromData
+    : relatedFallback;
 
   return (
     <div>
@@ -187,6 +192,7 @@ export default function ServiceDetail() {
         <ServicesGrid
           eyebrow="WHAT WE PROVIDE"
           title={offerings?.title || "What's included"}
+          subtitle={offerings?.subtitle || ""}
           services={offeringServices}
         />
       )}
@@ -194,7 +200,7 @@ export default function ServiceDetail() {
       {/* 04 — Process */}
       {steps.length > 0 && (
         <DemoProcess
-          title={`Our ${name} process — step by step`}
+          subtitle={processTitle || `Our ${name} process — step by step`}
           promo={{
             eyebrow: "HOW WE WORK",
             heading: "A proven, repeatable path to results",
@@ -218,15 +224,46 @@ export default function ServiceDetail() {
         />
       )}
 
-      {/* 06 — Testimonial */}
+      {/* Social media platforms — only renders when the service defines it */}
+      {socialPlatforms?.items?.length > 0 && (
+        <section className="pt-12">
+          <h2 className="text-[40px] font-bold text-center">
+            {socialPlatforms.title || "Platforms We Manage"}
+          </h2>
+          <div className="mx-auto my-6 flex max-w-4xl flex-wrap items-center justify-center gap-3 rounded-full bg-blue-100/80 p-4">
+            {socialPlatforms.items.map((p) => (
+              <div
+                key={p.name}
+                className="flex gap-2 rounded-full bg-white px-4 py-2"
+              >
+                {p.icon && (
+                  <img src={p.icon} alt={p.name} className="h-6 w-6" />
+                )}
+                <p className="font-medium">{p.name}</p>
+              </div>
+            ))}
+          </div>
+          {socialPlatforms.note && (
+            <p className="mx-auto max-w-3xl text-center text-lg">
+              {socialPlatforms.note}
+            </p>
+          )}
+        </section>
+      )}
+
+      {/* 06 — Reviews (Testimonial available as an alternative) */}
       {/* {tItem && (
         <Testimonial quote={tItem.quote} name={tItem.author} role={tItem.role} company="" />
       )} */}
-      <GoogleReviews/>
+      <GoogleReviews />
 
       {/* 07 — FAQ */}
       {faqs.length > 0 && (
-        <FaqSection faqs={faqs} title={faqTitle || `${name} — FAQs`} subtitle="" />
+        <FaqSection
+          faqs={faqs}
+          title={faqTitle || `${name} — FAQs`}
+          subtitle=""
+        />
       )}
 
       {/* 08 — Related services */}

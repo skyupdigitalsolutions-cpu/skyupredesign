@@ -6,7 +6,8 @@
 //
 // Section order (mirrors the demo page):
 //   Hero → Pain points → Offerings grid → Process → Why us (+case study)
-//   → [Campaign results] → [Social platforms] → Reviews → FAQ → Related → Footer CTA
+//   → [Campaign results] → [Case results] → [Platform block] → [Results block]
+//   → [Social platforms] → Reviews → FAQ → Related → Footer CTA
 
 import React from "react";
 import { usePageContext } from "vike-react/usePageContext";
@@ -38,6 +39,7 @@ import ServicesGrid from "@/components/demo/ServicesGrid";
 import DemoProcess from "@/components/demo/DemoProcess";
 import WhyChooseUs from "@/components/demo/WhyChooseUs";
 import CampaignResults from "@/components/demo/CampaignResults";
+import CaseResults from "@/components/demo/CaseResults";
 import Testimonial from "@/components/demo/Testimonial";
 import RelatedServices from "@/components/demo/RelatedServices";
 import GoogleReviews from "../GoogleReviews";
@@ -97,6 +99,9 @@ export default function ServiceDetail() {
     whyChooseUs,
     caseStudy,
     campaignResults,
+    caseResults,
+    platformBlock,
+    resultsBlock,
     socialPlatforms,
     testimonial,
     testimonials,
@@ -147,6 +152,8 @@ export default function ServiceDetail() {
     : null;
 
   const tItem = testimonial || testimonials?.[0] || null;
+
+  const accentColor = accent || "#0037CA";
 
   const relatedFromData = (related || [])
     .map((r) => {
@@ -237,6 +244,90 @@ export default function ServiceDetail() {
         />
       )}
 
+      {/* Case results — Email only. Renders only when the service defines
+          `caseResults`, so it appears on Email Marketing and nowhere else. */}
+      {caseResults?.items?.length > 0 && (
+        <CaseResults
+          title={caseResults.title}
+          items={caseResults.items}
+          accentColor={accentColor}
+        />
+      )}
+
+      {/* Platform block — Email only. Renders only when the service defines
+          `platformBlock`, so it appears on Email Marketing and nowhere else. */}
+      {platformBlock && (
+        <section className="bg-white py-12 sm:py-16">
+          <div className="mx-auto max-w-4xl px-6 text-center lg:px-8">
+            {platformBlock.title && (
+              <h2 className="text-[30px] font-bold tracking-tight text-[#1B2440] sm:text-[40px]">
+                {platformBlock.title}
+              </h2>
+            )}
+            {platformBlock.intro && (
+              <p className="mt-4 text-[16px] leading-relaxed ">
+                {platformBlock.intro}
+              </p>
+            )}
+            {platformBlock.tools?.length > 0 && (
+              <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+                {platformBlock.tools.map((t) => (
+                  <span
+                    key={t}
+                    className="rounded-full border border-slate-200 bg-slate-50 px-5 py-2 text-[14px] font-semibold"
+                  >
+                    {t}
+                  </span>
+                ))}
+              </div>
+            )}
+            {platformBlock.note && (
+              <p className="mt-8 text-[15px] leading-relaxed">
+                {platformBlock.note}
+              </p>
+            )}
+          </div>
+        </section>
+      )}
+
+      {/* Results block — AI Automation only. Renders only when the service
+          defines `resultsBlock`, so it appears on AI Automation and nowhere else. */}
+      {resultsBlock?.results?.length > 0 && (
+        <section className="bg-slate-50 py-12 sm:py-16">
+          <div className="mx-auto max-w-6xl px-6 lg:px-8">
+            <div className="mx-auto max-w-3xl text-center">
+              {resultsBlock.title && (
+                <h2 className="text-[30px] font-bold tracking-tight text-[#1B2440] sm:text-[40px]">
+                  {resultsBlock.title}
+                </h2>
+              )}
+              {resultsBlock.intro && (
+                <p className="mt-4 text-[16px] leading-relaxed ">
+                  {resultsBlock.intro}
+                </p>
+              )}
+            </div>
+            <div className="mt-10 flex flex-wrap justify-center gap-6">
+              {resultsBlock.results.map((r, i) => (
+                <div
+                  key={i}
+                  className="w-full rounded-2xl border border-slate-200/70 bg-white p-6 text-center sm:w-[230px]"
+                >
+                  <div
+                    className="text-[34px] font-extrabold leading-none text-[#0037CA]"
+                  >
+                    {r.value}
+                  </div>
+                  <div className="mt-3 text-[14px] leading-snug ">
+                    {r.label}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* Social media platforms — only renders when the service defines it */}
       {socialPlatforms?.items?.length > 0 && (
         <section className="pt-12">
@@ -289,7 +380,7 @@ export default function ServiceDetail() {
           description:
             cta?.subtitle ||
             "Schedule a free 30-min strategy call. No pitch deck. No lock-in. Just a real conversation about what will move the needle for your business.",
-          primaryLabel: "Request a Free Strategy Call",
+          primaryLabel: cta.primaryLabel||"Request a Free Strategy Call",
         }}
       />
     </div>

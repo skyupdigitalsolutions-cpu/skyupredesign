@@ -1,13 +1,13 @@
 import {
+  Bot,
+  BrainCircuit,
+  Code2,
+  Mail,
+  Palette,
+  PenTool,
   Search,
   Share2,
   Target,
-  Mail,
-  Bot,
-  BrainCircuit,
-  PenTool,
-  Palette,
-  Code2,
   Users,
 } from "lucide-react";
 
@@ -434,8 +434,9 @@ export const SERVICES = [
     ],
   },
 
+  // ───────────────────────────────────────────── Performance Marketing ──
 
-    {
+  {
     slug: "performance-marketing",
     name: "Performance Marketing",
     Icon: Target,
@@ -464,7 +465,7 @@ export const SERVICES = [
       { value: "3.4x", label: "Average ROAS" },
       { value: "40%", label: "CPL reduction" },
     ],
-      painPoints: {
+    painPoints: {
       title: "You’re spending on ads. But are you getting quality leads?",
       intro:
         "You may be running Google Ads, Meta Ads, or other paid campaigns. But if the leads are poor, cost per lead is high, follow-ups are weak, or conversions are not happening, your ad budget is not working properly. It’s frustrating — and it’s fixable.",
@@ -501,7 +502,7 @@ export const SERVICES = [
         {
           title: "LinkedIn Ads Services",
           desc: "Generate high-quality B2B leads by targeting decision-makers based on job title, company size, industry, seniority, and professional interests. Ideal for SaaS, enterprise, consulting, and B2B service businesses.",
-        }
+        },
       ],
     },
     processIntro:
@@ -527,7 +528,7 @@ export const SERVICES = [
       {
         title: "Scale Winners, Kill Losers, Report Clearly",
         desc: "Once we see that we have winning campaigns in all of your performance marketing mix, we scale hard but hit ROAS and CPL targets. Every channel is granularized in basic terms on a monthly level; spend, revenue, ROAS, CPL, and forward recommendations are calculated.",
-      }
+      },
     ],
     whyChooseUs: {
       title: "Why Brands Choose SkyUp for Performance Marketing",
@@ -574,7 +575,7 @@ export const SERVICES = [
       author: "Rohan K.",
       role: "Founder, D2C Wellness Brand",
     },
-        campaignResults: {
+    campaignResults: {
       eyebrow: "CLIENT RESULTS",
       title: "Real Campaigns. Real Numbers.",
       subtitle:
@@ -595,18 +596,114 @@ export const SERVICES = [
             { key: "leads", label: "Leads" },
           ],
           rows: [
-            { client: "Rathna Bhoomi Developers", industry: "Real Estate", objective: "Lead Generation", cpl: "₹195", ctr: "4.8%", roas: "3.3x", leads: "200+ Leads/Qtr" },
-            { client: "Navanagara Coop. Society", industry: "Finance", objective: "Lead Generation", cpl: "₹210", ctr: "3.9%", roas: "2.9x", leads: "150+ Members" },
-            { client: "Garuda Holidays", industry: "Travel", objective: "Conversions", cpl: "₹280", ctr: "5.2%", roas: "4.1x", leads: "120+ Bookings" },
-            { client: "Sharani Edu Solutions", industry: "Education", objective: "Lead Generation", cpl: "₹165", ctr: "6.1%", roas: "3.8x", leads: "300+ Admissions" },
-            { client: "LGruhakalpa Coop. Society", industry: "Housing Finance", objective: "Lead Generation", cpl: "₹225", ctr: "4.3%", roas: "3.1x", leads: "180+ Members" },
-            { client: "Godrej Properties", industry: "Premium Real Estate", objective: "Lead Generation", cpl: "₹380", ctr: "3.7%", roas: "4.6x", leads: "250+ Leads/Qtr" },
-            { client: "Satva Luminia", industry: "Residential Real Estate", objective: "Lead Generation", cpl: "₹320", ctr: "4.5%", roas: "3.7x", leads: "180+ Leads/Qtr" },
-            { client: "TATA Varnam", industry: "Residential Real Estate", objective: "Lead Generation", cpl: "₹355", ctr: "4.8%", roas: "4.2x", leads: "220+ Leads/Qtr" },
-            { client: "SLV Golden Towers", industry: "Real Estate", objective: "Traffic + Retargeting", cpl: "₹290", ctr: "4.2%", roas: "3.5x", leads: "160+ Leads/Qtr" },
-            { client: "Novara Nature Estates", industry: "Luxury Real Estate", objective: "Lead Generation", cpl: "₹410", ctr: "3.8%", roas: "4.6x", leads: "160+ Leads/Qtr" },
-            { client: "Purvankara", industry: "Premium Real Estate", objective: "Lead Generation + Video Views", cpl: "₹360", ctr: "4.1%", roas: "4.4x", leads: "300+ Leads/Qtr" },
-            { client: "Greater Knack", industry: "CA/CS/CMA Coaching", objective: "Conversions", cpl: "₹165", ctr: "6.2%", roas: "3.8x", leads: "300+ Admissions" },
+            {
+              client: "Rathna Bhoomi Developers",
+              industry: "Real Estate",
+              objective: "Lead Generation",
+              cpl: "₹195",
+              ctr: "4.8%",
+              roas: "3.3x",
+              leads: "200+ Leads/Qtr",
+            },
+            {
+              client: "Navanagara Coop. Society",
+              industry: "Finance",
+              objective: "Lead Generation",
+              cpl: "₹210",
+              ctr: "3.9%",
+              roas: "2.9x",
+              leads: "150+ Members",
+            },
+            {
+              client: "Garuda Holidays",
+              industry: "Travel",
+              objective: "Conversions",
+              cpl: "₹280",
+              ctr: "5.2%",
+              roas: "4.1x",
+              leads: "120+ Bookings",
+            },
+            {
+              client: "Sharani Edu Solutions",
+              industry: "Education",
+              objective: "Lead Generation",
+              cpl: "₹165",
+              ctr: "6.1%",
+              roas: "3.8x",
+              leads: "300+ Admissions",
+            },
+            {
+              client: "LGruhakalpa Coop. Society",
+              industry: "Housing Finance",
+              objective: "Lead Generation",
+              cpl: "₹225",
+              ctr: "4.3%",
+              roas: "3.1x",
+              leads: "180+ Members",
+            },
+            {
+              client: "Godrej Properties",
+              industry: "Premium Real Estate",
+              objective: "Lead Generation",
+              cpl: "₹380",
+              ctr: "3.7%",
+              roas: "4.6x",
+              leads: "250+ Leads/Qtr",
+            },
+            {
+              client: "Satva Luminia",
+              industry: "Residential Real Estate",
+              objective: "Lead Generation",
+              cpl: "₹320",
+              ctr: "4.5%",
+              roas: "3.7x",
+              leads: "180+ Leads/Qtr",
+            },
+            {
+              client: "TATA Varnam",
+              industry: "Residential Real Estate",
+              objective: "Lead Generation",
+              cpl: "₹355",
+              ctr: "4.8%",
+              roas: "4.2x",
+              leads: "220+ Leads/Qtr",
+            },
+            {
+              client: "SLV Golden Towers",
+              industry: "Real Estate",
+              objective: "Traffic + Retargeting",
+              cpl: "₹290",
+              ctr: "4.2%",
+              roas: "3.5x",
+              leads: "160+ Leads/Qtr",
+            },
+            {
+              client: "Novara Nature Estates",
+              industry: "Luxury Real Estate",
+              objective: "Lead Generation",
+              cpl: "₹410",
+              ctr: "3.8%",
+              roas: "4.6x",
+              leads: "160+ Leads/Qtr",
+            },
+            {
+              client: "Purvankara",
+              industry: "Premium Real Estate",
+              objective: "Lead Generation + Video Views",
+              cpl: "₹360",
+              ctr: "4.1%",
+              roas: "4.4x",
+              leads: "300+ Leads/Qtr",
+            },
+            {
+              client: "Greater Knack",
+              industry: "CA/CS/CMA Coaching",
+              objective: "Conversions",
+              cpl: "₹165",
+              ctr: "6.2%",
+              roas: "3.8x",
+              leads: "300+ Admissions",
+            },
           ],
           footer: [
             { value: "₹165", label: "Best CPL (Sharani Edu)" },
@@ -630,18 +727,114 @@ export const SERVICES = [
             { key: "roas", label: "ROAS", color: "green" },
           ],
           rows: [
-            { client: "Rathna Bhoomi Developers", industry: "Real Estate", type: "Search + PMax", cpc: "₹42", conv: "6.8%", quality: "8/10", roas: "3.1x" },
-            { client: "Navanagara Coop. Society", industry: "Finance", type: "Search + Display", cpc: "₹35", conv: "4.9%", quality: "8/10", roas: "2.7x" },
-            { client: "Garuda Holidays", industry: "Travel", type: "Search + PMax", cpc: "₹58", conv: "6.4%", quality: "9/10", roas: "4.3x" },
-            { client: "Sharani Edu Solutions", industry: "Education", type: "Search + YouTube", cpc: "₹28", conv: "7.2%", quality: "9/10", roas: "3.9x" },
-            { client: "LGruhakalpa Coop. Society", industry: "Housing Finance", type: "Search + Display", cpc: "₹38", conv: "5.1%", quality: "8/10", roas: "3.0x" },
-            { client: "Godrej Properties", industry: "Premium Real Estate", type: "Search + PMax", cpc: "₹95", conv: "4.6%", quality: "9/10", roas: "4.5x" },
-            { client: "Satva Luminia", industry: "Residential Real Estate", type: "Search + PMax", cpc: "₹72", conv: "5.3%", quality: "8/10", roas: "3.6x" },
-            { client: "TATA Varnam", industry: "Residential Real Estate", type: "Search + YouTube", cpc: "₹68", conv: "5.7%", quality: "8/10", roas: "4.1x" },
-            { client: "SLV Golden Towers", industry: "Real Estate", type: "Search + Display", cpc: "₹55", conv: "5.0%", quality: "8/10", roas: "3.4x" },
-            { client: "Novara Nature Estates", industry: "Luxury Real Estate", type: "PMax + Search", cpc: "₹105", conv: "4.5%", quality: "9/10", roas: "4.6x" },
-            { client: "Purvankara", industry: "Premium Real Estate", type: "Search + PMax", cpc: "₹88", conv: "4.9%", quality: "9/10", roas: "4.3x" },
-            { client: "Greater Knack", industry: "CA/CS/CMA Coaching", type: "Search + PMax", cpc: "₹32", conv: "6.8%", quality: "9/10", roas: "3.9x" },
+            {
+              client: "Rathna Bhoomi Developers",
+              industry: "Real Estate",
+              type: "Search + PMax",
+              cpc: "₹42",
+              conv: "6.8%",
+              quality: "8/10",
+              roas: "3.1x",
+            },
+            {
+              client: "Navanagara Coop. Society",
+              industry: "Finance",
+              type: "Search + Display",
+              cpc: "₹35",
+              conv: "4.9%",
+              quality: "8/10",
+              roas: "2.7x",
+            },
+            {
+              client: "Garuda Holidays",
+              industry: "Travel",
+              type: "Search + PMax",
+              cpc: "₹58",
+              conv: "6.4%",
+              quality: "9/10",
+              roas: "4.3x",
+            },
+            {
+              client: "Sharani Edu Solutions",
+              industry: "Education",
+              type: "Search + YouTube",
+              cpc: "₹28",
+              conv: "7.2%",
+              quality: "9/10",
+              roas: "3.9x",
+            },
+            {
+              client: "LGruhakalpa Coop. Society",
+              industry: "Housing Finance",
+              type: "Search + Display",
+              cpc: "₹38",
+              conv: "5.1%",
+              quality: "8/10",
+              roas: "3.0x",
+            },
+            {
+              client: "Godrej Properties",
+              industry: "Premium Real Estate",
+              type: "Search + PMax",
+              cpc: "₹95",
+              conv: "4.6%",
+              quality: "9/10",
+              roas: "4.5x",
+            },
+            {
+              client: "Satva Luminia",
+              industry: "Residential Real Estate",
+              type: "Search + PMax",
+              cpc: "₹72",
+              conv: "5.3%",
+              quality: "8/10",
+              roas: "3.6x",
+            },
+            {
+              client: "TATA Varnam",
+              industry: "Residential Real Estate",
+              type: "Search + YouTube",
+              cpc: "₹68",
+              conv: "5.7%",
+              quality: "8/10",
+              roas: "4.1x",
+            },
+            {
+              client: "SLV Golden Towers",
+              industry: "Real Estate",
+              type: "Search + Display",
+              cpc: "₹55",
+              conv: "5.0%",
+              quality: "8/10",
+              roas: "3.4x",
+            },
+            {
+              client: "Novara Nature Estates",
+              industry: "Luxury Real Estate",
+              type: "PMax + Search",
+              cpc: "₹105",
+              conv: "4.5%",
+              quality: "9/10",
+              roas: "4.6x",
+            },
+            {
+              client: "Purvankara",
+              industry: "Premium Real Estate",
+              type: "Search + PMax",
+              cpc: "₹88",
+              conv: "4.9%",
+              quality: "9/10",
+              roas: "4.3x",
+            },
+            {
+              client: "Greater Knack",
+              industry: "CA/CS/CMA Coaching",
+              type: "Search + PMax",
+              cpc: "₹32",
+              conv: "6.8%",
+              quality: "9/10",
+              roas: "3.9x",
+            },
           ],
           footer: [
             { value: "₹28", label: "Best CPC (Sharani Edu)" },
@@ -715,9 +908,9 @@ export const SERVICES = [
       },
     ],
   },
-  // ───────────────────────────────────────────── Performance Marketing ──
 
   // ──────────────────────────────────────────────── Email Marketing ──
+
   {
     slug: "email-marketing",
     name: "Email Marketing",
@@ -736,188 +929,263 @@ export const SERVICES = [
       "Template design & A/B testing",
       "ESP setup, migration & reporting",
     ],
-    heroHeadline: "Email marketing that converts — not just communicates",
+    heroHeadline: "Email Marketing That Converts — Not Just Communicates",
     heroSubline:
-      "Most businesses send emails. We build email programs that generate pipeline, recover lost revenue, and turn one-time buyers into loyal customers — with measurable ROI on every campaign.",
+      "Most businesses send emails. We build email programs that consistently generate pipeline, recover lost revenue, and turn one-time buyers into loyal customers.",
     statsTitle: "Why email still wins",
     stats: [
       { value: "36-42%", label: "Avg open rate (all industries)" },
       { value: "4.3B", label: "Global email users" },
       { value: "36x", label: "Average ROI" },
     ],
-    overview: [
-      "When it comes to cost per acquisition, nothing matches email. Unlike paid social and PPC, where you pay for every impression, email campaigns are delivered to an audience you already own. Email consistently outperforms social by 2-3x on conversion rate, at a much lower cost per lead.",
-      "In a competitive Bangalore market, that efficiency compounds: your list expands, your automations run constantly, and your revenue multiplies while your spend does not.",
-    ],
+
     painPoints: {
-      title: "Most businesses leave email severely under-optimised",
-      intro: "If any of these sound familiar, you're losing revenue every day:",
+      title: "Your leads are in your list. But they’re not converting.",
+      intro:
+        "You’ve collected customer emails through ads, website forms, enquiries, or past purchases. But emails are not being sent consistently, follow-ups are missed, and potential customers forget your brand. It’s frustrating — and it’s fixable.",
       points: [
         {
-          title: "Low open and click rates",
-          desc: "Emails land in the promotions tab or feel generic, so they get ignored.",
+          title: "Leads are not followed up",
+          desc: "Many companies gather leads but don't do second floor sales.Many businesses get leads, but don't do second floor sales. If you don't follow-up with your interested customers via email, they might lose interest or turn to another competitor.",
         },
         {
-          title: "No automation sequences",
-          desc: "Leads go cold while you follow up manually — or not at all.",
+          title: "Emails are not getting opened",
+          desc: "You might be sending emails that are getting to people inboxes, but if the subject line is weak, the timing is not right or the content is irrelevant, then those emails may not be reaching the correct people. A robust email campaign can help create visibility.",
         },
         {
-          title: "No segmentation",
-          desc: "Everyone gets the same message at the same time, regardless of behaviour or lifecycle stage.",
+          title: "No automation, too much manual work",
+          desc: "Sending offers, reminders, updates and followups by hand takes time and is prone to being either missed or forgotten. Email automation enables you to connect with customers without having to do it manually each day.",
+        },
+        {
+          title: "No tracking, no clarity",
+          desc: "You cannot know who has opened your emails or who has clicked, shown interest, or had enquiries come through your campaign. When not reported, email marketing is not a growth system; it's guesswork.",
         },
       ],
     },
     offerings: {
-      title: "Our email marketing services — built for growth",
+      title: "Our Email Marketing Services — Built for Growth",
+      subtitle:
+        "Skyup Digital Solutions, a Email marketing agency in Bangalore Email marketing solutions, and is focused on performance, not activity. Every strategy we have is based upon your business goals, your audience's actions and intelligence provided by the platform.",
       points: [
         {
           title: "Email Strategy & Audit",
-          desc: "A thorough evaluation of your current program — deliverability, list quality, automation gaps, and revenue loss — used to build a strategy around your goals, segments, and lifecycle stages.",
+          desc: "We analyze your e-mail performance, deliverability, list quality, automation shortcomings and lost revenue opportunities and develop a practical approach based on your audience, customer journey, business objectives and growth priorities.",
         },
         {
-          title: "Campaign Management",
-          desc: "Content, design, scheduling, and deployment in one place. Every campaign has a clear purpose — launch, promotion, re-engagement, or nurture — with performance expectations set before send.",
+          title: "Managing Campaigns",
+          desc: "Email writing, design, testing and deployment for launches, promotions, re-engagement and nurturing campaigns are all taken care of, so that every email is goal-driven and performance expected from the get-go. ",
         },
         {
           title: "Automation & Drip Sequences",
-          desc: "Welcome series, abandoned-cart flows, post-purchase flows, win-back campaigns, and lead-nurture journeys that run 24/7 and convert subscribers automatically.",
+          desc: "We design automated email sequences such as welcome, abandoned cart, post-purchase, win-back, lead nurturing, and more, that can nurture your leads and drive conversions any time of the day, without any manual effort.",
         },
         {
           title: "List Growth & Segmentation",
-          desc: "Ethical list building (lead magnets, signup forms, gated content), then segmentation by behaviour, purchase history, and lifecycle stage so every message is relevant.",
+          desc: "We nurture your email list using ethical tactics such as lead magnets, forms and gated content, and then segment your leads by their actions, buying history, interests and lifecycle stage for more targeted messaging.",
         },
         {
-          title: "Template Development",
-          desc: "Mobile-responsive, on-brand templates optimised for deliverability and engagement, tested across email clients and devices.",
+          title: "Development of the Template",
+          desc: "We create mobile-responsive, on-brand email templates that are optimized for high deliverability and engagement. Email templates are tested in all email clients and devices. We create beautiful, conversion-focused websites. Effective calls to action, readability, and hierarchical structure. ",
         },
         {
           title: "A/B Testing",
-          desc: "Systematic testing of subject lines, preview text, CTAs, send times, and personalisation — each test statistically significant before we draw conclusions.",
+          desc: "Clear data guides our testing of subject lines, preview text, CTAs, send time, content format, personalization, and other elements to boost engagement, conversions, and future email strategy after each campaign.",
         },
         {
           title: "ESP Setup & Migration",
-          desc: "Launching a first platform or moving between ESPs — domain authentication, IP warming, audience migration, template rebuilds, and automation rewiring with no data loss.",
+          desc: "Whether you’re launching your first email platform or moving from one ESP to another, we do the technical heavy lifting. This includes domain authentication, IP warming, audience migration, rebuilding of templates, and rewiring of automation with no data loss.",
         },
         {
           title: "Reporting & Analytics",
-          desc: "Clear monthly reports covering opens, clicks, conversions, revenue attribution, deliverability health, and list growth — full visibility into campaign ROI.",
+          desc: "We deliver transparency on opens, clicks, conversions, revenue attribution, deliverability, and list growth – you will have a clear idea of what is working, what needs to be improved and why each and every decision made with your campaigns.",
         },
       ],
     },
+    processIntro:
+      "All Skyup Digital Solutions client engagements have a proven, repeatable process that removes any guesswork and guarantees your social media investment provides compounding returns.",
+    processTitle: "Our 5-Step Email Marketing Process",
     process: [
       {
-        title: "Discovery & Audit",
-        desc: "We audit the quality, setup, and historical performance of your current list to establish a baseline and find the quickest wins.",
+        title: "Discovery & Audit: ",
+        desc: "Discovery & Audit We audit your current email list quality, setup and historical data. We now have a baseline and can see the fastest wins we can get before a strategy is agreed.",
       },
       {
-        title: "Strategy & Roadmap",
-        desc: "A prioritised roadmap aligned to your goals — campaign plan, automation builds, segmentation logic, and the KPIs we're accountable for.",
+        title: "Strategy & Roadmap: ",
+        desc: "An audit roadmap will be given to you (by e-mail) and will be prioritized based on your business objectives. This includes the campaign plan, the automation builds, the Segmentation Logic and the KPIs that will be measured and will be our responsibility.",
       },
       {
-        title: "Build & Design",
-        desc: "We build templates, copy, and automation workflows, review and approve with you, and QA every asset across devices and clients.",
+        title: "Build & Design:",
+        desc: "We create your templates, copywriting and automation processes and then discuss and confirm with you before launching live. All assets are QA tested on devices and e-mail clients.",
       },
       {
-        title: "Launch & Optimise",
-        desc: "We launch campaigns and automations, monitor deliverability and engagement live, and start A/B testing from week one.",
+        title: "Launch & Optimise:",
+        desc: "We build campaigns and set up automations, and track campaign performance as it occurs. Week 1 - you do A/B testing and get the incremental improvement to all sends from that point onwards.",
       },
       {
-        title: "Report & Scale",
-        desc: "Monthly reporting turns data into decisions — new segments to target, new sequences to build, new revenue streams to activate.",
+        title: "Report & Scale:",
+        desc: "Monthly reporting sessions: data to decisions. As you continue to make performance breakthroughs, you open new doors. New segments to be targeted. New sequences to construct. New revenue streams to be activated.",
       },
     ],
-    // Dummy — replace with verified client metrics.
-    caseStudies: [
-      {
-        title: "Gruhakalpa Housing Society Ltd",
-        industry: "Real estate",
-        result:
-          "12,400 active contacts - 58% open rate (2x avg) - 21% CTR (6.5x avg) - 640 hot enquiries - 0.9% bounce.",
-      },
-      {
-        title: "Rathna Bhoomi Developers",
-        industry: "Real estate",
-        result:
-          "9,800 active contacts - 54% open rate (1.9x avg) - 19% CTR (5.9x avg) - 480 hot qualified leads - 1.1% bounce.",
-      },
-    ],
-    toolsTitle: "Platform-agnostic. Expertly integrated.",
-    tools: [
-      "Mailchimp",
-      "Klaviyo",
-      "HubSpot",
-      "ActiveCampaign",
-      "Brevo",
-      "Shopify Email",
-    ],
-    toolsNote:
-      "We're a platform-agnostic email marketing company in Bangalore. We recommend and use whatever tool fits your budget, tech stack, and growth goals — not the one that pays us the most referral fee.",
-    faqTitle: "FAQs about our email marketing services",
+    caseResults: {
+      title: "Email Marketing Results That Speak for Themselves",
+      items: [
+        {
+          name: "Gruhakalpa Housing Society Ltd",
+          metrics: [
+            { label: "List size", value: "12,400", sub: "Active contacts" },
+            { label: "Open rate", value: "58%", sub: "2× industry average" },
+            {
+              label: "Click-through",
+              value: "21%",
+              sub: "6.5× industry average",
+            },
+            { label: "Enquiries", value: "640", sub: "Hot qualified" },
+            {
+              label: "Bounce rate",
+              value: "0.9%",
+              sub: "Excellent list health",
+            },
+          ],
+        },
+        {
+          name: "Rathna Bhoomi Developers",
+          metrics: [
+            { label: "List size", value: "9,800", sub: "Active contacts" },
+            { label: "Open rate", value: "54%", sub: "1.9× industry average" },
+            {
+              label: "Click-through",
+              value: "19%",
+              sub: "5.9× industry average",
+            },
+            { label: "Enquiries", value: "480", sub: "Hot qualified leads" },
+            {
+              label: "Bounce rate",
+              value: "1.1%",
+              sub: "Excellent list health",
+            },
+          ],
+        },
+      ],
+    },
+
+    platformBlock: {
+      title: "Platform-Agnostic. Expertly Integrated.",
+      intro:
+        "We are certified and know all the top email service providers, such as Mailchimp, Klaviyo, HubSpot, ActiveCampaign, and Brevo.",
+      tools: ["Mailchimp", "Klaviyo", "HubSpot", "ActiveCampaign", "Brevo"],
+      note: "We are an email marketing company, platform agnostic, based out of Bangalore. We suggest and use any tool that meets your budget, tech stack, and growth objectives, not the ones that pay us the most referral fee.",
+    },
+    whyChooseUs: {
+      title: "Why Brands Prefer SkyUp for Email Marketing?",
+      points: [
+        {
+          title: "Compose a Letter of the Sea",
+          desc: "You don't want to convey difficult marketing terms to your customers. We compose emails that are clear, natural, helpful, and understandable.",
+        },
+        {
+          title: "Using a Calculator to Make Strategy Decisions",
+          desc: "We're not blasting emails out for the sake of blasting emails. Each campaign has a defined goal and audience, a message, and a CTA.",
+        },
+        {
+          title: "Automation That Saves Time",
+          desc: "We ensure that the team does not have to do the follow-ups manually by automating the journey with email for leads, customers and inactive users.",
+        },
+        {
+          title: "Better Lead Nurturing",
+          desc: "The bulk of leads require some time to purchase. Using valuable and timely email communication, we keep you connected to them.",
+        },
+        {
+          title: "Clean Design & Mobile-Friendly Layouts",
+          desc: "The majority of people read emails via a mobile device. We build responsive, easy to read, simple to act on email designs.",
+        },
+        {
+          title: "Measurable Reporting",
+          desc: "You will have feedback on what is successful. We monitor opens, clicks, responses, enquiries, conversions and audience engagement.",
+        },
+      ],
+    },
+    // Dummy — replace with a real client result.
+    caseStudy: {
+      industry: "D2C Skincare Brand, Bangalore",
+      problem:
+        "Rs 80K/month on Google Ads, near-zero organic traffic, and no content strategy in place.",
+      whatWeDid:
+        "A full technical audit, 40+ keyword-mapped blogs, category-page optimisation, and 60 quality backlinks over five months.",
+      result:
+        "Organic sessions grew from 900 to 11,400/month. Ad spend cut by 55% while revenue grew.",
+    },
+    testimonial: {
+      quote:
+        "We'd been burned by two SEO agencies before Skyup. Within 60 days our traffic started climbing. By month four we ranked in the top 3 for our main product keywords — and the monthly report actually made sense.",
+      author: "Rohan K.",
+      role: "Founder, D2C Wellness Brand",
+    },
+    faqTitle: "FAQ’s About Our Email Marketing Services",
     faqs: [
       {
-        q: "What is email marketing and how does it help?",
-        a: "A strategy that helps businesses nurture leads, increase retention, and drive sales through targeted campaigns and automation.",
+        q: "What is email marketing and how does it help businesses?",
+        a: "Email marketing is a digital marketing strategy that helps businesses nurture leads, increase customer retention, and drive sales through targeted email campaigns and automation.",
       },
       {
-        q: "Why is email marketing important for growth?",
-        a: "It delivers one of the highest ROIs in digital marketing by building relationships, increasing repeat purchases, and generating consistent revenue.",
+        q: "Why is email marketing important for business growth?",
+        a: "Email marketing delivers one of the highest ROIs in digital marketing by helping businesses build customer relationships, increase repeat purchases, and generate consistent revenue.",
       },
       {
         q: "How much ROI can email marketing generate?",
-        a: "On average up to 36x ROI, making it one of the most cost-effective channels for lead generation and retention.",
+        a: "On average, email marketing can generate up to 36x ROI, making it one of the most cost-effective digital marketing channels for lead generation and customer retention.",
       },
       {
-        q: "What's included in your email marketing solutions?",
-        a: "Strategy, campaign management, automation setup, drip sequences, list segmentation, template design, A/B testing, reporting, and ESP migration.",
+        q: "What services are included in your email marketing solutions?",
+        a: "Our email marketing services include email strategy, campaign management, automation setup, drip sequences, list segmentation, template design, A/B testing, reporting, and ESP migration.",
       },
       {
         q: "What are email automation and drip campaigns?",
-        a: "Pre-scheduled sequences triggered by user behaviour that nurture leads, recover abandoned carts, and improve conversions automatically.",
+        a: "Email automation and drip campaigns are pre-scheduled email sequences triggered by user behavior, helping businesses nurture leads, recover abandoned carts, and improve conversions automatically.",
       },
       {
-        q: "Which platforms do you work with?",
-        a: "Mailchimp, Klaviyo, HubSpot, ActiveCampaign, Brevo, Shopify Email, and other CRM-integrated ESPs.",
+        q: "Which email marketing platforms do you work with?",
+        a: "We work with leading email marketing platforms, including Mailchimp, Klaviyo, HubSpot, ActiveCampaign, Brevo, Shopify Email, and other CRM-integrated ESPs.",
       },
       {
-        q: "How do you improve open and click-through rates?",
-        a: "Segmentation, personalised content, A/B testing, optimised subject lines, mobile-responsive design, and deliverability best practices.",
+        q: "How do you improve email open rates and click-through rates?",
+        a: "We improve email performance using audience segmentation, personalised content, A/B testing, optimized subject lines, mobile-responsive design, and deliverability best practices.",
       },
       {
-        q: "Can email marketing increase e-commerce sales?",
-        a: "Yes — it recovers abandoned carts, increases repeat purchases, promotes products, and improves customer lifetime value.",
+        q: "Can email marketing help increase e-commerce sales?",
+        a: "Yes. Email marketing for e-commerce helps recover abandoned carts, increase repeat purchases, promote products, and improve customer lifetime value through automated workflows.",
       },
       {
-        q: "Do you provide email marketing for B2B?",
-        a: "Yes — B2B campaigns focused on lead nurturing, funnel automation, onboarding sequences, and conversion across longer cycles.",
+        q: "Do you provide email marketing services for B2B companies?",
+        a: "Yes. We create B2B email marketing campaigns focused on lead nurturing, sales funnel automation, onboarding sequences, and improving conversion rates across longer sales cycles.",
       },
       {
         q: "Why choose your email marketing agency in Bangalore?",
-        a: "We focus on ROI, transparent reporting, automation-led growth, and personalised strategies tailored to your business goals.",
+        a: "As a results-driven email marketing agency in Bangalore, we focus on ROI, transparent reporting, automation-led growth, and personalized strategies tailored to your business goals.",
       },
     ],
     cta: {
-      title:
-        "Ready to work with a results-driven email marketing agency in Bangalore?",
+      title: "Ready to Work With a Results-Driven Email Marketing Agency in Bangalore?",
       subtitle:
-        "Every day without an optimised email program is revenue left on the table. Start with a free, no-obligation audit of your current setup.",
+        "Every day that you don’t have a properly optimised email program is revenue left on the table—and your competitors are taking it. Let's fix that with a free audit of your current email setup. No obligation. We’ll find your biggest opportunities and show you exactly what’s possible—in plain language, with real numbers.",
     },
     related: [
       {
-        slug: "crm",
-        desc: "Connect your email program to a CRM so every lead, message, and conversion lives in one place.",
+        slug: "graphic-design",
+        desc: "Great content needs great visuals. Design makes your blogs readable and your brand memorable — and supports your SEO.",
       },
       {
-        slug: "ai-automation",
-        desc: "Automate triggers, segmentation, and reporting so your email program runs itself.",
+        slug: "web-development",
+        desc: "A poorly structured site caps your technical SEO. We fix it at the root.",
       },
       {
-        slug: "social-media-marketing",
-        desc: "Grow the list that email monetises with consistent social content and paid capture.",
+        slug: "performance-marketing",
+        desc: "Run PPC while SEO gains traction, so you capture leads across the whole funnel.",
       },
     ],
   },
 
   // ─────────────────────────────────────────────────── AI Automation ──
+  
   {
     slug: "ai-automation",
     name: "AI Automation",
@@ -937,204 +1205,222 @@ export const SERVICES = [
       "AI customer support & booking automation",
     ],
     heroHeadline:
-      "Stop doing it manually. Start scaling with AI automation in Bangalore.",
+      "Stop Doing It Manually. Start Scaling with AI Automation Services in Bangalore.",
     heroSubline:
-      "We're the trusted AI automation company helping Bangalore businesses automate repetitive tasks, drive growth, and harness the real potential of AI — without the technical mess.",
+      "Skyup Digital Solution LLP is the trusted AI automation company that assists organizations in Bangalore by automating repetitive tasks, drive their growth, and harness the true potential of AI Automation without the technological mess. ",
     painPoints: {
-      title: "Is your team stuck doing work AI can handle in seconds?",
+      title:
+        "Is Your Team Stuck Doing Work That AI Can Handle in Seconds?",
       intro:
-        "Repetitive tasks cost you days and hours every year — time you could invest in strategy, growth, and customer experience. McKinsey finds businesses adopting AI automation see up to 40% higher conversion rates and 30% faster execution.",
+        "You may be spending hours on repetitive tasks like lead follow-ups, customer replies, data entry, reporting, reminders, and task updates. These small delays reduce productivity, increase missed opportunities, and slow down business growth. It’s frustrating — and it’s fixable.",
       points: [
         {
-          title: "Manual lead follow-up",
-          desc: "Your sales team follows up with every lead by hand instead of using AI workflow automation.",
+          title: "Too much manual work",
+          desc: "Your team spends valuable time on repeated tasks like sending messages, updating sheets, assigning leads, creating reports, and following up with customers. AI automation helps reduce manual effort and saves time every day.",
         },
         {
-          title: "Hours lost to marketing busywork",
-          desc: "Scheduling, reporting, and posting eat time that's perfectly suited to AI marketing automation.",
+          title: "Leads are missed or delayed",
+          desc: "When enquiries come from ads, website, WhatsApp, or social media, slow response can make customers lose interest. AI automation can respond instantly, qualify leads, and trigger follow-ups without delay.",
         },
         {
-          title: "Copy-paste between systems",
-          desc: "Your ops team moves data between tools that should talk to each other automatically.",
+          title: "No system for follow-ups",
+          desc: "Many businesses lose customers because follow-ups depend on memory or manual tracking. AI automation can schedule reminders, send WhatsApp/email follow-ups, and keep every lead moving in the sales funnel.",
         },
         {
-          title: "No real-time visibility",
-          desc: "Reporting is still manual, so you can't see performance as it happens.",
-        },
-        {
-          title: "Can't scale without hiring",
-          desc: "You want to grow but can't afford five more people just to handle volume.",
+          title: "Reports take too much time",
+          desc: "Daily reports, sales updates, task summaries, and performance tracking can take hours. AI automation can collect data, prepare summaries, and show clear insights without manual report preparation.",
         },
       ],
     },
     offerings: {
-      title: "Our AI automation services in Bangalore",
+      title: "Our AI Automation Services in Bangalore",
+      subtitle:
+        "Skyup Digital Solution LLP is an AI Automation company in Bangalore, a digital marketing partner, and creates, builds and implements intelligent automation solutions for businesses of all sizes.",
       points: [
         {
           title: "AI Chatbots & Virtual Assistants",
-          desc: "Instant, intelligent customer interactions — automate conversations, answer queries, and deliver 24/7 support across channels.",
+          desc: "Provide instant, intelligent customer interactions with AI-powered chatbots and virtual assistants. Automate conversations, answer customer queries, and deliver 24/7 support across multiple channels.",
         },
         {
           title: "Lead Generation & CRM Automation",
-          desc: "Capture, qualify, and manage leads automatically while keeping your CRM updated in real time.",
+          desc: "Capture, qualify, and manage leads automatically while keeping your CRM updated in real time. Streamline your sales process and improve conversion rates with intelligent automation.",
         },
         {
           title: "WhatsApp Business Automation",
-          desc: "AI-powered WhatsApp that manages inquiries, books appointments, follows up leads, and responds instantly at scale.",
+          desc: "Send your customers good news through Artificial Intelligence-powered WhatsApp automation! Manage inquiries, make appointments, follow up leads, and make instant responses, at scale.",
         },
         {
           title: "Voice AI Agents",
-          desc: "Human-first voice agents that answer calls, schedule appointments, and handle support 24/7 while cutting costs.",
+          desc: "Integrate humans-first AI voice agents for answering phone calls, scheduling appointments and customer support 24/7. Optimize customer interactions, cut down on expenses.",
         },
         {
           title: "Document Processing Automation",
-          desc: "Extract, process, and organise business documents with AI — less manual effort, more accuracy and speed.",
-        },
-        {
-          title: "Workflow Automation",
-          desc: "Automate processes across departments and systems to increase efficiency, reduce errors, and enable seamless operations.",
+          desc: "Extract, process, and organize business documents using AI. Minimize man-power, enhance accuracy and speed data-driven workflows. ",
         },
         {
           title: "AI-Powered Customer Support",
-          desc: "Faster, more personalised service through AI-driven responses and smart ticket handling.",
+          desc: "Deliver faster and more personalized customer service with intelligent support automation. Resolve queries efficiently through AI-driven responses and smart ticket handling.",
         },
         {
           title: "Appointment & Booking Automation",
-          desc: "Automated scheduling, reminders, and calendar management — easier for customers, fewer no-shows.",
+          desc: "Schedule automations, reminders and calendar management as a way of simplifying scheduling. Making it easier for the customer and decreasing no shows and administrative load.",
         },
         {
-          title: "Custom AI Automation Solutions",
-          desc: "Bespoke automation fitted to your processes and daily routine, designed to scale your business smarter.",
+          title: "Custom Artificial Intelligence Automation Solutions",
+          desc: "All businesses are different. You scale smarter with our customized AI automation, fitted to your processes and daily routine and enhanced by increased efficiency.",
         },
       ],
     },
+    processIntro:
+      "All our AI automation services in Bangalore are delivered through a tried and tested 3-step process. As a results oriented AI automation company in Bangalore, we strive to keep it simple, transparent and outcome oriented right from the beginning.",
+    processTitle: "How Skyup Digital Solutions LLP Delivers Your AI Automation",
     process: [
       {
         title: "Free AI Automation Audit",
-        desc: "A free strategy session to understand your business, tools, and biggest pain points — followed by a deep dive into your workflows and a customised roadmap within 48 hours.",
+        desc: "We begin with a free strategy session to get to know your business, what tools you are using and your biggest pain points. We then perform a comprehensive assessment of your workflows and determine where your best shots for automation are today \n• Investigate current tech stack and processes with a deep dive approach \n• AI automation roadmap customised to the client's needs, sent within 48 hours.",
       },
       {
         title: "Custom AI Blueprint & Design",
-        desc: "Our architects map a bespoke workflow and system design — every touchpoint, integration, and trigger — delivered as a clear, jargon-free blueprint before a line of code is written.",
+        desc: "Our automation architects outline a bespoke AI workflow and system design – from every touch point, every integration and every trigger. You receive a clear, jargon-free blueprint beforehand, and prior to writing a single line of code. \n• Clearly define the overall system design and choose tools in the system. \n• 360-degree integration with your CRM, marketing and ops tools \n• Build without any surprises by signing-off before starting construction.",
       },
       {
         title: "Build, Test & Launch",
-        desc: "Certified specialists build, QA, and deploy your full system, with team training, complete documentation, and 30 days of post-launch monitoring and optimisation.",
-      },
-    ],
-    statsTitle: "Real results from our AI automation",
-    stats: [
-      { value: "10+ hrs", label: "Saved per team member / week" },
-      { value: "3x", label: "Pipeline growth (lead nurturing)" },
-      { value: "40%", label: "Faster lead response time" },
-      { value: "~50%", label: "Less QA time (automation testing)" },
+        desc: "Our team of certified automation specialists constructs, tests and implements your entire AI automation system. Thorough quality checks conducted, including some aspects of AI in automation testing, and complete handover training and documentation. \n• Full build, QA testing and go-live support. \n• Team training and onboarding was included. \n• The post-launch monitoring and optimisation will be followed for 30 days. ",
+      }
     ],
     whyChooseUs: {
-      title: "Why Bangalore businesses choose Skyup for AI automation",
+      title:
+        "Why Brands Choose SkyUp for AI Automation",
       points: [
         {
-          title: "Local team, real context",
-          desc: "A Bangalore-based team with deep understanding of Indian business workflows, tools, and compliance.",
+          title: "You own every automation we build",
+          desc: "No hidden systems. No black boxes. Every automation is documented, explained, and handed over clearly, so your team knows exactly how it works and how to use it.",
         },
         {
-          title: "Glass-box, you own it",
-          desc: "Full documentation and no black boxes — you own every automation we build.",
+          title: "Faster setup, without long agency delays",
+          desc: "We help businesses go live with their first automation faster for standard workflows. From lead follow-ups to task alerts, we focus on practical systems that start saving time quickly.",
         },
         {
-          title: "Live in 48-72 hours",
-          desc: "First automation live within days, not six-week agency timelines (for standard workflows).",
+          title: "Built around your real business process",
+          desc: "We do not force generic automation templates. We first understand your team, tools, workflow, customer journey, and daily manual tasks, then build automation that fits your operations.",
         },
         {
-          title: "Senior hands, no handoffs",
-          desc: "No junior handoffs or offshore surprises — senior expertise from the foundation up.",
-        },
-        {
-          title: "Proven, measurable ROI",
-          desc: "Every rupee invested is tied to results that have already delivered measurable ROI for businesses.",
+          title: "Automation focused on measurable ROI",
+          desc: "Every workflow we create is designed to reduce manual work, avoid missed leads, improve response time, and save operational hours — so automation directly supports business growth.",
         },
       ],
     },
-    // Dummy — replace with verified client testimonials.
-    testimonials: [
-      {
-        quote:
-          "Skyup completely transformed our sales process. Their AI automation saved our team 12 hours every week and tripled our lead response speed. If you're looking for the best AI automation company in Bangalore, look no further.",
-        author: "Rahul Sharma",
-        role: "Founder, E-Commerce Brand, Bangalore",
-      },
-      {
-        quote:
-          "We were drowning in manual tasks — data entry, follow-ups, reporting. Skyup built us an end-to-end AI workflow automation system in under three weeks. Our team now focuses on strategy, not spreadsheets.",
-        author: "Priya Menon",
-        role: "Operations Director, Professional Services Firm",
-      },
-    ],
-    faqTitle: "Frequently asked questions about our AI automation services",
+
+     resultsBlock: {
+      title: "Real Results from Our AI Automation Services in Bangalore",
+      intro:
+        "At Skyup Digital Solution LLP, a trusted AI automation company in Bangalore, we do not just guarantee results. We deliver them. Here are some of the results we have seen for our clients in Bangalore and across India with our AI automation services:",
+      results: [
+        {
+          value: "10+ hrs",
+          label:
+            "saved per team member per week with AI workflow automation",
+        },
+        {
+          value: "3×",
+          label:
+            "pipeline growth with AI marketing automation for lead nurturing",
+        },
+        {
+          value: "40%",
+          label:
+            "faster lead response time with AI chatbot & automation services",
+        },
+        {
+          value: "50%",
+          label:
+            "less QA time for clients who leverage AI for automation testing",
+        },
+      ],
+    },
+    // Dummy — replace with a real client result.
+    caseStudy: {
+      industry: "D2C Skincare Brand, Bangalore",
+      problem:
+        "Rs 80K/month on Google Ads, near-zero organic traffic, and no content strategy in place.",
+      whatWeDid:
+        "A full technical audit, 40+ keyword-mapped blogs, category-page optimisation, and 60 quality backlinks over five months.",
+      result:
+        "Organic sessions grew from 900 to 11,400/month. Ad spend cut by 55% while revenue grew.",
+    },
+    testimonial: {
+      quote:
+        "We'd been burned by two SEO agencies before Skyup. Within 60 days our traffic started climbing. By month four we ranked in the top 3 for our main product keywords — and the monthly report actually made sense.",
+      author: "Rohan K.",
+      role: "Founder, D2C Wellness Brand",
+    },
+    faqTitle: "Frequently Asked Questions About Our AI Automation Services",
     faqs: [
       {
         q: "What are AI automation services?",
-        a: "They use AI to handle repetitive business tasks automatically — saving time, reducing errors, and helping you scale without hiring more staff.",
+        a: "AI automation services use artificial intelligence to handle repetitive business tasks automatically - saving time, reducing errors and helping your business scale faster without hiring more staff.",
       },
       {
-        q: "How does a local AI automation company help?",
-        a: "A Bangalore-based company understands your market, tools, and environment, and eliminates manual work across sales, marketing, and ops — with support a call away.",
+        q: "How does an AI automation company in Bangalore help my business?",
+        a: "A local AI automation company in Bangalore understands your market, tools and business environment. Skyup eliminates manual work across sales, marketing and operations — so your team focuses on growth while AI handles the routine tasks 24/7, with support just a call away.",
       },
       {
         q: "What is AI workflow automation?",
-        a: "It connects your tools and systems so data moves and tasks trigger automatically — no manual copy-pasting, follow-ups, or reporting.",
+        a: "AI workflow automation connects your tools and systems so data moves and tasks trigger automatically — no manual copy-pasting, follow-ups or reporting needed.",
       },
       {
         q: "What is AI marketing automation?",
-        a: "It runs your email campaigns, lead nurturing, social posting, and reporting on autopilot, delivering personalised communication at scale.",
+        a: "AI marketing automation runs your email campaigns, lead nurturing, social posting and reporting on autopilot — delivering personalised communication to your audience at scale.",
       },
       {
-        q: "Do I need technical knowledge?",
-        a: "No. We handle design, build, testing, and training — you get the results without touching code.",
+        q: "Do I need technical knowledge to use AI automation?",
+        a: "No. Skyup Digital Solution LLP handles everything — design, build, testing and training. You get the results without touching any code.",
       },
       {
         q: "How long does it take to go live?",
-        a: "Most clients are live within 2-4 weeks of their first strategy call, depending on workflow complexity.",
+        a: "Most clients are live within 2 to 4 weeks of their first strategy call, depending on the complexity of the workflows involved.",
       },
       {
         q: "What is AI in automation testing?",
-        a: "It uses machine learning to generate and run software test cases automatically — reducing QA time by up to 70% and catching bugs faster.",
+        a: "AI in automation testing uses machine learning to automatically generate and run software test cases — reducing QA time by up to 70% and catching bugs faster.",
       },
       {
         q: "Which industries do you serve?",
-        a: "All industries — e-commerce, real estate, healthcare, SaaS, professional services, education, and manufacturing.",
+        a: "We deliver AI automation services across all industries — e-commerce, real estate, healthcare, SaaS, professional services, education and manufacturing.",
       },
       {
         q: "How much do AI automation services cost?",
-        a: "It depends on scope and workflows. We offer a free AI audit first, so you know exactly what's needed before any investment.",
+        a: "Pricing depends on the scope and workflows involved. We offer a free AI audit first so you know exactly what's needed before any investment is made.",
       },
       {
-        q: "Why choose Skyup for AI automation?",
-        a: "A proven, Bangalore-based team with deep expertise in AI automation, delivering measurable results through a transparent, no-obligation process.",
+        q: "Why choose Skyup Digital Solution LLP as my AI automation company in Bangalore?",
+        a: "We are a proven, Bangalore-based AI automation company in Bangalore with deep expertise in artificial intelligence automation — delivering real, measurable results for 50+ businesses through a transparent, no-obligation process. We know Bangalore's business landscape and we speak your language.",
       },
     ],
     cta: {
-      title: "Get your free AI automation audit today",
+      title: "Get Your Free AI Automation Audit Today",
       subtitle:
-        "Book a free 30-minute strategy call. No commitment, no jargon — just a clear picture of what AI automation can do for your business.",
+        "Book your free 30-minute strategy call now. No commitment. No jargon. Just a clear picture of what AI automation can do for your business — from the team that knows Bangalore best.",
+      primaryLabel:"Book My Free AI Automation Audit"
     },
     related: [
       {
-        slug: "crm",
-        desc: "Pair automation with SkyUp CRM so captured leads are assigned, greeted, and tracked automatically.",
-      },
-      {
-        slug: "machine-learning",
-        desc: "Go beyond rules — add predictive models for scoring, forecasting, and anomaly detection.",
+        slug: "graphic-design",
+        desc: "Great content needs great visuals. Design makes your blogs readable and your brand memorable — and supports your SEO.",
       },
       {
         slug: "web-development",
-        desc: "Connect automations to your site and apps with the right integrations and endpoints.",
+        desc: "A poorly structured site caps your technical SEO. We fix it at the root.",
+      },
+      {
+        slug: "performance-marketing",
+        desc: "Run PPC while SEO gains traction, so you capture leads across the whole funnel.",
       },
     ],
   },
 
   // ───────────────────────────────────────────────── Machine Learning ──
-  {
+ {
     slug: "machine-learning",
     name: "Machine Learning",
     Icon: BrainCircuit,
@@ -1145,221 +1431,241 @@ export const SERVICES = [
     tagline:
       "Smarter decisions with models that learn from your data — predict churn, demand and lifetime value.",
     items: [
-      "Custom ML model development",
-      "Predictive analytics & forecasting",
-      "NLP, deep learning & computer vision",
-      "Recommendation & anomaly detection",
-      "MLOps & model deployment",
-      "Integration, monitoring & support",
+      "Custom Machine Learning Solutions",
+      "End-to-End AI & ML Development support",
+      "Artificial Intelligence & Machine Learning",
+      "Machine Learning Projects for Industry",
     ],
     heroHeadline:
-      "Machine learning services in Bangalore for smarter business growth",
+      "Machine Learning Services in Bangalore for Smarter Business Growth",
     heroSubline:
-      "Turn your business data into something useful — not just numbers. We help teams use AI and machine learning to automate, optimise, forecast, and make better decisions, and to spot new growth avenues.",
-    overview: [
-      "Every day, businesses produce huge amounts of data, but most struggle to turn it into meaningful insight. Growing competition, inaccurate forecasting, data silos, and manual decision-making are key challenges for growth-focused companies.",
-      "This is where machine learning becomes a real competitive advantage. With advanced algorithms, businesses can reveal hidden patterns, anticipate outcomes, automate routine work, and move faster with smarter decisions.",
-      "Modern ML models keep learning from new data and improve over time, unlike classical analytics. We help businesses find the most impactful opportunities and deploy scalable machine learning that creates long-term value.",
-    ],
+      "Turn your business data into something useful, not just numbers — with our machine learning services in Bangalore. We help teams use Artificial Intelligence and Machine Learning to automate, optimise, forecast, and reimagine day-to-day processes for better decision-making — and to spot new growth avenues, quietly but effectively. As a trusted AI & Machine Learning solutions vendor, we create, build, and deploy custom Machine Learning models that address your business goals — from predictive analytics to customer intelligence, fraud prevention to computer vision and NLP — all scalable and enterprise-ready.",
+    painPoints: {
+      title:
+        "Your business has data. But it’s not helping you make smarter decisions.",
+      intro:
+        "You may already have customer data, sales data, enquiry data, operational data, or reports. But if that data is only stored and not analysed intelligently, you may be missing patterns, predictions, and opportunities for growth. It’s frustrating — and it’s fixable.",
+      points: [
+        {
+          title: "Data is collected but not used",
+          desc: "Many businesses store large amounts of data in spreadsheets, CRM tools, software, or reports. But without machine learning, that data does not help predict customer behaviour, demand, sales trends, or business risks.",
+        },
+        {
+          title: "Decisions are based on guesswork",
+          desc: "Business owners often make decisions based on experience alone. Machine learning helps identify patterns in data, making decisions more accurate, faster, and insight-driven.",
+        },
+        {
+          title: "Manual analysis takes too much time",
+          desc: "Reviewing reports, comparing numbers, and finding trends manually can take hours or days. Machine learning can process data quickly and highlight useful insights automatically.",
+        },
+        {
+          title: "No prediction, only past reports",
+          desc: "Traditional reports only show what already happened. Machine learning helps forecast what may happen next — such as future sales, customer churn, demand changes, or lead quality.",
+        },
+      ],
+    },
     offerings: {
-      title: "Our machine learning services",
+      title: "Our Machine Learning Services",
       points: [
         {
           title: "Machine Learning Consulting",
-          desc: "We help you find opportunities to apply AI and ML for automation, optimisation, and data-driven decisions, with custom strategies matched to your objectives.",
+          desc: "We provide machine learning consulting to help companies find opportunities to leverage AI and machine learning for automation, optimization, and data-driven decision-making. We create custom strategies to match your business objectives.",
         },
         {
-          title: "Custom ML Model Development",
-          desc: "We design and build custom models for your specific challenges using your data — accurate predictions, sharper insights, and smarter automation.",
+          title: "Custom Machine Learning Model Development",
+          desc: "We design and develop custom machine learning models that tackle your specific business obstacles using your data. These solutions bring accurate predictions, sharper insights, and smarter automation — in a way that actually fits.",
         },
         {
           title: "Predictive Analytics Solutions",
-          desc: "Insights from historical and real-time data to give you a clearer picture of trends, customer needs, demand, and potential risks.",
+          desc: "Use predictive analytics to deliver valuable insights from historical and real-time data. We help businesses get a more accurate picture of trends, customer requirements, demand, and potential hazards.",
         },
         {
-          title: "ML Algorithm Development",
-          desc: "We fine-tune and design algorithms for specific tasks — classification, clustering, forecasting, recommendation systems — and optimise their performance.",
+          title: "Machine Learning Algorithm Development",
+          desc: "Our experts fine-tune and design machine learning algorithms for a specific task — a classification or clustering algorithm, a forecasting algorithm, a recommendation system, and more — by optimizing their performance.",
         },
         {
           title: "Data Preparation & Feature Engineering",
-          desc: "Good data is the base for good models. We clean, organise, and engineer features to boost model accuracy and efficiency.",
+          desc: "Good data is the base for successful machine learning models. We clean it, organize it, and engineer the data features to boost model accuracy and overall efficiency.",
         },
         {
           title: "Natural Language Processing (NLP)",
-          desc: "Sentiment analysis, text classification, chatbots, document processing, and language automation powered by AI language understanding.",
+          desc: "Use AI-powered language understanding with advanced NLP solutions. We develop systems for sentiment analysis, text classification, chatbots, document processing, and language automation.",
         },
         {
           title: "Deep Learning Solutions",
-          desc: "Models for image recognition, speech processing, language understanding, and intelligent decision-making.",
+          desc: "We build deep learning models that can solve tricky problems like image recognition, speech processing, natural language understanding, and intelligent decision-making in the same flow.",
         },
         {
           title: "Computer Vision Solutions",
-          desc: "Object detection, image classification, facial recognition, video analytics, and quality-inspection systems.",
+          desc: "Unlock visual intelligence with computer vision solutions. Our services cover object detection, image classification, facial recognition, video analytics, and quality-inspection systems — we help you see what matters, faster.",
         },
         {
-          title: "Model Training & Optimization",
-          desc: "We train, validate, and optimise models for higher accuracy and performance, kept scalable and dependable for real-world use.",
+          title: "Machine Learning Model Training & Optimization",
+          desc: "We train, validate, and optimize machine learning models to push for higher accuracy and overall performance. Our approach keeps things scalable yet dependable for real-world use.",
         },
         {
-          title: "AI & ML Integration",
-          desc: "Blend AI and ML into your existing apps, systems, and workflows to drive efficiency, automation, and better customer experiences.",
+          title: "AI & Machine Learning Integration",
+          desc: "Seamlessly blend AI and machine-learning know-how into your existing apps, business systems, and day-to-day workflows. This helps drive efficiency, automation, and better customer experiences.",
         },
         {
           title: "MLOps & Model Deployment",
-          desc: "Solid MLOps practices for smooth integration, ongoing monitoring, and scalable production environments that stay stable under changing traffic.",
+          desc: "Speed up how you ship and maintain machine learning models with solid MLOps practices and robust guardrails. We help with smooth integration, ongoing monitoring, and scalable production environments that don’t wobble when traffic changes.",
         },
         {
           title: "Fraud Detection Systems",
-          desc: "Intelligent models that spot suspicious behaviour and anomalies in real time, protecting you from losses and security risks.",
+          desc: "Keep your business safe from monetary losses and security risks with an intelligent fraud-detection setup. Our machine learning models spot questionable behaviours and odd patterns — anomalies — in real time.",
         },
         {
           title: "Customer Behavior Analytics",
-          desc: "Understand customer preferences and interactions to improve engagement, retention, and relevant marketing.",
+          desc: "Get more context on customer preferences and interactions using machine learning. We help organizations achieve stronger customer engagement, better retention, and marketing strategies that feel actually relevant.",
         },
         {
           title: "Anomaly Detection Solutions",
-          desc: "Catch unusual patterns, operational issues, and threats early with proactive monitoring and risk management.",
+          desc: "Catch unusual patterns, operational hiccups, and possible threats before they start affecting your business. Our anomaly-detection solutions provide proactive monitoring and risk management — early-warning stuff.",
         },
         {
           title: "Real-Time Data Analytics",
-          desc: "Process and analyse streaming data in real time so teams get instant insights for fast-moving environments.",
+          desc: "We process and analyse streaming data in real time, so teams can make faster decisions. With our machine learning-powered analytics, you get instant insights for shifting business environments — far more responsive than “wait and see”.",
         },
         {
-          title: "ML Maintenance & Support",
-          desc: "Ongoing monitoring, maintenance, and optimisation, improving model performance as new data and requirements arrive.",
+          title: "Machine Learning Maintenance & Support",
+          desc: "Keep long-term success on track with ongoing machine learning model monitoring, maintenance, and optimization. We keep improving model performance as new data comes in and as business requirements change.",
         },
         {
           title: "AI & ML Product Development",
-          desc: "We build AI-powered products that improve user experiences, automate processes, and create a real competitive edge.",
+          desc: "We build creative AI and machine learning-powered products that improve user experiences, automate processes, and create a real competitive edge for businesses across industries.",
         },
       ],
     },
+    processIntro:
+      "We follow a structured, end-to-end machine learning development process — from understanding your business goals to deploying and maintaining models in production — so every solution stays accurate, scalable, and tied to real outcomes.",
+    processTitle: "Our Machine Learning Development Process",
     process: [
       {
         title: "Business Understanding & Requirement Analysis",
-        desc: "We align on your goals, challenges, and needs so it's clear which type of ML to use and what success looks like.",
+        desc: "We start by working out the goals, challenges, and needs your business faces. We align on what you really want, so it’s clear which type of machine learning we should use and what the goals are for the solution. It can feel fuzzy at first, but we make it more precise, step by step.",
       },
       {
         title: "Data Collection & Assessment",
-        desc: "We gather and aggregate data from your sources, ensuring it's relevant, complete, and fit for model building.",
+        desc: "Next we collect and aggregate data from various sources to make sure it’s relevant, complete, and fit for purpose in the model-building process. High-quality data is key to accurate results — without it, the model tends to wander.",
       },
       {
         title: "Data Preparation & Feature Engineering",
-        desc: "We clean and organise raw data, remove inconsistencies, and engineer features that improve predictive accuracy.",
+        desc: "We tidy, reorder, and organize raw data to remove duplication and produce a usable format free of inconsistencies. Feature-creation processes are used to improve model performance and predictive accuracy.",
       },
       {
         title: "Model Selection & Development",
-        desc: "We choose the right algorithms and build custom models for your requirements.",
+        desc: "Depending on the requirements of the project, we choose the most appropriate machine learning algorithms and create custom machine learning models for your needs.",
       },
       {
         title: "Model Training & Validation",
-        desc: "Models are trained on historical data and rigorously validated to be reliable and accurate.",
+        desc: "The machine learning model is informed by historical data and strictly validated through a validation process. The model is continually evolved to be more reliable and more accurate.",
       },
       {
         title: "Performance Optimization",
-        desc: "We fine-tune parameters and optimise algorithms for efficiency, scalability, and accuracy while controlling compute cost.",
+        desc: "Our experts fine-tune model parameters and optimize algorithms to be as efficient, scalable, and accurate as possible while minimizing computational expense.",
       },
       {
         title: "Deployment & Integration",
-        desc: "Validated models are deployed to production and integrated into your applications, systems, and workflows.",
+        desc: "Upon successful validation, the machine learning solution is deployed to production environments and effortlessly integrated into your current applications, systems, or workflows.",
       },
       {
         title: "Monitoring & Continuous Improvement",
-        desc: "We monitor performance continuously and retrain models with new data to maintain effectiveness and business value.",
+        desc: "Model performance is monitored continuously, and models are retrained with new data and improved as needed to provide ongoing effectiveness and business value.",
       },
       {
         title: "Ongoing Support & Maintenance",
-        desc: "We provide technical support, updates, and maintenance so your ML solution keeps evolving with your business.",
+        desc: "Our team provides technical support, updates, and maintenance so your machine learning solution continues to evolve and thrive with your business needs.",
       },
     ],
     whyChooseUs: {
-      title: "Why choose us",
+      title: "Why Choose Us",
       points: [
         {
-          title: "Expertise in AI & ML",
-          desc: "Strong, practical know-how to craft smart solutions for complex business problems — not just theory.",
+          title: "Expertise in AI & Machine Learning",
+          desc: "We’ve got strong know-how in artificial intelligence and machine learning, so we can craft smart solutions that solve complex business problems efficiently. It’s more than just theory — it’s practical.",
         },
         {
-          title: "Custom-built solutions",
-          desc: "Every model is tuned to your business goals, industry needs, and data environment — never one-size-fits-all.",
+          title: "Custom-Built Solutions",
+          desc: "We’re not the one-size-fits-all type. Every machine learning model, and the solution around it, is tuned to your business goals, industry needs, and how your data environment actually looks.",
         },
         {
-          title: "End-to-end development",
-          desc: "Strategy, data prep, model deployment, and ongoing support — the whole journey handled in one place.",
+          title: "End-to-End Development",
+          desc: "From strategy and data preparation, through model deployment, to ongoing support, we handle the whole machine learning development journey in one place.",
         },
         {
-          title: "Advanced algorithms",
-          desc: "We use the latest ML algorithms, deep learning, and AI capabilities for accurate, dependable results.",
+          title: "Advanced Machine Learning Algorithms",
+          desc: "We tap into the latest machine learning algorithms, deep learning approaches, and AI capabilities to produce results that are both accurate and dependable.",
         },
         {
-          title: "Scalable & future-ready",
-          desc: "Models built to scale with your business, supporting long-term performance and adaptability.",
+          title: "Scalable & Future-Ready Solutions",
+          desc: "Our machine learning models are made to scale right along with your business — not only for today, but for the long run — supporting long-term performance, adaptability, and expansion as your data keeps changing over time.",
         },
         {
-          title: "Data-driven decision making",
-          desc: "We surface useful insights so leaders make smarter decisions and improve operational efficiency.",
+          title: "Data-Driven Decision Making",
+          desc: "We help organizations reveal useful insights from their data, so leaders can make smarter decisions — and the result is often better operational efficiency in day-to-day workflows.",
         },
         {
-          title: "Seamless integration",
-          desc: "Solutions fit smoothly into your apps, CRM, ERP, websites, and workflows, with minimal disruption.",
+          title: "Seamless Integration",
+          desc: "Our machine learning solutions fit in smoothly with what you already have — applications, CRM systems, ERP platforms, websites, and the business workflows you rely on — with minimal disruption.",
         },
         {
-          title: "Focus on accuracy & performance",
-          desc: "Continuous training, testing, and validation until models hit solid real-world accuracy.",
+          title: "Focus on Accuracy & Performance",
+          desc: "We keep training, testing, and validating machine learning models until they hit solid accuracy and efficiency, then tune again as needed. We also make sure everything works well in the real world, not just inside a controlled test lab.",
         },
         {
-          title: "Transparent communication",
-          desc: "Steady updates, performance summaries, and full visibility into how the work is progressing.",
+          title: "Transparent Communication",
+          desc: "We keep communication clear throughout the whole project, so you get steady updates, performance summaries, and full visibility into how the work is moving.",
         },
       ],
     },
-    faqTitle: "Frequently asked questions",
+    faqTitle: "Frequently Asked Questions",
     faqs: [
       {
         q: "What are machine learning services?",
-        a: "They help businesses use AI models and algorithms to automate processes, analyse data, and make intelligent predictions.",
+        a: "Machine learning services help businesses use AI models and algorithms to automate processes, analyze data, and make intelligent predictions.",
       },
       {
         q: "How can machine learning benefit my business?",
-        a: "It improves efficiency, reduces manual effort, enhances decision-making, and uncovers valuable insights from data.",
+        a: "Machine learning improves efficiency, reduces manual effort, enhances decision-making, and uncovers valuable insights from data.",
       },
       {
-        q: "What industries can use ML solutions?",
-        a: "Healthcare, finance, retail, manufacturing, logistics, education, and many others.",
+        q: "What industries can use machine learning solutions?",
+        a: "Machine learning is widely used in healthcare, finance, retail, manufacturing, logistics, education, and many other industries.",
       },
       {
-        q: "What's the difference between AI and ML?",
-        a: "AI is the broader concept; machine learning is a subset of AI that enables systems to learn from data.",
+        q: "What is the difference between AI and machine learning?",
+        a: "Artificial Intelligence (AI) is a broader concept, while machine learning is a subset of AI that enables systems to learn from data.",
       },
       {
-        q: "How long does it take to develop a model?",
-        a: "It depends on complexity, data availability, and requirements — typically from a few weeks to several months.",
+        q: "How long does it take to develop a machine learning model?",
+        a: "The timeline depends on project complexity, data availability, and business requirements — typically ranging from a few weeks to several months.",
       },
       {
-        q: "Do I need large amounts of data?",
-        a: "More quality data often helps, but many models can be developed effectively with moderate datasets.",
+        q: "Do I need large amounts of data for machine learning?",
+        a: "While more quality data often improves results, many machine learning models can be developed effectively with moderate datasets.",
       },
       {
-        q: "What types of models do you develop?",
-        a: "Predictive models, recommendation engines, classification models, anomaly detection, NLP, and computer vision applications.",
+        q: "What types of machine learning models do you develop?",
+        a: "We develop predictive models, recommendation engines, classification models, anomaly detection systems, NLP solutions, and computer vision applications.",
       },
       {
-        q: "Can ML be integrated into existing systems?",
-        a: "Yes — into websites, mobile apps, CRM platforms, ERP systems, and business workflows.",
+        q: "Can machine learning be integrated into existing systems?",
+        a: "Yes, machine learning solutions can be seamlessly integrated into websites, mobile apps, CRM platforms, ERP systems, and business workflows.",
       },
       {
-        q: "How accurate are ML models?",
-        a: "Accuracy depends on data quality, use case, and algorithm choice; we continuously optimise for the best possible performance.",
+        q: "How accurate are machine learning models?",
+        a: "Model accuracy depends on data quality, use case, and algorithm selection, but our team continuously optimizes models for the best possible performance.",
       },
       {
         q: "Do you provide support after deployment?",
-        a: "Yes — ongoing maintenance, monitoring, retraining, and optimisation so models keep performing.",
+        a: "Yes, we offer ongoing maintenance, monitoring, retraining, and optimization to ensure your machine learning models continue to perform effectively.",
       },
     ],
     cta: {
-      title: "Ready to transform your business with machine learning?",
+      title: "Ready to Transform Your Business with Machine Learning?",
       subtitle:
-        "Collaborate with a reliable Machine Learning services provider in Bangalore and unlock the full potential of your data with state-of-the-art AI and ML.",
+        "Collaborate with a reliable Machine Learning Services Bangalore provider and gain the utmost potential of your data through state-of-the-art AI and ML solutions.",
     },
     related: [
       {
@@ -1378,7 +1684,7 @@ export const SERVICES = [
   },
 
   // ───────────────────────────────────────────────────── UI/UX Design ──
-  {
+ {
     slug: "ui-ux-design",
     name: "UI / UX Design",
     Icon: PenTool,
@@ -1397,185 +1703,223 @@ export const SERVICES = [
       "Usability testing & developer handoff",
     ],
     heroHeadline:
-      "UI/UX design in Bangalore that enhances experience & drives conversions",
+      "UI/UX Design Services in Bangalore That Enhance User Experience & Drive Conversions",
     heroSubline:
-      "We're a leading UI/UX design company in Bangalore that turns digital products into seamless, intuitive experiences — higher engagement, lower bounce rates, and stronger conversions.",
-    benefitsTitle: "What makes our UI/UX design different",
+      "We are a leading UI/UX design company in Bangalore that transforms digital products into seamless, intuitive experiences. Whether you need a full product redesign or a first-time UI and UX design for your web or mobile app, our expert team delivers measurable outcomes — higher engagement, lower bounce rates, and stronger conversions.",
+    benefitsTitle: "What makes our UI/UX design services different",
     benefits: [
       "Research-first methodology — every design decision is backed by user data",
       "End-to-end delivery — from wireframes and prototypes to final handoff",
       "Bangalore-based team with global delivery experience",
     ],
+    painPoints: {
+      title: "Your website looks good. But users are not taking action.",
+      intro:
+        "You may have a website, app, or landing page that looks visually attractive. But if visitors are confused, unable to find information, or not clicking the right buttons, your design is losing leads. It’s frustrating — and it’s fixable.",
+      points: [
+        {
+          title: "Visitors leave without action",
+          desc: "People visit your website or app but do not enquire, book, buy, or contact you. Poor user flow, unclear sections, and weak CTA placement can make users drop off before converting.",
+        },
+        {
+          title: "Confusing user journey",
+          desc: "If users don’t know where to click, what to read, or what step to take next, they may leave. Good UI/UX makes the journey simple, smooth, and conversion-focused.",
+        },
+        {
+          title: "Design looks good but doesn’t convert",
+          desc: "Attractive visuals alone are not enough. Your design needs proper structure, clear messaging, easy navigation, trust elements, and action-focused layouts to generate business results.",
+        },
+        {
+          title: "No clarity on user behaviour",
+          desc: "You don’t know where users are dropping off, which sections they ignore, or why they are not converting. UI/UX analysis helps identify friction points and improve performance.",
+        },
+      ],
+    },
     offerings: {
-      title: "Our UI/UX design services",
+      title: "Our UI/UX Design Services",
+      subtitle:
+        "Our comprehensive UI/UX design services cover every phase of the design lifecycle — from discovery and research through to final developer handoff. Here is a breakdown of what we offer:",
       points: [
         {
           title: "UX Research & Audit",
-          desc: "User interviews, heuristic evaluations, competitor analysis, and usability audits to uncover friction in your current product.",
+          desc: "User interviews, heuristic evaluations, competitor analysis, and usability audits to uncover friction points in your current product.",
         },
         {
           title: "User Journey Mapping",
-          desc: "We map the complete customer journey to find pain points and create seamless interactions across every touchpoint.",
+          desc: "We map the complete customer journey to identify pain points and create seamless interactions across every touchpoint.",
         },
         {
           title: "Information Architecture",
-          desc: "Sitemaps, content structure, and navigation designed so users always find what they're looking for.",
+          desc: "Developing and planning sitemaps, structuring content, and designing navigation to always help users locate what they are looking for.",
         },
         {
           title: "Wireframing & Low-Fi Prototypes",
-          desc: "Structural layouts and user flows validated before visual treatment — we check the logic before the pixels.",
+          desc: "Structural layouts of the page and user flow — checked before visual treatment. We validate the logic before the pixels.",
         },
         {
           title: "UI Design & Visual Language",
-          desc: "Pixel-perfect, on-brand interface design with full attention to desktop and mobile breakpoints.",
+          desc: "Expert, pixel-perfect interface design matching your brand. Our web-design practice gives the highest priority to desktop and mobile breakpoints in UI/UX web design.",
         },
         {
           title: "Interactive Prototyping",
-          desc: "Clickable, animated prototypes of the real experience for stakeholder review and user testing.",
+          desc: "Clickable, animated prototypes of the actual experience for stakeholder review and user testing.",
         },
         {
           title: "Design Systems",
-          desc: "A scalable component library with typography, colour, and spacing tokens for your dev team.",
+          desc: "A project-level, scalable component library with typography styles, colour palettes, and spacing for your dev team.",
         },
         {
           title: "Dashboard & Enterprise UI Design",
-          desc: "Easy-to-use dashboards, CRM apps, ERP platforms, and business apps that streamline workflows.",
+          desc: "Easy-to-use dashboards, CRM apps, ERP platforms, and business apps that streamline processes.",
         },
         {
           title: "Mobile App UI/UX Design",
-          desc: "User-friendly Android and iOS interfaces focused on usability, engagement, and satisfaction.",
+          desc: "User-friendly Android and iOS app interfaces focused on usability, engagement, and customer satisfaction.",
         },
         {
           title: "E-commerce UI/UX Design",
-          desc: "Intuitive navigation, product discovery, and streamlined checkout that increase conversions.",
+          desc: "Optimize shopping experiences with intuitive navigation, product discovery, and streamlined checkout processes that increase conversions.",
         },
         {
           title: "Responsive Design",
-          desc: "Interfaces that deliver a seamless experience across desktop, tablet, and mobile.",
+          desc: "Responsive interfaces that deliver a seamless experience across desktops, tablets, and smartphones. We optimize layouts, navigation, and interactions to ensure usability, engagement, and consistency on every device.",
         },
         {
           title: "Interface Redesign",
-          desc: "Bring an existing product up to modern standards for usability, experience, and conversion.",
+          desc: "Update your website to current design standards, designing for ease of interaction, user experience, and conversions across all devices and platforms.",
         },
         {
           title: "Usability Testing",
-          desc: "Moderated and unmoderated sessions with real users to validate design decisions before development.",
+          desc: "Real user sessions, both moderated and unmoderated. Before any development starts, all design decisions are validated.",
         },
       ],
     },
-    whyChooseUs: {
-      title: "Why choose us as your UI/UX design company in Bangalore",
-      points: [
-        {
-          title: "Results-focused design",
-          desc: "Our success is measured by what happens after launch — engagement, conversion, and retention, tied to your KPIs from the start.",
-        },
-        {
-          title: "End-to-end expertise",
-          desc: "Research, IA, visual design, and front-end thinking in one seamless process. No handoff gaps, no silos.",
-        },
-        {
-          title: "Transparency at every step",
-          desc: "Live Figma files, weekly syncs, and a dedicated project lead — no black-box agency.",
-        },
-        {
-          title: "Industry-leading tools",
-          desc: "Deep experience with Figma, Adobe XD, and Miro for UI and collaborative UX work.",
-        },
-        {
-          title: "Local presence, global experience",
-          desc: "A Bangalore UI/UX firm offering local cost-effectiveness with global-quality output.",
-        },
-      ],
-    },
+    processIntro:
+      "All encounters are managed via a well-defined and transparent UI/UX design process. This is how we take a product from discovery to final handoff.",
+    processTitle: "Our UI/UX Design Process — Six Steps to a Finished Product",
     process: [
       {
         title: "Discovery & Research",
-        desc: "Stakeholder interviews, user research, competitor analysis, and a heuristic evaluation — plus personas and current-state journey mapping.",
+        desc: "Stakeholder interviews, user research, competitor analysis, and a heuristic evaluation of the current product. We develop personas and current-state journey mapping.",
       },
       {
         title: "UX Strategy & Architecture",
-        desc: "Information architecture, user flows, and sitemap — the product structure defined before any visual work.",
+        desc: "Information architecture, user flows, and sitemap. The structure of the product is defined before any visual work begins.",
       },
       {
         title: "Wireframing",
-        desc: "Low-fidelity wireframes of key pages and flows, reviewed with you before visual design.",
+        desc: "Low-fidelity wireframes of all important pages and flows, reviewed and discussed with you before visual design.",
       },
       {
         title: "Visual UI Design",
-        desc: "High-fidelity, fully branded UI covering all breakpoints, states (hover, error, empty), and interactions.",
+        desc: "High-fidelity UI fully branded in your visual language, covering all breakpoints, states (hover, error, empty), and interactions.",
       },
       {
         title: "Prototyping & Testing",
-        desc: "Interactive Figma prototypes tested with real users via Maze; results inform the final iteration.",
+        desc: "Interactive prototypes built in Figma and tested with real users via Maze. Results inform the final iteration round.",
       },
       {
         title: "Handoff & Support",
-        desc: "Design tokens, component annotations, and developer specs via Figma Dev Mode — and we stay available during the build.",
+        desc: "Design tokens, component annotations, and developer specs delivered through Figma Dev Mode. We stay available during the dev build.",
       },
     ],
+    whyChooseUs: {
+      title: "Why Choose Us as Your UI/UX Design Company in Bangalore",
+      points: [
+        {
+          title: "Results-Focused Design",
+          desc: "Most agencies drop off files and go away. Our success is defined by what happens after we launch — engagement metrics, conversion rates, and user retention. From the outset, our UI/UX design process is tied directly to your business KPIs.",
+        },
+        {
+          title: "End-to-End UI/UX Expertise",
+          desc: "We don’t separate design from strategy. Our senior UI/UX designers combine user research, information architecture, visual design, and front-end thinking within a seamless process. No handoff gaps. No silos.",
+        },
+        {
+          title: "Transparency at Every Step",
+          desc: "Access to live Figma files, weekly syncs, and a dedicated project lead. No black-box agency experience — you’re part of the design, not just the end user.",
+        },
+        {
+          title: "Industry-Leading Design Tools",
+          desc: "We have deep experience with industry-leading UX and UI software: Figma (UI design), Adobe XD (UX design), and Miro (collaborative UX work).",
+        },
+        {
+          title: "Local Presence, Global Experience",
+          desc: "As a Bangalore-based UI/UX design firm, we offer the cost-effectiveness of a local design agency with the quality of a global one.",
+        },
+      ],
+    },
     toolsTitle: "Tools we design with",
     tools: ["Figma", "Adobe XD", "Miro", "Maze"],
     // Dummy — replace with verified client testimonials.
+
+    caseStudy: {
+      industry: "D2C Skincare Brand, Bangalore",
+      problem:
+        "Rs 80K/month on Google Ads, near-zero organic traffic, and no content strategy in place.",
+      whatWeDid:
+        "A full technical audit, 40+ keyword-mapped blogs, category-page optimisation, and 60 quality backlinks over five months.",
+      result:
+        "Organic sessions grew from 900 to 11,400/month. Ad spend cut by 55% while revenue grew.",
+    },
     testimonials: [
       {
         quote:
-          "Working with their team was the best UI/UX decision we made. The redesign of our SaaS dashboard reduced onboarding drop-off by 47%. Their process is structured, transparent, and genuinely collaborative.",
+          "Working with their team was the best UI/UX design decision we made. The redesign of our SaaS dashboard reduced onboarding drop-off by 47%. Their UI/UX design process is structured, transparent, and genuinely collaborative. Highly recommend them as a UI/UX design company in Bangalore.",
         author: "Priya Menon",
         role: "CPO, FinTrack Technologies, Bangalore",
       },
       {
         quote:
-          "We'd tried two other agencies before finding them. The difference was night and day — their designers actually read our user research, challenged our assumptions, and delivered samples in week two more polished than what we'd seen after months elsewhere.",
+          "We had tried two other agencies before finding them. The difference was night and day. Their UI/UX designers actually read our user research, challenged our assumptions, and delivered UI/UX design samples in week two that felt more polished than what we’d seen after months elsewhere.",
         author: "Karthik Rajan",
         role: "Founder, MedBook Health, Chennai",
       },
     ],
-    faqTitle: "Frequently asked questions about UI/UX design",
+    faqTitle: "Frequently Asked Questions About UI/UX Design",
     faqs: [
       {
         q: "What are UI/UX design services in Bangalore?",
-        a: "They help businesses create user-friendly, visually appealing websites and apps that improve customer experience and engagement.",
+        a: "UI/UX design services in Bangalore help businesses create user-friendly, visually appealing websites and applications that improve customer experience and engagement.",
       },
       {
-        q: "Why is UI/UX design important for a website?",
-        a: "It improves usability, enhances satisfaction, and increases conversions through intuitive navigation and better experiences.",
+        q: "Why is UI/UX design important for a business website?",
+        a: "UI/UX design improves usability, enhances user satisfaction, and helps increase conversions through intuitive navigation and better user experiences.",
       },
       {
-        q: "How do I choose the best UI/UX company in Bangalore?",
-        a: "Look for a strong portfolio, proven experience, client testimonials, and a structured UI/UX design process.",
+        q: "How do I choose the best UI/UX design company in Bangalore?",
+        a: "Look for a UI/UX design company in Bangalore with a strong portfolio, proven experience, client testimonials, and a structured UI/UX design process.",
       },
       {
         q: "What does a UI/UX designer do?",
-        a: "Researches user behaviour, creates wireframes, designs interfaces, and optimises digital experiences for web and mobile.",
+        a: "A UI/UX designer researches user behavior, creates wireframes, designs interfaces, and optimizes digital experiences for websites and mobile apps.",
       },
       {
-        q: "What's the difference between UI and UX design?",
-        a: "UI focuses on visual elements like colour, type, and layout; UX focuses on user journeys, usability, and overall experience.",
+        q: "What is the difference between UI and UX design?",
+        a: "UI design focuses on visual elements like colors, typography, and layouts, while UX design focuses on user journeys, usability, and overall experience.",
       },
       {
-        q: "What's included in UI/UX design services?",
-        a: "User research, wireframing, prototyping, UI design, usability testing, and implementation support.",
+        q: "What is included in UI/UX design services?",
+        a: "UI/UX design services typically include user research, wireframing, prototyping, UI design, usability testing, and design implementation support.",
       },
       {
         q: "What is the UI/UX design process?",
-        a: "Research, planning, wireframing, prototyping, visual design, testing, and continuous optimisation.",
+        a: "The UI/UX design process includes research, planning, wireframing, prototyping, visual design, testing, and continuous optimization.",
       },
       {
-        q: "How much do UI/UX services cost in Bangalore?",
-        a: "It depends on project complexity, features, design requirements, and timelines.",
+        q: "How much do UI/UX design services cost in Bangalore?",
+        a: "The cost of UI/UX design services in Bangalore depends on project complexity, features, design requirements, and project timelines.",
       },
       {
-        q: "Can you redesign an existing website?",
-        a: "Yes — UI/UX web design can improve the usability, performance, and visual appeal of an existing site.",
+        q: "Can you redesign an existing website with UI/UX web design?",
+        a: "Yes, UI/UX web design services can improve the usability, performance, and visual appeal of an existing website.",
       },
       {
-        q: "Why choose your UI/UX services in Bangalore?",
-        a: "We focus on intuitive, conversion-driven digital experiences tailored to your business goals.",
+        q: "Why choose your UI/UX design services in Bangalore?",
+        a: "Our UI/UX design services in Bangalore focus on creating intuitive, conversion-driven digital experiences tailored to your business goals.",
       },
     ],
     cta: {
-      title: "Turn more visitors into customers",
+      title: "Turn More Visitors Into Customers",
       subtitle:
         "We create user experiences that reduce friction, improve engagement, and help your business achieve its goals.",
     },

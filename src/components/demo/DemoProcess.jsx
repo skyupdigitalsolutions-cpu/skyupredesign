@@ -59,7 +59,7 @@ export default function DemoProcess({
 }) {
   return (
     <section>
-      <div className="mx-auto max-w-7xl px-6 lg:px-8 ">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8 py-12">
         {/* Heading */}
         <div className="flex justify-center">
           <h2 className="text-center max-w-4xl text-[30px] font-bold leading-tight tracking-tight sm:text-[40px]">
@@ -73,7 +73,7 @@ export default function DemoProcess({
               lg:items-start (on the grid) stops this column from stretching to
               the right column's height, which is what lets it stick. */}
           <div
-            className="relative overflow-hidden rounded-2xl p-8 lg:sticky lg:top-24 lg:h-[24rem] lg:p-9"
+            className="relative overflow-hidden rounded-2xl p-8 lg:sticky lg:top-24 lg:h-[26rem] lg:p-9"
             style={{ background: CARD_BLUE }}
           >
             {promo.image && (
@@ -122,7 +122,7 @@ export default function DemoProcess({
                 <h3 className="mt-4 text-[20px] font-bold text-slate-900">
                   {step.title}
                 </h3>
-                <p className="mt-3 text-[15px] leading-relaxed text-slate-600">
+                <p className="whitespace-pre-line mt-3 text-[15px] leading-relaxed text-slate-600">
                   {step.body}
                 </p>
               </div>

@@ -48,7 +48,7 @@ function BrandMark() {
 /* Heading with a short cobalt accent bar underneath. */
 function ColHeading({ children }) {
   return (
-    <h3 className="relative inline-block pb-3 text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">
+    <h3 className="relative inline-block pb-3 text-xs font-semibold uppercase tracking-[0.14em] ">
       {children}
       <span className="absolute bottom-0 left-0 h-[3px] w-full rounded-full bg-gradient-to-r from-[#0037CA] via-[#87b6f4] to-[#ffb950]" />
     </h3>
@@ -65,7 +65,7 @@ function LinkColumn({ heading, links }) {
           <li key={l.label}>
             <a
               href={l.href}
-              className="group inline-flex items-center text-[15px] text-slate-600 transition-colors duration-200 hover:text-[#0037CA]"
+              className="group inline-flex items-center text-[15px]  transition-colors duration-200 hover:text-[#0037CA]"
             >
               <span className="w-1 -translate-x-1 overflow-hidden text-[#0037CA] opacity-0 transition-all duration-200 group-hover:w-4 group-hover:translate-x-0 group-hover:opacity-100">
                 →
@@ -117,10 +117,10 @@ function ContactChip({ icon: Icon, label, value, href }) {
         <Icon className="h-[18px] w-[18px]" />
       </span>
       <span className="min-w-0">
-        <span className="block text-sm font-semibold uppercase tracking-wider text-slate-800">
+        <span className="block text-sm font-semibold uppercase tracking-wider">
           {label}
         </span>
-        <span className="block text-[14px] font-medium text-slate-600 transition-colors group-hover:text-[#0037CA]">
+        <span className="block text-[14px] font-medium transition-colors group-hover:text-[#0037CA]">
           {value}
         </span>
       </span>
@@ -167,11 +167,11 @@ export default function Footer({
       <div className="relative z-10">
         <div className="relative -mt-16 overflow-hidden rounded-t-[2rem] border-t border-slate-100 bg-white px-6 pb-10 pt-28 shadow-[0_-8px_30px_-12px_rgba(0,0,0,0.50)] sm:-mt-24 sm:pt-36 lg:px-[120px]">
           <div className="relative mx-auto max-w-7xl">
-            <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 pt-[50px]">
+            <div className="grid grid-cols-1 gap-32 lg:grid-cols-12 pt-[50px]">
               {/* brand + contact */}
               <div className="lg:col-span-4">
                 <div className="w-[180px]">{logo}</div>
-                <p className="mt-5 max-w-xs text-[15px] leading-relaxed text-slate-500">
+                <p className="mt-5 max-w-xs text-[15px] leading-relaxed">
                   {tagline}
                 </p>
 
@@ -206,14 +206,14 @@ export default function Footer({
 
             {/* bottom bar */}
             <div className="mt-6 flex flex-col items-center justify-between gap-4 border-t border-slate-200/70 pt-8 sm:flex-row">
-              <p className="text-sm text-slate-600">{copyright}</p>
+              <p className="text-sm ">{copyright}</p>
               <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
                 <ul className="flex flex-wrap items-center gap-x-6 gap-y-2">
                   {legalLinks.map((l) => (
                     <li key={l.label}>
                       <a
                         href={l.href}
-                        className="text-sm text-slate-600 transition-colors hover:text-[#0037CA]"
+                        className="text-sm transition-colors hover:text-[#0037CA]"
                       >
                         {l.label}
                       </a>

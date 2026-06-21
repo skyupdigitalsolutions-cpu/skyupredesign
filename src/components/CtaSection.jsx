@@ -63,7 +63,7 @@ export default function CtaSection({
             {substitle}
           </h3>
           {description && (
-            <p className="mx-auto mt-5 max-w-4xl text-base  leading-relaxed text-white/75 sm:text-[17px]">
+            <p className="mx-auto mt-5 max-w-4xl text-base  leading-relaxed text-white/85 sm:text-[17px]">
               {description}
             </p>
           )}

@@ -121,7 +121,7 @@ export default function BlogDetail() {
     return (
       <section className="w-full font-['Poppins']">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-10 py-16">
-          <p className="text-slate-700">Blog not found.</p>
+          <p className="">Blog not found.</p>
           <a
             href="/blogs"
             className="text-[#0037CA] font-semibold no-underline"
@@ -162,7 +162,7 @@ export default function BlogDetail() {
       return (
         <p
           key={i}
-          className={`text-[14px] sm:text-[15px] leading-relaxed text-slate-600 ${fw(s)}`}
+          className={`text-[14px] sm:text-[15px] leading-relaxed  ${fw(s)}`}
         >
           {s.textBefore ? s.textBefore.trimEnd() + " " : ""}
           <a
@@ -183,7 +183,7 @@ export default function BlogDetail() {
       return (
         <p
           key={i}
-          className={`text-[14px] sm:text-[15px] leading-relaxed text-slate-600 ${fw(s)}`}
+          className={`text-[14px] sm:text-[15px] leading-relaxed  ${fw(s)}`}
         >
           {(s.parts || []).map((part, idx) =>
             part.bold ? (
@@ -203,11 +203,11 @@ export default function BlogDetail() {
       return (
         <p
           key={i}
-          className={`text-[14px] sm:text-[15px] leading-relaxed text-slate-600 ${fw(s)}`}
+          className={`text-[14px] sm:text-[15px] leading-relaxed  ${fw(s)}`}
         >
           {(s.partsBefore || []).map((part, idx) =>
             part.bold ? (
-              <strong key={idx} className="font-semibold text-[#111827]">
+              <strong key={idx} className="font-semibold text-[#000000]">
                 {part.text}
               </strong>
             ) : (
@@ -224,7 +224,7 @@ export default function BlogDetail() {
           </a>{" "}
           {(s.partsAfter || []).map((part, idx) =>
             part.bold ? (
-              <strong key={idx} className="font-semibold text-[#111827]">
+              <strong key={idx} className="font-semibold text-[#000000]">
                 {part.text}
               </strong>
             ) : (
@@ -256,7 +256,7 @@ export default function BlogDetail() {
       return (
         <ul
           key={i}
-          className="list-disc list-outside pl-5 space-y-2 text-[14px] sm:text-[15px] text-slate-700"
+          className="list-disc list-outside pl-5 space-y-2 text-[14px] sm:text-[15px] "
         >
           {(s.text || []).map((item, idx) => (
             <li key={idx} className="leading-relaxed">
@@ -272,7 +272,7 @@ export default function BlogDetail() {
       return (
         <ol
           key={i}
-          className="list-decimal list-outside pl-5 space-y-2 text-[14px] sm:text-[15px] text-slate-700"
+          className="list-decimal list-outside pl-5 space-y-2 text-[14px] sm:text-[15px] "
         >
           {(s.text || []).map((item, idx) => (
             <li key={idx} className="leading-relaxed">
@@ -290,7 +290,7 @@ export default function BlogDetail() {
           key={i}
           className="overflow-x-auto rounded-xl border border-slate-200"
         >
-          <table className="w-full text-[13px] sm:text-[14px] text-slate-700 border-collapse">
+          <table className="w-full text-[13px] sm:text-[14px]  border-collapse">
             <thead>
               <tr>
                 {(s.headers || []).map((h, hi) => (
@@ -337,7 +337,7 @@ export default function BlogDetail() {
       return (
         <div
           key={i}
-          className="rounded-xl border border-[#E7E9F5] bg-[#F7F9FF] px-4 py-4 text-[14px] text-slate-700"
+          className="rounded-xl border border-[#E7E9F5] bg-[#F7F9FF] px-4 py-4 text-[14px]"
         >
           <div className="border-l-4 border-[#0037CA] pl-3 italic leading-relaxed">
             {s.text}
@@ -359,7 +359,7 @@ export default function BlogDetail() {
             className="w-full h-auto"
           />
           {s.caption ? (
-            <figcaption className="px-4 py-3 text-[12px] text-slate-500">
+            <figcaption className="px-4 py-3 text-[12px]">
               {s.caption}
             </figcaption>
           ) : null}
@@ -371,7 +371,7 @@ export default function BlogDetail() {
     return (
       <p
         key={i}
-        className={`text-[14px] sm:text-[15px] leading-relaxed text-slate-600 ${fw(s)}`}
+        className={`text-[14px] sm:text-[15px] leading-relaxed ${fw(s)}`}
       >
         {s.text}
       </p>
@@ -401,7 +401,7 @@ export default function BlogDetail() {
             {blog.headline || blog.title}
           </h1>
 
-          <div className="mt-2 text-[12px] text-slate-500 flex items-center gap-3">
+          <div className="mt-2 text-[12px]  flex items-center gap-3">
             <span>{blog.author}</span>
             <span className="h-1 w-1 rounded-full bg-slate-300" />
             <span>{blog.date}</span>
@@ -451,7 +451,7 @@ export default function BlogDetail() {
                           indent,
                           t.id === activeId
                             ? "bg-[#EEF1FF] text-[#0037CA] font-semibold"
-                            : "text-slate-600 hover:bg-slate-50 hover:text-slate-900",
+                            : "hover:bg-slate-50 hover:text-slate-900",
                         ].join(" ")}
                       >
                         {t.text}

@@ -1,10 +1,21 @@
 import React, { useState, useEffect } from "react";
-import { ArrowRight } from "lucide-react";
+import {
+  ArrowRight,
+  Search,
+  TrendingUp,
+  Share2,
+  Mail,
+  Zap,
+  Cpu,
+  Code2,
+  PenTool,
+  Palette,
+} from "lucide-react";
 
 /* Cohesive, professional palette — brand cobalt alternating with a refined teal.
    Both are cool, calm, and harmonious (no more clashing cream/orange). */
-const COBALT = { bg: "#EDF2FF", accent: "#0037CA" };
-const TEAL = { bg: "#E8F6F4", accent: "#0E7C7B" };
+const COBALT = { accent: "#0037CA", from: "#0037CA", to: "#ffb950" };
+const TEAL = { accent: "#0037CA", from: "#0037CA", to: "#ffb950" };
 
 const services = [
   {
@@ -14,6 +25,7 @@ const services = [
       "SEO delivers highest ROI when done right. Our team handles technical health, keyword strategy & content optimisation, building organic visibility that compounds. Based in Bangalore, we focus on rankings generating revenue—not just traffic.",
     cta: "Grow Organically",
     href: "#seo",
+    icon: Search,
     color: COBALT,
   },
   {
@@ -23,6 +35,7 @@ const services = [
       "We deliver data-driven performance marketing solutions designed to maximise your return on ad spend, accelerate customer acquisition, and generate revenue that scales — with full transparency at every step.",
     cta: "Launch Smarter Campaigns",
     href: "#ppc",
+    icon: TrendingUp,
     color: TEAL,
   },
   {
@@ -32,6 +45,7 @@ const services = [
       "Customers are on social media—your brand builds trust or gets ignored. We create bespoke strategies for Instagram, LinkedIn, Facebook, YouTube that build awareness, cultivate engagement, turn followers into repeat paying customers.",
     cta: "Build Your Brand Presence",
     href: "#social",
+    icon: Share2,
     color: COBALT,
   },
   {
@@ -41,6 +55,7 @@ const services = [
       "Email marketing offers highest ROI of any channel. We create personalized flows & automated sequences keeping audience engaged, nurturing prospects through buyer journey, bringing customers back repeatedly. Set once. Works nonstop.",
     cta: "Automate Customer Engagement",
     href: "#email",
+    icon: Mail,
     color: TEAL,
   },
   {
@@ -50,6 +65,7 @@ const services = [
       "Imagine your business updating CRM in real time while sending personalized messages. This is AI automation. We use smart workflows saving time, minimizing human error, making sales & marketing process much more efficient.",
     cta: "Automate Your Business",
     href: "#ai",
+    icon: Zap,
     color: COBALT,
   },
   {
@@ -59,6 +75,7 @@ const services = [
       "Your business creates data daily—most goes unused. Our ML solutions analyse behavior, predict converting leads, optimise campaigns, and surface insights. Intelligence that separates market leaders from followers.",
     cta: "Explore AI Intelligence",
     href: "#ml",
+    icon: Cpu,
     color: TEAL,
   },
   {
@@ -68,6 +85,7 @@ const services = [
       "Your website is your most important marketing asset. We create fast, mobile-first, SEO-friendly websites that convert, designing the best user experience. Need a new site or rebuild? Our team builds digital foundations marketing can build on.",
     cta: "Build a Better Website",
     href: "#web",
+    icon: Code2,
     color: COBALT,
   },
   {
@@ -77,6 +95,7 @@ const services = [
       "Good design isn't looking professional—it's helping users find what they want. Our UI/UX work removes friction, builds trust, increases engagement time. Better experience means better conversions, lower bounces, more happy customers.",
     cta: "Improve User Experience",
     href: "#uiux",
+    icon: PenTool,
     color: TEAL,
   },
   {
@@ -86,6 +105,7 @@ const services = [
       "In a crowded digital landscape, visual identity is a powerful tool. We develop brand assets, social visuals, and digital creatives that communicate value clearly and stay consistent—helping your business stand out wherever your audience sees you.",
     cta: "Strengthen Your Brand",
     href: "#graphic",
+    icon: Palette,
     color: COBALT,
   },
 ];
@@ -103,15 +123,21 @@ const chunk = (arr, size) =>
    and the chunk size, so each sticky panel holds exactly one visual row —
    meaning mobile scrolls one card at a time. */
 function useColumns() {
+  // IMPORTANT: the first client render must produce the SAME markup as the
+  // prerendered HTML, otherwise hydration mismatches and React throws away the
+  // server DOM and re-renders from scratch (the "white screen for a second").
+  // The server always prerenders with 3 columns, so we start at 3 here too and
+  // only switch to the real responsive value AFTER mount (inside useEffect).
   const getCols = () => {
     if (typeof window === "undefined") return 3;
     const w = window.innerWidth;
     return w >= 1024 ? 3 : w >= 640 ? 2 : 1;
   };
-  const [cols, setCols] = useState(getCols);
+  const [cols, setCols] = useState(3); // matches server render → no mismatch
 
   useEffect(() => {
     const onResize = () => setCols(getCols());
+    onResize(); // apply the correct breakpoint once we're on the client
     window.addEventListener("resize", onResize);
     return () => window.removeEventListener("resize", onResize);
   }, []);
@@ -121,7 +147,17 @@ function useColumns() {
 
 function ServiceCard({ service }) {
   const [hovered, setHovered] = useState(false);
-  const { bg, accent } = service.color;
+  const { accent, from, to } = service.color;
+  const Icon = service.icon;
+
+  // Per-card gradient applied to text via background-clip.
+  const gradientText = {
+    backgroundImage: `linear-gradient(135deg, ${from}, ${to})`,
+    WebkitBackgroundClip: "text",
+    backgroundClip: "text",
+    WebkitTextFillColor: "transparent",
+    color: "transparent",
+  };
 
   return (
     <div
@@ -134,17 +170,26 @@ function ServiceCard({ service }) {
           : "0 2px 12px -4px rgba(0,0,0,0.08)",
         transition: "all 0.28s cubic-bezier(0.34, 1.56, 0.64, 1)",
       }}
-      className="rounded-2xl p-2 flex flex-col gap-4 bg-white cursor-pointer"
+      className="rounded-2xl p-2 flex flex-col gap-4 bg-white border  cursor-pointer"
     >
-      <div
-        style={{ backgroundColor: bg }}
-        className="p-4 rounded-xl min-h-[230px] flex flex-col"
-      >
+      <div className="p-4 rounded-xl min-h-[230px] flex flex-col bg-gray-50">
         <div>
-          <h3 className="font-bold text-xl leading-snug" style={{ color: "#1C1C1C" }}>
-            {service.title}
-          </h3>
-          <h4 className="text-sm mt-2 leading-snug text-left font-medium" >
+          {/* Title row: icon badge beside the gradient heading */}
+          <div className="flex items-center gap-3">
+            <span
+              className="inline-grid place-items-center w-10 h-10 rounded-xl shrink-0 transition-colors duration-200"
+              style={{
+                backgroundColor: hovered ? accent : `${accent}14`,
+                color: hovered ? "#fff" : accent,
+              }}
+            >
+              {Icon ? <Icon size={22} strokeWidth={2.2} /> : null}
+            </span>
+            <h3 className="font-bold text-xl leading-snug w-fit" style={gradientText}>
+              {service.title}
+            </h3>
+          </div>
+          <h4 className="text-md mt-2 font-semibold leading-snug text-left font-medium w-fit">
             {service.subtitle}
           </h4>
         </div>

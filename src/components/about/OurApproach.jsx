@@ -1,12 +1,12 @@
 // src/components/about/OurApproach.jsx
 import React from "react";
-import { Search, BarChart3, Cpu, Filter } from "lucide-react";
+import {  BarChart3, Cpu, Filter, SearchIcon } from "lucide-react";
 import SectionHeader from "./SectionHeader";
 import { Reveal } from "./animations";
 
 const STEPS = [
   {
-    icon: Search,
+    icon: SearchIcon,
     title: "Research-first strategy",
     text: "All winning campaigns begin with thorough research. Before developing any strategy, we will first study your market, customer behavior, your competition, the journey that your customers are going through, and your business objectives. This enables us to plan dedicated campaigns that are relevant to what the real business goals are.",
   },
@@ -32,26 +32,26 @@ const STYLES = [
   {
     card: "bg-[#0037CA] text-white",
     title: "text-white",
-    body: "text-blue-100/90",
-    useNumber: true,
+    body: "text-white",
+   iconWrap: "bg-gray-200 text-blue-600",
   },
   {
     card: "bg-indigo-50",
     title: "text-neutral-900",
-    body: "text-slate-600",
+    body: "text-black",
     iconWrap: "bg-[#0037CA]/10 text-[#0037CA]",
   },
   {
-    card: "bg-slate-900 text-white",
+    card: "bg-[#0037CA] text-white",
     title: "text-white",
-    body: "text-slate-300",
-    iconWrap: "bg-white/10 text-white",
+    body: "text-white",
+   iconWrap: "bg-gray-200 text-blue-600",
   },
   {
     card: "bg-indigo-50",
     title: "text-neutral-900",
-    body: "text-slate-600",
-    iconWrap: "bg-amber-200/70 text-amber-600",
+    body: "text-black",
+    iconWrap: "bg-[#0037CA]/10 text-[#0037CA]",
   },
 ];
 
@@ -86,7 +86,7 @@ export default function OurApproach() {
                   )}
 
                   <h3
-                    className={`mt-6 font-serif text-2xl font-bold tracking-tight ${s.title}`}
+                    className={`mt-6  text-2xl font-semibold tracking-tight ${s.title}`}
                   >
                     {title}
                   </h3>

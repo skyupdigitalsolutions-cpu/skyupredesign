@@ -29,7 +29,10 @@ const PILLARS = [
 
 export default function CultureWorkflow() {
   return (
-    <section className="relative overflow-hidden bg-white px-6 py-12 lg:px-[120px]">
+    // overflow-x-clip (not overflow-hidden): still clips the blur blob on the
+    // right, but does NOT create a scroll container, so the sticky SectionHeader
+    // below keeps working. overflow-hidden here is what breaks sticky.
+    <section className="relative overflow-x-clip bg-white px-6 py-12 lg:px-[120px]">
       <div
         aria-hidden
         className="sk-float pointer-events-none absolute -right-32 top-1/4 h-96 w-96 rounded-full opacity-[0.05] blur-3xl"
@@ -39,8 +42,8 @@ export default function CultureWorkflow() {
       <div className="relative mx-auto max-w-7xl">
         <div className="grid items-start gap-12 lg:grid-cols-5 lg:gap-16">
           {/* Sticky intro column */}
-          <div className="lg:sticky lg:top-28 lg:col-span-2">
-            <SectionHeader
+          <div className=" lg:col-span-2">
+            <SectionHeader sticky
               align="left"
               eyebrow="Culture & workflow"
               title="Built Around Innovation, Speed & Collaboration"
@@ -60,7 +63,7 @@ export default function CultureWorkflow() {
                     <h3 className="text-lg font-bold tracking-tight text-neutral-900">
                       {title}
                     </h3>
-                    <p className="mt-2 text-[15px] leading-relaxed text-slate-600">
+                    <p className="mt-2 text-[15px] leading-relaxed">
                       {text}
                     </p>
                   </span>

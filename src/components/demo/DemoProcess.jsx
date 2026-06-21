@@ -67,10 +67,13 @@ export default function DemoProcess({
           </h2>
         </div>
 
-        <div className="mt-12 grid gap-6 lg:grid-cols-3">
-          {/* Promo card */}
+        <div className="mt-12 grid gap-6 lg:grid-cols-3 lg:items-start">
+          {/* Promo card — sticky on desktop with a fixed height, so it stays
+              pinned while the step cards on the right scroll past it.
+              lg:items-start (on the grid) stops this column from stretching to
+              the right column's height, which is what lets it stick. */}
           <div
-            className="relative overflow-hidden rounded-2xl p-8 lg:p-9"
+            className="relative overflow-hidden rounded-2xl p-8 lg:sticky lg:top-24 lg:h-[24rem] lg:p-9"
             style={{ background: CARD_BLUE }}
           >
             {promo.image && (

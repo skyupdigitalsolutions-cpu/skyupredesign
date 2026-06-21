@@ -68,7 +68,7 @@ export default function CoreValues() {
                 <h3 className="mt-5 text-lg font-bold tracking-tight text-neutral-900">
                   {title}
                 </h3>
-                <p className="mt-2.5 text-[15px] text-justify leading-relaxed text-slate-600">
+                <p className="mt-2.5 text-[15px] text-justify leading-relaxed">
                   {text}
                 </p>
               </div>

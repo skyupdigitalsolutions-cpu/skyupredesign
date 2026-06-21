@@ -44,7 +44,7 @@ function Stat({ value, decimals, suffix, label, run }) {
         {display}
         {suffix}
       </div>
-      <p className="mx-auto mt-3 max-w-[14rem] text-sm font-medium leading-relaxed text-slate-500">
+      <p className="mx-auto mt-3 max-w-[14rem] text-sm font-medium leading-relaxed">
         {label}
       </p>
     </div>
@@ -85,7 +85,7 @@ function StatsSection() {
               proud to share
             </span>
           </h2>
-          <p className="mx-auto mt-5 max-w-3xl text-base leading-relaxed text-slate-600 sm:text-lg">
+          <p className="mx-auto mt-5 max-w-3xl text-base leading-relaxed sm:text-lg">
             Across 80+ clients in Bangalore and beyond — these are averages, not
             cherry-picked wins.
           </p>
@@ -152,7 +152,7 @@ function ProcessSection() {
               engagement process
             </span>
           </h2>
-          <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-slate-600 sm:text-lg">
+          <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed sm:text-lg">
             No surprises. No guesswork. You know exactly what's happening and
             why at every stage.
           </p>
@@ -182,7 +182,7 @@ function ProcessSection() {
                 <h3 className="mt-5 text-base font-bold tracking-tight text-neutral-900">
                   {s.title}
                 </h3>
-                <p className="mt-2 max-w-[15rem] text-sm leading-relaxed text-slate-500">
+                <p className="mt-2 max-w-[15rem] text-sm leading-relaxed ">
                   {s.desc}
                 </p>
               </div>

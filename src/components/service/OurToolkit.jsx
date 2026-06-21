@@ -256,7 +256,7 @@ export default function OurToolkit() {
           <h2 className="mt-5 text-3xl font-bold leading-[1.15] tracking-tight text-neutral-900 sm:text-4xl lg:text-[2.7rem]">
             Industry-leading tools we use daily
           </h2>
-          <p className="mt-5 text-base leading-relaxed text-neutral-600">
+          <p className="mt-5 text-base leading-relaxed ">
             Best-in-class tools for every category so your campaigns and
             products run on rock-solid infrastructure.
           </p>

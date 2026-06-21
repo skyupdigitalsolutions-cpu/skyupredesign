@@ -117,7 +117,7 @@ export default function BlogList() {
         )}
 
         {visible.length === 0 ? (
-          <p className="text-slate-600">No blogs in this category yet.</p>
+          <p >No blogs in this category yet.</p>
         ) : (
           <>
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -161,14 +161,14 @@ export default function BlogList() {
                       </h3>
 
                       {blog.description ? (
-                        <p className="mt-2 text-[13px] leading-relaxed text-slate-600 line-clamp-3">
+                        <p className="mt-2 text-[13px] leading-relaxed  line-clamp-3">
                           {blog.description.trim()}
                         </p>
                       ) : null}
 
                       {/* Meta + read more pinned to bottom */}
                       <div className="mt-auto pt-4">
-                        <div className="flex items-center gap-2 text-[12px] text-slate-500">
+                        <div className="flex items-center gap-2 text-[12px] ">
                           {blog.author ? <span>{blog.author}</span> : null}
                           {blog.author && blog.date ? (
                             <span className="h-1 w-1 rounded-full bg-slate-300" />

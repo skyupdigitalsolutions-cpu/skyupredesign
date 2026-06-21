@@ -8,29 +8,12 @@ import {
   TrendingUp,
 } from "lucide-react";
 
-/**
- * ProcessSection — Tailwind-only version (no internal <style> / scoped CSS).
- *
- * Font loading: the design uses Bricolage Grotesque / Hanken Grotesk / JetBrains
- * Mono. A utility class can set font-family but can't load the files, so add this
- * once to your root layout (app/layout.jsx) or global CSS — it is NOT part of this
- * component:
- *
- *   <link rel="preconnect" href="https://fonts.googleapis.com" />
- *   <link
- *     href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500&family=JetBrains+Mono:wght@500;600&display=swap"
- *     rel="stylesheet"
- *   />
- *
- * Without it, the arbitrary font-[...] classes fall back to the system stack.
- */
 
 const STEPS = [
   {
     n: "01",
     title: "Discovery & Research",
     icon: Search,
-    bar: "bg-gradient-to-r from-[#0037CA] to-[#4d7bf8]",
     hoverBorder: "hover:border-[#4d7bf8]",
     hoverIcon: "group-hover:text-[#4d7bf8]",
     body: "First we understand your business. This means auditing your current digital marketing performance, understanding your audience, looking at your competitors, and figuring out the biggest opportunities. We ask the right questions before we make any recommendations—because strategy based on assumptions rarely delivers.",
@@ -107,18 +90,18 @@ export default function ProcessSection() {
               >
                 {/* off-center colored tab */}
                 <header
-                  className={`relative left-[15px] z-10 ml-[18px] flex min-h-[58px] flex-col justify-center gap-[2px] overflow-hidden px-4 py-[11px] shadow-[0_10px_24px_-14px_rgba(15,23,41,0.4)] after:pointer-events-none after:absolute after:inset-0 after:rounded-[4px] after:content-[''] after:[background-image:linear-gradient(180deg,rgba(255,255,255,0.18),transparent_55%)] ${step.bar}`}
+                  className={`relative left-[15px] bg-gray-400 z-10 ml-[18px] flex min-h-[58px] flex-col justify-center gap-[2px] overflow-hidden px-4 py-[11px] shadow-[0_10px_24px_-14px_rgba(15,23,41,0.4)] after:pointer-events-none after:absolute after:inset-0 after:rounded-[4px] after:content-[''] after:[background-image:linear-gradient(180deg,rgba(255,255,255,0.18),transparent_55%)] `}
                 >
                   <span className="font-['JetBrains_Mono',ui-monospace,monospace] text-[12px] font-semibold uppercase tracking-[0.18em] text-white [text-shadow:0_1px_2px_rgba(0,0,0,0.28)]">
                     Step {step.n}
                   </span>
-                  <h3 className="relative m-0 text-[clamp(18px,1.15vw,16.5px)] font-bold leading-[1.12] text-white [text-shadow:0_1px_3px_rgba(0,0,0,0.3)]">
+                  <h3 className="relative m-0 text-[clamp(18px,1.15vw,16.5px)] font-semibold leading-[1.12] text-white [text-shadow:0_1px_3px_rgba(0,0,0,0.3)]">
                     {step.title}
                   </h3>
                 </header>
 
                 {/* body */}
-                <p className="mx-[18px] mt-4 text-justify text-[14px] leading-[1.62] ">
+                <p className="mx-[18px] mt-4 text-justify text-[12px] leading-[1.62] ">
                   {step.body}
                 </p>
 

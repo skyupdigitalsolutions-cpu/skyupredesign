@@ -94,11 +94,11 @@ export default function AboutHero() {
                 What we do
               </span>
               <h2 className="mt-4 text-2xl font-bold leading-snug tracking-tight text-neutral-900 sm:text-3xl lg:text-[2.1rem]">
-                Accelerating business growth through AI-powered digital
-                marketing
+                Accelerating business growth through <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0037CA] via-[#0037CA] to-[#ffb950]">AI-powered digital
+                marketing</span>
               </h2>
 
-              <div className="mt-5 space-y-4 text-[16px] leading-relaxed text-slate-700">
+              <div className="mt-5 space-y-4 text-[16px] leading-relaxed">
                 <p>
                   Skyup Digital Solutions helps businesses move faster online —
                   better marketing, smarter automation, and websites built to
@@ -127,7 +127,7 @@ export default function AboutHero() {
                 {CHIPS.map((chip) => (
                   <span
                     key={chip}
-                    className="rounded-full border border-slate-200 bg-slate-50 px-4 py-1.5 text-sm font-medium text-slate-700"
+                    className="rounded-full border border-slate-200 bg-slate-50 px-4 py-1.5 text-sm font-medium "
                   >
                     {chip}
                   </span>

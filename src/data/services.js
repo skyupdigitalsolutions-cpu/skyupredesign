@@ -373,50 +373,50 @@ export const SERVICES = [
     faqTitle: "Honest answers to your questions",
     faqs: [
       {
-        q: "Why is SEO important for businesses?",
-        a: "SEO marketing helps businesses increase online visibility, attract qualified traffic, and generate long-term organic leads. One of the biggest advantages of SEO is that it continues delivering traffic even after content is published — unlike paid ads that stop the moment your budget runs out.",
+        q: "What is social media marketing?",
+        a: "Social media marketing is the process of promoting your business through platforms like Facebook, Instagram, LinkedIn, and X to increase brand awareness, engagement, and sales.",
       },
       {
-        q: "How long does SEO take to show results?",
-        a: "Most websites begin seeing early SEO ranking improvements within 6–12 weeks. Competitive industries may take longer, but SEO creates sustainable long-term growth.",
+        q: "Why is social media marketing important?",
+        a: "It helps businesses reach their target audience, build trust, generate leads, and improve customer relationships.",
       },
       {
-        q: "What are the different types of SEO?",
-        a: "The main types are On-Page SEO, Technical SEO, Off-Page SEO, Local SEO, and E-Commerce SEO. Each plays a role in improving search visibility and website performance.",
+        q: "Which social media platforms are best for my business?",
+        a: "The right platform depends on your audience and goals. Facebook, Instagram, LinkedIn, and YouTube are among the most effective options.",
       },
       {
-        q: "What is included in an SEO audit?",
-        a: "An SEO audit checks your website's technical health, page structure, keyword optimization, backlinks, speed, mobile performance, and indexing issues. Professional SEO audit tools help identify what's limiting your rankings.",
+        q: "How often should I post on social media?",
+        a: "Most businesses benefit from posting 3–5 times per week with consistent engagement and content updates.",
       },
       {
-        q: "What are SEO backlinks?",
-        a: "SEO backlinks are links from other websites pointing to yours. High-quality backlinks are a core part of off-page SEO and help improve your website's authority and search engine rankings.",
+        q: "How long does it take to see results?",
+        a: "Organic growth typically takes a few months, while paid campaigns can generate visibility and leads much faster.",
       },
       {
-        q: "What is SEO keyword research?",
-        a: "SEO keyword research is the process of finding the exact words and phrases your target audience searches on Google. Proper keyword research underpins both on-page SEO and content strategy to attract relevant traffic.",
+        q: "Can social media marketing generate leads?",
+        a: "Yes, a well-planned social media strategy can attract qualified leads and increase conversions.",
       },
       {
-        q: "What makes Skyup a trusted SEO company in Bangalore?",
-        a: "As a dedicated SEO agency in Bangalore, Skyup focuses on transparent reporting, ROI-driven strategies, technical SEO expertise, and long-term organic growth—without lock-in contracts.",
+        q: "What type of content performs best on social media?",
+        a: "Videos, reels, carousels, customer testimonials, educational posts, and behind-the-scenes content often perform well.",
       },
       {
-        q: "What are the benefits of SEO compared to paid ads?",
-        a: "Unlike paid ads, SEO continues generating traffic without paying for every click. The benefits of SEO include better brand visibility, consistent leads, improved trust, and lower long-term acquisition costs.",
+        q: "Do I need paid advertising on social media?",
+        a: "Paid ads are not mandatory, but they can significantly improve reach, traffic, and lead generation.",
       },
       {
-        q: "What is SEO optimization?",
-        a: "SEO optimization is the process of improving website pages, content, and technical performance to help them rank higher in search engines and attract more relevant visitors.",
+        q: "How do you measure social media success?",
+        a: "Success is measured through engagement, reach, follower growth, website traffic, leads, and conversions.",
       },
       {
-        q: "Do small businesses need SEO marketing?",
-        a: "Absolutely. SEO marketing helps small businesses compete with larger brands by targeting niche keywords, local searches, and high-intent customer queries—making it one of the most cost-effective channels available.",
+        q: "Why should I hire a social media marketing agency?",
+        a: "An agency helps create strategies, manage campaigns, produce content, and optimize performance for better results.",
       },
     ],
     cta: {
-      title: "Ready to stop paying for every click?",
+      title: "Ready to Grow Your Brand on Social Media?",
       subtitle:
-        "No contracts. No jargon. Just a free audit and a plan that makes sense.",
+        "Our social media marketing team in Bangalore is available to audit your existing profile and uncover your greatest social media growth potential, and create a strategy that is unique to your business. ",
     },
     related: [
       {
@@ -434,6 +434,287 @@ export const SERVICES = [
     ],
   },
 
+
+    {
+    slug: "performance-marketing",
+    name: "Performance Marketing",
+    Icon: Target,
+    href: "/service/performance-marketing",
+    from: "#DBEAFE",
+    to: "#EFF6FF",
+    accent: "#0037CA",
+    tagline:
+      "Every rupee tracked. Google, Meta and LinkedIn ads optimised to drive revenue, not just clicks.",
+    items: [
+      "Google Ads — Search, Shopping, Display, YouTube",
+      "Meta Ads — Facebook & Instagram campaigns",
+      "LinkedIn Ads — B2B lead generation",
+      "Full attribution — GA4, Pixel & CAPI tracking",
+      "Landing pages — built for Quality Score & conversion",
+      "Weekly optimisation & transparent reporting",
+    ],
+    heroHeadline:
+      "Performance Marketing That Turns Ad Spend Into Measurable Revenue",
+    heroSubline:
+      "Performance Marketing Agency Bangalore is an agency that has been created for the sole goal of making every ad dollar count. At our core, our performance marketing services are about action—clicks, leads, conversions, and revenue. No range. Not perceptions. Results:",
+    statsTitle: "Performance at a glance",
+    stats: [
+      { value: "12+", label: "Clients" },
+      { value: "₹1 Cr+", label: "Ad Spend Managed" },
+      { value: "3.4x", label: "Average ROAS" },
+      { value: "40%", label: "CPL reduction" },
+    ],
+      painPoints: {
+      title: "You’re spending on ads. But are you getting quality leads?",
+      intro:
+        "You may be running Google Ads, Meta Ads, or other paid campaigns. But if the leads are poor, cost per lead is high, follow-ups are weak, or conversions are not happening, your ad budget is not working properly. It’s frustrating — and it’s fixable.",
+      points: [
+        {
+          title: "High ad spend, low-quality leads",
+          desc: "Many businesses spend money on ads but receive leads that are not serious, not relevant, or not ready to buy. Performance marketing helps target the right audience and improve lead quality.",
+        },
+        {
+          title: "Cost per lead is too high",
+          desc: "If campaigns are not optimized properly, every enquiry becomes expensive. Better targeting, ad creatives, landing pages, and conversion tracking can reduce wasted spend.",
+        },
+        {
+          title: "Clicks are coming, but conversions are not",
+          desc: "Your ads may be getting clicks, but visitors may not call, fill the form, book a demo, or purchase. This usually happens because of weak landing pages, unclear offers, or poor CTA placement.",
+        },
+        {
+          title: "No proper tracking or reporting",
+          desc: "Without conversion tracking, you don’t know which campaign, keyword, creative, or audience is actually generating business. Performance marketing needs clear data to improve results.",
+        },
+      ],
+    },
+    offerings: {
+      title: "Our Performance Marketing Services — Google Ads",
+      points: [
+        {
+          title: "Google Ads Services",
+          desc: "Capture high-intent customers when they are actively searching for your product or service. We manage search campaigns, Performance Max campaigns, display ads, YouTube ads, shopping ads, and remarketing campaigns.",
+        },
+        {
+          title: "Meta Ads Services",
+          desc: "Scale leads and sales through Facebook and Instagram campaigns. We build full-funnel Meta Ads strategies with audience targeting, creative testing, retargeting, lead forms, WhatsApp ads, and conversion campaigns.",
+        },
+        {
+          title: "LinkedIn Ads Services",
+          desc: "Generate high-quality B2B leads by targeting decision-makers based on job title, company size, industry, seniority, and professional interests. Ideal for SaaS, enterprise, consulting, and B2B service businesses.",
+        }
+      ],
+    },
+    processIntro:
+      "This is a tried and tested approach for each performance marketing deal—Google Ads, Meta Ads, and LinkedIn Ads. No shortcuts.",
+    processTitle: "Our 5-Step Performance Marketing Process",
+    process: [
+      {
+        title: "Discovery & Full Account Audit",
+        desc: "We check existing Google Ads, Facebook Ads, LinkedIn profiles, and Meta accounts as well as your GA4 linked account, website conversion funnel, and previous CPL/ROAS. We spot budget leaks, tracking gaps and quick-win opportunities even before a single rupee is spent on performance marketing.",
+      },
+      {
+        title: "Performance Marketing Strategy & Channel Planning",
+        desc: "We create an account-level strategy that targets your CAC, customer LTV, and stages of the funnel and distributes your budget between Google Ads, Meta Ads, and LinkedIn Ads. KPI target, audience strategy & creative briefs are provided to every channel of your performance marketing plan before launch.",
+      },
+      {
+        title: "Creative, Copy & Landing Page Development",
+        desc: "Copywriters within our team create Google Ads copy, Meta Ads creatives, and LinkedIn Ads sponsored content at the same time. Our unique landing pages are created for every performance marketing campaign, designed to be highly relevant and effective for both Google Ads Q-SCORE and Meta Ads Q-SCORE as well as conversion rate.",
+      },
+      {
+        title: "Launch, Track & Optimise in Real Time",
+        desc: "All campaigns are live and have full pixel, GA4, and CRM tracking code. Bids, audiences, and creatives were dynamically adjusted across all channels and platforms, daily, based on dashboard performance feeds from the live platform. Weekly performance calls are the answer to keeping you on track—no surprises.",
+      },
+      {
+        title: "Scale Winners, Kill Losers, Report Clearly",
+        desc: "Once we see that we have winning campaigns in all of your performance marketing mix, we scale hard but hit ROAS and CPL targets. Every channel is granularized in basic terms on a monthly level; spend, revenue, ROAS, CPL, and forward recommendations are calculated.",
+      }
+    ],
+    whyChooseUs: {
+      title: "Why Brands Choose SkyUp for Performance Marketing",
+      points: [
+        {
+          title: "You Know Where Every Rupee Goes",
+          desc: "We track your ad spend, leads, conversions, CPL, and ROAS clearly so you know exactly what your campaigns are delivering.",
+        },
+        {
+          title: "No Guesswork, Only Data",
+          desc: "Every decision is backed by campaign data, audience behaviour, creative performance, conversion tracking, and lead quality insights.",
+        },
+        {
+          title: "Multi-Channel Expertise",
+          desc: "We manage Google Ads, Meta Ads, and LinkedIn Ads with a channel-specific strategy instead of using the same approach everywhere.",
+        },
+        {
+          title: "Lead Quality Focus",
+          desc: "We do not focus only on cheap leads. We optimize campaigns to attract relevant leads that are more likely to convert into customers.",
+        },
+        {
+          title: "Weekly Optimization",
+          desc: "Your campaigns are monitored and improved regularly through keyword changes, audience updates, creative testing, and budget adjustments.",
+        },
+        {
+          title: "Built for Growth",
+          desc: "Whether you want more enquiries, demo bookings, sales, or B2B pipeline, our performance marketing strategy is built around measurable business outcomes.",
+        },
+      ],
+    },
+    // Dummy — replace with a real client result.
+    caseStudy: {
+      industry: "D2C Skincare Brand, Bangalore",
+      problem:
+        "Rs 80K/month on Google Ads, near-zero organic traffic, and no content strategy in place.",
+      whatWeDid:
+        "A full technical audit, 40+ keyword-mapped blogs, category-page optimisation, and 60 quality backlinks over five months.",
+      result:
+        "Organic sessions grew from 900 to 11,400/month. Ad spend cut by 55% while revenue grew.",
+    },
+    testimonial: {
+      quote:
+        "We'd been burned by two SEO agencies before Skyup. Within 60 days our traffic started climbing. By month four we ranked in the top 3 for our main product keywords — and the monthly report actually made sense.",
+      author: "Rohan K.",
+      role: "Founder, D2C Wellness Brand",
+    },
+        campaignResults: {
+      eyebrow: "CLIENT RESULTS",
+      title: "Real Campaigns. Real Numbers.",
+      subtitle:
+        "A snapshot of recent Google & Meta performance across 12 client accounts.",
+      tables: [
+        {
+          theme: "blue",
+          eyebrow: "META ADS  |  FACEBOOK & INSTAGRAM",
+          title: "Meta Campaign Results — 12 Clients",
+          note: "Platform: Facebook & Instagram · Meta objective shown per client",
+          columns: [
+            { key: "client", label: "Client" },
+            { key: "industry", label: "Industry" },
+            { key: "objective", label: "Meta Objective", color: "blue" },
+            { key: "cpl", label: "CPL", color: "blue" },
+            { key: "ctr", label: "CTR" },
+            { key: "roas", label: "ROAS", color: "green" },
+            { key: "leads", label: "Leads" },
+          ],
+          rows: [
+            { client: "Rathna Bhoomi Developers", industry: "Real Estate", objective: "Lead Generation", cpl: "₹195", ctr: "4.8%", roas: "3.3x", leads: "200+ Leads/Qtr" },
+            { client: "Navanagara Coop. Society", industry: "Finance", objective: "Lead Generation", cpl: "₹210", ctr: "3.9%", roas: "2.9x", leads: "150+ Members" },
+            { client: "Garuda Holidays", industry: "Travel", objective: "Conversions", cpl: "₹280", ctr: "5.2%", roas: "4.1x", leads: "120+ Bookings" },
+            { client: "Sharani Edu Solutions", industry: "Education", objective: "Lead Generation", cpl: "₹165", ctr: "6.1%", roas: "3.8x", leads: "300+ Admissions" },
+            { client: "LGruhakalpa Coop. Society", industry: "Housing Finance", objective: "Lead Generation", cpl: "₹225", ctr: "4.3%", roas: "3.1x", leads: "180+ Members" },
+            { client: "Godrej Properties", industry: "Premium Real Estate", objective: "Lead Generation", cpl: "₹380", ctr: "3.7%", roas: "4.6x", leads: "250+ Leads/Qtr" },
+            { client: "Satva Luminia", industry: "Residential Real Estate", objective: "Lead Generation", cpl: "₹320", ctr: "4.5%", roas: "3.7x", leads: "180+ Leads/Qtr" },
+            { client: "TATA Varnam", industry: "Residential Real Estate", objective: "Lead Generation", cpl: "₹355", ctr: "4.8%", roas: "4.2x", leads: "220+ Leads/Qtr" },
+            { client: "SLV Golden Towers", industry: "Real Estate", objective: "Traffic + Retargeting", cpl: "₹290", ctr: "4.2%", roas: "3.5x", leads: "160+ Leads/Qtr" },
+            { client: "Novara Nature Estates", industry: "Luxury Real Estate", objective: "Lead Generation", cpl: "₹410", ctr: "3.8%", roas: "4.6x", leads: "160+ Leads/Qtr" },
+            { client: "Purvankara", industry: "Premium Real Estate", objective: "Lead Generation + Video Views", cpl: "₹360", ctr: "4.1%", roas: "4.4x", leads: "300+ Leads/Qtr" },
+            { client: "Greater Knack", industry: "CA/CS/CMA Coaching", objective: "Conversions", cpl: "₹165", ctr: "6.2%", roas: "3.8x", leads: "300+ Admissions" },
+          ],
+          footer: [
+            { value: "₹165", label: "Best CPL (Sharani Edu)" },
+            { value: "6.1%", label: "Best CTR (Sharani Edu)" },
+            { value: "4.6x", label: "Best ROAS (Novara NE)" },
+            { value: "12", label: "Clients on Meta" },
+          ],
+        },
+        {
+          theme: "green",
+          eyebrow: "GOOGLE ADS  |  SEARCH | DISPLAY | PMAX | YOUTUBE",
+          title: "Google Campaign Results — 12 Clients",
+          note: "Platform: Google Ads · Campaign type shown per client",
+          columns: [
+            { key: "client", label: "Client" },
+            { key: "industry", label: "Industry" },
+            { key: "type", label: "Campaign Type", color: "green" },
+            { key: "cpc", label: "Avg. CPC", color: "blue" },
+            { key: "conv", label: "Conv. Rate" },
+            { key: "quality", label: "Quality Score", color: "amber" },
+            { key: "roas", label: "ROAS", color: "green" },
+          ],
+          rows: [
+            { client: "Rathna Bhoomi Developers", industry: "Real Estate", type: "Search + PMax", cpc: "₹42", conv: "6.8%", quality: "8/10", roas: "3.1x" },
+            { client: "Navanagara Coop. Society", industry: "Finance", type: "Search + Display", cpc: "₹35", conv: "4.9%", quality: "8/10", roas: "2.7x" },
+            { client: "Garuda Holidays", industry: "Travel", type: "Search + PMax", cpc: "₹58", conv: "6.4%", quality: "9/10", roas: "4.3x" },
+            { client: "Sharani Edu Solutions", industry: "Education", type: "Search + YouTube", cpc: "₹28", conv: "7.2%", quality: "9/10", roas: "3.9x" },
+            { client: "LGruhakalpa Coop. Society", industry: "Housing Finance", type: "Search + Display", cpc: "₹38", conv: "5.1%", quality: "8/10", roas: "3.0x" },
+            { client: "Godrej Properties", industry: "Premium Real Estate", type: "Search + PMax", cpc: "₹95", conv: "4.6%", quality: "9/10", roas: "4.5x" },
+            { client: "Satva Luminia", industry: "Residential Real Estate", type: "Search + PMax", cpc: "₹72", conv: "5.3%", quality: "8/10", roas: "3.6x" },
+            { client: "TATA Varnam", industry: "Residential Real Estate", type: "Search + YouTube", cpc: "₹68", conv: "5.7%", quality: "8/10", roas: "4.1x" },
+            { client: "SLV Golden Towers", industry: "Real Estate", type: "Search + Display", cpc: "₹55", conv: "5.0%", quality: "8/10", roas: "3.4x" },
+            { client: "Novara Nature Estates", industry: "Luxury Real Estate", type: "PMax + Search", cpc: "₹105", conv: "4.5%", quality: "9/10", roas: "4.6x" },
+            { client: "Purvankara", industry: "Premium Real Estate", type: "Search + PMax", cpc: "₹88", conv: "4.9%", quality: "9/10", roas: "4.3x" },
+            { client: "Greater Knack", industry: "CA/CS/CMA Coaching", type: "Search + PMax", cpc: "₹32", conv: "6.8%", quality: "9/10", roas: "3.9x" },
+          ],
+          footer: [
+            { value: "₹28", label: "Best CPC (Sharani Edu)" },
+            { value: "7.2%", label: "Best Conv. Rate (Sharani Edu)" },
+            { value: "9/10", label: "Top Quality Score (5 clients)" },
+            { value: "4.6x", label: "Best ROAS (Novara NE)" },
+          ],
+        },
+      ],
+    },
+    faqTitle: "Frequently Asked Questions About Performance Marketing Services",
+    faqs: [
+      {
+        q: "What are Google Ads?",
+        a: "Google Ads are paid advertisements that appear on Google Search, YouTube, Display Network, and partner websites to generate leads, traffic, and sales.",
+      },
+      {
+        q: "How much budget is needed for Google Ads?",
+        a: "Google Ads budgets depend on your industry, competition, and goals. Most businesses start with a scalable monthly ad budget based on target CPL or ROI.",
+      },
+      {
+        q: "How long does Google Ads take to show results?",
+        a: "Google Ads can start generating traffic and leads within days, while optimized conversion performance usually improves within 30–90 days.",
+      },
+      {
+        q: "What are Meta Ads?",
+        a: "Meta Ads are paid campaigns run across Facebook and Instagram to increase brand awareness, website traffic, leads, and online sales.",
+      },
+      {
+        q: "Are Meta Ads good for lead generation?",
+        a: "Yes. Meta Ads are highly effective for lead generation using advanced audience targeting, retargeting, and conversion-focused creatives.",
+      },
+      {
+        q: "Which businesses benefit most from Meta Ads?",
+        a: "E-commerce brands, real estate companies, coaches, local businesses, and D2C brands benefit significantly from Facebook and Instagram advertising.",
+      },
+      {
+        q: "What are LinkedIn Ads used for?",
+        a: "LinkedIn Ads are mainly used for B2B marketing, lead generation, recruitment, brand awareness, and targeting decision-makers professionally.",
+      },
+      {
+        q: "Are LinkedIn Ads better for B2B marketing?",
+        a: "Yes. LinkedIn Ads provide precise targeting based on job title, industry, company size, and professional interests, making them ideal for B2B campaigns.",
+      },
+      {
+        q: "How expensive are LinkedIn Ads compared to Google or Meta Ads?",
+        a: "LinkedIn Ads usually have a higher CPC, but they often generate higher-quality B2B leads and better decision-maker targeting.",
+      },
+      {
+        q: "What is performance marketing?",
+        a: "Performance marketing is a digital marketing strategy where campaigns are optimized based on measurable results such as leads, conversions, sales, and ROI.",
+      },
+    ],
+    cta: {
+      title: "Ready to Stop Wasting Ad Spend?",
+      subtitle:
+        "Get a free performance marketing audit and discover where your Google Ads, Meta Ads, and LinkedIn Ads budget is being wasted — and how to fix it.",
+    },
+    related: [
+      {
+        slug: "graphic-design",
+        desc: "Great content needs great visuals. Design makes your blogs readable and your brand memorable — and supports your SEO.",
+      },
+      {
+        slug: "web-development",
+        desc: "A poorly structured site caps your technical SEO. We fix it at the root.",
+      },
+      {
+        slug: "performance-marketing",
+        desc: "Run PPC while SEO gains traction, so you capture leads across the whole funnel.",
+      },
+    ],
+  },
   // ───────────────────────────────────────────── Performance Marketing ──
   {
     slug: "performance-marketing",

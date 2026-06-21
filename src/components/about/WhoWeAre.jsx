@@ -28,7 +28,7 @@ export default function WhoWeAre() {
               <h3 className="mt-6 text-xl font-bold tracking-tight text-neutral-900 sm:text-2xl">
                 An AI-powered growth agency with a performance-centric mindset
               </h3>
-              <p className="mt-4 text-[15px] text-justify leading-relaxed text-slate-600">
+              <p className="mt-4 text-[15px] text-justify leading-relaxed ">
                 Skyup Digital Solutions is an AI-powered growth agency with a
                 performance-centric mindset dedicated to assisting companies in
                 transforming their digital marketing approach for growth. We are
@@ -52,7 +52,7 @@ export default function WhoWeAre() {
               <h3 className="mt-6 text-xl font-bold leading-snug">
                 More than ads or websites
               </h3>
-              <p className="mt-4 text-[15px] text-justify leading-relaxed text-blue-100">
+              <p className="mt-4 text-[15px] text-justify leading-relaxed text-blue-50">
                 At a modern digital marketing agency, we know that businesses
                 today need more than just advertisements or websites. They want
                 systems that scale, smart marketing, data-driven decisions, and
@@ -70,7 +70,7 @@ export default function WhoWeAre() {
               <h3 className="mt-5 text-lg font-bold text-neutral-900">
                 The way we build growth
               </h3>
-              <p className="mt-3 text-[15px] leading-relaxed text-justify text-slate-600">
+              <p className="mt-3 text-[15px] leading-relaxed text-justify ">
                 Over the years we have worked with businesses across many
                 industries to help improve visibility, generate leads, increase
                 conversions, and strengthen their digital presence.
@@ -86,7 +86,7 @@ export default function WhoWeAre() {
               <h3 className="mt-5 text-lg font-bold text-neutral-900">
                 The Way We Build Growth 
               </h3>
-              <p className="mt-3 text-[15px] leading-relaxed text-justify text-slate-600">
+              <p className="mt-3 text-[15px] leading-relaxed text-justify ">
                 Here at Skyup Digital Solutions, we know that growth happens
                 when creativity meets strategy and technology meets execution;
                 all campaigns, websites, automation workflows, and marketing

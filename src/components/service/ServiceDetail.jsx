@@ -6,7 +6,7 @@
 //
 // Section order (mirrors the demo page):
 //   Hero → Pain points → Offerings grid → Process → Why us (+case study)
-//   → [Social platforms] → Reviews → FAQ → Related → Footer CTA
+//   → [Campaign results] → [Social platforms] → Reviews → FAQ → Related → Footer CTA
 
 import React from "react";
 import { usePageContext } from "vike-react/usePageContext";
@@ -37,6 +37,7 @@ import PainPoints from "@/components/demo/PainPoints";
 import ServicesGrid from "@/components/demo/ServicesGrid";
 import DemoProcess from "@/components/demo/DemoProcess";
 import WhyChooseUs from "@/components/demo/WhyChooseUs";
+import CampaignResults from "@/components/demo/CampaignResults";
 import Testimonial from "@/components/demo/Testimonial";
 import RelatedServices from "@/components/demo/RelatedServices";
 import GoogleReviews from "../GoogleReviews";
@@ -95,6 +96,7 @@ export default function ServiceDetail() {
     processTitle,
     whyChooseUs,
     caseStudy,
+    campaignResults,
     socialPlatforms,
     testimonial,
     testimonials,
@@ -221,6 +223,17 @@ export default function ServiceDetail() {
           title={whyChooseUs?.title || "Why choose us"}
           values={values || []}
           caseStudy={caseStudyProp}
+        />
+      )}
+
+      {/* Campaign results — PPC only. Renders only when the service defines
+          `campaignResults`, so it appears on Performance Marketing and nowhere else. */}
+      {campaignResults?.tables?.length > 0 && (
+        <CampaignResults
+          eyebrow={campaignResults.eyebrow}
+          title={campaignResults.title}
+          subtitle={campaignResults.subtitle}
+          tables={campaignResults.tables}
         />
       )}
 

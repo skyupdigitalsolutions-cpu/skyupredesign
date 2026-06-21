@@ -121,7 +121,7 @@ export default function CaseStudies() {
               <h3 className="mt-2 text-[20px] font-semibold leading-snug text-[#071B4D] transition-colors group-hover:text-[#0037CA]">
                 {c.title}
               </h3>
-              <p className="mt-2 line-clamp-3 text-[14px] leading-relaxed text-[#3D5499]">
+              <p className="mt-2 line-clamp-3 text-[14px] leading-relaxed ">
                 {c.summary}
               </p>
 

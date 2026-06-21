@@ -94,11 +94,12 @@ export default function PainPoints({
           <p className="mt-4 text-[16px] leading-relaxed text-slate-600">{subtitle}</p>
         </div>
 
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        {/* Centered flex-wrap so fewer than 4 cards center instead of left-aligning. */}
+        <div className="mt-12 flex flex-wrap justify-center gap-6">
           {pains.map(({ icon: Icon, title: t, body }) => (
             <div
               key={t}
-              className="rounded-2xl border border-orange-100 bg-orange-50/60 p-6 transition-shadow hover:shadow-[0_18px_40px_-26px_rgba(194,65,12,0.55)]"
+              className="w-full rounded-2xl border border-orange-100 bg-orange-50/60 p-6 transition-shadow hover:shadow-[0_18px_40px_-26px_rgba(194,65,12,0.55)] sm:w-[calc(50%-0.85rem)] lg:w-[calc(25%-1.2rem)]"
             >
               <span
                 className="inline-flex h-12 w-12 items-center justify-center rounded-xl"

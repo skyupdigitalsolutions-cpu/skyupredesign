@@ -16,7 +16,7 @@ export default function WhyWeStarted() {
               title="Building a Smarter, More Transparent Marketing Experience"
             />
             <Reveal delay={120}>
-              <div className="mt-7 space-y-4 text-[15px] leading-relaxed text-slate-600">
+              <div className="mt-7 space-y-4 text-[15px] leading-relaxed ">
                 <p>
                   Skyup Digital Solutions was born with a simple mission—to
                   solve the ever-growing problem of ineffective digital

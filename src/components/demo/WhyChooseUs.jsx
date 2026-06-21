@@ -85,7 +85,10 @@ export default function WhyChooseUs({
           </h2>
         </div>
 
-        <div className={`mt-12 grid gap-6 ${outerCols}`}>
+        {/* lg:items-start lets the case-study panel keep its own height (instead
+            of stretching to the taller values column) — which is what allows it
+            to stick while the value cards scroll past. */}
+        <div className={`mt-12 grid gap-6 lg:items-start ${outerCols}`}>
           {/* Value props */}
           {hasValues && (
             <div className={`grid gap-4 ${valuesCols}`}>
@@ -107,10 +110,11 @@ export default function WhyChooseUs({
             </div>
           )}
 
-          {/* Mini case study — highest-trust element */}
+          {/* Mini case study — highest-trust element. Sticky on desktop so it
+              stays pinned while the value cards on the left scroll. */}
           {hasCase && (
             <div
-              className="relative overflow-hidden rounded-2xl p-8 text-white lg:p-10"
+              className="relative overflow-hidden rounded-2xl p-8 text-white lg:sticky lg:top-24 lg:p-10"
               style={{
                 background:
                   "radial-gradient(120% 120% at 85% -10%, #0037CA 0%, #001A66 60%, #021A5E 100%)",

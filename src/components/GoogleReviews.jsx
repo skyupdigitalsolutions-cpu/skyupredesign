@@ -113,7 +113,7 @@ export default function GoogleReviews() {
                   {r.initial}
                 </span>
                 <div>
-                  <p className="text-[15px] font-semibold text-gray-900">
+                  <p className="text-[15px] font-semibold ">
                     {r.name}
                   </p>
                   <p className="text-xs ">{r.time}</p>
@@ -136,7 +136,7 @@ export default function GoogleReviews() {
           <a
             target="_blank"
             href={SUMMARY.allReviewsUrl}
-            className="inline-flex items-center gap-2 rounded-full border border-gray-300 bg-white px-6 py-3 text-sm font-semibold text-gray-700 transition-colors duration-200 hover:border-gray-400 hover:bg-gray-50"
+            className="inline-flex items-center gap-2 rounded-full border border-gray-300 bg-white px-6 py-3 text-sm font-semibold transition-colors duration-200 hover:border-gray-400 hover:bg-gray-50"
           >
             <GoogleG size={16} />
             View all reviews on Google

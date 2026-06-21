@@ -143,7 +143,7 @@ export default function FaqSection({
                   }`}
                 >
                   <div className="overflow-hidden">
-                    <p className="pb-5 pl-[68px] pr-6 text-sm leading-relaxed text-neutral-600 sm:pb-6">
+                    <p className="pb-5 pl-[68px] pr-6 text-sm leading-relaxed  sm:pb-6">
                       {f.a}
                     </p>
                   </div>

@@ -13,7 +13,7 @@ export default function Work() {
         <div className="mx-auto max-w-7xl px-5 pt-8 sm:px-8 ">
           {/* Breadcrumb */}
           <nav aria-label="Breadcrumb" className="text-[13px]">
-            <ol className="flex items-center gap-2 text-slate-500">
+            <ol className="flex items-center gap-2 ">
               <li>
                 <a
                   href="/"
@@ -22,7 +22,7 @@ export default function Work() {
                   Home
                 </a>
               </li>
-              <li aria-hidden="true" className="text-slate-300">
+              <li aria-hidden="true" className="text-slate-400">
                 /
               </li>
               <li aria-current="page" className="font-semibold text-[#0037CA]">

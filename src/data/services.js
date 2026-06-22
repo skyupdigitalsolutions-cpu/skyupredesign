@@ -1164,7 +1164,8 @@ export const SERVICES = [
       },
     ],
     cta: {
-      title: "Ready to Work With a Results-Driven Email Marketing Agency in Bangalore?",
+      title:
+        "Ready to Work With a Results-Driven Email Marketing Agency in Bangalore?",
       subtitle:
         "Every day that you don’t have a properly optimised email program is revenue left on the table—and your competitors are taking it. Let's fix that with a free audit of your current email setup. No obligation. We’ll find your biggest opportunities and show you exactly what’s possible—in plain language, with real numbers.",
     },
@@ -1185,7 +1186,7 @@ export const SERVICES = [
   },
 
   // ─────────────────────────────────────────────────── AI Automation ──
-  
+
   {
     slug: "ai-automation",
     name: "AI Automation",
@@ -1209,8 +1210,7 @@ export const SERVICES = [
     heroSubline:
       "Skyup Digital Solution LLP is the trusted AI automation company that assists organizations in Bangalore by automating repetitive tasks, drive their growth, and harness the true potential of AI Automation without the technological mess. ",
     painPoints: {
-      title:
-        "Is Your Team Stuck Doing Work That AI Can Handle in Seconds?",
+      title: "Is Your Team Stuck Doing Work That AI Can Handle in Seconds?",
       intro:
         "You may be spending hours on repetitive tasks like lead follow-ups, customer replies, data entry, reporting, reminders, and task updates. These small delays reduce productivity, increase missed opportunities, and slow down business growth. It’s frustrating — and it’s fixable.",
       points: [
@@ -1286,11 +1286,10 @@ export const SERVICES = [
       {
         title: "Build, Test & Launch",
         desc: "Our team of certified automation specialists constructs, tests and implements your entire AI automation system. Thorough quality checks conducted, including some aspects of AI in automation testing, and complete handover training and documentation. \n• Full build, QA testing and go-live support. \n• Team training and onboarding was included. \n• The post-launch monitoring and optimisation will be followed for 30 days. ",
-      }
+      },
     ],
     whyChooseUs: {
-      title:
-        "Why Brands Choose SkyUp for AI Automation",
+      title: "Why Brands Choose SkyUp for AI Automation",
       points: [
         {
           title: "You own every automation we build",
@@ -1311,15 +1310,14 @@ export const SERVICES = [
       ],
     },
 
-     resultsBlock: {
+    resultsBlock: {
       title: "Real Results from Our AI Automation Services in Bangalore",
       intro:
         "At Skyup Digital Solution LLP, a trusted AI automation company in Bangalore, we do not just guarantee results. We deliver them. Here are some of the results we have seen for our clients in Bangalore and across India with our AI automation services:",
       results: [
         {
           value: "10+ hrs",
-          label:
-            "saved per team member per week with AI workflow automation",
+          label: "saved per team member per week with AI workflow automation",
         },
         {
           value: "3×",
@@ -1401,7 +1399,7 @@ export const SERVICES = [
       title: "Get Your Free AI Automation Audit Today",
       subtitle:
         "Book your free 30-minute strategy call now. No commitment. No jargon. Just a clear picture of what AI automation can do for your business — from the team that knows Bangalore best.",
-      primaryLabel:"Book My Free AI Automation Audit"
+      primaryLabel: "Book My Free AI Automation Audit",
     },
     related: [
       {
@@ -1420,7 +1418,7 @@ export const SERVICES = [
   },
 
   // ───────────────────────────────────────────────── Machine Learning ──
- {
+  {
     slug: "machine-learning",
     name: "Machine Learning",
     Icon: BrainCircuit,
@@ -1439,7 +1437,7 @@ export const SERVICES = [
     heroHeadline:
       "Machine Learning Services in Bangalore for Smarter Business Growth",
     heroSubline:
-      "Turn your business data into something useful, not just numbers — with our machine learning services in Bangalore. We help teams use Artificial Intelligence and Machine Learning to automate, optimise, forecast, and reimagine day-to-day processes for better decision-making — and to spot new growth avenues, quietly but effectively. As a trusted AI & Machine Learning solutions vendor, we create, build, and deploy custom Machine Learning models that address your business goals — from predictive analytics to customer intelligence, fraud prevention to computer vision and NLP — all scalable and enterprise-ready.",
+      "Turn your business data into something useful, not just numbers — with our machine learning services in Bangalore. We help teams use Artificial Intelligence and Machine Learning to automate, optimise, forecast, and reimagine day-to-day processes for better decision-making — and to spot new growth avenues, quietly but effectively.",
     painPoints: {
       title:
         "Your business has data. But it’s not helping you make smarter decisions.",
@@ -1684,7 +1682,7 @@ export const SERVICES = [
   },
 
   // ───────────────────────────────────────────────────── UI/UX Design ──
- {
+  {
     slug: "ui-ux-design",
     name: "UI / UX Design",
     Icon: PenTool,
@@ -1940,6 +1938,7 @@ export const SERVICES = [
   },
 
   // ──────────────────────────────────────────────────── Graphic Design ──
+
   {
     slug: "graphic-design",
     name: "Graphic Design",
@@ -1959,81 +1958,83 @@ export const SERVICES = [
       "Press-ready files & motion assets",
     ],
     heroHeadline:
-      "Graphic design in Bangalore that finally looks like your business deserves",
+      "Graphic Design Services in Bangalore That Finally Look Like Your Business Deserves Them",
     heroSubline:
-      "You've outgrown Canva templates and unreliable freelancers. We produce visual identities and design systems that show where your brand is going — not just where it's been.",
+      "You’ve outgrown Canva templates and sketchy freelancers. But who do you trust with something this big? Skyup Digital Solutions produces visual identities and design systems that tell where your brand is going, not just where it’s been.",
     painPoints: {
-      title: "If any of this sounds familiar, you're in the right place",
+      title: "If Any of This Sounds Familiar, You're in the Right Place",
       intro:
-        "Bad design doesn't announce itself — it quietly costs you customers, credibility, and conversions. These are the problems we solve every week.",
+        "Bad design doesn't announce itself — it just quietly costs you customers, credibility, and conversions. These are the problems we solve every week for brands in Bangalore and beyond.",
       points: [
         {
-          title: "Our brand looks different everywhere",
-          desc: "No guidelines, no system. Every designer and campaign produces something slightly different, so the brand feels amateur even when the product isn't.",
+          title: "Our brand looks different everywhere it shows up",
+          desc: "No brand guidelines. No design system. Every designer, every platform, every campaign produces something slightly different — and the cumulative effect is a brand that feels amateur, even when the product isn't.",
         },
         {
           title:
-            "We briefed three agencies and still don't have a logo we like",
-          desc: "Generic concepts and designers who present options instead of recommendations. The problem isn't your brief — it's the process.",
+            "We've briefed three agencies and still don't have a logo we like",
+          desc: "Generic concepts. Stock-photo thinking. Designers who present options instead of recommendations. If you've been through multiple rounds with multiple agencies and still feel unheard, the problem isn't your brief — it's the process.",
         },
         {
-          title: "Our content goes out but nothing stops the scroll",
-          desc: "Thumb-stopping design is earned through platform-native thinking, visual hierarchy, and creative built to perform.",
+          title: "Our content goes out, but nothing stops the scroll",
+          desc: "A busy feed is the default. Thumb-stopping graphic design is earned — through platform-native thinking, visual hierarchy, and creative that's built to perform, not just to exist.",
         },
         {
-          title: "We got the files but can't use half of them",
-          desc: "A folder of unlabelled PSDs and an AI file that won't open isn't a deliverable. Professional design ends with a handover, not a file dump.",
+          title: "We got the files but can't actually use half of them",
+          desc: "A ZIP folder full of unlabelled PSDs and an AI file that won't open on your laptop is not a deliverable. Professional graphic design services end with a handover, not a file dump.",
         },
       ],
     },
     whyChooseUs: {
       title:
-        "What makes Skyup different from every other graphic design company in Bangalore",
+        "What Makes Skyup Different From Every Other Graphic Design Company in Bangalore",
       points: [
         {
-          title: "Strategy before software",
-          desc: "Every project starts with a discovery session, not a blank artboard — so every design decision has a reason behind it.",
+          title: "Strategy Before Software",
+          desc: "Every project starts with a discovery session, not a blank artboard. We understand your market, your audience, and what your competitors look like — so the design we produce has a reason behind every decision.",
         },
         {
-          title: "48-hour turnaround on core deliverables",
-          desc: "Most projects move from approved brief to first concept in two business days, without sacrificing quality for speed.",
+          title: "48-Hour Turnaround on Core Deliverables",
+          desc: "Tight campaign deadlines are a reality. Most projects move from approved brief to first concept in two business days — without sacrificing quality for speed.",
         },
         {
-          title: "You own everything, always",
-          desc: "Source files, IP, and usage rights transfer to you completely on final payment. No licensing traps.",
+          title: "You Own Everything, Always",
+          desc: "Source files, IP, usage rights — they transfer to you completely on final payment. No licensing traps.",
         },
       ],
     },
     offerings: {
-      title: "Graphic design services built around what brands actually need",
+      title: "Graphic Design Services Built Around What Brands Actually Need",
+      subtitle:
+        "Whether you're searching for a graphic designer near you in Bangalore or working with an agency remotely for the first time, our services cover every visual touchpoint your brand needs — from the logo on your letterhead to the ad creative running on Meta right now.",
       points: [
         {
           title: "Logo & Branding Design",
-          desc: "Complete visual identities — logo suites, colour palettes, typography, and guidelines — tested across real-world applications from a 16px favicon to a 16-foot hoarding.",
+          desc: "We design complete visual identities — logo suites, colour palettes, typography, and brand guidelines — that hold together from a 16px favicon to a 16-foot hoarding. Every identity is tested across real-world applications before delivery, so nothing breaks in production.",
         },
         {
           title: "Social Media Creative Design",
-          desc: "Creatives for Instagram, LinkedIn, and Facebook with the right dimensions, hierarchy, and consistency to earn attention and compound over time.",
+          desc: "We design social media creatives for Instagram, LinkedIn, and Facebook — built with the right dimensions, visual hierarchy, and consistency to earn attention rather than just fill a content calendar. The result is a brand presence that compounds over time, not one that resets with every campaign.",
         },
         {
           title: "Ad Creative Design — Google, Meta & LinkedIn",
-          desc: "Format variations for every placement, built around what actually converts — ad creative as a performance lever, not just a visual.",
+          desc: "Ad creative is a performance lever, not just a visual — every design decision affects whether someone stops or scrolls past. We deliver format variations for every placement across Google Display, Meta, and LinkedIn, built around what actually converts.",
         },
         {
           title: "Brochure Design",
-          desc: "Brochures that communicate clearly and survive the print process without colour shifts — delivered press-ready as standard.",
+          desc: "We design brochures that communicate your offering clearly, reflect your brand's quality, and survive the print process without colour shifts or alignment issues. Every brochure is delivered press-ready as standard — what you approve on screen is what comes off the press.",
         },
         {
           title: "Company Profile Design",
-          desc: "Profiles structured for scan-reading and built to establish credibility, formatted for both digital and print.",
+          desc: "Your company profile is often the first detailed document a prospect, investor, or partner reads — and it does a job a website can't. We design profiles structured for scan-reading, built to establish credibility, and formatted for both digital distribution and print.",
         },
         {
           title: "Infographic Design",
-          desc: "Complex data turned into something people actually finish reading — designed for comprehension first, shareability second.",
+          desc: "Complex data and multi-step processes lose people when presented as text — a well-designed infographic turns the same information into something people actually finish reading. We design infographics for comprehension first, shareability second, consistent with your brand across social, reports, and presentations.",
         },
         {
           title: "Presentation & Pitch Deck Design",
-          desc: "Decks that structure your story visually and make your data land — because investors form a view in the first four slides.",
+          desc: "Investors form a view in the first four slides — a presentation that looks unpolished communicates something before a word is spoken. We design pitch decks and business presentations that structure your story visually and make your data land with the impact it deserves.",
         },
       ],
     },
@@ -2043,38 +2044,41 @@ export const SERVICES = [
         title: "Fintech Brand Identity Overhaul — Bengaluru NBFC",
         industry: "Lending platform",
         result:
-          "Rebuilt the complete visual identity ahead of a retail banking partnership — 34% increase in app store ratings within 90 days, driven partly by stronger first-impression trust at onboarding.",
+          "Rebuilt the complete visual identity for a lending platform ahead of a retail banking partnership — 34% increase in app store ratings within 90 days, driven in part by improved first-impression trust signals at onboarding.",
       },
       {
         title: "D2C Skincare — Social Media Design System",
         industry: "FMCG skincare",
         result:
-          "Replaced ad-hoc templates with a cohesive design system — 42% uplift in Instagram engagement rate and a 2.1x improvement in paid ad CTR the following quarter.",
+          "Replaced ad-hoc social templates with a cohesive graphic design system for an FMCG skincare brand — 42% uplift in Instagram engagement rate and a 2.1× improvement in paid ad CTR in the following quarter.",
       },
     ],
+    processIntro:
+      "Giving creative control to an outside team is a real act of trust. Our five-step process focuses on the anxieties our clients bring to us — unclear timelines, endless revisions, files that don’t work — and anticipates them before they become problems.",
+    processTitle: "A Process That Eliminates the Usual Agency Frustrations",
     process: [
       {
         title: "Brief & Discovery",
-        desc: "A structured discovery covering positioning, audience, competitive landscape, and what success looks like — surfacing decisions that have been delaying the project for months.",
+        desc: "We ask what your last agency never did. Before anything is designed, we run a structured discovery covering your positioning, target audience, competitive landscape, and what success actually looks like to your team. This session typically surfaces decisions that have been delaying the project for months.",
       },
       {
         title: "Concept & Moodboard",
-        desc: "Two or three distinct creative directions as moodboards before any finished artwork — a low-cost decision point, not a blind commitment.",
+        desc: "A low-cost decision point, not a blind commitment. We present two or three distinct creative directions as moodboards before any finished artwork is produced. You redirect based on instinct at the earliest possible moment in the project — before execution, not after.",
       },
       {
         title: "Design & Iteration",
-        desc: "You get a working file or presentation deck, not just flat images, so you can test the design in context.",
+        desc: "The craft, with full context. You get a working file or presentation deck, not just flat images, so you can test the design in context, not in isolation.",
       },
       {
         title: "Review & Revisions",
-        desc: "Structured feedback via a single consolidated document — faster turnarounds and fewer iterations. Revision rounds are agreed and capped upfront.",
+        desc: "Structured feedback, not a 47-message WhatsApp chain. Each revision cycle uses a single consolidated feedback document. You get a comment-ready file, we get clear input — which means faster turnarounds and fewer iterations overall. Revision rounds are agreed and capped upfront in every proposal.",
       },
       {
         title: "Final Delivery",
-        desc: "A handover, not a file dump — deliverables packaged by use case, with a document explaining what each file is for.",
+        desc: "A handover, not a file dump. Deliverables are packaged by use case, including source files. Every project closes with a handover document that tells you what each file is for.",
       },
     ],
-    toolsTitle: "The tools behind the work",
+    toolsTitle: "The Tools Behind the Work — and Why They Matter",
     tools: [
       "Figma",
       "Adobe Illustrator",
@@ -2083,55 +2087,55 @@ export const SERVICES = [
       "Canva Pro",
     ],
     toolsNote:
-      "Tool choice is a craft decision, not a preference. A logo built in Photoshop can't scale to a billboard; a template built outside a shared Figma workspace becomes a maintenance problem. We choose every format for what the output has to do in the real world. Final formats include PNG, SVG, PDF, AI, PSD, and MP4.",
+      "Tool choice is a craft decision, not a preference. A logo built in Photoshop cannot scale to a billboard without quality loss. A social template built outside a shared Figma workspace becomes a maintenance problem the moment your team needs to update a colour. Every file format and every piece of graphic design software we choose is selected for what the output has to do in the real world — not for what's fastest to produce. Final delivery formats include PNG, SVG, PDF, AI, PSD, and MP4 for motion assets, matched to your specific use case.",
     // Dummy — replace with a verified testimonial.
     testimonial: {
       quote:
-        "We'd gone through two agencies before Skyup and kept getting work that looked fine but didn't feel like us. The discovery session in week one surfaced things about our positioning we hadn't been able to articulate. The final identity was the first one our entire founding team agreed on — no arguments, no compromises.",
+        "We'd gone through two agencies before Skyup and kept getting work that looked fine but didn't feel like us. The discovery session in week one surfaced things about our brand positioning that we hadn't been able to articulate ourselves. The final identity was the first one our entire founding team agreed on — no arguments, no compromises.",
       author: "Priya Nambiar",
       role: "Co-Founder & CEO, Nestara Health",
     },
-    faqTitle: "Questions clients ask before they brief us",
+    faqTitle: "Questions Clients Ask Before They Brief Us",
     faqs: [
       {
         q: "How much do graphic design services cost in Bangalore?",
-        a: "Costs vary based on scope, complexity, turnaround, and deliverables. We provide customised quotes based on your needs.",
+        a: "Graphic design costs vary based on project scope, complexity, turnaround time, and deliverables. At Skyup Digital Solutions, we provide customised quotes based on your business needs.",
       },
       {
-        q: "Why is graphic design important for growth?",
-        a: "It builds credibility, strengthens brand recognition, improves communication, and increases conversions through professional visuals.",
+        q: "Why is graphic design important for business growth?",
+        a: "Graphic design builds credibility, strengthens brand recognition, improves communication, and helps increase conversions through professional visual presentation.",
       },
       {
-        q: "How do I choose the right design agency?",
-        a: "Look for a strong portfolio, relevant experience, clear communication, a structured process, and understanding of your goals.",
+        q: "How do I choose the right graphic design agency?",
+        a: "Choose an agency with a strong portfolio, relevant experience, clear communication, a structured process, and an understanding of your business goals.",
       },
       {
-        q: "What's the difference between graphic design and branding?",
-        a: "Design creates visual assets; branding includes strategy, messaging, positioning, and identity. Design is one part of branding.",
+        q: "What is the difference between graphic design and branding?",
+        a: "Graphic design creates visual assets, while branding includes strategy, messaging, positioning, and overall brand identity. Design is one part of branding.",
       },
       {
-        q: "Can graphic design improve social engagement?",
-        a: "Yes — high-quality design makes content more engaging and effective at capturing attention.",
+        q: "Can graphic design improve social media engagement?",
+        a: "Yes. High-quality designs make content more engaging, visually appealing, and effective at capturing audience attention.",
       },
       {
         q: "How long does it take to design a logo?",
-        a: "Typically one to three weeks, depending on complexity, feedback, and revisions.",
+        a: "A professional logo typically takes one to three weeks, depending on complexity, feedback, and revision requirements.",
       },
       {
-        q: "Do I need brand guidelines?",
-        a: "Yes — they ensure consistency in logos, colours, typography, and visuals across all channels.",
+        q: "Do I need brand guidelines for my business?",
+        a: "Yes. Brand guidelines ensure consistency in logos, colours, typography, and visual elements across all marketing channels.",
       },
       {
-        q: "What files should I receive?",
-        a: "Editable source files and formats such as AI, PSD, SVG, PDF, PNG, and JPG for print and digital.",
+        q: "What files should I receive after a design project?",
+        a: "You should receive editable source files and formats such as AI, PSD, SVG, PDF, PNG, and JPG for print and digital use.",
       },
       {
-        q: "What makes a good logo?",
-        a: "Simple, memorable, scalable, versatile, and relevant across all platforms and applications.",
+        q: "What makes a good logo design?",
+        a: "A good logo is simple, memorable, scalable, versatile, and relevant to the brand across all platforms and applications.",
       },
       {
         q: "Can graphic design increase conversion rates?",
-        a: "Yes — it improves user experience, message clarity, engagement, and overall conversion.",
+        a: "Yes. Effective graphic design improves user experience, message clarity, engagement, and overall conversion performance.",
       },
     ],
     cta: {
@@ -2174,14 +2178,33 @@ export const SERVICES = [
       "CMS, maintenance & support",
     ],
     heroHeadline:
-      "Web development in Bangalore that drives real business results",
+      "Web Development Services in Bangalore That Drive Real Business Results",
     heroSubline:
-      "A complete solution for web development — custom websites, CMS platforms, and enterprise web apps. Our certified developers build digital products that perform, scale, and convert.",
-    overview: [
-      "We blend strategy, design, development, and digital marketing expertise to build websites that look great and perform exceptionally well — SEO-friendly, mobile-responsive, secure, and scalable, customised to your business goals.",
-      "Lots of companies treat their website like a digital brochure. We think it should be a powerful marketing and sales vehicle — not just online, but a real part of your business goals.",
-    ],
-    benefitsTitle: "Why your business needs professional web development",
+      "Skyup Digital Solution offers a complete solution for Web Development Services in Bangalore — custom website creation, CMS platforms, and enterprise web apps. Our certified developers have years of hands-on experience on successful projects, building digital products that perform, scale, and convert.",
+    painPoints: {
+      title: "Your website is online. But is it helping your business grow?",
+      intro:
+        "You may already have a website, but if it loads slowly, looks outdated, is not mobile-friendly, or does not generate enquiries, it is not doing its job. A good website should build trust, explain your services clearly, and convert visitors into customers. It’s frustrating — and it’s fixable.",
+      points: [
+        {
+          title: "Website visitors are not converting",
+          desc: "People may visit your website but leave without calling, filling a form, booking a demo, or sending an enquiry. Poor layout, weak CTA placement, unclear messaging, and missing trust elements can reduce conversions.",
+        },
+        {
+          title: "Website looks outdated",
+          desc: "An old or unprofessional website can make customers doubt your brand. Modern web development helps your business look credible, updated, and trustworthy.",
+        },
+        {
+          title: "Slow loading speed",
+          desc: "If your website takes too long to open, visitors may leave before seeing your services. Speed optimization improves user experience, engagement, and conversion chances.",
+        },
+        {
+          title: "Not mobile-friendly",
+          desc: "Most customers browse from mobile phones. If text is too small, buttons are hard to click, or the layout breaks on mobile, you may lose serious leads.",
+        },
+      ],
+    },
+    benefitsTitle: "Why Your Business Needs Professional Web Development",
     benefits: [
       "Generate qualified leads",
       "Improve search engine rankings",
@@ -2189,168 +2212,174 @@ export const SERVICES = [
       "Enhance user experience",
       "Improve conversion rates",
       "Automate business processes",
-      "Support long-term business growth",
+      "Provide longer-term business growth assistance",
     ],
     offerings: {
-      title: "Our web development services in Bangalore",
+      title: "Our Web Development Services in Bangalore",
+      subtitle:
+        "We offer end-to-end website development and web app development services, and we do it all in-house — we don't outsource it.",
       points: [
         {
-          title: "Custom Website Development",
-          desc: "Bespoke websites that reflect your goals, audience, and brand — fast, responsive, SEO-friendly, and built to bring in leads and conversions.",
+          title: "Custom Website Service",
+          desc: "We build bespoke websites that really reflect your business aims, audience, and brand personality. Our websites are fast, responsive, SEO-friendly, and built to give you an outstanding user experience and to bring in more leads and conversions.",
         },
         {
-          title: "Corporate Website Development",
-          desc: "Credibility-first corporate sites that are easy to use, secure, and scalable, showcasing your services to potential clients.",
+          title: "Corporate Website Service",
+          desc: "Your company's credibility and expertise should be evident through your website. Our corporate web services create that type of website and establish a reliable online presence for you — easy to use, secure, and scalable, so your company can easily showcase its services to potential clients.",
         },
         {
-          title: "E-Commerce Website Development",
-          desc: "Secure, functional storefronts built to convert — payment gateway integration, product management, and a smooth shopping experience.",
+          title: "E-Commerce Website Service",
+          desc: "If you're looking for a service to help you sell goods online, we're the e-commerce service for you. We design secure, functional online storefronts built to increase conversions — from payment-gateway integration to product management — giving your customers a smooth shopping experience that translates directly to increased sales.",
         },
         {
-          title: "Web Application Development",
-          desc: "CRMs, ERPs, customer portals, and dashboards that automate workflows and boost productivity — secure and built to grow with you.",
+          title: "Web Application Service",
+          desc: "Would you like to enhance your current operations? We build web applications to help you achieve that — CRM, ERP, customer portals, or dashboards that automate workflows and increase productivity. Our solutions are secure and continue to grow as your business grows.",
         },
         {
           title: "ERP Development Solutions",
-          desc: "Systems that centralise and automate core operations — HR, inventory, accounting, procurement — with real-time business insights.",
+          desc: "We build ERP systems that centralize and automate core business operations such as HR, inventory, accounting, and procurement. Our ERP solutions improve operational efficiency, reduce manual work, and provide real-time business insights.",
         },
         {
           title: "Learning Management Systems (LMS)",
-          desc: "Platforms to deliver, manage, and track online learning — course management, assessments, progress tracking, and certification.",
+          desc: "Our LMS development services enable organizations to deliver, manage, and track online learning programs effectively. We create intuitive platforms with course management, assessments, progress tracking, and certification capabilities.",
         },
         {
           title: "Admin Panels & Business Dashboards",
-          desc: "Custom panels giving complete control over data, users, and processes, with real-time analytics and reporting.",
+          desc: "We develop custom admin panels and business dashboards that provide complete control over data, users, and business processes. These solutions offer real-time analytics, reporting, and workflow management to support informed decision-making.",
         },
         {
-          title: "Website Redesign",
-          desc: "Transform an outdated site into a modern, high-performing platform — better UX, SEO, loading speed, and conversion.",
+          title: "Website Redesign Services",
+          desc: "Transform your outdated website into a modern, visually appealing, and high-performing digital platform. Our website redesign services focus on improving user experience, SEO performance, loading speed, and conversion rates.",
         },
         {
-          title: "Progressive Web Apps (PWA)",
-          desc: "Apps combining the best of web and mobile — fast, offline-capable, with push notifications and a seamless cross-device experience.",
+          title: "Progressive Web App (PWA) Development",
+          desc: "We develop Progressive Web Apps that combine the best features of websites and mobile applications. PWAs offer fast performance, offline access, push notifications, and a seamless user experience across all devices.",
         },
         {
           title: "Website Maintenance & Support",
-          desc: "Regular updates, security monitoring, bug fixes, backups, and performance optimisation to keep your site at its best.",
+          desc: "Keep your website secure, updated, and performing at its best with our maintenance and support services. We provide regular updates, security monitoring, bug fixes, backups, and performance optimization to ensure smooth operations.",
         },
       ],
     },
-    whyChooseUs: {
-      title: "Why choose us for web development in Bangalore",
-      points: [
-        {
-          title: "Built for business growth",
-          desc: "We develop digital assets that support your marketing goals, increase conversions, and generate leads — not just websites.",
-        },
-        {
-          title: "Custom solutions",
-          desc: "Solutions matched to your brand, industry, and requirements rather than one-size-fits-all templates.",
-        },
-        {
-          title: "SEO-ready development",
-          desc: "SEO-friendly from the start — clean code, well-structured architecture, fast loading, and mobile responsiveness.",
-        },
-        {
-          title: "Mobile-first & responsive",
-          desc: "Your site works perfectly on every device, boosting engagement and conversions.",
-        },
-        {
-          title: "Easy content management",
-          desc: "CMS development that lets your team update images, pages, blogs, and content without technical expertise.",
-        },
-        {
-          title: "Transparent process & on-time delivery",
-          desc: "Clear communication, milestone tracking, and on-time delivery from start to finish.",
-        },
-        {
-          title: "Dedicated support & maintenance",
-          desc: "Ongoing support, maintenance, performance monitoring, and updates after launch.",
-        },
-        {
-          title: "Experienced team",
-          desc: "Designers, developers, SEO experts, and marketers in one team, blending creativity, technology, and strategy.",
-        },
-      ],
-    },
+    processIntro:
+      "A defined and refined 6-step process spanning projects ensures your website is delivered — on time, on budget, and on brief.",
+    processTitle: "Our Web Development Process",
     process: [
       {
         title: "Discovery & Requirements",
-        desc: "A workshop to understand your business, users, and technical needs. Deliverable: a project scope and technology recommendation document.",
+        desc: "We start with a deep-dive workshop to learn what your business is all about, who will be using it, and what technical needs it has. Deliverable: a project scope and technology recommendation document.",
       },
       {
         title: "Strategy & Architecture",
-        desc: "Sitemap, information architecture, and tech stack defined, with benchmarks for integration, performance, and scalability before coding.",
+        desc: "Our architects create the sitemap, information architecture, and technology stack. We define and set benchmarks for integration, performance, and scalability even prior to coding.",
       },
       {
         title: "UX Design & Prototyping",
-        desc: "Figma wireframes refined with your feedback until interactions are intuitive, then high-fidelity visual design aligned to your brand.",
+        desc: "Wireframes are created in Figma and sent to you for feedback. We keep refining the UX flows until all interactions are intuitive, then move to high-fidelity visual design aligned with your brand.",
       },
       {
         title: "Development & Integration",
-        desc: "Front-end and back-end built in concurrent sprints, with a staging environment from day one for ongoing feedback.",
+        desc: "Front-end and back-end development are done in concurrent sprints. You get a staging environment from day one, which you can monitor and give feedback on as you go.",
       },
       {
         title: "QA, Testing & Optimisation",
-        desc: "Cross-browser, cross-device, security, accessibility, and performance testing before launch. Bugs fixed, PageSpeed optimised.",
+        desc: "Prior to any launch, we test across browsers and devices, plus security, accessibility, and performance. Bugs are fixed. PageSpeed is optimised.",
       },
       {
         title: "Launch & Ongoing Support",
-        desc: "Safe, controlled deployment with rollback procedures, then uptime, performance, and security monitoring with tiered maintenance retainers.",
+        desc: "Controlled, safe deployment with rollback procedures. After your site launches, we monitor it for uptime, performance, and security, and offer maintenance retainers at various tiers to keep your site running at its best.",
       },
     ],
+    whyChooseUs: {
+      title: "Why Choose Us for Web Development Services in Bangalore",
+      points: [
+        {
+          title: "Websites Built for Business Growth",
+          desc: "We're not just developing websites — we're developing digital assets that support your marketing goals, increase conversions, and generate leads. Every website is created for user experience, performance, and business results.",
+        },
+        {
+          title: "Custom Web Development Solutions",
+          desc: "As a trusted web development company in Bangalore, we serve you with a solution that matches your brand, industry, and business requirements rather than a one-size-fits-all template.",
+        },
+        {
+          title: "SEO-Ready Website Development",
+          desc: "We're SEO-friendly from the very beginning of our web development process — optimized for search engines, with a well-structured site architecture, clean code, fast loading times, and mobile responsiveness.",
+        },
+        {
+          title: "Mobile-First & Responsive Design",
+          desc: "As most of your users are on mobile devices, we make sure your website works perfectly on every device — desktop, tablet, and smartphone — helping you boost engagement and convert better.",
+        },
+        {
+          title: "Easy Content Management & CMS",
+          desc: "You'll have complete control of your website. With our CMS web development services, your team can update images, pages, blogs, and content without any technical expertise.",
+        },
+        {
+          title: "Transparent Process & On-Time Delivery",
+          desc: "We follow a structured development process with clear communication, milestone tracking, and on-time project delivery to ensure a smooth experience from start to finish.",
+        },
+        {
+          title: "Dedicated Support & Maintenance",
+          desc: "Our relationship doesn't end after launch. We provide ongoing support, website maintenance, performance monitoring, and updates to keep your website running at its best.",
+        },
+        {
+          title: "Experienced Web Development Team",
+          desc: "We have designers, developers, SEO experts, and digital marketers all in the same team, working together to deliver the best web development experience — combining creativity, technology, and business strategy.",
+        },
+      ],
+    },
     // Dummy — replace with verified client testimonials.
     testimonials: [
       {
         quote:
-          "Skyup is the best web development company in Bangalore we've worked with. They built our SaaS portal on time, on budget, and the code quality is exceptional. Our engineering team continues to work with their codebase with zero friction.",
+          "Skyup is the best web development company in Bangalore we have worked with. They built our SaaS portal on time, on budget, and the code quality is exceptional. Our engineering team continues to work with their codebase with zero friction.",
         author: "Rohan Mehta",
         role: "CTO, FinStack Technologies, Bangalore",
       },
       {
         quote:
-          "Our old website was killing our conversion rates. Their team redesigned and rebuilt our store in 8 weeks. The mobile experience is night and day — we saw a 58% lift in sales within the first quarter post-launch.",
+          "Our old website was killing our conversion rates. Their team redesigned and rebuilt our store in 8 weeks. The mobile experience is night and day. We saw a 58% lift in sales within the first quarter post-launch.",
         author: "Priya Nair",
         role: "Founder, StyleVault (E-Commerce)",
       },
     ],
-    faqTitle: "Frequently asked questions about web development in Bangalore",
+    faqTitle:
+      "Frequently Asked Questions About Web Development Services in Bangalore",
     faqs: [
       {
         q: "What are web development services?",
-        a: "Designing, developing, and maintaining websites to help businesses establish a strong online presence.",
+        a: "Web development services include designing, developing, and maintaining websites to help businesses establish a strong online presence.",
       },
       {
         q: "How much does website development cost in Bangalore?",
-        a: "It varies based on features, design complexity, and functionality. Contact us for a customised quote.",
+        a: "Website development costs vary based on features, design complexity, and functionality. Contact us for a customized quote.",
       },
       {
         q: "How long does it take to develop a website?",
-        a: "A standard business website typically takes 2-6 weeks, depending on requirements and revisions.",
+        a: "A standard business website typically takes 2–6 weeks, depending on project requirements and revisions.",
       },
       {
-        q: "Why is web development important?",
-        a: "A professionally developed website attracts visitors, generates leads, improves credibility, and supports growth.",
+        q: "Why is web development important for businesses?",
+        a: "A professionally developed website helps attract visitors, generate leads, improve credibility, and support business growth.",
       },
       {
-        q: "Do you provide custom web development?",
-        a: "Yes — solutions tailored to your business goals, industry, and customer needs.",
+        q: "Do you provide custom web development services?",
+        a: "Yes, we offer custom web development solutions tailored to your business goals, industry, and customer needs.",
       },
       {
         q: "Will my website be mobile-friendly?",
-        a: "Absolutely. All our websites are fully responsive and optimised for desktop, tablet, and mobile.",
+        a: "Absolutely. All our websites are fully responsive and optimized for desktops, tablets, and mobile devices.",
       },
       {
-        q: "Do you offer CMS web development?",
-        a: "Yes — we build on CMS platforms like WordPress so you can easily manage and update content.",
+        q: "Do you offer CMS web development services?",
+        a: "Yes, we build websites on CMS platforms like WordPress, allowing you to easily manage and update content.",
       },
       {
-        q: "Is SEO included in web development?",
-        a: "Yes — we follow SEO best practices, including optimised structure, fast loading, and mobile responsiveness.",
+        q: "Is SEO included in web development services?",
+        a: "Yes, we follow SEO best practices, including optimized site structure, fast loading speeds, and mobile responsiveness.",
       },
       {
         q: "Can you redesign my existing website?",
-        a: "Yes — we modernise existing sites to improve performance, user experience, and conversions.",
+        a: "Yes, we can modernize your existing website to improve performance, user experience, and conversions.",
       },
       {
         q: "Why choose your web development company in Bangalore?",
@@ -2358,9 +2387,10 @@ export const SERVICES = [
       },
     ],
     cta: {
-      title: "Ready to build something great?",
+      title: "Ready to Build Something Great?",
       subtitle:
-        "Looking for web development services in Bangalore? Get a free consultation and a no-charge estimate based on your business goals.",
+        "Looking for Web Development Services in Bangalore? Get a free consultation and a no-charge estimate based on your business goals.",
+      primaryLabel: "Start Your Project",
     },
     related: [
       {
@@ -2397,130 +2427,245 @@ export const SERVICES = [
       "Call recording, AI transcription & analytics",
       "Attendance, roles & native Android app",
     ],
-    heroHeadline: "Close more deals with AI-powered lead management",
+    heroHeadline: "SkyUp CRM: Close More Deals with AI-Powered Lead Management",
     heroSubline:
-      "Built for sales-driven teams who are tired of losing leads in spreadsheets and missed follow-ups. Skyup CRM gives your team one unified platform to capture leads from Facebook, Google & your website; assign them to agents in seconds; and track them.",
-    statsTitle: "SkyUp CRM in numbers",
+      "Built for sales-driven teams who are tired of losing leads in spreadsheets and missed follow-ups. SkyUp CRM gives your team one unified platform to capture leads from Facebook, Google & your website; assign them to agents in seconds; and track them.",
+    statsTitle: "SkyUp CRM in Numbers",
     stats: [
-      { value: "12+", label: "Integrated modules" },
-      { value: "3", label: "User roles & hierarchy" },
-      { value: "10+", label: "Third-party integrations" },
-      { value: "14 days", label: "Free trial — no card" },
+      { value: "12+", label: "Integrated Modules" },
+      { value: "3", label: "User Roles & Hierarchy" },
+      { value: "10+", label: "Third-Party Integrations" },
+      { value: "₹999/mo", label: "Starting Price" },
+      { value: "14 Days", label: "Free Trial — No Credit Card" },
     ],
     painPoints: {
       title:
-        "Sound Familiar ? These Are the Pain Points Every Sales Manager Knows",
+        "Sound Familiar? These Are the Pain Points Every Sales Manager Knows",
       intro:
-        "Before discovering the right CRM, most sales teams struggle with the same challenges. SkyUp CRM was built specifically to eliminate them.",
+        "Before discovering the right CRM tools, most sales teams struggle with the same challenges. SkyUp CRM was built specifically to eliminate them.",
       points: [
         {
           title: "Leads buried in spreadsheets",
-          desc: "Facebook and Google Ads leads are entered manually — hours of wasted effort.",
+          desc: "Leads from Facebook Ads and Google Ads are entered manually into spreadsheets — hours of wasted effort.",
           solution:
-            "SkyUp auto-captures leads from Meta and Google Ads via webhook in real time. Zero manual entry.",
+            "SkyUp CRM auto-captures leads from Meta and Google Ads via webhook in real time. Zero manual entry.",
         },
         {
           title: "Hot leads go cold",
-          desc: "Agents forget follow-ups, and revenue walks out the door.",
+          desc: "Agents forget follow-ups. Hot leads go cold. Revenue walks out the door.",
           solution:
-            "Built-in follow-up scheduling, reminder alerts, and AI temperature classification (Hot/Warm/Cold) ensure no lead is forgotten.",
+            "Built-in follow-up scheduling, reminder alerts, and AI temperature classification (Hot / Warm / Cold) ensure no lead is ever forgotten.",
         },
         {
           title: "No visibility into the team",
-          desc: "You can't tell what your sales reps are actually doing all day.",
+          desc: "No visibility into what your sales team is actually doing all day.",
           solution:
-            "The real-time admin dashboard shows every agent's leads, calls, conversions, and attendance at a glance.",
+            "The real-time admin dashboard shows every agent's leads, calls, conversions, and attendance — at a glance.",
         },
         {
           title: "Calling one-by-one wastes hours",
-          desc: "Manually calling hundreds of leads burns your team's most valuable time.",
+          desc: "Calling 100 leads one-by-one wastes your team's most valuable hours.",
           solution:
-            "Saanvi, the AI voice bot, calls and qualifies leads automatically — escalating hot prospects to humans instantly.",
+            "Saanvi, SkyUp's AI voice bot, calls and qualifies leads automatically — escalating hot prospects to human agents instantly.",
         },
         {
           title: "WhatsApp disconnected from the CRM",
-          desc: "Your main channel lives outside your system with no record of conversations.",
+          desc: "WhatsApp is your team's main communication tool, but it's completely disconnected from your CRM.",
           solution:
-            "Full two-way WhatsApp Business chat is built in. Every message is logged against the lead.",
+            "A full two-way WhatsApp Business chat is built directly into SkyUp CRM. Every message is logged against the lead.",
         },
         {
           title: "No idea which campaign drives ROI",
-          desc: "You spend on ads but can't see what converts.",
+          desc: "You can't tell which marketing campaign is actually generating ROI.",
           solution:
-            "SkyUp maps every lead to its exact source campaign, ad set, and ad — so you know where revenue comes from.",
+            "SkyUp CRM maps every lead to its exact source campaign, ad set, and ad — so you know exactly where your revenue comes from.",
         },
         {
           title: "Expensive, complex CRM",
-          desc: "Your current CRM needs weeks of training and a big budget.",
+          desc: "Your sales CRM is expensive, complex, and requires weeks of training.",
           solution:
-            "SkyUp is intuitive, affordable (from Rs 999/mo), and your team is operational on day one.",
+            "SkyUp CRM is intuitive, affordable (from ₹999/mo), and your team is operational on day one.",
         },
       ],
     },
+    overviewTitle: "What is SkyUp CRM?",
     overview: [
-      "SkyUp CRM is a cloud-based, multi-tenant platform purpose-built for sales-driven organisations of all sizes — from a 3-person startup to a 200-agent enterprise team. It gives your business one unified system to capture, track, manage, and convert every lead.",
-      "It goes beyond a traditional CRM, combining lead lifecycle management, multi-channel communication (WhatsApp, SMS, email), AI voice qualification, campaign automation, attendance tracking, and deep analytics — all in one platform your team can use from day one.",
-      "Whether a lead arrives from a Facebook ad at 2 AM or a manual entry by a field agent, SkyUp captures it, assigns it, greets it, and tracks every interaction until it converts.",
+      "SkyUp CRM is a cloud-based, multi-tenant customer relationship management platform purpose-built for sales-driven organizations of all sizes. From a 3-person startup to a 200-agent enterprise team, SkyUp CRM gives your business one unified system to capture, track, manage, and convert every lead — from first touch to final sale.",
+      "SkyUp goes beyond a traditional CRM. It combines lead lifecycle management, multi-channel communication (WhatsApp, SMS, and email), AI-powered voice qualification, campaign automation, attendance tracking, and deep analytics — all inside a single platform your team can use from day one.",
+      "Whether a lead comes in from a Facebook ad at 2 AM or a manual entry by your field agent, SkyUp captures it, assigns it, greets it, and tracks every interaction until it converts.",
     ],
     offerings: {
-      title: "Everything your sales team needs — in one platform",
+      title: "Everything Your Sales Team Needs — In One Platform",
+      subtitle:
+        "SkyUp CRM is not just another entry in the crowded field of CRM companies. It is a fully integrated sales CRM that combines tools that most platforms charge separately for. Here is what is included:",
       points: [
         {
-          title: "Lead Management",
-          desc: "Auto-capture from Meta and Google Ads, web forms, bulk CSV, or manual entry — with deduplication, a full lead record, a visual journey drawer, and lead merging.",
+          title: "Lead Management — Your Sales Engine",
+          desc: "The lead management module is the heart of SkyUp CRM. Every incoming inquiry — regardless of source — is automatically captured, deduplicated, and tracked through its entire lifecycle.",
+          bullets: [
+            "Auto-capture from Facebook / Meta Lead Ads and Google Ads via webhook (leads arrive in seconds)",
+            "Website / web form integration via a simple webhook endpoint",
+            "Bulk CSV import with automatic round-robin agent assignment",
+            "Manual lead creation for walk-ins and inbound calls",
+            "Duplicate detection: the system checks phone numbers before creating duplicate records",
+            "Full lead record: name, mobile, email, source, campaign, ad set, status, temperature, assigned agent, call history, and activity timeline",
+            "Lead Journey Drawer: a visual timeline of every action taken on a lead — visible to all admins",
+            "Lead merging: duplicate records can be merged with full history preserved",
+          ],
+          solved:
+            '"We get hundreds of leads from Facebook every week, and our team spends hours copying them into spreadsheets." — SkyUp CRM eliminates this entirely. Leads flow in automatically, are deduplicated, and are assigned to agents before your team has even opened their laptops.',
         },
         {
           title: "Smart Lead Assignment",
-          desc: "Fair, automated round-robin assignment with manual override, full reassignment history, and a previous-agent guard.",
+          desc: "Fair, transparent, and fully automated — SkyUp CRM's lead assignment engine ensures every agent gets their fair share of leads without any manager manually distributing them.",
+          bullets: [
+            "Round-Robin Auto-Assignment: leads are distributed evenly across available agents using an atomic counter — no duplicate assignments, ever",
+            "Manual Override: admins can reassign any lead to any agent at any time",
+            "Reassignment History: full log of who handled which lead and when — complete accountability",
+            "Previous-Agent Guard: prevents the same lead being reassigned to the same agent",
+          ],
         },
         {
           title: "Real-Time Admin Dashboard",
-          desc: "KPI cards, lead temperature breakdown, source-wise distribution, per-agent performance, date filters, and a live attendance view.",
+          desc: "Managing a sales team without real-time visibility is like driving with your eyes closed. SkyUp CRM's admin dashboard gives sales managers a command-center view of the entire team's performance — updated live.",
+          bullets: [
+            "Summary KPI cards: total leads, converted, in-progress, follow-ups due",
+            "Lead temperature breakdown: Hot / Warm / Cold with visual indicators",
+            "Source-wise distribution: which channel (Google, Facebook, Website, Manual) is generating the most leads",
+            "Per-agent performance table: leads assigned, converted, follow-ups pending — for every agent",
+            "Date-range filters: today, this week, this month, this quarter, or custom range",
+            "Integrated attendance view: see who is checked in right now",
+          ],
+          solved:
+            "\"I have no idea what my 12 sales reps are actually doing all day.\" — SkyUp CRM's dashboard makes every agent's activity transparent in real time. Managers can spot underperformers, identify bottlenecks, and coach their team based on data — not gut feeling.",
         },
         {
           title: "Communications Hub — WhatsApp, SMS & Email",
-          desc: "Two-way WhatsApp Business chat, template messages, media, auto-greeting, SMS, and email — every message logged against the lead.",
+          desc: "Modern sales happens on WhatsApp. SkyUp CRM is one of the very few CRM tools that embeds full two-way WhatsApp Business chat directly inside the platform — so your agents never need to leave the CRM to communicate.",
+          bullets: [
+            "WhatsApp Business Chat: two-way live messaging inside the CRM, via MSG91 WhatsApp API or Meta WhatsApp Cloud API",
+            "Template Messages: send approved WhatsApp templates with one click",
+            "Media support: send images, documents, and PDFs directly from the CRM",
+            "Auto-Greeting: fire a WhatsApp welcome message the moment a new lead arrives",
+            "SMS: transactional and promotional SMS via MSG91, with delivery status tracking",
+            "Email: send and track emails using Brevo SMTP, with HTML email editor and per-lead thread history",
+            "Every message — WhatsApp, SMS, or email — is stored against the lead for full context",
+          ],
+          solved:
+            '"Our agents are messaging leads on their personal WhatsApp. We have no record of any conversations." — SkyUp CRM\'s communications hub centralizes all interactions inside the platform. Every message is logged, visible to admins, and tied to the correct lead record.',
         },
         {
           title: "Campaign Automation & CRM Marketing",
-          desc: "SMS, WhatsApp, and email blasts to filtered segments, temperature targeting, status tracking, and Meta/Google ad dashboards with campaign-to-lead mapping.",
+          desc: "SkyUp CRM's campaign module transforms your CRM into a full CRM marketing engine — allowing you to reach thousands of leads with personalized, multi-channel outreach in minutes.",
+          bullets: [
+            "SMS Blast: select a lead segment, choose a template, send to thousands instantly",
+            "WhatsApp Blast: bulk WhatsApp template campaigns to filtered audiences",
+            "Email Blast: HTML email campaigns via Brevo to segmented lead lists",
+            "Lead temperature filters: run campaigns only on Hot, Warm, or Cold leads for precision targeting",
+            "Campaign status tracking: Active, Paused, Completed, or Draft — with per-lead delivery stats",
+            "Meta Ads Dashboard: view all Facebook / Instagram campaigns, ad sets, and ads inside SkyUp CRM",
+            "Google Ads Dashboard: track which Google campaigns are generating leads",
+            "Campaign-to-lead mapping: every lead is tagged with the exact campaign, ad set, and ad that generated it",
+          ],
+          solved:
+            '"We spend a fortune on Facebook Ads but have no idea which campaign is actually converting." — SkyUp CRM maps every lead to its exact ad source. Marketing managers can see which campaigns generate the most conversions — and cut spend on the ones that don\'t.',
         },
         {
           title: "AI Voice Bot — Saanvi",
-          desc: "Batch outbound calling that qualifies and classifies leads Hot/Warm/Cold, updates temperature instantly, alerts admins, and captures a full transcript and summary.",
+          desc: "Saanvi is SkyUp CRM's AI-powered outbound voice bot — a standout feature that sets SkyUp apart from every other CRM company in the market. Saanvi calls and qualifies leads automatically, at scale, freeing your human agents to focus exclusively on high-intent prospects.",
+          bullets: [
+            "Batch calling: queue a group of leads for automatic AI outbound calls",
+            "Live call status: real-time display of which lead is being called and the current call status",
+            "Outcome classification: after each call, Saanvi classifies the lead as Hot, Warm, or Cold",
+            "Auto temperature update: the lead's temperature field in SkyUp CRM is updated instantly",
+            "Hot Lead Alert: admin is notified immediately when a high-intent lead is detected",
+            "Warm Lead Re-assignment: warm leads are automatically reassigned to a human agent for follow-up",
+            "Full data capture: call summary, score, reason, next action, service interest, call SID, call duration, and full transcript — all stored on the lead record",
+          ],
+          solved:
+            '"We generate 500 leads a month from ads but only have 5 agents. Most leads never even get called." — Saanvi calls all 500. Automatically. Your human agents only speak to the Hot leads that Saanvi has already qualified — maximizing conversion from your existing lead volume without adding headcount.',
         },
         {
           title: "Call Recordings & AI Transcription",
-          desc: "On-device recording, browser playback, ElevenLabs transcription, GPT call summaries, sentiment scoring, and secure cloud storage.",
+          desc: "SkyUp CRM's Android app enables field agents to record their calls on-device. Those recordings are synced to the platform for supervisory review and AI-powered analysis.",
+          bullets: [
+            "Recording playback: admins listen to any agent call directly in the browser",
+            "AI Transcription (ElevenLabs): one click converts audio to accurate text transcripts",
+            "AI Call Summary (OpenAI): the transcript is analysed by GPT to produce a structured summary — key points, next actions, and sentiment",
+            "Sentiment scoring: Positive, Neutral, or Negative — displayed per call",
+            "Auto temperature update: if the AI detects a Hot call, the lead temperature is updated automatically",
+            "Secure cloud storage via Cloudinary — recordings are never stored on the server",
+          ],
         },
         {
           title: "Reports & Analytics",
-          desc: "Full lead reports with advanced filters, source-wise charts, per-agent conversion tables, daily email summaries, full call logs, CSV export, and phone masking.",
+          desc: "The best CRM software is defined by the quality of its reporting. SkyUp CRM gives managers the data they need to make better decisions — without needing to export to spreadsheets.",
+          bullets: [
+            "Full lead report with advanced filters: date range, source, status, agent, temperature",
+            "Source-wise bar chart: visual breakdown of lead volume by acquisition channel",
+            "Per-agent conversion table: conversion rate for every agent on the team",
+            "Daily Report: automatic email summary of all team activity — leads created, calls made, conversions, follow-ups",
+            "Full call log: every call ever made, filterable by agent, date, and outcome",
+            "CSV Export: download any report as a spreadsheet",
+            "Phone masking: agents see masked numbers for privacy compliance; super-admins see full numbers",
+          ],
         },
         {
           title: "Attendance Tracking",
-          desc: "Web/Android clock-in-out, break tracking, idle detection, status overrides, and an exportable admin attendance view — no separate HR tool.",
+          desc: "SkyUp CRM includes a built-in attendance management system — eliminating the need for a separate HR tool and giving managers complete visibility into field agent work hours.",
+          bullets: [
+            "Clock-in / Clock-out via web or Android app, time-stamped to the second",
+            "Break tracking with reason codes and automatic duration calculation",
+            "Idle detection: agents are marked idle after a configurable period of inactivity",
+            "CRM status override: admins can manually set Present / Absent / Late / Half Day / Leave",
+            "Admin attendance view: filterable table for any date range, exportable to CSV",
+          ],
         },
         {
           title: "Enterprise Security",
-          desc: "BIP39 encryption, JWT + role-based access, complete company isolation, phone masking, API rate limiting, and HMAC-SHA256 webhook verification.",
+          desc: "SkyUp CRM is built with enterprise-grade security — not bolted on as an afterthought.",
+          bullets: [
+            "End-to-end data encryption using BIP39 mnemonic keys — data is unreadable without the key",
+            "Role-based access control: every API endpoint protected by JWT authentication and role middleware",
+            "Complete company isolation: multi-tenant architecture means cross-company data access is architecturally impossible",
+            "Phone number masking: agents see only the first 2 and last 2 digits — full reveal is audit-logged",
+            "API rate limiting to prevent brute-force attacks",
+            "Meta webhook signature verification via HMAC-SHA256",
+          ],
         },
         {
           title: "User & Team Management",
-          desc: "Add/edit/delete agents and sub-admins, auto-generated credentials, scoped roles, password strength enforcement, and plan-limit enforcement.",
+          desc: "Add, edit, and manage your entire team without leaving the platform.",
+          bullets: [
+            "Add / Edit / Delete agents and sub-admins",
+            "Auto-generated usernames and passwords for new users",
+            "Role-based access — Super Admin, Admin, and User (Agent) — each with scoped data views and permissions",
+            "Password strength enforcement on account creation",
+            "Plan limit enforcement — the system blocks adding more users than your plan allows, with a clear upgrade prompt",
+          ],
         },
         {
           title: "Mobile App (Android)",
-          desc: "GPS clock-in-out, call-outcome logging, recording upload, on-the-go lead management, and FCM push notifications for reminders and hot-lead alerts.",
+          desc: "Your field agents stay connected — even when they're away from their desks.",
+          bullets: [
+            "Clock-In / Clock-Out with GPS timestamp",
+            "Log call outcomes directly from their phone after a call",
+            "Upload call recordings from device to CRM automatically",
+            "View and manage assigned leads on the move",
+            "Push notifications (FCM) — real-time alerts for follow-up reminders and hot lead notifications",
+            "Device metadata captured per session for mobile auditing",
+          ],
         },
       ],
     },
     audience: {
-      title: "Built for sales teams. Trusted by growing businesses.",
+      title: "Built for Sales Teams. Trusted by Growing Businesses.",
+      subtitle:
+        "SkyUp CRM is designed for any organization where leads, follow-ups, and conversions are the lifeblood of the business. If you are evaluating CRM companies or looking for the best CRM software for your team size, here is who SkyUp CRM serves best:",
       points: [
         {
           title: "Real Estate & Property",
-          desc: "High lead volumes from digital ads, WhatsApp-first communication, and complex follow-up cycles — exactly what SkyUp is built for.",
+          desc: "High lead volumes from digital ads, WhatsApp-first communication, and complex follow-up cycles — SkyUp CRM is built for exactly this.",
         },
         {
           title: "EdTech & Coaching",
@@ -2528,224 +2673,227 @@ export const SERVICES = [
         },
         {
           title: "Financial Services & Loans",
-          desc: "Strict data security, phone masking, and role-based access make SkyUp ideal for regulated sales environments.",
+          desc: "Strict data security, phone masking, and role-based access make SkyUp CRM ideal for regulated sales environments.",
         },
         {
           title: "Insurance & Wealth",
-          desc: "AI voice-bot qualification and automated follow-up campaigns ensure no prospect falls through the cracks.",
+          desc: "AI voice bot qualification and automated follow-up campaigns ensure no prospect falls through the cracks.",
         },
         {
           title: "Field Sales Teams",
-          desc: "An Android app for call logging, attendance, and lead management — entirely on the go.",
+          desc: "Android mobile app for call logging, attendance, and lead management — entirely on the go.",
         },
       ],
     },
-    integrationsTitle: "Connects to the tools you already use",
+    integrationsTitle: "Connects to the Tools You Already Use",
+    integrationsIntro:
+      "SkyUp CRM integrates with the platforms your business runs on — so leads flow in automatically and communication goes out instantly.",
     integrations: [
       {
         name: "Meta (Facebook) Ads",
-        desc: "Webhook receives leads from Facebook and Instagram lead forms in real time, with full campaign, ad-set, and ad tagging.",
+        desc: "Webhook receives leads from Facebook and Instagram lead forms in real time. Full campaign, ad set, and ad tagging on every lead.",
       },
       {
         name: "Google Ads",
-        desc: "Webhook receives leads from Google Ads lead-form extensions, every lead tagged to its exact campaign.",
+        desc: "Webhook receives leads from Google Ads lead form extensions. Every lead tagged to its exact campaign.",
       },
       {
         name: "WhatsApp Business",
-        desc: "MSG91 or Meta Cloud API — two-way chat, template blasts, and auto-greeting on every new lead.",
+        desc: "MSG91 or Meta Cloud API. Two-way chat, template blasts, and auto-greeting on every new lead.",
       },
       {
         name: "MSG91 SMS",
-        desc: "Transactional and promotional SMS with delivery-status tracking via webhook callbacks.",
+        desc: "Transactional and promotional SMS. Delivery status tracking via webhook callbacks.",
       },
       {
         name: "Brevo (Email)",
-        desc: "Transactional and blast emails with a per-company sending identity and HTML email editor.",
+        desc: "Transactional and blast emails. Per-company sending identity with HTML email editor.",
       },
       {
         name: "Razorpay",
-        desc: "Online plan upgrades — payment confirmed via webhook, subscription activated instantly.",
+        desc: "Online plan upgrades. Payment confirmed via webhook — subscription activated instantly.",
       },
       {
         name: "ElevenLabs",
-        desc: "High-accuracy speech-to-text transcription for call recordings.",
+        desc: "Speech-to-text transcription for call recordings. High-accuracy audio-to-text conversion.",
       },
       {
         name: "OpenAI API",
-        desc: "Call-transcript summarisation with key points, next actions, and sentiment.",
+        desc: "Call transcript summarisation. Structured summaries with key points, next actions, and sentiment.",
       },
       {
         name: "Cloudinary",
-        desc: "Secure cloud storage for all call recordings and uploaded media.",
+        desc: "Secure cloud storage for all call recordings and uploaded media files.",
       },
       {
         name: "Website / Web Form",
-        desc: "A generic webhook endpoint — drop one line of code on any site to start capturing leads.",
+        desc: "Generic webhook endpoint — drop one line of code on any website to start capturing leads.",
       },
     ],
+    processIntro:
+      "From the first lead to the closed deal, SkyUp CRM automates every step so nothing falls through the cracks.",
+    processTitle: "From First Lead to Closed Deal",
     process: [
       {
         title: "Lead Capture",
-        desc: "A lead fills your Facebook ad form at 11 PM. Before they put their phone down, SkyUp has captured it and tagged it with the campaign, ad set, and ad.",
+        desc: "A lead fills in your Facebook ad form at 11 PM. Before they put their phone down, SkyUp has already captured it, created a lead record, and tagged it with the campaign, ad set, and ad name.",
       },
       {
         title: "Auto-Assignment",
-        desc: "The round-robin engine assigns the lead to the next available agent evenly, with no duplicates, and notifies them instantly.",
+        desc: "SkyUp's round-robin engine assigns the lead to the next available agent automatically and evenly, with no duplicates. The agent gets notified instantly.",
       },
       {
         title: "Auto-Greeting",
-        desc: "A personalised WhatsApp, SMS, or email goes out automatically — a great first impression, even at midnight.",
+        desc: "A personalized WhatsApp message, SMS, or email goes out to the lead automatically. Your business makes a great first impression — even at midnight.",
       },
       {
         title: "Agent Follow-Up",
-        desc: "The agent calls, logs the outcome and next step, and schedules a follow-up — every action on the lead's activity timeline.",
+        desc: "The agent calls the lead, logs the outcome (status, remark, next step), and schedules a follow-up from inside SkyUp. Every action is logged on the lead's activity timeline.",
       },
       {
         title: "AI Voice Bot",
-        desc: "For high-volume campaigns, the admin queues leads for Saanvi, which calls, qualifies, and escalates hot leads to a human immediately.",
+        desc: "For high-volume campaigns, the admin queues leads for Saanvi, the AI Voice Bot. Saanvi calls, qualifies, and classifies each lead. Hot leads are escalated to a human agent immediately.",
       },
       {
         title: "Conversion",
-        desc: "The agent marks the lead Converted; the admin sees it live, with source, campaign, and agent credited automatically.",
+        desc: "The agent marks the lead as Converted. The admin sees it in real time on the dashboard. Source, campaign, and agent are all credited automatically.",
       },
       {
         title: "Reporting",
-        desc: "Every morning, a daily report lands in the admin's inbox: leads created, calls made, conversions, and follow-ups per agent and team.",
+        desc: "Every morning, a daily report lands in the admin's inbox: leads created, calls made, conversions, and follow-ups completed per agent and across the team.",
       },
     ],
-    benefitsTitle: "Why sales teams choose SkyUp CRM",
+    benefitsTitle: "Why Sales Teams Choose SkyUp CRM",
     benefits: [
       {
         title: "Never lose a lead",
-        desc: "Every lead from every source is captured, deduplicated, and assigned within seconds. Nothing slips through the cracks.",
+        desc: "Every lead from every source — Facebook, Google, website, CSV, or manual — is captured automatically, deduplicated, and assigned to an agent within seconds. No lead slips through the cracks.",
       },
       {
-        title: "Reach leads where they are",
-        desc: "Real two-way WhatsApp conversations, templates, and documents — all without leaving the CRM. No third-party tools.",
+        title: "Reach leads where they already are",
+        desc: "Your customers are on WhatsApp. SkyUp CRM lets your agents have real two-way WhatsApp conversations, send template messages, and share documents — all without leaving the CRM. No third-party tools, no extra subscriptions.",
       },
       {
-        title: "Qualify at scale with AI",
-        desc: "Saanvi calls hundreds of leads, qualifies them, and escalates only the hot ones — so your team spends time on buyers.",
+        title: "Qualify at scale with AI — not headcount",
+        desc: "Saanvi makes outbound calls to hundreds of leads, qualifies them with a professional conversation, and classifies each as hot, warm, or cold. Hot leads are escalated to your human agents immediately. Your team only spends time on prospects who are ready to buy.",
       },
       {
         title: "Full team visibility, in real time",
-        desc: "A live view of every lead, agent, campaign, and conversion. No waiting for end-of-day reports.",
+        desc: "The admin dashboard gives managers a live view of every lead, every agent, every campaign, and every conversion — right now. No waiting for end-of-day reports. No chasing your team for updates.",
       },
       {
-        title: "Enterprise security, no complexity",
-        desc: "BIP39 encryption, role-based access, phone masking, company isolation, and webhook verification — all built in.",
+        title: "Enterprise security, without enterprise complexity",
+        desc: "End-to-end data encryption (BIP39), role-based access control, phone number masking, company data isolation, and Meta webhook signature verification — all built in, out of the box.",
       },
       {
-        title: "One platform, not a stack of tools",
-        desc: "CRM + WhatsApp + SMS + Email + Campaigns + Attendance + AI Calls + Analytics. One login, one dashboard, one bill.",
+        title: "One platform — not a stack of tools",
+        desc: "CRM + WhatsApp + SMS + Email + Campaigns + Attendance + AI Calls + Analytics. SkyUp replaces the need for 5–7 separate tools. One login. One dashboard. One monthly bill.",
+      },
+    ],
+    securityTitle: "Enterprise-Grade Security, Built in From Day One",
+    securityIntro:
+      "Your customer data is your most valuable asset. SkyUp CRM is built with security as a core requirement — not an afterthought.",
+    security: [
+      {
+        title: "End-to-End Encryption (BIP39)",
+        desc: "Sensitive lead fields are encrypted at rest using a company-specific BIP39 mnemonic key. Data is unreadable without the key.",
+      },
+      {
+        title: "Role-Based Access Control",
+        desc: "Every API endpoint is protected by JWT authentication and role middleware. Users see only what they're permitted to see.",
+      },
+      {
+        title: "Complete Company Isolation",
+        desc: "All data is scoped to your company. Cross-tenant access is architecturally impossible. Your data never touches another company's records.",
+      },
+      {
+        title: "Phone Number Masking",
+        desc: "Agents see only the first 2 and last 2 digits of a phone number. Full reveal is logged in the audit trail for compliance.",
+      },
+      {
+        title: "Rate Limiting",
+        desc: "API rate limiting protects against brute-force attacks and abuse.",
+      },
+      {
+        title: "Meta Webhook Signature Verification",
+        desc: "All inbound Meta webhooks are validated using HMAC-SHA256 signature checks.",
+      },
+      {
+        title: "Auth Navigation Guard",
+        desc: "The browser back button is disabled while logged in, preventing session exposure through browser history.",
       },
     ],
     whyChooseUs: {
-      title: "Why sales leaders trust SkyUp CRM",
+      title: "Why Sales Leaders Trust SkyUp CRM",
       points: [
         {
-          title: "Experience — built for Indian sales teams",
-          desc: "Purpose-built for an environment where WhatsApp is primary, digital ads dominate lead sources, and enterprise CRM is often out of reach.",
+          title: "Experience — Built for How Indian Sales Teams Actually Work",
+          desc: "SkyUp CRM is purpose-built for the Indian sales environment — where WhatsApp is the primary communication channel, digital ads are the dominant lead source, and sales teams often lack access to expensive enterprise CRM software. Every workflow, integration, and pricing tier reflects this deep contextual knowledge.",
         },
         {
-          title: "Expertise — modern engineering",
-          desc: "Built on React 18, Node.js, MongoDB, Socket.io, and a native Android app, handling real-time multi-tenant data with full isolation.",
+          title: "Expertise — Modern Engineering Meets Sales Operations",
+          desc: "SkyUp CRM is built on a production-grade technology stack: React 18, Node.js, MongoDB, Socket.io, and a native Android application. The platform handles real-time data across multiple tenant organizations with complete data isolation — a level of engineering rigor typically found only in enterprise CRM companies charging 10x more.",
         },
         {
-          title: "Authoritativeness — a complete platform",
-          desc: "Lead capture, assignment, communication, AI qualification, campaigns, call recording, analytics, attendance, and billing — all in one.",
+          title:
+            "Authoritativeness — A Complete Platform, Not a Point Solution",
+          desc: "Most CRM tools focus on one area — some on lead management, others on email marketing, others on reporting. SkyUp CRM integrates all of these into a single, cohesive platform: lead capture, assignment, communication, AI qualification, campaign automation, call recording, analytics, attendance, and subscription management — all in one place.",
         },
         {
-          title: "Trustworthiness — security you can rely on",
-          desc: "BIP39 encryption, JWT on every endpoint, multi-tenant isolation, phone masking, and a full audit trail on every action.",
+          title: "Trustworthiness — Security You Can Rely On",
+          desc: "End-to-end encryption using BIP39 mnemonic keys, JWT authentication on every API endpoint, complete multi-tenant data isolation, phone number masking for privacy compliance, and a full audit trail on every lead action, phone reveal, and data access.",
         },
       ],
     },
-    pricingTitle: "Simple, transparent pricing",
-    pricing: [
-      {
-        name: "Basic",
-        price: "Rs 999/mo",
-        desc: "For small teams getting started.",
-        features: [
-          "5 users",
-          "1,000 leads",
-          "Lead capture & assignment",
-          "14-day free trial",
-        ],
-      },
-      {
-        name: "Pro",
-        price: "Rs 2,999/mo",
-        desc: "For growing sales teams.",
-        features: [
-          "20 users",
-          "10,000 leads",
-          "Campaigns & ad integrations",
-          "AI call features",
-          "14-day free trial",
-        ],
-      },
-      {
-        name: "Enterprise",
-        price: "Rs 9,999/mo",
-        desc: "For large, scaling operations.",
-        features: [
-          "Unlimited users",
-          "Unlimited leads",
-          "Custom reports",
-          "White-label",
-          "14-day free trial",
-        ],
-      },
-    ],
-    faqTitle: "Frequently asked questions",
+   
+    faqTitle: "Frequently Asked Questions",
     faqs: [
       {
         q: "What is SkyUp CRM and who is it for?",
-        a: "A cloud-based sales CRM for sales-driven businesses of all sizes, covering the full lead lifecycle — capture, assignment, communication, AI qualification, conversion, and reporting.",
+        a: "SkyUp CRM is a cloud-based sales CRM platform built for sales-driven businesses of all sizes — from a 3-person startup to a 200-agent enterprise team. It covers the full lead lifecycle: capture, assignment, communication, AI qualification, conversion, and reporting — all in one platform.",
       },
       {
         q: "Does SkyUp CRM integrate with WhatsApp?",
-        a: "Yes, natively — via MSG91 and Meta WhatsApp Cloud API. Two-way conversations, templates, documents, and blast campaigns, all inside the CRM.",
+        a: "Yes — natively. SkyUp CRM includes a built-in WhatsApp Business integration via MSG91 and Meta WhatsApp Cloud API. Your agents can have two-way WhatsApp conversations with leads directly inside the CRM, send template messages, share documents, and run WhatsApp blast campaigns. No third-party app required.",
       },
       {
         q: "How does the AI Voice Bot (Saanvi) work?",
-        a: "You queue a group of leads and Saanvi calls each one, classifies it Hot/Warm/Cold, and updates the record. Hot leads alert the admin; warm leads reassign to a human.",
+        a: "Saanvi is SkyUp's built-in AI outbound calling bot. You select a group of leads, queue them for the bot, and Saanvi calls each one automatically. After each call, the bot classifies the lead as Hot, Warm, or Cold and updates the lead record instantly. Hot leads trigger an immediate alert to your admin. Warm leads are automatically reassigned to a human agent for follow-up.",
       },
       {
-        q: "Can I capture leads from Facebook and Google Ads?",
-        a: "Yes — via webhook. The moment a lead fills your ad form, it appears in SkyUp tagged with the exact campaign, ad set, and ad. No manual import.",
+        q: "Can I capture leads automatically from Facebook and Google Ads?",
+        a: "Yes. SkyUp CRM connects to Meta (Facebook/Instagram) and Google Ads via webhook. The moment a lead fills in your ad form, it appears in SkyUp — tagged with the exact campaign, ad set, and ad name. No manual export/import needed.",
       },
       {
-        q: "Is there a free trial?",
-        a: "Yes — 14 days, no credit card. A warning appears 7 days before expiry; after that, an upgrade prompt. You can upgrade via Razorpay in minutes.",
+        q: "Is there a free trial? What happens when it ends?",
+        a: "Every new company gets a 14-day free trial — no credit card required. A warning banner appears 7 days before your trial or subscription expires. Once expired, a suspension screen is shown with an upgrade prompt. You can upgrade online via Razorpay in minutes, and your subscription activates immediately.",
       },
       {
-        q: "Is my data secure and isolated?",
-        a: "Yes — fully multi-tenant, so every company's data is isolated and cross-tenant access is architecturally impossible. Sensitive data is BIP39-encrypted with JWT-protected endpoints.",
+        q: "Is my data secure? Is it shared across companies?",
+        a: "No — your data is never shared. SkyUp CRM is a fully multi-tenant platform, meaning every company's data is completely isolated. Cross-tenant access is architecturally impossible. All sensitive data is encrypted at rest using BIP39 encryption, and every API endpoint is protected by JWT authentication and role-based access control.",
       },
       {
         q: "Does SkyUp CRM have a mobile app?",
-        a: "Yes — a native Android app for field agents: GPS clock-in-out, call logging, recording upload, lead management, and push notifications.",
+        a: "Yes. SkyUp CRM includes a native Android app for field agents. Agents can clock in/out with GPS timestamps, log call outcomes, upload call recordings, manage their leads, and receive push notifications for follow-up reminders and hot lead alerts — all from their phone.",
       },
       {
-        q: "What integrations does it support?",
-        a: "Meta Ads, Google Ads, WhatsApp (MSG91 + Meta Cloud API), MSG91 SMS, Brevo, Razorpay, ElevenLabs, OpenAI, Cloudinary, and any website or web form via webhook.",
+        q: "What integrations does SkyUp CRM support?",
+        a: "SkyUp CRM integrates with Meta (Facebook) Ads, Google Ads, WhatsApp Business (MSG91 + Meta Cloud API), MSG91 SMS, Brevo (email), Razorpay (payments), ElevenLabs (AI transcription), OpenAI (call summaries), Cloudinary (file storage), and any website or web form via webhook.",
       },
       {
-        q: "Can I manage attendance inside SkyUp CRM?",
-        a: "Yes — a built-in attendance system with web/mobile clock-in-out, work hours, breaks, idle periods, and status overrides. No separate HR tool.",
+        q: "Can I manage my team's attendance inside SkyUp CRM?",
+        a: "Yes. SkyUp includes a built-in attendance system — no separate HR tool needed. Agents clock in and out via web or mobile app. Admins can view work hours, break times, idle periods, and override statuses (present / absent / late / half day / leave) for any team member on any date.",
       },
       {
-        q: "What are the pricing plans?",
-        a: "Basic Rs 999/mo (5 users, 1,000 leads), Pro Rs 2,999/mo (20 users, 10,000 leads, campaigns, ad integrations, AI calls), and Enterprise Rs 9,999/mo (unlimited, custom reports, white-label). All include a 14-day trial.",
+        q: "What are SkyUp CRM's pricing plans?",
+        a: "SkyUp CRM has three plans: Basic at ₹999/month (5 users, 1,000 leads), Pro at ₹2,999/month (20 users, 10,000 leads — includes campaigns, ad integrations, and AI call features), and Enterprise at ₹9,999/month (unlimited users and leads, custom reports, white-label). All plans include a 14-day free trial.",
       },
     ],
     cta: {
-      title: "Ready to transform your sales operations with SkyUp CRM?",
+      title: "Ready to Transform Your Sales Operations with SkyUp CRM?",
       subtitle:
-        "Join sales teams across India who replaced scattered spreadsheets, disconnected WhatsApp groups, and expensive CRM software with one unified, affordable platform.",
+        "You have seen what SkyUp CRM can do. Now it is time to experience it for yourself. Join hundreds of sales teams across India who have replaced scattered spreadsheets, disconnected WhatsApp groups, and expensive CRM software with one unified, powerful, and affordable platform.",
+      primaryLabel: "Book a Free Demo ",
     },
     related: [
       {

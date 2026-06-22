@@ -31,9 +31,9 @@ export default function HeroSection() {
           {/* Animated Galaxy background — only behind hero content.
               Wrapped (not passed a className) so Galaxy keeps its own
               galaxy-container sizing; this layer positions it. */}
-          <div className="absolute inset-0 -z-10">
+          {/* <div className="absolute inset-0 -z-10">
             <Galaxy />
-          </div>
+          </div> */}
 
           {/* content */}
           <div className="relative z-10 lg:px-[120px] flex flex-col items-center text-center mt-20">

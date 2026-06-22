@@ -223,38 +223,144 @@ export const CASE_STUDIES = [
   // ── User dashboard ───────────────────────────────────────────────────
   {
     id: 5,
-    slug: "subscription-customer-dashboard",
-    category: "Dashboards",
-    client: "Navanagara House Building Society",
-    title: "A self-serve dashboard that cuts support load",
+    slug: "navanagara-housing-society-lead-generation",
+    category: "PPC",
+    client: "Navanagara House Building Co-operative Society",
+    title: "A lead engine that keeps the membership pipeline full",
     summary:
-      "Letting customers manage billing, plans, and usage themselves reduced tickets and lifted plan upgrades.",
-    image: "/images/case-studies/user-dashboard.webp",
-    industry: "Consumer Subscription",
-    timeline: "10 weeks",
-    year: "2026",
-    role: "End-to-end product design",
-    services: ["UX Research", "UI Design", "Front-end"],
-    stack: ["React", "Stripe", "Tailwind"],
+      "A rebuilt Meta and Google Ads programme — paired with intent-matched landing pages and instant lead routing — turned scattered ad spend into a steady flow of qualified members and site-visit enquiries.",
+    image: "/images/navanagara-dashboard.png", // TODO: add real screenshot
+ 
+    industry: "Housing / Co-operative Society",
+    timeline: "Ongoing", // TODO: confirm (e.g. "per quarter")
+    year: "2025", // TODO: confirm
+    role: "Paid media, end-to-end",
+    services: [
+      "Meta Ads",
+      "Google Ads",
+      "Landing Pages",
+      "Conversion Tracking",
+      "Lead Routing",
+    ],
+    stack: ["Meta Ads", "Google Ads", "GA4", "Meta Pixel", "WhatsApp", "Looker Studio"],
+ 
+    // Anchored to your real campaign data. TODO: confirm the quarter/period.
     metrics: [
-      { value: "-33%", label: "Support tickets" },
-      { value: "+19%", label: "Self-serve upgrades" },
-      { value: "4.6 / 5", label: "Post-task rating" },
+      { value: "150+", label: "New members enrolled", sub: "per quarter" },
+      { value: "₹210", label: "Cost per lead", sub: "Meta lead-gen" },
+      { value: "2.9x", label: "Return on ad spend", sub: "Meta campaigns" },
+      { value: "4.9%", label: "Google conversion rate", sub: "search + display" },
     ],
-    overview:
-      "Customers contacted support for routine things — changing a plan, fixing a card, checking usage — because the account area didn't let them do it themselves.",
+ 
+    overview: [
+      "A house-building co-operative society lives or dies by its membership pipeline. Residential sites are a high-consideration, high-trust purchase, and prospective members spend weeks comparing societies on location, approvals, pricing, and — above all — credibility. For Navanagara, the demand was clearly there; the problem was capturing it predictably. Ad spend was going out across Facebook and Google, but the society couldn't see which campaigns were producing genuine, eligible enquiries versus casual clicks that never converted into members.",
+      "Our brief was to turn that uncertainty into a measurable engine: reach the right people in the right localities, give them a clear and trustworthy reason to enquire, and make sure every lead reached the team instantly so it could be followed up while interest was still warm. The goal wasn't more clicks — it was more qualified members at a cost the society could plan around.",
+    ],
+ 
     challenge:
-      "Common tasks were hidden or missing, so the cheapest interactions became the most expensive ones.",
+      "Enrolling in a housing society is a considered decision, so a click is a long way from a member. The campaigns needed to attract people genuinely looking for residential sites in the right areas — not bargain-hunters or out-of-region traffic — and then reassure them on the things that matter most: approvals, legal standing, location, and the society's track record. Two further problems compounded this. First, success couldn't be measured on form views or raw clicks; it had to be measured on real, eligible enquiries and enrolments, which meant tracking had to be rebuilt from the ground up. Second, the moment a prospect was ready to act was fleeting — if reaching the society took more than a tap, or if a submitted enquiry sat unseen in an inbox, that intent simply went to a competing society.",
+ 
     approach: [
-      "Prioritised the handful of tasks that drove most support contacts.",
-      "Designed clear billing, plan, and usage views with reassuring confirmations.",
-      "Made upgrades a calm, well-explained choice rather than a sales trap.",
+      "We restructured the account around real buyer intent — separating high-intent searches for residential sites and plots in target localities from broader awareness audiences — so budget could be steered toward the campaigns actually producing members.",
+      "On Meta, we ran locality-targeted lead-generation and conversion campaigns with creative built around the proof points members care about: approvals, location advantages, and the credibility of the society.",
+      "On Google, we combined search and display to capture active demand for plots and sites in the area, with ad copy and keywords matched tightly to what serious buyers search for.",
+      "We rebuilt conversion tracking so smart bidding optimised toward qualified enquiries and enrolments — not form loads — giving the campaigns honest signals to learn from.",
+      "We shipped intent-matched landing pages with the details a cautious buyer needs up front and a frictionless enquiry path, plus persistent WhatsApp and call actions so a ready prospect never has to hunt for a way to reach the team.",
+      "We routed every lead straight to the sales team and reviewed performance continuously — pausing what didn't convert, scaling what did, and keeping cost per qualified lead under control.",
     ],
+ 
+    solution: [
+      "The result is a paid-media programme the society can plan around. Meta campaigns consistently deliver qualified enquiries at roughly ₹210 per lead with a 2.9x return on ad spend, while Google search and display capture active, high-intent demand at a 4.9% conversion rate — together feeding a steady stream of eligible prospects rather than unpredictable bursts of traffic.",
+      "Just as importantly, the system is honest end to end: tracking reflects real enquiries, every lead lands with the team the moment it's submitted, and reporting makes it clear which campaigns and localities produce members. Marketing spend is no longer a leap of faith — it's a lever the society can turn up with confidence.",
+    ],
+ 
+    keyFeatures: [
+      {
+        title: "Intent-based account structure",
+        desc: "High-intent site and plot searches separated from awareness audiences, so budget follows what actually enrols members.",
+      },
+      {
+        title: "Locality-targeted creative",
+        desc: "Meta and Google campaigns built around approvals, location, and credibility — the proof points that move cautious buyers.",
+      },
+      {
+        title: "Honest conversion tracking",
+        desc: "Bidding optimises toward qualified enquiries and enrolments, not form views, so the platforms learn from real outcomes.",
+      },
+      {
+        title: "Intent-matched landing pages",
+        desc: "Focused pages that answer a buyer's key questions up front and make enquiring effortless.",
+      },
+      {
+        title: "Instant lead routing",
+        desc: "Every enquiry and WhatsApp message reaches the sales team immediately, so leads are followed up while still warm.",
+      },
+      {
+        title: "Continuous optimisation",
+        desc: "Weekly review to scale winning campaigns, cut waste, and hold cost per qualified lead steady.",
+      },
+    ],
+ 
     results: [
-      "Support tickets for account tasks fell 33%.",
-      "Self-serve plan upgrades rose 19%.",
-      "Post-task satisfaction settled at 4.6 / 5.",
+      "A predictable flow of 150+ new members enrolled per quarter from paid channels.",
+      "Qualified Meta leads delivered at around ₹210 each, at a 2.9x return on ad spend.",
+      "Google search and display converting at 4.9%, capturing active, high-intent demand.",
+      "Cleaner targeting that reaches eligible prospects in the right localities, not casual or out-of-region clicks.",
+      "Every lead routed straight to the sales team for fast, warm follow-up — no enquiries lost in an inbox.",
+      "Clear reporting that shows which campaigns and localities produce members, so spend can be scaled with confidence.",
     ],
+ 
+    deliverables: [
+      "Meta lead-gen & conversion campaigns",
+      "Google Search + Display campaigns",
+      "Conversion tracking rebuild (GA4 + Pixel)",
+      "Intent-matched landing pages",
+      "WhatsApp & call lead capture",
+      "Lead routing to sales",
+      "Performance dashboard & reporting",
+    ],
+ 
+    // TODO: add real screenshots to public/images/case-studies/
+    gallery: [
+      { src: "/images/case-studies/navanagara-ads.webp", caption: "Locality-targeted ad creative" },
+      { src: "/images/case-studies/navanagara-landing.webp", caption: "Intent-matched landing page" },
+      { src: "/images/case-studies/navanagara-dashboard.webp", caption: "Performance reporting" },
+    ],
+ 
+    faqs: [
+      {
+        q: "How does paid advertising help a housing society get members?",
+        a: "Meta and Google ads put your society in front of people actively looking for residential sites in your target localities. With the right targeting, creative, and a clear enquiry path, those clicks turn into qualified, eligible enquiries the team can convert into members.",
+      },
+      {
+        q: "How do you make sure the leads are genuine and not just clicks?",
+        a: "We rebuild conversion tracking so campaigns optimise toward real enquiries and enrolments rather than form views, and we tighten targeting to the right localities and intent. That filters out casual or out-of-region traffic and focuses spend on prospects who can actually become members.",
+      },
+      {
+        q: "What is a good cost per lead for housing or real-estate campaigns?",
+        a: "It varies by location, competition, and offer, but for this programme Meta lead-gen runs at around ₹210 per qualified lead at a 2.9x return on ad spend. We set realistic targets up front based on your goals and improve cost per lead over time.",
+      },
+      {
+        q: "How quickly do enquiries reach the sales team?",
+        a: "Instantly. Every form submission, WhatsApp message, and call routes straight to your team, so leads are followed up while interest is still warm rather than going cold in an inbox.",
+      },
+      {
+        q: "Do you run both Facebook and Google ads?",
+        a: "Yes. We use Meta (Facebook and Instagram) to reach and persuade likely buyers in your localities, and Google search and display to capture people already searching for plots and sites. Together they cover the full demand funnel.",
+      },
+      {
+        q: "Can we see exactly where our ad spend goes?",
+        a: "Yes. We provide clear reporting that shows spend, leads, cost per lead, and return on ad spend by campaign and locality — so you always know which campaigns are producing members and can scale them confidently.",
+      },
+    ],
+ 
+    // TODO: replace with the client's actual quote, name and role.
+    testimonial: {
+      quote:
+        "For the first time our enquiries are predictable, and they're the right people. We can plan our membership drives around the leads coming in instead of hoping the ads work.",
+      author: "Navanagara House Building Co-operative Society",
+      role: "Management",
+    },
   },
 
   // ── CRM ──────────────────────────────────────────────────────────────

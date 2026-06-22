@@ -78,13 +78,13 @@ export default function CaseStudies() {
             className="group relative flex flex-col overflow-hidden rounded-3xl border border-[#E2EAFE] bg-white no-underline shadow-[0_10px_30px_-18px_rgba(0,55,202,0.35)] ring-1 ring-transparent transition-all duration-300 hover:-translate-y-1.5 hover:border-[#0037CA]/20 hover:shadow-[0_30px_60px_-24px_rgba(0,55,202,0.5)] hover:ring-[#0037CA]/15"
           >
             {/* cover */}
-            <div className="relative h-44 overflow-hidden">
+            <div className="relative h-56 overflow-hidden">
               {c.image ? (
                 <img
                   src={c.image}
                   alt={c.title}
                   loading="lazy"
-                  className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  className="absolute inset-0 h-full w-full object-contain transition-transform duration-500 group-hover:scale-105"
                 />
               ) : (
                 <div

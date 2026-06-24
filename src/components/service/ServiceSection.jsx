@@ -39,13 +39,13 @@ function ServiceCard({ name, tagline, Icon, items, from, to, accent, href }) {
         <Icon size={26} strokeWidth={2.2} />
       </div>
 
-      <h3 className="mt-5 text-lg font-bold tracking-tight text-neutral-900">
+      <h3 className="mt-5 text-xl font-bold tracking-tight text-neutral-900">
         {name}
       </h3>
-      <p className="mt-2 text-sm leading-relaxed ">{tagline}</p>
+      <p className="mt-2 text-md leading-relaxed ">{tagline}</p>
 
       <div className="mb-4 mt-5 flex items-center gap-3">
-        <span className="text-[10px] font-semibold uppercase tracking-[0.14em]">
+        <span className="text-md font-semibold uppercase tracking-[0.14em]">
           What's included
         </span>
         <span className="h-px flex-1 bg-slate-100" />
@@ -55,7 +55,7 @@ function ServiceCard({ name, tagline, Icon, items, from, to, accent, href }) {
         {items.map((it) => (
           <li
             key={it}
-            className="flex items-start gap-2.5 text-sm "
+            className="flex items-start gap-2.5 text-md "
           >
             <span
               className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full"
@@ -70,7 +70,7 @@ function ServiceCard({ name, tagline, Icon, items, from, to, accent, href }) {
 
       {/* view more — pinned to the bottom of every card */}
       <div
-        className="mt-auto flex items-center gap-1.5 pt-6 text-sm font-semibold"
+        className="mt-auto flex items-center gap-1.5 pt-6 text-md font-semibold"
         style={{ color: accent }}
       >
         View more
@@ -108,7 +108,7 @@ export default function ServiceSection() {
             </span>
           </h2>
 
-          <p className="mx-auto mt-5 max-w-3xl text-base leading-relaxed  sm:text-lg">
+          <p className="mx-auto mt-5 max-w-3xl text-md leading-relaxed  sm:text-lg">
             Each service is run by a dedicated specialist, measured against real
             outcomes, and reported transparently every fortnight — from organic
             search to AI automation.

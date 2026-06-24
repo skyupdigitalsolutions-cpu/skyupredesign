@@ -6,7 +6,7 @@ import { Reveal } from "./animations";
 
 export default function WhoWeAre() {
   return (
-    <section className="bg-blue-50/50 px-6 py-12 lg:px-[120px]">
+    <section className="bg-blue-50/50 px-3 py-10 lg:px-[120px]">
       <div className="mx-auto max-w-7xl">
         <SectionHeader
           eyebrow="Who we are"
@@ -17,7 +17,7 @@ export default function WhoWeAre() {
         <div className="mt-14 grid gap-5 lg:grid-cols-3">
           {/* Large card — spans 2 cols */}
           <Reveal className="lg:col-span-2">
-            <div className="group relative h-full overflow-hidden rounded-[1.75rem] border border-slate-100 bg-white p-8 shadow-sm transition-all duration-500 hover:shadow-2xl hover:shadow-[#0037CA]/10 sm:p-10">
+            <div className="group relative h-full overflow-hidden rounded-[1.75rem] border border-slate-100 bg-white p-4 lg:p-8 shadow-sm transition-all duration-500 hover:shadow-2xl hover:shadow-[#0037CA]/10 sm:p-10">
               <div
                 aria-hidden
                 className="pointer-events-none absolute -right-24 -top-24 h-64 w-64 rounded-full bg-[#0037CA] opacity-[0.05] blur-3xl transition-opacity duration-500 group-hover:opacity-[0.1]"
@@ -41,7 +41,7 @@ export default function WhoWeAre() {
 
           {/* Tall accent card */}
           <Reveal delay={120}>
-            <div className="relative h-full overflow-hidden rounded-[1.75rem] bg-[#0037CA] p-8 text-white shadow-xl shadow-[#0037CA]/25 sm:p-10">
+            <div className="relative h-full overflow-hidden rounded-[1.75rem] bg-[#0037CA] p-3 lg:p-8 text-white shadow-xl shadow-[#0037CA]/25 sm:p-10">
               <div
                 aria-hidden
                 className="sk-float pointer-events-none absolute -bottom-20 -right-16 h-56 w-56 rounded-full bg-white/10 blur-2xl"
@@ -63,7 +63,7 @@ export default function WhoWeAre() {
 
           {/* Bottom row */}
           <Reveal delay={80}>
-            <div className="group h-full rounded-[1.75rem] border border-slate-100 bg-white p-8 shadow-sm transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl hover:shadow-[#0037CA]/10">
+            <div className="group h-full rounded-[1.75rem] border border-slate-100 bg-white p-4 lg:p-8 shadow-sm transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl hover:shadow-[#0037CA]/10">
               <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#0037CA]/10 text-[#0037CA] transition-colors duration-300 group-hover:bg-[#0037CA] group-hover:text-white">
                 <Target size={22} />
               </span>
@@ -79,7 +79,7 @@ export default function WhoWeAre() {
           </Reveal>
 
           <Reveal delay={160} className="lg:col-span-2">
-            <div className="group h-full rounded-[1.75rem] border border-slate-100 bg-white p-8 shadow-sm transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl hover:shadow-[#0037CA]/10">
+            <div className="group h-full rounded-[1.75rem] border border-slate-100 bg-white p-4 lg:p-8 shadow-sm transition-all duration-500 hover:-translate-y-1 hover:shadow-2xl hover:shadow-[#0037CA]/10">
               <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#0037CA]/10 text-[#0037CA] transition-colors duration-300 group-hover:bg-[#0037CA] group-hover:text-white">
                 <LineChart size={22} />
               </span>

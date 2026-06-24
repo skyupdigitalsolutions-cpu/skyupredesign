@@ -189,12 +189,12 @@ function ServiceCard({ service }) {
               {service.title}
             </h3>
           </div>
-          <h4 className="text-md mt-2 font-semibold leading-snug text-left font-medium w-fit">
+          <h4 className="text-lg mt-2 font-semibold leading-snug text-left font-medium w-fit">
             {service.subtitle}
           </h4>
         </div>
         <p
-          className="text-sm leading-normal flex-1 text-left pt-3"
+          className="text-md leading-normal flex-1 text-left pt-3"
         >
           {service.description}
         </p>
@@ -228,7 +228,7 @@ export default function DigitalGrowth() {
     <section className="bg-blue-50/50 py-16 px-6 lg:px-30">
       {/* Section header */}
       <div className="mb-12 text-center max-w-5xl mx-auto">
-        <h2 className="text-4xl lg:text-5xl font-bold text-neutral-900 leading-tight">
+        <h2 className="text-3xl lg:text-5xl font-bold text-neutral-900 leading-tight">
           Digital Marketing Services Designed for
           <span className="text-[#0037CA]">&nbsp;Modern Businesses</span>
         </h2>

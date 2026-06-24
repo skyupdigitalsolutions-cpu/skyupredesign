@@ -5,7 +5,7 @@ const BRAND = "#0037CA";
 
 const QUICK_LINKS = [
   { label: "Home", href: "/" },
-  { label: "About Us", href: "/about" },
+  { label: "About Us", href: "/about-us" },
   { label: "Services", href: "/service" },
   { label: "Blogs", href: "/blogs" },
   { label: "Works", href: "/works" },

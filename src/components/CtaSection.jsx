@@ -32,9 +32,9 @@ export default function CtaSection({
   className = "",
 }) {
   return (
-    <section className={`bg-white px-6 lg:px-[120px]  ${className}`}>
+    <section className={`bg-white px-4 lg:px-[120px]  ${className}`}>
       <div
-        className="relative shadow-lg isolate mx-auto max-w-7xl overflow-hidden rounded-[28px] px-7 py-12 text-center sm:px-12 lg:px-16 "
+        className="relative shadow-lg isolate mx-auto max-w-7xl overflow-hidden rounded-[28px] px-4 py-8 text-center sm:px-12 lg:px-16 "
         style={{
           background:
             "linear-gradient(180deg, #0037CA 0%, #1e44c8 42%, #0037CA 100%)",
@@ -59,11 +59,11 @@ export default function CtaSection({
           <h2 className="mt-6 text-3xl font-semibold leading-[1.12] tracking-wide text-white sm:text-4xl lg:text-[2.87rem]">
             {title}
           </h2>
-          <h3 className="mt-6 text-3xl font-semibold leading-[1.12] tracking-tight text-white sm:text-4xl lg:text-[1.5rem]">
+          <h3 className="mt-6 text-2xl font-semibold leading-[1.12] tracking-tight text-white sm:text-4xl lg:text-[1.5rem]">
             {substitle}
           </h3>
           {description && (
-            <p className="mx-auto mt-5 max-w-4xl text-base  leading-relaxed text-white/85 sm:text-[17px]">
+            <p className="mx-auto mt-5 max-w-4xl text-md text-justify  leading-relaxed text-white/85 sm:text-[17px]">
               {description}
             </p>
           )}

@@ -458,13 +458,7 @@ export const SERVICES = [
       "Performance Marketing That Turns Ad Spend Into Measurable Revenue",
     heroSubline:
       "Performance Marketing Agency Bangalore is an agency that has been created for the sole goal of making every ad dollar count. At our core, our performance marketing services are about action—clicks, leads, conversions, and revenue. No range. Not perceptions. Results:",
-    statsTitle: "Performance at a glance",
-    stats: [
-      { value: "12+", label: "Clients" },
-      { value: "₹1 Cr+", label: "Ad Spend Managed" },
-      { value: "3.4x", label: "Average ROAS" },
-      { value: "40%", label: "CPL reduction" },
-    ],
+    
     painPoints: {
       title: "You’re spending on ads. But are you getting quality leads?",
       intro:
@@ -932,12 +926,7 @@ export const SERVICES = [
     heroHeadline: "Email Marketing That Converts — Not Just Communicates",
     heroSubline:
       "Most businesses send emails. We build email programs that consistently generate pipeline, recover lost revenue, and turn one-time buyers into loyal customers.",
-    statsTitle: "Why email still wins",
-    stats: [
-      { value: "36-42%", label: "Avg open rate (all industries)" },
-      { value: "4.3B", label: "Global email users" },
-      { value: "36x", label: "Average ROI" },
-    ],
+   
 
     painPoints: {
       title: "Your leads are in your list. But they’re not converting.",
@@ -2430,14 +2419,7 @@ export const SERVICES = [
     heroHeadline: "SkyUp CRM: Close More Deals with AI-Powered Lead Management",
     heroSubline:
       "Built for sales-driven teams who are tired of losing leads in spreadsheets and missed follow-ups. SkyUp CRM gives your team one unified platform to capture leads from Facebook, Google & your website; assign them to agents in seconds; and track them.",
-    statsTitle: "SkyUp CRM in Numbers",
-    stats: [
-      { value: "12+", label: "Integrated Modules" },
-      { value: "3", label: "User Roles & Hierarchy" },
-      { value: "10+", label: "Third-Party Integrations" },
-      { value: "₹999/mo", label: "Starting Price" },
-      { value: "14 Days", label: "Free Trial — No Credit Card" },
-    ],
+   
     painPoints: {
       title:
         "Sound Familiar? These Are the Pain Points Every Sales Manager Knows",

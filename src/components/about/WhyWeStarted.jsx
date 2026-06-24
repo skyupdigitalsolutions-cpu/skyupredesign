@@ -5,7 +5,7 @@ import { Reveal } from "./animations";
 
 export default function WhyWeStarted() {
   return (
-    <section className="bg-white px-6 py-12 lg:px-[120px]">
+    <section className="bg-white px-4 py-12 lg:px-[120px]">
       <div className="mx-auto max-w-7xl">
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
           {/* Story copy */}

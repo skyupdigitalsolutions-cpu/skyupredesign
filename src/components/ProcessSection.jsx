@@ -61,18 +61,18 @@ export default function ProcessSection() {
     <section className="relative isolate font-[poppins] overflow-hidden antialiased text-[#0f1729] bg-blue-50/50 bg-[radial-gradient(120%_80%_at_85%_-10%,rgba(239,116,44,0.05),transparent_55%)] [padding:clamp(34px,5vw,30px)_clamp(18px,4.5vw,72px)] font-['Hanken_Grotesk',ui-sans-serif,system-ui,sans-serif]">
       <div className="mx-auto max-w-[1600px]">
         {/* header */}
-        <div className="flex items-center px-20 gap-[clamp(14px,2vw,22px)]">
+        <div className="flex items-center lg:px-20 gap-[clamp(14px,2vw,22px)]">
           <div className="grid flex-none place-items-center w-[46px] h-[46px] rounded-full text-[#20140b]  bg-white shadow-md">
             <Workflow size={22} strokeWidth={2.1} />
           </div>
           <h2 className="m-0 font-['Bricolage_Grotesque',ui-sans-serif,system-ui,sans-serif] font-[poppins] font-bold uppercase tracking-[-0.01em] whitespace-nowrap text-[clamp(26px,4.4vw,46px)] max-[540px]:whitespace-normal">
             Our Process
           </h2>
-          <span className="relative flex-1 h-[2px] min-w-[24px] rounded-[2px] bg-gradient-to-r from-[rgba(15,23,41,0.7)] to-[rgba(15,23,41,0.12)] before:content-[''] before:absolute before:-left-[2px] before:top-1/2 before:h-2 before:w-2 before:-translate-y-1/2 before:rounded-[1.5px] before:bg-[#0f1729]" />
+          <span className="hidden lg:block relative flex-1 h-[2px] min-w-[24px] rounded-[2px] bg-gradient-to-r from-[rgba(15,23,41,0.7)] to-[rgba(15,23,41,0.12)] before:content-[''] before:absolute before:-left-[2px] before:top-1/2 before:h-2 before:w-2 before:-translate-y-1/2 before:rounded-[1.5px] before:bg-[#0f1729]" />
         </div>
 
         {/* subhead */}
-        <p className="mt-4 mb-[clamp(30px,4vw,52px)] text-[clamp(16px,1.3vw,16.5px)] leading-[1.6] lg:max-w-[850px] px-20">
+        <p className="mt-4 mb-[clamp(30px,4vw,52px)] text-[clamp(16px,1.3vw,16.5px)] leading-[1.6] lg:max-w-[850px] lg:px-20">
           We have a clear and repeatable process that removes the guesswork from
           digital marketing. Every client starts with step one-because unless you
           understand your business properly, you can&rsquo;t build a strategy that
@@ -101,7 +101,7 @@ export default function ProcessSection() {
                 </header>
 
                 {/* body */}
-                <p className="mx-[18px] mt-4 text-justify text-[12px] leading-[1.62] ">
+                <p className="mx-[18px] mt-4 text-justify text-sm leading-[1.62] ">
                   {step.body}
                 </p>
 

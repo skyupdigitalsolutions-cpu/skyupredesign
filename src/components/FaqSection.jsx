@@ -1,11 +1,10 @@
 "use client";
 
 import React, { useState } from "react";
-import { Plus, Sparkles, ChevronDown } from "lucide-react";
+import { Plus, ChevronDown } from "lucide-react";
 
 const BRAND = "#0037CA";
 
-/* Default content — used when the matching prop isn't passed. */
 export const DEFAULT_FAQS = [
   {
     q: "Why is my website getting traffic but not generating leads?",
@@ -52,7 +51,7 @@ export const DEFAULT_FAQS = [
 export default function FaqSection({
   title = "Questions Businesses Often Ask Us",
   faqs = DEFAULT_FAQS,
-  visibleCount = 5, // questions shown before "View more"
+  visibleCount = 5,
   defaultOpenIndex = 0,
 }) {
   const [open, setOpen] = useState(defaultOpenIndex);
@@ -62,18 +61,20 @@ export default function FaqSection({
   const hidden = faqs.length - visibleCount;
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-blue-50/50 via-blue-50/60 to-white px-6 py-16 lg:py-12 lg:px-[120px]">
-      {/* faint glow behind the heading */}
-      <div className="flex gap-20 items-start">
-        {/* header */}
-        <div className="mb-12 w-full max-w-xs lg:max-w-xl flex-shrink-0">
-          <h2 className="mt-5 lg:text-5xl font-bold leading-[1.15] tracking-tight text-neutral-900 sm:text-[2.6rem]">
+    <section className="relative overflow-hidden bg-gradient-to-b from-blue-50/50 via-blue-50/60 to-white px-4 py-12 sm:px-6 lg:py-16 lg:px-[120px]">
+
+      {/* ── Layout: stacked on mobile, side-by-side on desktop ── */}
+      <div className="flex flex-col gap-8 lg:flex-row lg:gap-20 lg:items-start">
+
+        {/* Header */}
+        <div className="w-full lg:max-w-xs lg:flex-shrink-0 xl:max-w-xl">
+          <h2 className="text-3xl font-bold leading-[1.15] tracking-tight text-neutral-900 sm:text-4xl lg:text-5xl">
             {title}
           </h2>
         </div>
 
-        {/* accordion */}
-        <div className="space-y-3.5">
+        {/* Accordion */}
+        <div className="w-full min-w-0 space-y-3">
           {visibleFaqs.map((f, i) => {
             const isOpen = open === i;
             return (
@@ -85,7 +86,7 @@ export default function FaqSection({
                     : "border-neutral-200 hover:border-[#c7d2fe]"
                 }`}
               >
-                {/* gradient accent bar on the open item */}
+                {/* Gradient accent bar */}
                 <span
                   className={`absolute left-0 top-0 h-full w-1 origin-top transition-transform duration-300 ${
                     isOpen ? "scale-y-100" : "scale-y-0"
@@ -97,53 +98,51 @@ export default function FaqSection({
                   type="button"
                   onClick={() => setOpen(isOpen ? -1 : i)}
                   aria-expanded={isOpen}
-                  className="flex w-full items-center gap-4 px-5 py-4 text-left sm:px-6 sm:py-5"
+                  className="flex w-full items-start gap-3 px-4 py-4 text-left sm:items-center sm:gap-4 sm:px-6 sm:py-5"
                 >
-                  {/* number badge */}
+                  {/* Number badge */}
                   <span
-                    className={`grid h-9 w-9 flex-none place-items-center rounded-xl text-sm font-bold transition-all duration-300 ${
-                      isOpen ? "text-white" : "text-[#0037CA]"
-                    }`}
+                    className="mt-0.5 grid h-8 w-8 flex-none place-items-center rounded-xl text-xs font-bold transition-all duration-300 sm:mt-0 sm:h-9 sm:w-9 sm:text-sm"
                     style={
                       isOpen
-                        ? {
-                            background: `linear-gradient(135deg, ${BRAND}, #2c5cff)`,
-                          }
-                        : { background: "#EEF2FF" }
+                        ? { background: `linear-gradient(135deg, ${BRAND}, #2c5cff)`, color: "#fff" }
+                        : { background: "#EEF2FF", color: BRAND }
                     }
                   >
                     {String(i + 1).padStart(2, "0")}
                   </span>
 
+                  {/* Question */}
                   <span
-                    className={`flex-1 text-[15px] font-semibold sm:text-base ${
+                    className={`flex-1 text-sm font-semibold leading-snug sm:text-[15px] sm:leading-normal md:text-base ${
                       isOpen ? "text-[#0037CA]" : "text-neutral-900"
                     }`}
                   >
                     {f.q}
                   </span>
 
+                  {/* Plus / close icon */}
                   <span
-                    className={`grid h-7 w-7 flex-none place-items-center rounded-full transition-all duration-300 ${
+                    className={`mt-0.5 grid h-6 w-6 flex-none place-items-center rounded-full transition-all duration-300 sm:mt-0 sm:h-7 sm:w-7 ${
                       isOpen
                         ? "rotate-45 bg-[#0037CA] text-white"
                         : "bg-neutral-100 text-neutral-500"
                     }`}
                   >
-                    <Plus size={16} strokeWidth={2.4} />
+                    <Plus size={14} strokeWidth={2.4} className="sm:hidden" />
+                    <Plus size={16} strokeWidth={2.4} className="hidden sm:block" />
                   </span>
                 </button>
 
-                {/* animated answer */}
+                {/* Animated answer */}
                 <div
                   className={`grid transition-all duration-300 ease-out ${
-                    isOpen
-                      ? "grid-rows-[1fr] opacity-100"
-                      : "grid-rows-[0fr] opacity-0"
+                    isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
                   }`}
                 >
                   <div className="overflow-hidden">
-                    <p className="pb-5 pl-[68px] pr-6 text-sm leading-relaxed  sm:pb-6">
+                    {/* On mobile: left-pad to align under question text (badge 32px + gap 12px = 44px) */}
+                    <p className="pb-4 pl-[44px] pr-4 text-sm leading-relaxed text-neutral-600 sm:pb-6 sm:pl-[68px] sm:pr-6">
                       {f.a}
                     </p>
                   </div>
@@ -151,16 +150,17 @@ export default function FaqSection({
               </div>
             );
           })}
-          {/* view more / less */}
+
+          {/* View more / less */}
           {hidden > 0 && (
-            <div className="mt-9 flex justify-center">
+            <div className="mt-6 flex justify-center sm:mt-9">
               <button
                 type="button"
                 onClick={() => {
                   setShowAll((v) => !v);
                   if (showAll) setOpen((o) => (o >= visibleCount ? 0 : o));
                 }}
-                className="group inline-flex items-center gap-2 rounded-full border border-[#c7d2fe] bg-white px-6 py-3 text-sm font-semibold text-[#0037CA] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#EEF2FF]"
+                className="group inline-flex items-center gap-2 rounded-full border border-[#c7d2fe] bg-white px-5 py-2.5 text-sm font-semibold text-[#0037CA] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#EEF2FF] sm:px-6 sm:py-3"
               >
                 {showAll ? "Show less" : `View ${hidden} more questions`}
                 <ChevronDown

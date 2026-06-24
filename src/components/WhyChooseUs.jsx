@@ -140,7 +140,7 @@ export default function WhyChooseUs() {
             Why businesses choose{" "}
             <span style={{ color: BRAND }}>Skyup Digital Solutions</span>
           </h2>
-          <p className="mt-5 text-base leading-relaxed">
+          <p className="mt-5 text-md leading-relaxed">
             There are plenty of digital marketing agencies out there making big
             promises. What’s harder to find is a team that backs those promises
             with genuine expertise, transparent reporting, and a real commitment
@@ -223,7 +223,7 @@ export default function WhyChooseUs() {
                       </h3>
                     </div>
                   </div>
-                  <p className="mt-3 text-sm leading-relaxed">
+                  <p className="mt-3 text-md leading-relaxed">
                     {s.desc}
                   </p>
                 </div>

@@ -1,362 +1,437 @@
-import React from "react";
+// src/components/works/CaseStudyDetail.jsx
+// Case-study DETAIL view for Vike + React. Rendered at /work/<slug>.
+//
+// - No react-router-dom. Slug comes from Vike's pageContext.routeParams.slug
+//   (or a `slug` prop). Internal links are plain <a> (Vike SPA nav).
+// - Renders the unified CASE_STUDIES schema: each block appears only when its
+//   data is present, so the same template serves PPC / web / design / CRM
+//   studies AND the section-based Novara entry.
+
+import { useState } from "react";
 import { usePageContext } from "vike-react/usePageContext";
-import { CASE_STUDIES } from "@/data/caseStudies";
-import { ArrowLeftIcon, ArrowUpRightIcon, CheckIcon } from "lucide-react";
+import { CASE_STUDIES, COVERS } from "@/data/caseStudies";
 import Header from "../Header";
 import Footer from "../Footer";
 
-/* ── small building blocks ──────────────────────────────────────────── */
+// string | string[]  ->  string[]
+const toParagraphs = (v) => (Array.isArray(v) ? v : v ? [v] : []);
 
-// A titled content section. Renders nothing if it has no children.
-function Section({ title, children }) {
-  if (children == null || (Array.isArray(children) && children.length === 0))
-    return null;
-  return (
-    <section className="space-y-3">
-      <h2 className="text-[20px] sm:text-[24px] font-bold text-[#111827]">
-        {title}
-      </h2>
-      {children}
-    </section>
-  );
-}
+export default function CaseStudyDetail({ slug: slugProp }) {
+  const pageContext = usePageContext();
+  const slug = slugProp ?? pageContext?.routeParams?.slug;
+  const [heroFailed, setHeroFailed] = useState(false);
 
-// Prose that accepts a string OR an array of strings (-> paragraphs).
-function Prose({ value }) {
-  if (!value) return null;
-  const paras = Array.isArray(value) ? value : [value];
-  return (
-    <>
-      {paras.map((p, i) => (
-        <p
-          key={i}
-          className="text-[14px] sm:text-[15px] leading-relaxed text-slate-600"
-        >
-          {p}
-        </p>
-      ))}
-    </>
-  );
-}
-
-// Pill / chip used for services, stack and deliverables.
-function Chip({ children, solid = false }) {
-  return (
-    <span
-      className={
-        solid
-          ? "inline-flex rounded-full bg-[#0037CA] px-3 py-1 text-[12px] font-semibold text-white"
-          : "inline-flex rounded-full border border-[#E2EAFE] bg-[#EEF1FF] px-3 py-1 text-[12px] font-semibold text-[#0037CA]"
-      }
-    >
-      {children}
-    </span>
-  );
-}
-
-// One labelled row in the sidebar meta card.
-function MetaRow({ label, children }) {
-  if (!children) return null;
-  return (
-    <div className="border-t border-slate-100 py-3 first:border-t-0 first:pt-0">
-      <dt className="text-[11px] font-semibold uppercase tracking-[0.12em] text-[#8095C8]">
-        {label}
-      </dt>
-      <dd className="mt-1 text-[14px] text-[#1B2545]">{children}</dd>
-    </div>
-  );
-}
-
-/* ── page ───────────────────────────────────────────────────────────── */
-
-export default function CaseStudyDetail() {
-  const { routeParams } = usePageContext();
-  const slug = routeParams?.slug;
-  const study = CASE_STUDIES.find((c) => c.slug === slug);
+  const index = CASE_STUDIES.findIndex((s) => s.slug === slug);
+  const study = index >= 0 ? CASE_STUDIES[index] : null;
 
   if (!study) {
     return (
-      <section className="w-full bg-white font-['Poppins']">
-        <Header />
-        <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-10 py-16">
-          <p className="text-slate-700">Case study not found.</p>
-          <a
-            href="/work"
-            className="mt-3 inline-flex items-center gap-2 text-[#0037CA] font-semibold no-underline"
-          >
-            <ArrowLeftIcon className="h-4 w-4" /> Back to all work
-          </a>
-        </div>
-        <Footer />
-      </section>
+      <main className="mx-auto max-w-xl px-6 py-32 text-center font-['Poppins']">
+        <p className="text-sm font-semibold uppercase tracking-[0.16em] text-[#0037CA]">
+          404
+        </p>
+        <h1 className="mt-2 mb-4 text-3xl font-bold text-[#0a1f44]">
+          We couldn't find that case study
+        </h1>
+        <p className="mb-8 text-slate-600">
+          The project you're looking for may have moved or been renamed.
+        </p>
+        <a
+          href="/works"
+          className="inline-block rounded-full bg-[#0037CA] px-7 py-3 font-semibold text-white transition hover:-translate-y-0.5 hover:bg-[#002896] motion-reduce:transition-none"
+        >
+          Back to all work
+        </a>
+      </main>
     );
   }
 
-  const {
-    category,
-    client,
-    title,
-    summary,
-    image,
-    industry,
-    timeline,
-    year,
-    role,
-    services = [],
-    stack = [],
-    liveUrl,
-    metrics = [],
-    overview,
-    challenge,
-    approach,
-    solution,
-    results,
-    deliverables = [],
-    gallery = [],
-    testimonial,
-  } = study;
+  // ── Normalise fields that differ between the flat schema and Novara ──
+  const meta = study.meta || {};
+  const industry = study.industry || meta.industry;
+  const services = study.services || meta.services || [];
+  const location = meta.location;
+  const project = meta.project;
+  const cover = COVERS[index % COVERS.length];
+  const heroImg = study.image || study.heroImage;
+  const cta = study.cta || {}; // ← was missing; fixes "cta is not defined"
 
-  const approachIsList = Array.isArray(approach);
-  const resultsIsList = Array.isArray(results);
-  const hasMeta =
-    client || industry || timeline || year || role || services.length || stack.length || liveUrl;
+  const overview = toParagraphs(study.overview);
+  const challenge = toParagraphs(study.challenge);
+  const solution = toParagraphs(study.solution);
+  const approachIsSteps = Array.isArray(study.approach);
+  const resultsIsList = Array.isArray(study.results);
+
+  const sidebar = [
+    { label: "Client", value: study.client },
+    { label: "Industry", value: industry },
+    { label: "Location", value: location },
+    { label: "Project", value: project },
+    { label: "Timeline", value: study.timeline },
+    { label: "Year", value: study.year },
+    { label: "Role", value: study.role },
+  ].filter((row) => row.value);
 
   return (
-    <section className="w-full bg-white font-['Poppins']">
+    <main className="bg-white font-['Poppins'] text-[#0a1f44] antialiased">
       <Header />
 
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10 py-6 sm:py-10">
-        {/* Back link */}
+      {/* ── HERO ─────────────────────────────────────────────── */}
+      <header className="mx-auto max-w-6xl px-6 pt-12 pb-10">
         <a
           href="/works"
-          className="inline-flex items-center gap-2 rounded-full bg-[#0037CA]/10 px-4 py-2 text-[13px] font-semibold text-[#0037CA] no-underline transition hover:bg-[#0037CA]/15"
+          className="mb-6 inline-flex items-center gap-1 text-sm font-medium text-[#0037CA] hover:underline"
         >
-          <ArrowLeftIcon className="h-4 w-4" /> Back to Work
+          ← All work
         </a>
 
-        {/* Header block */}
-        <div className="mt-4">
-          <span className="inline-flex rounded-full bg-[#EEF1FF] px-3 py-1 text-[11px] font-semibold text-[#0037CA]">
-            {(category || "").trim()}
-          </span>
-        </div>
-
-        <h1 className="mt-3 max-w-3xl text-[24px] sm:text-[32px] lg:text-[40px] font-bold leading-tight text-[#071B4D]">
-          {title}
+        <p className="mb-3 text-sm font-semibold uppercase tracking-[0.16em] text-[#0037CA]">
+          {study.category}
+        </p>
+        <h1 className="max-w-4xl text-4xl font-bold leading-[1.1] tracking-tight md:text-5xl">
+          {study.title}
         </h1>
+        <p className="mt-5 max-w-2xl text-lg text-slate-600">{study.summary}</p>
 
-        <div className="mt-2 flex items-center gap-3 text-[12px] text-slate-500">
-          <span className="font-semibold text-[#3D5499]">{client}</span>
-          {year ? (
-            <>
-              <span className="h-1 w-1 rounded-full bg-slate-300" />
-              <span>{year}</span>
-            </>
-          ) : null}
-        </div>
+        {study.liveUrl && (
+          <a
+            href={study.liveUrl}
+            target="_blank"
+            rel="noreferrer"
+            className="mt-6 inline-flex items-center gap-2 rounded-full bg-[#0037CA] px-6 py-3 font-semibold text-white transition hover:-translate-y-0.5 hover:bg-[#002896] motion-reduce:transition-none"
+          >
+            Visit project ↗
+          </a>
+        )}
 
-        {summary ? (
-          <p className="mt-4 max-w-3xl text-[15px] sm:text-[17px] leading-relaxed text-[#3D5499]">
-            {summary}
-          </p>
-        ) : null}
-
-        {/* Hero */}
-        <div className="mt-6 overflow-hidden rounded-2xl border border-[#E2EAFE] bg-slate-100">
-          {image ? (
+        {/* Hero media: image, or brand gradient fallback */}
+        <div className="mt-10 overflow-hidden rounded-2xl border border-slate-200">
+          {heroImg && !heroFailed ? (
             <img
-              src={image}
-              alt={title}
-              className="h-[220px] w-full object-cover sm:h-[420px]"
+              src={heroImg}
+              alt={`${study.client} — ${study.category}`}
+              className="block aspect-[16/7] w-full object-cover"
+              loading="eager"
+              onError={() => setHeroFailed(true)}
             />
           ) : (
-            <div className="h-[220px] w-full bg-gradient-to-br from-[#0037CA] to-[#3D6BF0] sm:h-[420px]" />
+            <div
+              className={`aspect-[16/7] w-full bg-gradient-to-br ${cover}`}
+              aria-hidden="true"
+            />
           )}
         </div>
+      </header>
 
-        {/* Metrics row */}
-        {metrics.length > 0 && (
-          <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
-            {metrics.map((m, i) => (
+      {/* ── METRICS ──────────────────────────────────────────── */}
+      {study.metrics?.length > 0 && (
+        <section className="mx-auto max-w-6xl px-6 py-8">
+          <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
+            {study.metrics.map((m, i) => (
               <div
                 key={i}
-                className="rounded-2xl border border-[#E2EAFE] bg-white p-5 shadow-[0_10px_30px_-22px_rgba(0,55,202,0.5)]"
+                className="rounded-xl border border-slate-200 bg-slate-50 p-5"
               >
-                <div className="text-[26px] font-extrabold leading-none text-[#0037CA] sm:text-[30px]">
+                <div className="text-3xl font-bold text-[#0037CA]">
                   {m.value}
                 </div>
-                <div className="mt-2 text-[13px] font-medium text-[#1B2545]">
+                <div className="mt-1 text-sm font-medium text-slate-700">
                   {m.label}
                 </div>
-                {m.sub ? (
-                  <div className="mt-1 text-[12px] text-[#8095C8]">{m.sub}</div>
-                ) : null}
+                {m.sub && (
+                  <div className="mt-0.5 text-xs text-slate-500">{m.sub}</div>
+                )}
               </div>
             ))}
           </div>
-        )}
+        </section>
+      )}
 
-        {/* Body + sidebar */}
-        <div className="mt-10 flex flex-col gap-10 lg:flex-row">
-          {/* Main content */}
-          <div className="flex-1 space-y-10">
-            <Section title="Overview">
-              <Prose value={overview} />
-            </Section>
+      {/* ── MAIN GRID: narrative + sidebar ───────────────────── */}
+      <div className="mx-auto grid max-w-6xl gap-12 px-6 py-8 lg:grid-cols-[1fr_280px]">
+        {/* NARRATIVE */}
+        <article className="min-w-0 space-y-12">
+          {overview.length > 0 && (
+            <Block title="Overview">
+              {overview.map((p, i) => (
+                <p key={i} className="mb-4 text-slate-600 last:mb-0">
+                  {p}
+                </p>
+              ))}
+            </Block>
+          )}
 
-            <Section title="The challenge">
-              <Prose value={challenge} />
-            </Section>
+          {challenge.length > 0 && (
+            <Block title="The challenge">
+              {challenge.map((p, i) => (
+                <p key={i} className="mb-4 text-slate-600 last:mb-0">
+                  {p}
+                </p>
+              ))}
+            </Block>
+          )}
 
-            {approach ? (
-              <Section title="Our approach">
-                {approachIsList ? (
-                  <ol className="space-y-4">
-                    {approach.map((step, i) => (
-                      <li key={i} className="flex gap-4">
-                        <span className="flex h-8 w-8 flex-none items-center justify-center rounded-full bg-[#0037CA] text-[13px] font-bold text-white">
-                          {i + 1}
-                        </span>
-                        <p className="pt-1 text-[14px] sm:text-[15px] leading-relaxed text-slate-600">
-                          {step}
-                        </p>
-                      </li>
-                    ))}
-                  </ol>
-                ) : (
-                  <Prose value={approach} />
-                )}
-              </Section>
-            ) : null}
-
-            <Section title="The solution">
-              <Prose value={solution} />
-            </Section>
-
-            {deliverables.length > 0 && (
-              <Section title="What we delivered">
-                <div className="flex flex-wrap gap-2">
-                  {deliverables.map((d, i) => (
-                    <Chip key={i}>{d}</Chip>
+          {study.approach && (
+            <Block title="Our approach">
+              {approachIsSteps ? (
+                <ol className="space-y-4">
+                  {study.approach.map((step, i) => (
+                    <li key={i} className="flex gap-4">
+                      <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#0037CA] text-sm font-bold text-white">
+                        {i + 1}
+                      </span>
+                      <p className="pt-1 text-slate-600">{step}</p>
+                    </li>
                   ))}
-                </div>
-              </Section>
-            )}
+                </ol>
+              ) : (
+                <p className="text-slate-600">{study.approach}</p>
+              )}
+            </Block>
+          )}
 
-            {gallery.length > 0 && (
-              <Section title="A closer look">
-                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                  {gallery.map((g, i) => (
-                    <figure
-                      key={i}
-                      className="overflow-hidden rounded-2xl border border-[#E2EAFE] bg-slate-50"
-                    >
-                      <img
-                        src={g.src}
-                        alt={g.alt || g.caption || `${title} — ${i + 1}`}
-                        loading="lazy"
-                        className="h-auto w-full object-cover"
-                      />
-                      {g.caption ? (
-                        <figcaption className="px-4 py-3 text-[12px] text-slate-500">
-                          {g.caption}
-                        </figcaption>
-                      ) : null}
-                    </figure>
+          {solution.length > 0 && (
+            <Block title="The solution">
+              {solution.map((p, i) => (
+                <p key={i} className="mb-4 text-slate-600 last:mb-0">
+                  {p}
+                </p>
+              ))}
+            </Block>
+          )}
+
+          {/* Key features (cards) */}
+          {study.keyFeatures?.length > 0 && (
+            <Block title="Key features">
+              <div className="grid gap-4 sm:grid-cols-2">
+                {study.keyFeatures.map((f, i) => (
+                  <div
+                    key={i}
+                    className="rounded-xl border border-slate-200 p-5"
+                  >
+                    <h3 className="font-semibold text-[#0a1f44]">{f.title}</h3>
+                    <p className="mt-1.5 text-sm text-slate-600">{f.desc}</p>
+                  </div>
+                ))}
+              </div>
+            </Block>
+          )}
+
+          {/* Deliverables (chips) */}
+          {study.deliverables?.length > 0 && (
+            <Block title="Deliverables">
+              <ul className="flex flex-wrap gap-2.5">
+                {study.deliverables.map((d) => (
+                  <li
+                    key={d}
+                    className="rounded-full border border-slate-200 bg-slate-50 px-3.5 py-1.5 text-sm text-slate-700"
+                  >
+                    {d}
+                  </li>
+                ))}
+              </ul>
+            </Block>
+          )}
+
+          {/* Gallery */}
+          {study.gallery?.length > 0 && (
+            <Block title="Project snapshots">
+              <div className="grid gap-4 sm:grid-cols-2">
+                {study.gallery.map((g, i) => (
+                  <figure key={i}>
+                    <img
+                      src={g.src}
+                      alt={g.alt || g.caption || `${study.title} ${i + 1}`}
+                      loading="lazy"
+                      className="block w-full rounded-xl border border-slate-200"
+                    />
+                    {g.caption && (
+                      <figcaption className="mt-2 text-sm text-slate-500">
+                        {g.caption}
+                      </figcaption>
+                    )}
+                  </figure>
+                ))}
+              </div>
+            </Block>
+          )}
+
+          {/* Results */}
+          {study.results && (
+            <Block title="Results">
+              {resultsIsList ? (
+                <ul className="space-y-3">
+                  {study.results.map((r, i) => (
+                    <li key={i} className="flex gap-3 text-slate-700">
+                      <span
+                        className="mt-1 shrink-0 text-[#0037CA]"
+                        aria-hidden="true"
+                      >
+                        ✓
+                      </span>
+                      <span>{r}</span>
+                    </li>
                   ))}
-                </div>
-              </Section>
-            )}
+                </ul>
+              ) : (
+                <p className="text-slate-600">{study.results}</p>
+              )}
+            </Block>
+          )}
 
-            {results ? (
-              <Section title="The results">
-                {resultsIsList ? (
-                  <ul className="space-y-3">
-                    {results.map((r, i) => (
-                      <li key={i} className="flex gap-3">
-                        <span className="mt-0.5 flex h-5 w-5 flex-none items-center justify-center rounded-full bg-[#0037CA]/10 text-[#0037CA]">
-                          <CheckIcon className="h-3.5 w-3.5" />
-                        </span>
-                        <p className="text-[14px] sm:text-[15px] leading-relaxed text-slate-600">
-                          {r}
-                        </p>
+          {/* Section-based content (Novara) */}
+          {study.sections?.length > 0 &&
+            study.sections.map((section) => (
+              <Block key={section.id} id={section.id} title={section.heading}>
+                {section.paragraphs?.map((p, i) => (
+                  <p key={i} className="mb-4 text-slate-600 last:mb-0">
+                    {p}
+                  </p>
+                ))}
+                {section.list?.length > 0 && (
+                  <ul className="mt-3 grid gap-x-7 gap-y-2.5 sm:grid-cols-2">
+                    {section.list.map((item) => (
+                      <li
+                        key={item}
+                        className="flex gap-2.5 text-slate-700 before:mt-2 before:h-1.5 before:w-1.5 before:shrink-0 before:rounded-full before:bg-[#0037CA] before:content-['']"
+                      >
+                        {item}
                       </li>
                     ))}
                   </ul>
-                ) : (
-                  <Prose value={results} />
                 )}
-              </Section>
-            ) : null}
-
-            {testimonial?.quote ? (
-              <figure className="rounded-2xl border border-[#E2EAFE] bg-[#F7F9FF] p-6">
-                <blockquote className="border-l-4 border-[#0037CA] pl-4 text-[16px] italic leading-relaxed text-[#1B2545]">
-                  “{testimonial.quote}”
-                </blockquote>
-                <figcaption className="mt-3 pl-4 text-[13px] text-[#3D5499]">
-                  <span className="font-semibold text-[#071B4D]">
-                    {testimonial.author}
-                  </span>
-                  {testimonial.role ? `, ${testimonial.role}` : ""}
-                </figcaption>
-              </figure>
-            ) : null}
-          </div>
-
-          {/* Sidebar: project facts */}
-          {/* {hasMeta && (
-            <aside className="lg:w-[300px] lg:flex-none">
-              <div className="lg:sticky lg:top-28">
-                <div className="rounded-2xl border border-[#E2EAFE] bg-white p-5 shadow-[0_12px_35px_-24px_rgba(0,55,202,0.5)]">
-                  <div className="text-[14px] font-bold tracking-wide text-[#071B4D]">
-                    PROJECT DETAILS
+                {section.listAfter && (
+                  <p className="mt-4 text-slate-600">{section.listAfter}</p>
+                )}
+                {section.gallery?.length > 0 && (
+                  <div className="mt-5 grid gap-4 sm:grid-cols-2">
+                    {section.gallery.map((src, i) => (
+                      <img
+                        key={i}
+                        src={src}
+                        alt={`${section.heading} ${i + 1}`}
+                        loading="lazy"
+                        className="w-full rounded-xl border border-slate-200"
+                      />
+                    ))}
                   </div>
-                  <dl className="mt-3">
-                    <MetaRow label="Client">{client}</MetaRow>
-                    <MetaRow label="Industry">{industry}</MetaRow>
-                    <MetaRow label="Role">{role}</MetaRow>
-                    <MetaRow label="Timeline">{timeline}</MetaRow>
-                    <MetaRow label="Year">{year}</MetaRow>
-                    {services.length > 0 && (
-                      <MetaRow label="Services">
-                        <div className="mt-1 flex flex-wrap gap-2">
-                          {services.map((s, i) => (
-                            <Chip key={i}>{s}</Chip>
-                          ))}
-                        </div>
-                      </MetaRow>
-                    )}
-                    {stack.length > 0 && (
-                      <MetaRow label="Tools & stack">
-                        <div className="mt-1 flex flex-wrap gap-2">
-                          {stack.map((s, i) => (
-                            <Chip key={i}>{s}</Chip>
-                          ))}
-                        </div>
-                      </MetaRow>
-                    )}
-                  </dl>
+                )}
+              </Block>
+            ))}
 
-                  {liveUrl ? (
-                    <a
-                      href={liveUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#0037CA] px-4 py-2.5 text-[14px] font-semibold text-white no-underline transition hover:opacity-95"
-                    >
-                      Visit project
-                      <ArrowUpRightIcon className="h-4 w-4" />
-                    </a>
-                  ) : null}
-                </div>
+          {/* FAQs */}
+          {study.faqs?.length > 0 && (
+            <Block title="FAQs">
+              <div className="divide-y divide-slate-200 border-y border-slate-200">
+                {study.faqs.map((f, i) => (
+                  <details key={i} className="group py-4">
+                    <summary className="flex cursor-pointer list-none items-center justify-between font-medium text-[#0a1f44]">
+                      {f.q}
+                      <span className="ml-4 text-[#0037CA] transition group-open:rotate-45">
+                        +
+                      </span>
+                    </summary>
+                    <p className="mt-3 text-slate-600">{f.a}</p>
+                  </details>
+                ))}
               </div>
-            </aside>
-          )} */}
-        </div>
+            </Block>
+          )}
+
+          {/* Testimonial */}
+          {study.testimonial && (
+            <figure className="rounded-2xl bg-[#0037CA] p-8 text-white">
+              <blockquote className="text-xl font-medium leading-relaxed">
+                “{study.testimonial.quote}”
+              </blockquote>
+              <figcaption className="mt-5 text-sm text-blue-100">
+                <span className="font-semibold text-white">
+                  {study.testimonial.author}
+                </span>
+                {study.testimonial.role && <> — {study.testimonial.role}</>}
+              </figcaption>
+            </figure>
+          )}
+        </article>
+
+        {/* SIDEBAR */}
+        <aside className="lg:sticky lg:top-24 lg:self-start">
+          <div className="rounded-2xl border border-slate-200 p-6">
+            <dl className="space-y-4">
+              {sidebar.map((row) => (
+                <div key={row.label}>
+                  <dt className="text-xs font-semibold uppercase tracking-wide text-slate-400">
+                    {row.label}
+                  </dt>
+                  <dd className="mt-0.5 text-sm font-medium text-[#0a1f44]">
+                    {row.value}
+                  </dd>
+                </div>
+              ))}
+            </dl>
+
+            {services.length > 0 && (
+              <div className="mt-6">
+                <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-slate-400">
+                  Services
+                </p>
+                <ul className="flex flex-wrap gap-2">
+                  {services.map((s) => (
+                    <li
+                      key={s}
+                      className="rounded-full bg-blue-50 px-3 py-1 text-xs font-medium text-[#0037CA]"
+                    >
+                      {s}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
+            {study.stack?.length > 0 && (
+              <div className="mt-5">
+                <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-slate-400">
+                  Tools / tech
+                </p>
+                <ul className="flex flex-wrap gap-2">
+                  {study.stack.map((s) => (
+                    <li
+                      key={s}
+                      className="rounded-full border border-slate-200 px-3 py-1 text-xs text-slate-600"
+                    >
+                      {s}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </div>
+        </aside>
       </div>
 
-      <Footer />
+      {/* ── CLOSING CTA (Footer) ─────────────────────────────── */}
+      <Footer
+        ctaProps={{
+          title: cta.title || "Ready to grow?",
+          subtitle: cta.subtitle || "Stop guessing. Start growing with data.",
+          description:
+            cta.description ||
+            "Schedule a free 30-min strategy call. No pitch deck. No lock-in. Just a real conversation about what will move the needle for your business.",
+          primaryLabel: cta.primaryLabel || "Request a Free Strategy Call",
+        }}
+      />
+    </main>
+  );
+}
+
+// Small section wrapper to keep headings consistent.
+function Block({ title, id, children }) {
+  return (
+    <section id={id}>
+      <h2 className="mb-4 text-2xl font-bold tracking-tight text-[#0a1f44]">
+        {title}
+      </h2>
+      {children}
     </section>
   );
 }

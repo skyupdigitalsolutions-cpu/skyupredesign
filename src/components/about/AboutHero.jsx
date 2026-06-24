@@ -37,15 +37,8 @@ export default function AboutHero() {
           }}
         />
 
-        <div className="relative mx-auto max-w-7xl px-6  lg:px-[120px]">
+        <div className="relative mx-auto max-w-7xl px-1 lg:px-[120px]">
           <div className="mx-auto h-[325px] max-w-4xl text-center">
-            <Reveal y={16}>
-              <span className="inline-flex items-center gap-2 rounded-full border border-[#0037CA]/15 bg-white px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-[#0037CA] shadow-sm">
-                <Sparkles size={13} />
-                About Skyup Digital Solutions
-              </span>
-            </Reveal>
-
             <Reveal delay={100}>
               <h1 className="text-3xl font-bold leading-[1.15] tracking-tight text-white sm:text-4xl lg:text-[56px]">
                We help businesses grow{" "}
@@ -56,7 +49,7 @@ export default function AboutHero() {
             </Reveal>
 
             <Reveal delay={200}>
-              <p className="mx-auto mt-7 max-w-2xl text-base leading-relaxed text-white/80 sm:text-lg">
+              <p className="mx-auto mt-7 max-w-2xl text-md leading-relaxed text-white/80 sm:text-lg">
                 We are a web development and digital marketing agency. We
                 utilize smart strategy and the right tools with real creativity
                 to convert your online presence into actual business results.
@@ -93,12 +86,12 @@ export default function AboutHero() {
                 <span className="h-[3px] w-7 rounded-full bg-[#0037CA]" />
                 What we do
               </span>
-              <h2 className="mt-4 text-2xl font-bold leading-snug tracking-tight text-neutral-900 sm:text-3xl lg:text-[2.1rem]">
+              <h2 className="mt-4 text-[24px] font-bold leading-snug tracking-tight text-neutral-900 sm:text-3xl lg:text-[2.1rem]">
                 Accelerating business growth through <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0037CA] via-[#0037CA] to-[#ffb950]">AI-powered digital
                 marketing</span>
               </h2>
 
-              <div className="mt-5 space-y-4 text-[16px] leading-relaxed">
+              <div className="mt-5 space-y-4 text-md leading-relaxed">
                 <p>
                   Skyup Digital Solutions helps businesses move faster online —
                   better marketing, smarter automation, and websites built to

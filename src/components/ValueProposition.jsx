@@ -91,12 +91,12 @@ export default function ValueProposition() {
             <h2 className="mt-5 max-w-[560px] text-3xl font-semibold leading-[1.15] tracking-tight text-neutral-900 sm:text-4xl lg:text-[2.6rem]">
               Helping brands turn digital marketing into <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0037CA] via-[#0037CA] to-[#ffb950]">consistent revenue</span>
             </h2>
-            <p className="mt-6 max-w-[560px] text-base leading-relaxed">
+            <p className="mt-6 max-w-[560px] text-md leading-relaxed">
               Skyup Digital Solutions focuses on what actually matters —
               qualified leads, increased conversion rates, better ROI, and
               sustainable growth.
             </p>
-            <p className="mt-4 max-w-[560px] text-base leading-relaxed ">
+            <p className="mt-4 max-w-[560px] text-md leading-relaxed ">
               We're a full-service agency combining creative execution with
               AI-powered automation, advanced analytics, and conversion-focused
               strategy. The result: a marketing engine that works harder, spends
@@ -110,7 +110,7 @@ export default function ValueProposition() {
             style={{ borderColor: `${BRAND_BORDER}66`, animationDelay: ".1s" }}
           >
             <p
-              className="mb-6 text-xs font-bold uppercase tracking-[0.18em]"
+              className="mb-6 text-md font-bold uppercase tracking-[0.18em]"
               style={{ color: BRAND }}
             >
               What working with us looks like
@@ -128,7 +128,7 @@ export default function ValueProposition() {
                   >
                     <Check size={13} strokeWidth={3} color="#fff" />
                   </span>
-                  <span className="text-sm leading-relaxed">
+                  <span className="text-md leading-relaxed">
                     <span className="font-semibold text-neutral-900">
                       {item.title}
                     </span>
@@ -142,7 +142,7 @@ export default function ValueProposition() {
       </div>
 
       {/* ── PILLARS ── */}
-      <div className="relative px-6 pb-20 lg:px-[120px] lg:py-12">
+      <div className="relative px-6 py-10 lg:px-[120px] lg:py-12">
         <div className="mb-8">
           <p
             className="text-xs font-bold uppercase tracking-[0.18em]"
@@ -188,7 +188,7 @@ export default function ValueProposition() {
                 </span>
               </div>
 
-              <p className="text-sm leading-relaxed">{p.desc}</p>
+              <p className="text-md leading-relaxed">{p.desc}</p>
             </div>
           ))}
         </div>

@@ -46,7 +46,7 @@ const VALUES = [
 
 export default function CoreValues() {
   return (
-    <section className="bg-blue-50/50 px-6 py-12 lg:px-[120px]">
+    <section className="bg-blue-50/50 px-4 py-12 lg:px-[120px]">
       <div className="mx-auto max-w-7xl">
         <SectionHeader
           eyebrow="Core values"

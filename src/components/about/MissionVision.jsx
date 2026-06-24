@@ -6,7 +6,7 @@ import { Reveal } from "./animations";
 
 export default function MissionVision() {
   return (
-    <section className="relative overflow-hidden bg-white px-6 py-12 lg:px-[120px]">
+    <section className="relative overflow-hidden bg-white px-3 py-12 lg:px-[120px]">
       <div
         aria-hidden
         className="sk-float-alt pointer-events-none absolute -left-32 top-1/3 h-96 w-96 rounded-full opacity-[0.06] blur-3xl"
@@ -22,7 +22,7 @@ export default function MissionVision() {
         <div className="mt-14 grid gap-6 lg:grid-cols-2">
           {/* Mission — cobalt panel */}
           <Reveal>
-            <div className="group relative h-full overflow-hidden rounded-[1.75rem] bg-gradient-to-br from-[#0037CA] to-[#0050E6] p-8 text-white shadow-2xl shadow-[#0037CA]/30 transition-transform duration-500 hover:-translate-y-1 sm:p-12">
+            <div className="group relative h-full overflow-hidden rounded-[1.75rem] bg-gradient-to-br from-[#0037CA] to-[#0050E6] p-4 lg:-8 text-white shadow-2xl shadow-[#0037CA]/30 transition-transform duration-500 hover:-translate-y-1 sm:p-12">
               <div
                 aria-hidden
                 className="sk-float pointer-events-none absolute -right-16 -top-16 h-64 w-64 rounded-full bg-white/10 blur-2xl"
@@ -57,7 +57,7 @@ export default function MissionVision() {
                   "linear-gradient(135deg, rgba(0,55,202,0.35), rgba(0,163,255,0.15), rgba(0,55,202,0.05))",
               }}
             >
-              <div className="h-full rounded-[calc(1.75rem-1.5px)] bg-gradient-to-b from-white to-[#F4F7FF] p-8 sm:p-12">
+              <div className="h-full rounded-[calc(1.75rem-1.5px)] bg-gradient-to-b from-white to-[#F4F7FF] p-4 lg:p-8 sm:p-12">
                 <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#0037CA]/10 text-[#0037CA]">
                   <Eye size={26} />
                 </span>

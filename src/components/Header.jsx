@@ -5,7 +5,7 @@ import { Menu, X, ArrowUpRight } from "lucide-react";
 // "Contact Us" is intentionally pulled out of the nav and promoted to a CTA button.
 const navLinks = [
   { label: "Home", href: "/" },
-  { label: "About Us", href: "/about" },
+  { label: "About Us", href: "/about-us" },
   { label: "Service", href: "/service" },
   { label: "Works", href: "/works" },
   { label: "Blogs", href: "/blogs" },
@@ -107,7 +107,7 @@ export default function Header() {
             <span className="h-6 w-px bg-black/10" />
 
             <a
-              href="/contact"
+              href="/contact-us"
               className={`group inline-flex items-center gap-2 rounded-full px-6 py-2.5 text-[15px] font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 bg-gradient-to-r from-[#0037CA]/50 to-[#0037CA] shadow-[0_6px_16px_-4px_rgba(133,152,254,0.7)]`}
             >
               Contact Us
@@ -157,7 +157,7 @@ export default function Header() {
           </nav>
 
           <a
-            href="/contact"
+            href="/contact-us"
             onClick={() => setMenuOpen(false)}
             className={`mt-4 flex items-center justify-center gap-2 rounded-xl px-5 py-3 text-[15px] font-semibold text-white bg-[#0037CA]`}
           >

@@ -86,10 +86,10 @@ export default function GoogleReviews() {
   return (
     <section className="bg-white px-6 py-10 lg:px-[120px] lg:py-12">
       <div className="mx-auto max-w-7xl text-center">
-        <div className="font-bold lg:text-5xl">
+        <div className="font-bold text-3xl lg:text-5xl">
           Real Reviews from Real Businesses
         </div>
-        <p className="py-6 px-[250px]">
+        <p className="py-6 lg:px-[250px]">
           Do not just take our word for it. Here is what business owners across
           Bangalore say about working with Skyup Digital Solutions.
         </p>

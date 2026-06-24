@@ -454,42 +454,226 @@ export const CASE_STUDIES = [
 },
 
   // ── Digital marketing website ────────────────────────────────────────
-  {
-    id: 4,
-    slug: "saas-marketing-website",
-    category: "Web Development",
-    client: "Vidyakunj",
-    title: "A high-converting marketing site",
-    summary:
-      "A rebuilt, SEO-ready marketing site lifted demo requests while loading fast and staying easy for the team to edit.",
-    image: "/images/case-studies/saas-website.webp",
-    industry: "SaaS",
-    timeline: "8 weeks",
-    year: "2026",
-    role: "Design + build",
-    services: ["Web Design", "Development", "SEO", "CMS"],
-    stack: ["Next.js", "Tailwind", "Sanity CMS", "Vercel"],
-    liveUrl: "",
-    metrics: [
-      { value: "+64%", label: "Demo requests" },
-      { value: "98", label: "Lighthouse performance" },
-      { value: "2.1s", label: "Time to interactive" },
+{
+  "id": 4,
+  "slug": "vidyakunj-vidya-niketan-social-media-meta-ads",
+  "title": "Social Media & Meta Ads for Vidyakunj Vidya Niketan",
+  "client": "Vidyakunj Vidya Niketan",
+  "agency": "SkyUp Digital Solutions",
+  "category": "Social Media Marketing",
+  "summary": "SkyUp Digital Solutions manages social media and Meta Ads for Vidyakunj Vidya Niketan, a kindergarten and Montessori preschool — building local brand awareness, showcasing the school's environment, and driving steady admission enquiries from nearby parents.",
+  "heroImage": "/images/case-studies/vidyakunj/hero.jpg",
+  "liveUrl": "",
+  "meta": {
+    "industry": "Education / Preschool",
+    "location": "Bangalore",
+    "services": [
+      "Social Media Marketing",
+      "Meta Ads (Facebook & Instagram)",
+      "Content & Creative Design",
+      "Admission Lead Generation",
+      "Community Management"
     ],
-    overview:
-      "The old site looked out dated, ranked poorly, and required a developer for every copy change — so it rarely changed.",
-    challenge:
-      "Marketing couldn't iterate without engineering, page speed hurt rankings, and the messaging didn't lead visitors toward a clear next step.",
-    approach: [
-      "Designed a focused page system with one obvious primary action per page.",
-      "Built on a headless CMS so marketing can publish and A/B test without code.",
-      "Baked in technical SEO and performance budgets from the first commit.",
-    ],
-    results: [
-      "Demo requests increased 64% quarter over quarter.",
-      "Core Web Vitals moved firmly into the green.",
-      "Marketing now ships new pages in hours, not sprints.",
-    ],
+    "project": "Kindergarten & Montessori"
   },
+  "stack": [
+    "Meta Ads Manager",
+    "Facebook",
+    "Instagram",
+    "Canva",
+    "WhatsApp"
+  ],
+  "seo": {
+    "metaTitle": "Vidyakunj Vidya Niketan Social Media & Meta Ads Case Study | SkyUp Digital Solutions",
+    "metaDescription": "How SkyUp Digital Solutions runs social media and Meta Ads for Vidyakunj Vidya Niketan kindergarten and Montessori — building awareness and driving admission enquiries from local parents.",
+    "keywords": [
+      "preschool social media marketing",
+      "kindergarten Meta ads",
+      "Montessori admissions marketing",
+      "school digital marketing Bangalore",
+      "Vidyakunj Vidya Niketan"
+    ]
+  },
+  "keyFeatures": [
+    {
+      "title": "Admission-focused Meta Ads",
+      "desc": "Facebook and Instagram lead and traffic campaigns aimed at parents in nearby localities, timed around the admission season."
+    },
+    {
+      "title": "Local audience targeting",
+      "desc": "Geo-targeting around the school's catchment area to reach parents of toddlers and pre-schoolers, not out-of-area clicks."
+    },
+    {
+      "title": "Warm, on-brand creatives",
+      "desc": "Friendly, parent-trust creatives showcasing classrooms, activities, safety, and the Montessori learning approach."
+    },
+    {
+      "title": "Consistent content calendar",
+      "desc": "A planned monthly calendar of posts, stories, and reels that keeps the page active and builds familiarity over time."
+    },
+    {
+      "title": "Enquiry capture & routing",
+      "desc": "Lead forms and click-to-WhatsApp so interested parents can enquire or book a visit in a tap, reaching the school instantly."
+    },
+    {
+      "title": "Community management",
+      "desc": "Timely replies to comments and DMs so parents' questions are answered quickly and trust is built in public."
+    }
+  ],
+  "deliverables": [
+    "Monthly social media content calendar",
+    "Post & story creative design",
+    "Reels / short video creatives",
+    "Meta ad campaign setup & management",
+    "Admission lead-generation campaigns",
+    "Click-to-WhatsApp lead capture",
+    "Community management (comments & DMs)",
+    "Monthly performance reporting"
+  ],
+  "sections": [
+    {
+      "id": "project-overview",
+      "heading": "Project Overview",
+      "paragraphs": [
+        "Vidyakunj Vidya Niketan is a kindergarten and Montessori preschool focused on early childhood learning in a safe, nurturing environment. For a preschool, the most important audience is local parents of young children — and the decision to enrol is deeply trust-driven.",
+        "SkyUp Digital Solutions manages the school's social media presence and Meta Ads, with two clear goals: build steady local brand awareness and generate quality admission enquiries from parents in the surrounding area.",
+        "The work combines consistent organic content that shows what daily life at the school looks like, with targeted Facebook and Instagram advertising that puts the school in front of the right parents at the right time in the admission cycle."
+      ],
+      "list": []
+    },
+    {
+      "id": "client-requirement",
+      "heading": "Client Requirement",
+      "paragraphs": [
+        "The school needed a dependable digital presence and a reliable source of admission enquiries, rather than relying only on referrals and offline outreach.",
+        "The main requirements were:"
+      ],
+      "list": [
+        "Build awareness of the school among local parents",
+        "Maintain an active, trustworthy social media presence",
+        "Showcase the campus, classrooms, activities, and Montessori approach",
+        "Run Meta Ads focused on admission enquiries",
+        "Reach parents in nearby localities, not irrelevant audiences",
+        "Make it easy for parents to enquire or book a visit",
+        "Keep messaging warm, safe, and parent-friendly",
+        "Concentrate effort around the admission season"
+      ],
+      "listAfter": "The aim was to turn online attention into real admission enquiries while strengthening the school's reputation in its community."
+    },
+    {
+      "id": "the-challenge",
+      "heading": "The Challenge",
+      "paragraphs": [
+        "Choosing a preschool is one of the most emotional, trust-sensitive decisions a parent makes. They look for safety, warmth, a good learning approach, and reassurance — long before they enquire. Marketing for a school has to earn that trust, not just chase clicks.",
+        "The audience is also tightly local: only parents of young children within a reasonable distance are realistic prospects, so reach has to be precise to avoid wasting budget on people who will never enrol.",
+        "On top of that, demand is seasonal — interest peaks around the admission cycle — so the presence has to stay consistent year-round while advertising intensifies at the moments that matter most."
+      ],
+      "list": []
+    },
+    {
+      "id": "our-strategy",
+      "heading": "Our Strategy",
+      "paragraphs": [
+        "Our strategy paired trust-building organic content with precise, admission-focused paid campaigns.",
+        "On organic, we plan a consistent content calendar that shows the school's environment, activities, learning philosophy, celebrations, and safety — the things parents actually want to see — so the page feels active, warm, and credible over time.",
+        "On paid, we run geo-targeted Facebook and Instagram campaigns aimed at parents of toddlers and pre-schoolers in the school's catchment area, with friendly creatives and a frictionless enquiry path. Effort and budget are concentrated around the admission season, when intent is highest."
+      ],
+      "list": []
+    },
+    {
+      "id": "scope-of-work",
+      "heading": "Scope of Work",
+      "paragraphs": [
+        "The scope covers ongoing social media management and Meta Ads, end to end.",
+        "Our scope of work includes:"
+      ],
+      "list": [
+        "Monthly content planning and calendar",
+        "Creative design for posts, stories, and reels",
+        "Caption and copywriting in a warm, parent-friendly tone",
+        "Facebook and Instagram page management",
+        "Meta ad campaign strategy, setup, and optimisation",
+        "Local audience targeting and budget management",
+        "Admission lead-generation campaigns",
+        "Click-to-WhatsApp and lead-form setup",
+        "Community management — replying to comments and messages",
+        "Monthly performance review and reporting"
+      ],
+      "listAfter": "The objective is to keep the school visible and trusted year-round while driving admission enquiries when it matters most."
+    },
+    {
+      "id": "platforms-and-tools",
+      "heading": "Platforms & Tools Used",
+      "paragraphs": [
+        "The work runs across Meta Ads Manager for Facebook and Instagram advertising, the school's Facebook and Instagram pages for organic content, design tools for creatives, and WhatsApp for capturing and following up enquiries.",
+        "This combination supports strong local reach, warm and consistent content, fast parent communication, and clear tracking of enquiries from the campaigns."
+      ],
+      "list": []
+    },
+    {
+      "id": "how-we-executed",
+      "heading": "How We Executed the Project",
+      "paragraphs": [
+        "Execution began with understanding the school — its values, learning approach, environment, and the parents it serves — so the content and ads would feel authentic and reassuring.",
+        "We set up a consistent monthly content calendar and produced warm, on-brand creatives that showcase classrooms, activities, and the Montessori method, keeping the pages active and familiar to local parents.",
+        "In parallel, we launched geo-targeted Meta Ads focused on admission enquiries, with friendly creatives and a one-tap enquiry path via lead forms and click-to-WhatsApp, so interested parents reach the school instantly.",
+        "We then manage the day-to-day — responding to comments and messages, optimising the campaigns, and reviewing performance each month to focus budget on what brings the best enquiries."
+      ],
+      "list": []
+    },
+    {
+      "id": "results-impact",
+      "heading": "Results & Impact",
+      "paragraphs": [
+        "Vidyakunj Vidya Niketan now has an active, trustworthy social media presence that reflects the warmth and quality of the school, helping it stay top of mind with local parents.",
+        "The admission-focused Meta Ads put the school in front of the right parents in its catchment area and give them an effortless way to enquire or book a visit, turning local attention into real admission enquiries.",
+        "Together, consistent content and targeted advertising strengthen the school's reputation in its community while building a dependable digital channel for admissions beyond word of mouth."
+      ],
+      "list": []
+    },
+    {
+      "id": "business-impact",
+      "heading": "Business Impact",
+      "paragraphs": [
+        "The engagement gives the school a stronger, more professional digital presence and a reliable source of admission enquiries, reducing dependence on referrals and offline outreach alone.",
+        "By reaching local parents with warm, trust-building content and timely, season-focused advertising, the school can attract enquiries when interest is highest and nurture its reputation year-round.",
+        "With a frictionless enquiry path and active community management, parents can connect with the school easily — supporting both admissions and long-term brand trust in the local community."
+      ],
+      "list": []
+    }
+  ],
+  "faqs": [
+    {
+      "q": "How does social media help a preschool get admissions?",
+      "a": "For a preschool, social media builds trust with local parents by showing the campus, activities, safety, and learning approach. Combined with targeted Meta Ads, that visibility turns into admission enquiries from parents in your area."
+    },
+    {
+      "q": "Which platforms do you focus on for a school?",
+      "a": "Primarily Facebook and Instagram, where local parents are most active. We manage organic content on both and run Meta Ads across them, with click-to-WhatsApp so parents can enquire instantly."
+    },
+    {
+      "q": "How do you make sure the ads reach the right parents?",
+      "a": "We geo-target the school's catchment area and focus on parents of toddlers and pre-schoolers, so budget reaches realistic prospects nearby rather than irrelevant or out-of-area audiences."
+    },
+    {
+      "q": "When is the best time to advertise for admissions?",
+      "a": "We keep the social presence consistent year-round to build familiarity and trust, then concentrate ad budget around the admission season when parent intent is highest."
+    },
+    {
+      "q": "How do enquiries reach the school?",
+      "a": "Through lead forms and click-to-WhatsApp, so an interested parent can enquire or request a visit in a tap, and the school can follow up while interest is still warm."
+    },
+    {
+      "q": "What do you need from the school each month?",
+      "a": "Mainly access to photos and updates from day-to-day school life — activities, events, and celebrations. We turn those into a planned content calendar and creatives, and handle the rest."
+    }
+  ],
+  "cta": {
+    "title": "Want More Admission Enquiries Like This?",
+    "description": "At SkyUp Digital Solutions, we help schools, preschools, and local businesses grow with social media marketing and Meta Ads. From content and creatives to targeted campaigns and lead capture, we build a presence that earns trust and brings in enquiries.",
+    "primaryLabel": "Grow Your Admissions"
+  }
+},
   // ── User dashboard ───────────────────────────────────────────────────
   {
     id: 5,

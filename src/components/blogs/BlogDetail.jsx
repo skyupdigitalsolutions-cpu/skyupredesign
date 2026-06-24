@@ -22,7 +22,8 @@ const HEADING_SIZE = {
   h6: "text-[12px] sm:text-[13px]",
 };
 
-const TOC_TYPES = new Set(["h2", "h3", "h4", "h5", "h6"]);
+// Only top-level section titles (h2) appear in the table of contents.
+const TOC_TYPES = new Set(["h2"]);
 
 export default function BlogDetail() {
   const { routeParams } = usePageContext();
@@ -31,7 +32,7 @@ export default function BlogDetail() {
 
   const sections = blog?.sections?.length ? blog.sections : [];
 
-  // Build the table of contents from headings.
+  // Build the table of contents from h2 headings only.
   const toc = useMemo(() => {
     const used = new Map();
     const items = [];
@@ -418,7 +419,7 @@ export default function BlogDetail() {
           <div className="mt-6 space-y-5">{sections.map(renderSection)}</div>
         </div>
 
-        {/* Table of contents */}
+        {/* Table of contents — top-level (h2) titles only */}
         {toc.length > 0 && (
           <aside className="hidden lg:block w-[280px] ml-8">
             <div className="sticky top-28">
@@ -430,34 +431,21 @@ export default function BlogDetail() {
                   ref={tocListRef}
                   className="mt-2 space-y-1 max-h-[60vh] overflow-auto pr-1"
                 >
-                  {toc.map((t) => {
-                    const indent =
-                      t.level === "h3"
-                        ? "pl-4"
-                        : t.level === "h4"
-                          ? "pl-7"
-                          : t.level === "h5"
-                            ? "pl-10"
-                            : t.level === "h6"
-                              ? "pl-12"
-                              : "";
-                    return (
-                      <button
-                        key={t.id}
-                        data-toc-id={t.id}
-                        onClick={() => scrollToId(t.id)}
-                        className={[
-                          "w-full text-left rounded-lg px-2 py-1.5 text-[13px] leading-snug transition",
-                          indent,
-                          t.id === activeId
-                            ? "bg-[#EEF1FF] text-[#0037CA] font-semibold"
-                            : "hover:bg-slate-50 hover:text-slate-900",
-                        ].join(" ")}
-                      >
-                        {t.text}
-                      </button>
-                    );
-                  })}
+                  {toc.map((t) => (
+                    <button
+                      key={t.id}
+                      data-toc-id={t.id}
+                      onClick={() => scrollToId(t.id)}
+                      className={[
+                        "w-full text-left rounded-lg px-2 py-1.5 text-[13px] leading-snug transition",
+                        t.id === activeId
+                          ? "bg-[#EEF1FF] text-[#0037CA] font-semibold"
+                          : "hover:bg-slate-50 hover:text-slate-900",
+                      ].join(" ")}
+                    >
+                      {t.text}
+                    </button>
+                  ))}
                 </div>
               </div>
             </div>

@@ -1,9 +1,9 @@
 // pages/index/+config.js
 export default {
   title:
-    "About Skyup Digital Solutions | Digital Marketing",
+    "Digital Growth Services for Businesses | SkyUp digital solutions",
   metaDescription:
-    "Learn how Skyup Digital Solutions builds smarter digital experiences through SEO, automation, web development, and performance marketing.",
+    "Grow with SEO, SMM, performance marketing, email marketing, AI automation, machine learning services, UI/UX, design, web development and CRM.",
 //   keywords:
 //     "digital marketing agency Bangalore, SEO services, PPC, AI automation, web development, social media marketing",
 };

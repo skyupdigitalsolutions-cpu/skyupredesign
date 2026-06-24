@@ -16,6 +16,171 @@ export const SERVICES = [
   {
     slug: "seo",
     name: "Proven SEO",
+    seo: {
+      metaTitle:
+        "SEO Company in Bangalore — Rank Higher, Get Found | SkyUp Digital Solutions",
+      metaDescription:
+        "SkyUp helps businesses improve Google rankings with technical SEO, keyword research, content, backlinks, local SEO and transparent reporting — without lock-in contracts.",
+      schema: [
+        {
+          "@context": "https://schema.org/",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            {
+              "@type": "ListItem",
+              position: "1",
+              name: "Skyup Digital Solutions",
+              item: "https://www.skyupdigitalsolutions.com/",
+            },
+            {
+              "@type": "ListItem",
+              position: "2",
+              name: "Services Page",
+              item: "https://www.skyupdigitalsolutions.com/service",
+            },
+            {
+              "@type": "ListItem",
+              position: "3",
+              name: "Search Engine Optimization",
+              item: "https://www.skyupdigitalsolutions.com/service/seo",
+            },
+          ],
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: [
+            {
+              "@type": "Question",
+              name: "Why is SEO important for businesses?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "SEO marketing helps businesses increase online visibility, attract qualified traffic, and generate long-term organic leads. One of the biggest advantages of SEO is that it continues delivering traffic even after content is published — unlike paid ads that stop the moment your budget runs out.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "How long does SEO take to show results?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Most websites begin seeing early SEO ranking improvements within 6–12 weeks. Competitive industries may take longer, but SEO creates sustainable long-term growth.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "What are the different types of SEO?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "The main types are On-Page SEO, Technical SEO, Off-Page SEO, Local SEO, and E-Commerce SEO. Each plays a role in improving search visibility and website performance.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "What is included in an SEO audit?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "An SEO audit checks your website's technical health, page structure, keyword optimization, backlinks, speed, mobile performance, and indexing issues. Professional SEO audit tools help identify what's limiting your rankings.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "What are SEO backlinks?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "SEO backlinks are links from other websites pointing to yours. High-quality backlinks are a core part of off-page SEO and help improve your website's authority and search engine rankings.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "What is SEO keyword research?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "SEO keyword research is the process of finding the exact words and phrases your target audience searches on Google. Proper keyword research underpins both on-page SEO and content strategy to attract relevant traffic.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "What makes Skyup a trusted SEO company in Bangalore?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "As a dedicated SEO agency in Bangalore, Skyup focuses on transparent reporting, ROI-driven strategies, technical SEO expertise, and long-term organic growth—without lock-in contracts.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "What are the benefits of SEO compared to paid ads?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Unlike paid ads, SEO continues generating traffic without paying for every click. The benefits of SEO include better brand visibility, consistent leads, improved trust, and lower long-term acquisition costs.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "What is SEO optimization?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "SEO optimization is the process of improving website pages, content, and technical performance to help them rank higher in search engines and attract more relevant visitors.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "Do small businesses need SEO marketing?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Absolutely. SEO marketing helps small businesses compete with larger brands by targeting niche keywords, local searches, and high-intent customer queries—making it one of the most cost-effective channels available.",
+              },
+            },
+          ],
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          name: "SEO: Rank Higher. Get Found. Grow organically.",
+          url: "https://www.skyupdigitalsolutions.com/service/seo",
+          itemListElement: [
+            {
+              "@type": "ListItem",
+              item: {
+                "@type": "Service",
+                name: "Search Engine Optimisation",
+                url: "https://www.skyupdigitalsolutions.com/service/seo",
+                description:
+                  "SkyUp helps businesses improve Google rankings with technical SEO, keyword research, content, backlinks, local SEO and transparent reporting.",
+                provider: {
+                  "@type": "Organization",
+                  name: "SkyUp Digital Solutions LLP",
+                  url: "https://www.skyupdigitalsolutions.com/",
+                },
+                areaServed: { "@type": "City", name: "Bangalore" },
+                serviceType: "Search Engine Optimisation",
+              },
+            },
+          ],
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "@id": "https://www.skyupdigitalsolutions.com/#organization",
+          name: "SkyUp Digital Solutions LLP",
+          url: "https://www.skyupdigitalsolutions.com/",
+          logo: "https://www.skyupdigitalsolutions.com/images/rbd-logo.webp",
+          description:
+            "SkyUp Digital Solutions LLP is a digital marketing and technology company offering SEO, performance marketing, social media marketing, web development, graphic design, UI/UX design, machine learning, AI automation and CRM solutions.",
+          contactPoint: {
+            "@type": "ContactPoint",
+            telephone: "8867867775",
+            contactType: "customer support",
+            areaServed: "IN",
+            availableLanguage: ["English", "Kannada", "Hindi"],
+          },
+          sameAs: [
+            "https://www.facebook.com/people/SKYUP-Digital-Solutions/61584820941998/",
+            "https://www.instagram.com/skyupdigitalsolutions/",
+            "https://www.youtube.com/@SKYUPDigitalSolutionsBengaluru",
+          ],
+        },
+      ],
+    },
     Icon: Search,
     href: "/service/seo",
     from: "#FEF3C7",
@@ -458,7 +623,7 @@ export const SERVICES = [
       "Performance Marketing That Turns Ad Spend Into Measurable Revenue",
     heroSubline:
       "Performance Marketing Agency Bangalore is an agency that has been created for the sole goal of making every ad dollar count. At our core, our performance marketing services are about action—clicks, leads, conversions, and revenue. No range. Not perceptions. Results:",
-    
+
     painPoints: {
       title: "You’re spending on ads. But are you getting quality leads?",
       intro:
@@ -926,7 +1091,6 @@ export const SERVICES = [
     heroHeadline: "Email Marketing That Converts — Not Just Communicates",
     heroSubline:
       "Most businesses send emails. We build email programs that consistently generate pipeline, recover lost revenue, and turn one-time buyers into loyal customers.",
-   
 
     painPoints: {
       title: "Your leads are in your list. But they’re not converting.",
@@ -2401,6 +2565,149 @@ export const SERVICES = [
   {
     slug: "crm",
     name: "SkyUp CRM",
+    seo: {
+      metaTitle:
+        "SkyUp CRM — AI-Powered Lead Management Software | SkyUp Digital Solutions",
+      metaDescription:
+        "SkyUp CRM helps businesses capture leads, auto-assign to sales teams, track calls, automate WhatsApp/SMS/email follow-ups, and monitor performance from one platform.",
+      schema: [
+        {
+          "@context": "https://schema.org/",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            {
+              "@type": "ListItem",
+              position: "1",
+              name: "Skyup Digital Solutions",
+              item: "https://www.skyupdigitalsolutions.com/",
+            },
+            {
+              "@type": "ListItem",
+              position: "2",
+              name: "Services Page",
+              item: "https://www.skyupdigitalsolutions.com/service",
+            },
+            {
+              "@type": "ListItem",
+              position: "3",
+              name: "CRM",
+              item: "https://www.skyupdigitalsolutions.com/service/crm",
+            },
+          ],
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: [
+            {
+              "@type": "Question",
+              name: "What is SkyUp CRM?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "SkyUp CRM is a lead management CRM software that helps businesses capture leads, assign them to sales teams, track calls, automate follow-ups, manage attendance, and monitor sales performance from one platform.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "Who can use SkyUp CRM?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "SkyUp CRM is suitable for real estate businesses, education companies, financial services, agencies, field sales teams, and any business that depends on enquiries, calls, follow-ups, and lead conversion.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "Can SkyUp CRM capture leads from Meta Ads and Google Ads?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Yes. SkyUp CRM can capture leads from Meta Ads, Google Ads, website forms, and manual entries, helping your team manage all enquiries in one place.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "Does SkyUp CRM help prevent duplicate leads?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Yes. SkyUp CRM checks phone numbers and helps prevent duplicate lead entries, reducing repeated calls, confusion among sales executives, and poor customer experience.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "Can SkyUp CRM automatically assign leads to sales executives?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Yes. New leads can be automatically assigned to sales executives based on round robin, helping your team respond faster and avoid manual lead allocation delays.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "Does SkyUp CRM support WhatsApp, SMS, and email automation?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Yes. SkyUp CRM supports WhatsApp, SMS, and email communication for instant replies, follow-up messages, reminders, and customer updates.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "Can managers track sales team performance in SkyUp CRM?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Yes. Managers can track lead status, call activity, call remarks, follow-ups, attendance, location updates, and performance reports from the CRM dashboard.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "Does SkyUp CRM have call tracking features?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Yes. SkyUp CRM helps track incoming calls, outgoing calls, missed calls, call duration, call remarks, and call recordings, giving managers better visibility into sales activity.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "Does SkyUp CRM have AI features?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Yes. SkyUp CRM includes AI-powered features such as call transcription, call summaries, and lead insights to help teams understand customer conversations faster.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "Does SkyUp CRM have a mobile app?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Yes. SkyUp CRM has a mobile app for sales executives to manage leads, calls, follow-ups, meetings, attendance, and field sales activities on the go.",
+              },
+            },
+          ],
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          name: "Skyup CRM",
+          url: "https://www.skyupdigitalsolutions.com/service/crm",
+          itemListElement: [
+            {
+              "@type": "ListItem",
+              item: {
+                "@type": "Service",
+                name: "CRM",
+                url: "https://www.skyupdigitalsolutions.com/service/crm",
+                description:
+                  "SkyUp provides CRM solutions to manage leads, automate follow-ups, track sales activity, improve customer communication and increase business conversions.",
+                provider: {
+                  "@type": "Organization",
+                  name: "SkyUp Digital Solutions LLP",
+                  url: "https://www.skyupdigitalsolutions.com/",
+                },
+                areaServed: { "@type": "City", name: "Bangalore" },
+                serviceType: "CRM",
+              },
+            },
+          ],
+        },
+      ],
+    },
     Icon: Users,
     href: "/service/crm",
     from: "#D1FAE5",
@@ -2419,7 +2726,7 @@ export const SERVICES = [
     heroHeadline: "SkyUp CRM: Close More Deals with AI-Powered Lead Management",
     heroSubline:
       "Built for sales-driven teams who are tired of losing leads in spreadsheets and missed follow-ups. SkyUp CRM gives your team one unified platform to capture leads from Facebook, Google & your website; assign them to agents in seconds; and track them.",
-   
+
     painPoints: {
       title:
         "Sound Familiar? These Are the Pain Points Every Sales Manager Knows",
@@ -2827,7 +3134,7 @@ export const SERVICES = [
         },
       ],
     },
-   
+
     faqTitle: "Frequently Asked Questions",
     faqs: [
       {

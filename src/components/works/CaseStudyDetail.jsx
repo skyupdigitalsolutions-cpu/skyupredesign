@@ -1,12 +1,5 @@
-// src/components/works/CaseStudyDetail.jsx
-// Case-study DETAIL view for Vike + React. Rendered at /work/<slug>.
-//
-// - No react-router-dom. Slug comes from Vike's pageContext.routeParams.slug
-//   (or a `slug` prop). Internal links are plain <a> (Vike SPA nav).
-// - Renders the unified CASE_STUDIES schema: each block appears only when its
-//   data is present, so the same template serves PPC / web / design / CRM
-//   studies AND the section-based Novara entry.
-
+import JsonLd from "@/components/JsonLd";
+import { workSchemas } from "@/data/seoSchemas";
 import { useState } from "react";
 import { usePageContext } from "vike-react/usePageContext";
 import { CASE_STUDIES, COVERS } from "@/data/caseStudies";
@@ -74,6 +67,7 @@ export default function CaseStudyDetail({ slug: slugProp }) {
 
   return (
     <main className="bg-white font-['Poppins'] text-[#0a1f44] antialiased">
+      <JsonLd schemas={workSchemas(study)} />
       <Header />
 
       {/* ── HERO ─────────────────────────────────────────────── */}

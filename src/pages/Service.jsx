@@ -1,3 +1,5 @@
+import JsonLd from "@/components/JsonLd";
+import { serviceSchemas } from "@/data/serviceSchema";
 import FaqSection from "@/components/FaqSection";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
@@ -52,6 +54,7 @@ const FAQ_questions = [
 export default function Service() {
   return (
     <div>
+      <JsonLd schemas={serviceSchemas} />
       <Header />
       <ServiceHero />
       <ServiceSection />

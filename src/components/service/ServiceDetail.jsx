@@ -1,4 +1,5 @@
-
+import JsonLd from "@/components/JsonLd";
+import { serviceSchemas } from "@/data/seoSchemas";
 import React from "react";
 import { usePageContext } from "vike-react/usePageContext";
 import { SERVICES } from "@/data/services";
@@ -214,6 +215,7 @@ export default function ServiceDetail() {
 
   return (
     <div>
+      <JsonLd schemas={serviceSchemas(service)} />
       <Header />
 
       {/* 01 — Hero */}

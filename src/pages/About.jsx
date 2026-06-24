@@ -1,4 +1,5 @@
-// src/pages/AboutUs.jsx
+import JsonLd from "@/components/JsonLd";
+import { aboutUsSchemas } from "@/data/aboutUsSchema";
 import React from "react";
 import { GlobalStyles } from "../components/about/animations";
 import AboutHero from "../components/about/AboutHero";
@@ -61,6 +62,7 @@ const FAQ_questions=[
 export default function About() {
   return (
     <div>
+      <JsonLd schemas={aboutUsSchemas} />
       <Header />
       <GlobalStyles />
       <AboutHero />

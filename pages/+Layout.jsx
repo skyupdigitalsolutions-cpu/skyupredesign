@@ -5,11 +5,9 @@ import { useEffect } from "react";
 import ErrorBoundary from "../src/components/ErrorBoundary";
 
 // ── Dynamic SEO for slug pages ──────────────────────────────────
-// If/when the redesign has these data files, uncomment the imports
-// AND the matching blocks inside the effect below.
-//
-// import { SERVICES, DEFAULT_SERVICE_SLUG } from "../src/data/servicesData";
-// import { BLOGS } from "../src/data/blogs";
+import { BLOGS } from "@/data/blogs";
+import { CASE_STUDIES } from "@/data/caseStudies";
+import { SERVICES } from "@/data/services";
 
 export default function Layout({ children }) {
   const pageContext = usePageContext();
@@ -21,25 +19,37 @@ export default function Layout({ children }) {
     let description = config?.metaDescription;
     let keywords = config?.keywords;
 
-    // ── Service slug pages ────────────────────────────────────
-    // const serviceMatch = urlPathname.match(/^\/services\/(.+)$/);
-    // if (serviceMatch) {
-    //   const slug = serviceMatch[1];
-    //   const data = SERVICES[slug] || SERVICES[DEFAULT_SERVICE_SLUG];
-    //   title = data?.title;
-    //   description = data?.description; // data file still uses .description
-    //   keywords = data?.keyword;
-    // }
-
     // ── Blog slug pages ───────────────────────────────────────
-    // const blogMatch = urlPathname.match(/^\/blog\/(.+)$/);
-    // if (blogMatch) {
-    //   const slug = blogMatch[1];
-    //   const blog = BLOGS.find((b) => b.slug === slug);
-    //   title = blog?.title;
-    //   description = blog?.description; // data file still uses .description
-    //   keywords = blog?.Keywords;
-    // }
+    const blogMatch = urlPathname.match(/^\/blog\/(.+)$/);
+    if (blogMatch) {
+      const b = BLOGS.find((x) => x.slug === blogMatch[1]);
+      if (b) {
+        title = b.seo?.metaTitle || b.title;
+        description = b.seo?.metaDescription || b.description;
+      }
+    }
+
+    // ── Work / case-study slug pages ──────────────────────────
+    const workMatch = urlPathname.match(/^\/work\/(.+)$/);
+    if (workMatch) {
+      const c = CASE_STUDIES.find((x) => x.slug === workMatch[1]);
+      if (c) {
+        title = c.seo?.metaTitle || c.title;
+        description = c.seo?.metaDescription || c.summary;
+      }
+    }
+
+    // ── Service slug pages (not the /service listing page) ─────
+    const serviceMatch = urlPathname.match(/^\/service\/(.+)$/);
+    if (serviceMatch) {
+      const s = SERVICES.find((x) => x.slug === serviceMatch[1]);
+      if (s) {
+        title =
+          s.seo?.metaTitle ||
+          `${s.name} Services in Bangalore | SkyUp Digital Solutions`;
+        description = s.seo?.metaDescription || s.heroSubline || s.tagline;
+      }
+    }
 
     // ── Apply title ───────────────────────────────────────────
     if (title) document.title = title;
@@ -71,7 +81,7 @@ export default function Layout({ children }) {
     }
     canonical.setAttribute(
       "href",
-      `https://www.skyupdigitalsolutions.com${urlPathname === "/" ? "" : urlPathname}`
+      `https://www.skyupdigitalsolutions.com${urlPathname === "/" ? "" : urlPathname}`,
     );
   }, [urlPathname, config]);
 

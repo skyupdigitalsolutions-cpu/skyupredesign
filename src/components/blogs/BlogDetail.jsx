@@ -1,3 +1,5 @@
+import JsonLd from "@/components/JsonLd";
+import { blogSchemas } from "@/data/seoSchemas";
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { usePageContext } from "vike-react/usePageContext";
 import { BLOGS } from "@/data/blogs";
@@ -381,6 +383,7 @@ export default function BlogDetail() {
 
   return (
     <section className="w-full bg-white font-['Poppins']">
+      <JsonLd schemas={blogSchemas(blog)} />
       <Header />
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10 py-6 sm:py-10 flex">
         {/* Article */}

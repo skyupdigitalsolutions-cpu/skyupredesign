@@ -1,3 +1,5 @@
+import JsonLd from "@/components/JsonLd";
+import { homeSchemas } from "@/data/homeSchema";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import DigitalGrowth from "../components/DigitalGrowth";
 import HeroSection from "../components/HeroSection";
@@ -11,6 +13,7 @@ import Header from "@/components/Header";
 export default function Home() {
   return (
     <>
+     <JsonLd schemas={homeSchemas} />
       <Header />
       <HeroSection />
       <ValueProposition />

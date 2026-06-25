@@ -2,10 +2,13 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import CaseStudies from "@/components/works/CaseStudies";
 import HeroWork from "@/components/works/HeroWork";
+import JsonLd from "@/components/JsonLd";
+import { workSchemas } from "@/data/workSchema";
 
 export default function Work() {
   return (
     <div>
+      <JsonLd schemas={workSchemas} />
       <Header />
     <HeroWork/>
       {/* Hero */}

@@ -14,13 +14,12 @@ import {
 export const SERVICES = [
   // ─────────────────────────────────────────────────────────── SEO ──
   {
-    slug: "seo",
+    slug: "search-engine-optimization",
     name: "Proven SEO",
     seo: {
-      metaTitle:
-        "SEO Company in Bangalore — Rank Higher, Get Found | SkyUp Digital Solutions",
+      metaTitle: "SEO Services for Ranking, Traffic & Leads | SkyUp",
       metaDescription:
-        "SkyUp helps businesses improve Google rankings with technical SEO, keyword research, content, backlinks, local SEO and transparent reporting — without lock-in contracts.",
+        "SkyUp helps businesses improve Google rankings with technical SEO, keyword research, content, backlinks, local SEO and transparent reporting.",
       schema: [
         {
           "@context": "https://schema.org/",
@@ -182,7 +181,7 @@ export const SERVICES = [
       ],
     },
     Icon: Search,
-    href: "/service/seo",
+    href: "/service/search-engine-optimization",
     from: "#FEF3C7",
     to: "#FFEDD5",
     accent: "#F59E0B",
@@ -392,6 +391,148 @@ export const SERVICES = [
   {
     slug: "social-media-marketing",
     name: "Social Media Marketing",
+    seo: {
+      metaTitle: "Social Media Marketing Services | SkyUp Digital Solutions",
+      metaDescription:
+        "SkyUp helps brands grow on Instagram, Facebook, LinkedIn, YouTube and more with content, engagement and lead-focused reporting.",
+      schema: [
+        {
+          "@context": "https://schema.org/",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            {
+              "@type": "ListItem",
+              position: "1",
+              name: "Skyup Digital Solutions",
+              item: "https://www.skyupdigitalsolutions.com/",
+            },
+            {
+              "@type": "ListItem",
+              position: "2",
+              name: "Services Page",
+              item: "https://www.skyupdigitalsolutions.com/service",
+            },
+            {
+              "@type": "ListItem",
+              position: "3",
+              name: "Social Media Marketing",
+              item: "https://www.skyupdigitalsolutions.com/service/social-media-marketing",
+            },
+          ],
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: [
+            {
+              "@type": "Question",
+              name: "What is social media marketing?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Social media marketing is the process of promoting your business through platforms like Facebook, Instagram, LinkedIn, and X to increase brand awareness, engagement, and sales.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "Why is social media marketing important?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "It helps businesses reach their target audience, build trust, generate leads, and improve customer relationships.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "Which social media platforms are best for my business?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "The right platform depends on your audience and goals. Facebook, Instagram, LinkedIn, and YouTube are among the most effective options.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "How often should I post on social media?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Most businesses benefit from posting 3–5 times per week with consistent engagement and content updates.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "How long does it take to see results?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Organic growth typically takes a few months, while paid campaigns can generate visibility and leads much faster.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "Can social media marketing generate leads?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Yes, a well-planned social media strategy can attract qualified leads and increase conversions.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "What type of content performs best on social media?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Videos, reels, carousels, customer testimonials, educational posts, and behind-the-scenes content often perform well.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "Do I need paid advertising on social media?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Paid ads are not mandatory, but they can significantly improve reach, traffic, and lead generation.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "How do you measure social media success?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Success is measured through engagement, reach, follower growth, website traffic, leads, and conversions.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "Why should I hire a social media marketing agency?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "An agency helps create strategies, manage campaigns, produce content, and optimize performance for better results.",
+              },
+            },
+          ],
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          name: "Grow Faster with Professional Social Media Marketing Services in Bangalore",
+          url: "https://www.skyupdigitalsolutions.com/service/social-media-marketing",
+          itemListElement: [
+            {
+              "@type": "ListItem",
+              item: {
+                "@type": "Service",
+                name: "Social Media Marketing",
+                url: "https://www.skyupdigitalsolutions.com/service/social-media-marketing",
+                description:
+                  "SkyUp helps brands grow on Instagram, Facebook, LinkedIn, YouTube and more with content, engagement and lead-focused reporting.",
+                provider: {
+                  "@type": "Organization",
+                  name: "SkyUp Digital Solutions LLP",
+                  url: "https://www.skyupdigitalsolutions.com/",
+                },
+                areaServed: { "@type": "City", name: "Bangalore" },
+                serviceType: "Social Media Marketing",
+              },
+            },
+          ],
+        },
+      ],
+    },
     Icon: Share2,
     href: "/service/social-media-marketing",
     from: "#E0F2FE",
@@ -604,6 +745,149 @@ export const SERVICES = [
   {
     slug: "performance-marketing",
     name: "Performance Marketing",
+    seo: {
+      metaTitle:
+        "Performance Marketing Agency in Bangalore — Google, Meta & LinkedIn Ads | SkyUp Digital Solutions",
+      metaDescription:
+        "SkyUp helps businesses grow with Google Ads, Meta Ads and LinkedIn Ads campaigns focused on quality leads, lower CPL, stronger ROAS and revenue.",
+      schema: [
+        {
+          "@context": "https://schema.org/",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            {
+              "@type": "ListItem",
+              position: "1",
+              name: "Skyup Digital Solutions",
+              item: "https://www.skyupdigitalsolutions.com/",
+            },
+            {
+              "@type": "ListItem",
+              position: "2",
+              name: "Services Page",
+              item: "https://www.skyupdigitalsolutions.com/service",
+            },
+            {
+              "@type": "ListItem",
+              position: "3",
+              name: "Performance Marketing",
+              item: "https://www.skyupdigitalsolutions.com/service/performance-marketing",
+            },
+          ],
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: [
+            {
+              "@type": "Question",
+              name: "What are Google Ads?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Google Ads are paid advertisements that appear on Google Search, YouTube, Display Network, and partner websites to generate leads, traffic, and sales.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "How much budget is needed for Google Ads?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Google Ads budgets depend on your industry, competition, and goals. Most businesses start with a scalable monthly ad budget based on target CPL or ROI.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "How long does Google Ads take to show results?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Google Ads can start generating traffic and leads within days, while optimized conversion performance usually improves within 30–90 days.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "What are Meta Ads?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Meta Ads are paid campaigns run across Facebook and Instagram to increase brand awareness, website traffic, leads, and online sales.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "Are Meta Ads good for lead generation?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Yes. Meta Ads are highly effective for lead generation using advanced audience targeting, retargeting, and conversion-focused creatives.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "Which businesses benefit most from Meta Ads?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "E-commerce brands, real estate companies, coaches, local businesses, and D2C brands benefit significantly from Facebook and Instagram advertising.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "What are LinkedIn Ads used for?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "LinkedIn Ads are mainly used for B2B marketing, lead generation, recruitment, brand awareness, and targeting decision-makers professionally.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "Are LinkedIn Ads better for B2B marketing?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Yes. LinkedIn Ads provide precise targeting based on job title, industry, company size, and professional interests, making them ideal for B2B campaigns.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "How expensive are LinkedIn Ads compared to Google or Meta Ads?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "LinkedIn Ads usually have a higher CPC, but they often generate higher-quality B2B leads and better decision-maker targeting.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "What is performance marketing?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Performance marketing is a digital marketing strategy where campaigns are optimized based on measurable results such as leads, conversions, sales, and ROI.",
+              },
+            },
+          ],
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          name: "Performance Marketing That Turns Ad Spend Into Measurable Revenue",
+          url: "https://www.skyupdigitalsolutions.com/service/performance-marketing",
+          itemListElement: [
+            {
+              "@type": "ListItem",
+              item: {
+                "@type": "Service",
+                name: "Performance Marketing",
+                url: "https://www.skyupdigitalsolutions.com/service/performance-marketing",
+                description:
+                  "Generate consistent leads and maximize ROI with our performance-driven Google Ads and PPC campaigns.",
+                provider: {
+                  "@type": "Organization",
+                  name: "SkyUp Digital Solutions LLP",
+                  url: "https://www.skyupdigitalsolutions.com/",
+                },
+                areaServed: { "@type": "City", name: "Bangalore" },
+                serviceType: "Performance Marketing",
+              },
+            },
+          ],
+        },
+      ],
+    },
     Icon: Target,
     href: "/service/performance-marketing",
     from: "#DBEAFE",
@@ -1073,6 +1357,149 @@ export const SERVICES = [
   {
     slug: "email-marketing",
     name: "Email Marketing",
+    seo: {
+      metaTitle:
+        "Email Marketing Services in Bangalore | Expert Email Marketing Agency",
+      metaDescription:
+        "Drive real revenue with proven email marketing services in Bangalore. Strategy, automation, design & analytics — all under one roof. Get your free audit today.",
+      schema: [
+        {
+          "@context": "https://schema.org/",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            {
+              "@type": "ListItem",
+              position: "1",
+              name: "Skyup Digital Solutions",
+              item: "https://www.skyupdigitalsolutions.com/",
+            },
+            {
+              "@type": "ListItem",
+              position: "2",
+              name: "Services Page",
+              item: "https://www.skyupdigitalsolutions.com/service",
+            },
+            {
+              "@type": "ListItem",
+              position: "3",
+              name: "Email Marketing",
+              item: "https://www.skyupdigitalsolutions.com/service/email-marketing",
+            },
+          ],
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: [
+            {
+              "@type": "Question",
+              name: "What is email marketing and how does it help businesses?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Email marketing is a digital marketing strategy that helps businesses nurture leads, increase customer retention, and drive sales through targeted email campaigns and automation.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "Why is email marketing important for business growth?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Email marketing delivers one of the highest ROIs in digital marketing by helping businesses build customer relationships, increase repeat purchases, and generate consistent revenue.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "How much ROI can email marketing generate?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "On average, email marketing can generate up to 36x ROI, making it one of the most cost-effective digital marketing channels for lead generation and customer retention.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "What services are included in your email marketing solutions?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Our email marketing services include email strategy, campaign management, automation setup, drip sequences, list segmentation, template design, A/B testing, reporting, and ESP migration.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "What are email automation and drip campaigns?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Email automation and drip campaigns are pre-scheduled email sequences triggered by user behavior, helping businesses nurture leads, recover abandoned carts, and improve conversions automatically.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "Which email marketing platforms do you work with?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "We work with leading email marketing platforms, including Mailchimp, Klaviyo, HubSpot, ActiveCampaign, Brevo, Shopify Email, and other CRM-integrated ESPs.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "How do you improve email open rates and click-through rates?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "We improve email performance using audience segmentation, personalised content, A/B testing, optimized subject lines, mobile-responsive design, and deliverability best practices.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "Can email marketing help increase e-commerce sales?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Yes. Email marketing for e-commerce helps recover abandoned carts, increase repeat purchases, promote products, and improve customer lifetime value through automated workflows.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "Do you provide email marketing services for B2B companies?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Yes. We create B2B email marketing campaigns focused on lead nurturing, sales funnel automation, onboarding sequences, and improving conversion rates across longer sales cycles.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "Why choose your email marketing agency in Bangalore?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "As a results-driven email marketing agency in Bangalore, we focus on ROI, transparent reporting, automation-led growth, and personalized strategies tailored to your business goals.",
+              },
+            },
+          ],
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          name: "Email Marketing That Converts — Not Just Communicates",
+          url: "https://www.skyupdigitalsolutions.com/service/email-marketing",
+          itemListElement: [
+            {
+              "@type": "ListItem",
+              item: {
+                "@type": "Service",
+                name: "Email Marketing",
+                url: "https://www.skyupdigitalsolutions.com/service/email-marketing",
+                description:
+                  "Drive real revenue with proven email marketing services in Bangalore. Strategy, automation, design & analytics — all under one roof. Get your free audit today.",
+                provider: {
+                  "@type": "Organization",
+                  name: "SkyUp Digital Solutions LLP",
+                  url: "https://www.skyupdigitalsolutions.com/",
+                },
+                areaServed: { "@type": "City", name: "Bangalore" },
+                serviceType: "Email Marketing",
+              },
+            },
+          ],
+        },
+      ],
+    },
     Icon: Mail,
     href: "/service/email-marketing",
     from: "#FFE4E6",
@@ -1343,6 +1770,148 @@ export const SERVICES = [
   {
     slug: "ai-automation",
     name: "AI Automation",
+    seo: {
+      metaTitle: "AI Automation Services for Business Growth | SkyUp",
+      metaDescription:
+        "SkyUp automates business workflows with AI chatbots, CRM automation, WhatsApp automation, voice AI, document processing, support and reporting.",
+      schema: [
+        {
+          "@context": "https://schema.org/",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            {
+              "@type": "ListItem",
+              position: "1",
+              name: "Skyup Digital Solutions",
+              item: "https://www.skyupdigitalsolutions.com/",
+            },
+            {
+              "@type": "ListItem",
+              position: "2",
+              name: "Services Page",
+              item: "https://www.skyupdigitalsolutions.com/service",
+            },
+            {
+              "@type": "ListItem",
+              position: "3",
+              name: "AI Automation",
+              item: "https://www.skyupdigitalsolutions.com/service/ai-automation",
+            },
+          ],
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: [
+            {
+              "@type": "Question",
+              name: "What are AI automation services?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "AI automation services use artificial intelligence to handle repetitive business tasks automatically — saving time, reducing errors and helping your business scale faster without hiring more staff.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "How does an AI automation company in Bangalore help my business?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "A local AI automation company in Bangalore understands your market, tools and business environment. Skyup eliminates manual work across sales, marketing and operations — so your team focuses on growth while AI handles the routine tasks 24/7, with support just a call away.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "What is AI workflow automation?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "AI workflow automation connects your tools and systems so data moves and tasks trigger automatically — no manual copy-pasting, follow-ups or reporting needed.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "What is AI marketing automation?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "AI marketing automation runs your email campaigns, lead nurturing, social posting and reporting on autopilot — delivering personalised communication to your audience at scale.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "Do I need technical knowledge to use AI automation?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "No. Skyup Digital Solution LLP handles everything — design, build, testing and training. You get the results without touching any code.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "How long does it take to go live?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Most clients are live within 2 to 4 weeks of their first strategy call, depending on the complexity of the workflows involved.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "What is AI in automation testing?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "AI in automation testing uses machine learning to automatically generate and run software test cases — reducing QA time by up to 70% and catching bugs faster.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "Which industries do you serve?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "We deliver AI automation services across all industries — e-commerce, real estate, healthcare, SaaS, professional services, education and manufacturing.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "How much do AI automation services cost?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Pricing depends on the scope and workflows involved. We offer a free AI audit first so you know exactly what's needed before any investment is made.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "Why choose Skyup Digital Solution LLP as my AI automation company in Bangalore?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "We are a proven, Bangalore-based AI automation company in Bangalore with deep expertise in artificial intelligence automation — delivering real, measurable results for 50+ businesses through a transparent, no-obligation process. We know Bangalore's business landscape and we speak your language.",
+              },
+            },
+          ],
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          name: "Stop Doing It Manually. Start Scaling with AI Automation Services in Bangalore.",
+          url: "https://www.skyupdigitalsolutions.com/service/ai-automation",
+          itemListElement: [
+            {
+              "@type": "ListItem",
+              item: {
+                "@type": "Service",
+                name: "AI Automation",
+                url: "https://www.skyupdigitalsolutions.com/service/ai-automation",
+                description:
+                  "SkyUp automates business workflows with AI chatbots, CRM automation, WhatsApp automation, voice AI, document processing, support and reporting.",
+                provider: {
+                  "@type": "Organization",
+                  name: "SkyUp Digital Solutions LLP",
+                  url: "https://www.skyupdigitalsolutions.com/",
+                },
+                areaServed: { "@type": "City", name: "Bangalore" },
+                serviceType: "AI Automation",
+              },
+            },
+          ],
+        },
+      ],
+    },
     Icon: Bot,
     href: "/service/ai-automation",
     from: "#EDE9FE",
@@ -1574,6 +2143,148 @@ export const SERVICES = [
   {
     slug: "machine-learning",
     name: "Machine Learning",
+    seo: {
+      metaTitle: "Machine Learning Services for Business Growth | Skyup",
+      metaDescription:
+        "SkyUp delivers machine learning consulting, custom ML models, predictive analytics, NLP, computer vision, MLOps, maintenance and business-ready AI integration.",
+      schema: [
+        {
+          "@context": "https://schema.org/",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            {
+              "@type": "ListItem",
+              position: "1",
+              name: "Skyup Digital Solutions",
+              item: "https://www.skyupdigitalsolutions.com/",
+            },
+            {
+              "@type": "ListItem",
+              position: "2",
+              name: "Services Page",
+              item: "https://www.skyupdigitalsolutions.com/service",
+            },
+            {
+              "@type": "ListItem",
+              position: "3",
+              name: "Machine Learning",
+              item: "https://www.skyupdigitalsolutions.com/service/machine-learning",
+            },
+          ],
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: [
+            {
+              "@type": "Question",
+              name: "What are machine learning services?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Machine learning services help businesses use AI models and algorithms to automate processes, analyze data, and make intelligent predictions.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "How can machine learning benefit my business?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Machine learning improves efficiency, reduces manual effort, enhances decision-making, and uncovers valuable insights from data.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "What industries can use machine learning solutions?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Machine learning is widely used in healthcare, finance, retail, manufacturing, logistics, education, and many other industries.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "What is the difference between AI and machine learning?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Artificial Intelligence (AI) is a broader concept, while machine learning is a subset of AI that enables systems to learn from data.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "How long does it take to develop a machine learning model?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "The timeline depends on project complexity, data availability, and business requirements — typically ranging from a few weeks to several months.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "Do I need large amounts of data for machine learning?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "While more quality data often improves results, many machine learning models can be developed effectively with moderate datasets.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "What types of machine learning models do you develop?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "We develop predictive models, recommendation engines, classification models, anomaly detection systems, NLP solutions, and computer vision applications.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "Can machine learning be integrated into existing systems?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Yes, machine learning solutions can be seamlessly integrated into websites, mobile apps, CRM platforms, ERP systems, and business workflows.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "How accurate are machine learning models?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Model accuracy depends on data quality, use case, and algorithm selection, but our team continuously optimizes models for the best possible performance.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "Do you provide support after deployment?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Yes, we offer ongoing maintenance, monitoring, retraining, and optimization to ensure your machine learning models continue to perform effectively.",
+              },
+            },
+          ],
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          name: "Machine Learning Services in Bangalore for Smarter Business Growth",
+          url: "https://www.skyupdigitalsolutions.com/service/machine-learning",
+          itemListElement: [
+            {
+              "@type": "ListItem",
+              item: {
+                "@type": "Service",
+                name: "Machine Learning",
+                url: "https://www.skyupdigitalsolutions.com/service/machine-learning",
+                description:
+                  "SkyUp delivers machine learning consulting, custom ML models, predictive analytics, NLP, computer vision, MLOps, maintenance and business-ready AI integration.",
+                provider: {
+                  "@type": "Organization",
+                  name: "SkyUp Digital Solutions LLP",
+                  url: "https://www.skyupdigitalsolutions.com/",
+                },
+                areaServed: { "@type": "City", name: "Bangalore" },
+                serviceType: "Machine Learning",
+              },
+            },
+          ],
+        },
+      ],
+    },
     Icon: BrainCircuit,
     href: "/service/machine-learning",
     from: "#E0E7FF",
@@ -1838,6 +2549,148 @@ export const SERVICES = [
   {
     slug: "ui-ux-design",
     name: "UI / UX Design",
+    seo: {
+      metaTitle: "UI/UX Design for Better User Experience | SkyUp",
+      metaDescription:
+        "SkyUp helps brands improve websites and apps with UX audits, user journeys, information architecture, wireframes, prototypes, UI design and testing.",
+      schema: [
+        {
+          "@context": "https://schema.org/",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            {
+              "@type": "ListItem",
+              position: "1",
+              name: "Skyup Digital Solutions",
+              item: "https://www.skyupdigitalsolutions.com/",
+            },
+            {
+              "@type": "ListItem",
+              position: "2",
+              name: "Services Page",
+              item: "https://www.skyupdigitalsolutions.com/service",
+            },
+            {
+              "@type": "ListItem",
+              position: "3",
+              name: "UI/UX Design",
+              item: "https://www.skyupdigitalsolutions.com/service/ui-ux-design",
+            },
+          ],
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: [
+            {
+              "@type": "Question",
+              name: "What are UI/UX design services in Bangalore?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "UI/UX design services in Bangalore help businesses create user-friendly, visually appealing websites and applications that improve customer experience and engagement.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "Why is UI/UX design important for a business website?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "UI/UX design improves usability, enhances user satisfaction, and helps increase conversions through intuitive navigation and better user experiences.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "How do I choose the best UI/UX design company in Bangalore?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Look for a UI/UX design company in Bangalore with a strong portfolio, proven experience, client testimonials, and a structured UI/UX design process.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "What does a UI/UX designer do?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "A UI/UX designer researches user behavior, creates wireframes, designs interfaces, and optimizes digital experiences for websites and mobile apps.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "What is the difference between UI and UX design?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "UI design focuses on visual elements like colors, typography, and layouts, while UX design focuses on user journeys, usability, and overall experience.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "What is included in UI/UX design services?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "UI/UX design services typically include user research, wireframing, prototyping, UI design, usability testing, and design implementation support.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "What is the UI/UX design process?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "The UI/UX design process includes research, planning, wireframing, prototyping, visual design, testing, and continuous optimization.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "How much do UI/UX design services cost in Bangalore?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "The cost of UI/UX design services in Bangalore depends on project complexity, features, design requirements, and project timelines.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "Can you redesign an existing website with UI/UX web design?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Yes, UI/UX web design services can improve the usability, performance, and visual appeal of an existing website.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "Why choose your UI/UX design services in Bangalore?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Our UI/UX design services in Bangalore focus on creating intuitive, conversion-driven digital experiences tailored to your business goals.",
+              },
+            },
+          ],
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          name: "UI/UX Design Services in Bangalore That Enhance User Experience & Drive Conversions",
+          url: "https://www.skyupdigitalsolutions.com/service/ui-ux-design",
+          itemListElement: [
+            {
+              "@type": "ListItem",
+              item: {
+                "@type": "Service",
+                name: "UI/UX Design",
+                url: "https://www.skyupdigitalsolutions.com/service/ui-ux-design",
+                description:
+                  "SkyUp helps brands improve websites and apps with UX audits, user journeys, information architecture, wireframes, prototypes, UI design and testing.",
+                provider: {
+                  "@type": "Organization",
+                  name: "SkyUp Digital Solutions LLP",
+                  url: "https://www.skyupdigitalsolutions.com/",
+                },
+                areaServed: { "@type": "City", name: "Bangalore" },
+                serviceType: "UI/UX Design",
+              },
+            },
+          ],
+        },
+      ],
+    },
     Icon: PenTool,
     href: "/service/ui-ux-design",
     from: "#CCFBF1",
@@ -2095,6 +2948,148 @@ export const SERVICES = [
   {
     slug: "graphic-design",
     name: "Graphic Design",
+    seo: {
+      metaTitle: "Logo, Branding & Graphic Design Services | SkyUp",
+      metaDescription:
+        "SkyUp creates logo design, branding, social media creatives, ad designs, brochures, company profiles, infographics and pitch decks for businesses.",
+      schema: [
+        {
+          "@context": "https://schema.org/",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            {
+              "@type": "ListItem",
+              position: "1",
+              name: "Skyup Digital Solutions",
+              item: "https://www.skyupdigitalsolutions.com/",
+            },
+            {
+              "@type": "ListItem",
+              position: "2",
+              name: "Services Page",
+              item: "https://www.skyupdigitalsolutions.com/service",
+            },
+            {
+              "@type": "ListItem",
+              position: "3",
+              name: "Graphic Design",
+              item: "https://www.skyupdigitalsolutions.com/service/graphic-design",
+            },
+          ],
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: [
+            {
+              "@type": "Question",
+              name: "How much do graphic design services cost in Bangalore?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Graphic design costs vary based on project scope, complexity, turnaround time, and deliverables. At Skyup Digital Solutions, we provide customised quotes based on your business needs.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "Why is graphic design important for business growth?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Graphic design builds credibility, strengthens brand recognition, improves communication, and helps increase conversions through professional visual presentation.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "How do I choose the right graphic design agency?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Choose an agency with a strong portfolio, relevant experience, clear communication, a structured process, and an understanding of your business goals.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "What is the difference between graphic design and branding?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Graphic design creates visual assets, while branding includes strategy, messaging, positioning, and overall brand identity. Design is one part of branding.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "Can graphic design improve social media engagement?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Yes. High-quality designs make content more engaging, visually appealing, and effective at capturing audience attention.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "How long does it take to design a logo?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "A professional logo typically takes one to three weeks, depending on complexity, feedback, and revision requirements.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "Do I need brand guidelines for my business?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Yes. Brand guidelines ensure consistency in logos, colours, typography, and visual elements across all marketing channels.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "What files should I receive after a design project?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "You should receive editable source files and formats such as AI, PSD, SVG, PDF, PNG, and JPG for print and digital use.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "What makes a good logo design?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "A good logo is simple, memorable, scalable, versatile, and relevant to the brand across all platforms and applications.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "Can graphic design increase conversion rates?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Yes. Effective graphic design improves user experience, message clarity, engagement, and overall conversion performance.",
+              },
+            },
+          ],
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          name: "Graphic Design Services in Bangalore That Finally Look Like Your Business Deserves Them",
+          url: "https://www.skyupdigitalsolutions.com/service/graphic-design",
+          itemListElement: [
+            {
+              "@type": "ListItem",
+              item: {
+                "@type": "Service",
+                name: "Graphic Design",
+                url: "https://www.skyupdigitalsolutions.com/service/graphic-design",
+                description:
+                  "SkyUp creates logo design, branding, social media creatives, ad designs, brochures, company profiles, infographics and pitch decks for businesses.",
+                provider: {
+                  "@type": "Organization",
+                  name: "SkyUp Digital Solutions LLP",
+                  url: "https://www.skyupdigitalsolutions.com/",
+                },
+                areaServed: { "@type": "City", name: "Bangalore" },
+                serviceType: "Graphic Design",
+              },
+            },
+          ],
+        },
+      ],
+    },
     Icon: Palette,
     href: "/service/graphic-design",
     from: "#FCE7F3",
@@ -2315,6 +3310,148 @@ export const SERVICES = [
   {
     slug: "web-development",
     name: "Web Development",
+    seo: {
+      metaTitle: "Web Design & Development Services | SkyUp",
+      metaDescription:
+        "SkyUp builds fast, responsive websites, e-commerce stores, web apps, ERP, LMS, dashboards, PWAs and CMS platforms that convert visitors.",
+      schema: [
+        {
+          "@context": "https://schema.org/",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            {
+              "@type": "ListItem",
+              position: "1",
+              name: "Skyup Digital Solutions",
+              item: "https://www.skyupdigitalsolutions.com/",
+            },
+            {
+              "@type": "ListItem",
+              position: "2",
+              name: "Services Page",
+              item: "https://www.skyupdigitalsolutions.com/service",
+            },
+            {
+              "@type": "ListItem",
+              position: "3",
+              name: "Web Development",
+              item: "https://www.skyupdigitalsolutions.com/service/web-development",
+            },
+          ],
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: [
+            {
+              "@type": "Question",
+              name: "What are web development services?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Web development services include designing, developing, and maintaining websites to help businesses establish a strong online presence.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "How much does website development cost in Bangalore?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Website development costs vary based on features, design complexity, and functionality. Contact us for a customized quote.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "How long does it take to develop a website?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "A standard business website typically takes 2–6 weeks, depending on project requirements and revisions.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "Why is web development important for businesses?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "A professionally developed website helps attract visitors, generate leads, improve credibility, and support business growth.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "Do you provide custom web development services?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Yes, we offer custom web development solutions tailored to your business goals, industry, and customer needs.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "Will my website be mobile-friendly?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Absolutely. All our websites are fully responsive and optimized for desktops, tablets, and mobile devices.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "Do you offer CMS web development services?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Yes, we build websites on CMS platforms like WordPress, allowing you to easily manage and update content.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "Is SEO included in web development services?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Yes, we follow SEO best practices, including optimized site structure, fast loading speeds, and mobile responsiveness.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "Can you redesign my existing website?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Yes, we can modernize your existing website to improve performance, user experience, and conversions.",
+              },
+            },
+            {
+              "@type": "Question",
+              name: "Why choose your web development company in Bangalore?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "We build SEO-friendly, conversion-focused websites that combine great design, performance, and business strategy.",
+              },
+            },
+          ],
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          name: "Web Development Services in Bangalore That Drive Real Business Results",
+          url: "https://www.skyupdigitalsolutions.com/service/web-development",
+          itemListElement: [
+            {
+              "@type": "ListItem",
+              item: {
+                "@type": "Service",
+                name: "Web Development",
+                url: "https://www.skyupdigitalsolutions.com/service/web-development",
+                description:
+                  "SkyUp builds fast, responsive websites, e-commerce stores, web apps, ERP, LMS, dashboards, PWAs and CMS platforms that convert visitors.",
+                provider: {
+                  "@type": "Organization",
+                  name: "SkyUp Digital Solutions LLP",
+                  url: "https://www.skyupdigitalsolutions.com/",
+                },
+                areaServed: { "@type": "City", name: "Bangalore" },
+                serviceType: "Web Development",
+              },
+            },
+          ],
+        },
+      ],
+    },
     Icon: Code2,
     href: "/service/web-development",
     from: "#CFFAFE",
@@ -2566,10 +3703,9 @@ export const SERVICES = [
     slug: "crm",
     name: "SkyUp CRM",
     seo: {
-      metaTitle:
-        "SkyUp CRM — AI-Powered Lead Management Software | SkyUp Digital Solutions",
+      metaTitle: "SkyUp CRM Software for Sales & Lead Tracking",
       metaDescription:
-        "SkyUp CRM helps businesses capture leads, auto-assign to sales teams, track calls, automate WhatsApp/SMS/email follow-ups, and monitor performance from one platform.",
+        "Manage leads from Meta Ads, Google Ads, website forms, and calls with auto assignment, follow-ups, call tracking and AI summaries.",
       schema: [
         {
           "@context": "https://schema.org/",

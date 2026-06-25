@@ -13,10 +13,18 @@ export default defineConfig({
     vike(),
     react(),
   ],
-  
+
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
     },
+  },
+
+  ssr: {
+    noExternal: ["lucide-react"],
+  },
+
+  optimizeDeps: {
+    include: ["lucide-react"],
   },
 })

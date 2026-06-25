@@ -1,5 +1,5 @@
-import ServiceDetail from "@/components/service/ServiceDetail";
+  import ServiceDetail from "@/components/service/ServiceDetail";
 
-export default function Page() {
-  return <ServiceDetail />;
-}
+  export default function Page() {
+    return <ServiceDetail />;
+  }

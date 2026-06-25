@@ -7,7 +7,6 @@ import ErrorBoundary from "../src/components/ErrorBoundary";
 // ── Dynamic SEO for slug pages ──────────────────────────────────
 import { BLOGS } from "@/data/blogs";
 import { CASE_STUDIES } from "@/data/caseStudies";
-import { SERVICES } from "@/data/services";
 
 export default function Layout({ children }) {
   const pageContext = usePageContext();
@@ -39,17 +38,9 @@ export default function Layout({ children }) {
       }
     }
 
-    // ── Service slug pages (not the /service listing page) ─────
-    const serviceMatch = urlPathname.match(/^\/service\/(.+)$/);
-    if (serviceMatch) {
-      const s = SERVICES.find((x) => x.slug === serviceMatch[1]);
-      if (s) {
-        title =
-          s.seo?.metaTitle ||
-          `${s.name} Services in Bangalore | SkyUp Digital Solutions`;
-        description = s.seo?.metaDescription || s.heroSubline || s.tagline;
-      }
-    }
+    // ── Service slug pages are handled by vike-react's native title/
+    //    description config (see pages/service/@slug/+title.js and
+    //    +description.js), so no manual handling is needed here. ──────
 
     // ── Apply title ───────────────────────────────────────────
     if (title) document.title = title;

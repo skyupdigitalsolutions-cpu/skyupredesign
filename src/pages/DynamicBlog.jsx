@@ -1,10 +1,10 @@
 import React, { useState, useMemo, useCallback, useEffect, useRef } from "react";
 import {
   Trash2, Plus, Image as ImageIcon, Link as LinkIcon, Type, List,
-  Settings, Upload, Send, Facebook, Youtube, MessageCircle, Instagram,
+  Settings, Upload, Send, MessageCircle,
   ChevronLeft, Eye, EyeOff, ChevronDown, ChevronUp, AlertCircle,
   CheckCircle, Loader, X, LogIn, LogOut, Edit3, Search, ArrowLeft,
-  Zap, Twitter, Linkedin,
+  Zap,
 } from "lucide-react";
 import { useAuth } from "../context/AuthContext";
 import { BLOGS } from "../data/blogs";
@@ -1781,15 +1781,15 @@ function BlogEditor({ editingBlog, onBack }) {
                 <div className="hidden lg:block w-[80px] mr-6">
                   <div className="sticky top-64 flex flex-col gap-4">
                     {[
-                      { Icon: Facebook,  hover: "hover:bg-[#1877F2]", href: "https://www.facebook.com/skyupdigitalsolutions" },
-                      { Icon: Twitter,   hover: "hover:bg-[#1DA1F2]", href: "https://twitter.com/skyupdigital" },
-                      { Icon: Instagram, hover: "hover:bg-[#E1306C]", href: "https://www.instagram.com/skyupdigitalsolutions" },
-                      { Icon: Linkedin,  hover: "hover:bg-[#0077B5]", href: "https://www.linkedin.com/company/skyupdigitalsolutions" },
-                    ].map(({ Icon, hover, href }, i) => (
+                      { icon: "/images/facebook.svg",  hover: "hover:bg-[#1877F2]", href: "https://www.facebook.com/skyupdigitalsolutions" },
+                      { icon: "/images/Twitter.svg",   hover: "hover:bg-[#1DA1F2]", href: "https://twitter.com/skyupdigital" },
+                      { icon: "/images/instagram.svg", hover: "hover:bg-[#E1306C]", href: "https://www.instagram.com/skyupdigitalsolutions" },
+                      { icon: "/images/Linkedin.svg",  hover: "hover:bg-[#0077B5]", href: "https://www.linkedin.com/company/skyupdigitalsolutions" },
+                    ].map(({ icon, hover, href }, i) => (
                       <a key={i} href={href} target="_blank" rel="noopener noreferrer"
                         className={`h-10 w-10 rounded-full flex items-center justify-center text-[#8A8A8A] ${hover} hover:text-white transition`}
                         style={{ background: "#EFF6FF" }}>
-                        <Icon className="h-5 w-5" />
+                        <img src={icon} alt="" className="h-5 w-5" />
                       </a>
                     ))}
                   </div>

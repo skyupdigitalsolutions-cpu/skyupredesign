@@ -3699,7 +3699,8 @@ export const SERVICES = [
   },
 
   // ───────────────────────────────────────────────────────── SkyUp CRM ──
-  {
+
+    {
     slug: "crm",
     name: "SkyUp CRM",
     seo: {
@@ -3862,476 +3863,201 @@ export const SERVICES = [
     heroHeadline: "SkyUp CRM: Close More Deals with AI-Powered Lead Management",
     heroSubline:
       "Built for sales-driven teams who are tired of losing leads in spreadsheets and missed follow-ups. SkyUp CRM gives your team one unified platform to capture leads from Facebook, Google & your website; assign them to agents in seconds; and track them.",
-
     painPoints: {
-      title:
-        "Sound Familiar? These Are the Pain Points Every Sales Manager Knows",
+      title: "Your leads are coming in. But are they converting?",
       intro:
-        "Before discovering the right CRM tools, most sales teams struggle with the same challenges. SkyUp CRM was built specifically to eliminate them.",
+        "Most businesses spend money on marketing but lose potential customers because their lead management process is weak. It's not always on quality of the lead. It's delayed follow-up, poor tracking, duplicate entries, and lack of team accountability.",
       points: [
         {
-          title: "Leads buried in spreadsheets",
-          desc: "Leads from Facebook Ads and Google Ads are entered manually into spreadsheets — hours of wasted effort.",
-          solution:
-            "SkyUp CRM auto-captures leads from Meta and Google Ads via webhook in real time. Zero manual entry.",
+          title: "Leads are scattered everywhere",
+          desc: "Your leads are coming in from your website, ads, forms, WhatsApp, calls and referrals, but your team doesn't have a single system to manage them correctly.",
         },
         {
-          title: "Hot leads go cold",
-          desc: "Agents forget follow-ups. Hot leads go cold. Revenue walks out the door.",
-          solution:
-            "Built-in follow-up scheduling, reminder alerts, and AI temperature classification (Hot / Warm / Cold) ensure no lead is ever forgotten.",
+          title: "Follow-ups are getting missed",
+          desc: "When your sales team does not call or follow up on time, interested customers quickly move to your competitors.",
         },
         {
-          title: "No visibility into the team",
-          desc: "No visibility into what your sales team is actually doing all day.",
-          solution:
-            "The real-time admin dashboard shows every agent's leads, calls, conversions, and attendance — at a glance.",
+          title: "Duplicate leads waste time",
+          desc: "The same customer gets added multiple times, different executives call the same person, and the customer experience becomes poor.",
         },
         {
-          title: "Calling one-by-one wastes hours",
-          desc: "Calling 100 leads one-by-one wastes your team's most valuable hours.",
-          solution:
-            "Saanvi, SkyUp's AI voice bot, calls and qualifies leads automatically — escalating hot prospects to human agents instantly.",
-        },
-        {
-          title: "WhatsApp disconnected from the CRM",
-          desc: "WhatsApp is your team's main communication tool, but it's completely disconnected from your CRM.",
-          solution:
-            "A full two-way WhatsApp Business chat is built directly into SkyUp CRM. Every message is logged against the lead.",
-        },
-        {
-          title: "No idea which campaign drives ROI",
-          desc: "You can't tell which marketing campaign is actually generating ROI.",
-          solution:
-            "SkyUp CRM maps every lead to its exact source campaign, ad set, and ad — so you know exactly where your revenue comes from.",
-        },
-        {
-          title: "Expensive, complex CRM",
-          desc: "Your sales CRM is expensive, complex, and requires weeks of training.",
-          solution:
-            "SkyUp CRM is intuitive, affordable (from ₹999/mo), and your team is operational on day one.",
+          title: "No clear sales team tracking",
+          desc: "Managers cannot easily know who called, what was discussed, which leads are pending, and which executives are actually performing.",
         },
       ],
     },
-    overviewTitle: "What is SkyUp CRM?",
-    overview: [
-      "SkyUp CRM is a cloud-based, multi-tenant customer relationship management platform purpose-built for sales-driven organizations of all sizes. From a 3-person startup to a 200-agent enterprise team, SkyUp CRM gives your business one unified system to capture, track, manage, and convert every lead — from first touch to final sale.",
-      "SkyUp goes beyond a traditional CRM. It combines lead lifecycle management, multi-channel communication (WhatsApp, SMS, and email), AI-powered voice qualification, campaign automation, attendance tracking, and deep analytics — all inside a single platform your team can use from day one.",
-      "Whether a lead comes in from a Facebook ad at 2 AM or a manual entry by your field agent, SkyUp captures it, assigns it, greets it, and tracks every interaction until it converts.",
-    ],
     offerings: {
-      title: "Everything Your Sales Team Needs — In One Platform",
-      subtitle:
-        "SkyUp CRM is not just another entry in the crowded field of CRM companies. It is a fully integrated sales CRM that combines tools that most platforms charge separately for. Here is what is included:",
+      title: "CRM Features That Solve Real Sales Problems",
+      subtitle:"SkyUp CRM is more than just a lead storage solution. It is a full sales CRM tool that enhances reactivity, decreases manual tasks, keeps an eye on employees' activity and boosts lead conversion.",
       points: [
         {
-          title: "Lead Management — Your Sales Engine",
-          desc: "The lead management module is the heart of SkyUp CRM. Every incoming inquiry — regardless of source — is automatically captured, deduplicated, and tracked through its entire lifecycle.",
-          bullets: [
-            "Auto-capture from Facebook / Meta Lead Ads and Google Ads via webhook (leads arrive in seconds)",
-            "Website / web form integration via a simple webhook endpoint",
-            "Bulk CSV import with automatic round-robin agent assignment",
-            "Manual lead creation for walk-ins and inbound calls",
-            "Duplicate detection: the system checks phone numbers before creating duplicate records",
-            "Full lead record: name, mobile, email, source, campaign, ad set, status, temperature, assigned agent, call history, and activity timeline",
-            "Lead Journey Drawer: a visual timeline of every action taken on a lead — visible to all admins",
-            "Lead merging: duplicate records can be merged with full history preserved",
-          ],
-          solved:
-            '"We get hundreds of leads from Facebook every week, and our team spends hours copying them into spreadsheets." — SkyUp CRM eliminates this entirely. Leads flow in automatically, are deduplicated, and are assigned to agents before your team has even opened their laptops.',
+          title: "Lead Capture from Multiple Sources",
+          desc: "Collect leads directly from Meta Ads, Google Ads, website forms and manually entered leads into one CRM dashboard.",
         },
         {
-          title: "Smart Lead Assignment",
-          desc: "Fair, transparent, and fully automated — SkyUp CRM's lead assignment engine ensures every agent gets their fair share of leads without any manager manually distributing them.",
-          bullets: [
-            "Round-Robin Auto-Assignment: leads are distributed evenly across available agents using an atomic counter — no duplicate assignments, ever",
-            "Manual Override: admins can reassign any lead to any agent at any time",
-            "Reassignment History: full log of who handled which lead and when — complete accountability",
-            "Previous-Agent Guard: prevents the same lead being reassigned to the same agent",
-          ],
+          title: "Smart Auto Lead Assignment",
+          desc: "New leads are allocated on a round robin basis to sales executives, thus enabling your team to respond quickly without having to manually allocate a new lead.",
         },
         {
-          title: "Real-Time Admin Dashboard",
-          desc: "Managing a sales team without real-time visibility is like driving with your eyes closed. SkyUp CRM's admin dashboard gives sales managers a command-center view of the entire team's performance — updated live.",
-          bullets: [
-            "Summary KPI cards: total leads, converted, in-progress, follow-ups due",
-            "Lead temperature breakdown: Hot / Warm / Cold with visual indicators",
-            "Source-wise distribution: which channel (Google, Facebook, Website, Manual) is generating the most leads",
-            "Per-agent performance table: leads assigned, converted, follow-ups pending — for every agent",
-            "Date-range filters: today, this week, this month, this quarter, or custom range",
-            "Integrated attendance view: see who is checked in right now",
-          ],
-          solved:
-            "\"I have no idea what my 12 sales reps are actually doing all day.\" — SkyUp CRM's dashboard makes every agent's activity transparent in real time. Managers can spot underperformers, identify bottlenecks, and coach their team based on data — not gut feeling.",
+          title: "Duplicate Lead Prevention",
+          desc: "To avoid duplicate entries of leads and prevent repeated calls, SkyUp CRM validates phone numbers.",
         },
         {
-          title: "Communications Hub — WhatsApp, SMS & Email",
-          desc: "Modern sales happens on WhatsApp. SkyUp CRM is one of the very few CRM tools that embeds full two-way WhatsApp Business chat directly inside the platform — so your agents never need to leave the CRM to communicate.",
-          bullets: [
-            "WhatsApp Business Chat: two-way live messaging inside the CRM, via MSG91 WhatsApp API or Meta WhatsApp Cloud API",
-            "Template Messages: send approved WhatsApp templates with one click",
-            "Media support: send images, documents, and PDFs directly from the CRM",
-            "Auto-Greeting: fire a WhatsApp welcome message the moment a new lead arrives",
-            "SMS: transactional and promotional SMS via MSG91, with delivery status tracking",
-            "Email: send and track emails using Brevo SMTP, with HTML email editor and per-lead thread history",
-            "Every message — WhatsApp, SMS, or email — is stored against the lead for full context",
-          ],
-          solved:
-            '"Our agents are messaging leads on their personal WhatsApp. We have no record of any conversations." — SkyUp CRM\'s communications hub centralizes all interactions inside the platform. Every message is logged, visible to admins, and tied to the correct lead record.',
+          title: "Follow-up & Status Tracking",
+          desc: "Monitor all leads, call notes, meeting updates, next steps and other activities in one place.",
         },
         {
-          title: "Campaign Automation & CRM Marketing",
-          desc: "SkyUp CRM's campaign module transforms your CRM into a full CRM marketing engine — allowing you to reach thousands of leads with personalized, multi-channel outreach in minutes.",
-          bullets: [
-            "SMS Blast: select a lead segment, choose a template, send to thousands instantly",
-            "WhatsApp Blast: bulk WhatsApp template campaigns to filtered audiences",
-            "Email Blast: HTML email campaigns via Brevo to segmented lead lists",
-            "Lead temperature filters: run campaigns only on Hot, Warm, or Cold leads for precision targeting",
-            "Campaign status tracking: Active, Paused, Completed, or Draft — with per-lead delivery stats",
-            "Meta Ads Dashboard: view all Facebook / Instagram campaigns, ad sets, and ads inside SkyUp CRM",
-            "Google Ads Dashboard: track which Google campaigns are generating leads",
-            "Campaign-to-lead mapping: every lead is tagged with the exact campaign, ad set, and ad that generated it",
-          ],
-          solved:
-            '"We spend a fortune on Facebook Ads but have no idea which campaign is actually converting." — SkyUp CRM maps every lead to its exact ad source. Marketing managers can see which campaigns generate the most conversions — and cut spend on the ones that don\'t.',
+          title: "WhatsApp, SMS & Email Automation",
+          desc: "Immediately respond, remind, inform customers and send campaign messages via WhatsApp, SMS and email.",
         },
         {
-          title: "AI Voice Bot — Saanvi",
-          desc: "Saanvi is SkyUp CRM's AI-powered outbound voice bot — a standout feature that sets SkyUp apart from every other CRM company in the market. Saanvi calls and qualifies leads automatically, at scale, freeing your human agents to focus exclusively on high-intent prospects.",
-          bullets: [
-            "Batch calling: queue a group of leads for automatic AI outbound calls",
-            "Live call status: real-time display of which lead is being called and the current call status",
-            "Outcome classification: after each call, Saanvi classifies the lead as Hot, Warm, or Cold",
-            "Auto temperature update: the lead's temperature field in SkyUp CRM is updated instantly",
-            "Hot Lead Alert: admin is notified immediately when a high-intent lead is detected",
-            "Warm Lead Re-assignment: warm leads are automatically reassigned to a human agent for follow-up",
-            "Full data capture: call summary, score, reason, next action, service interest, call SID, call duration, and full transcript — all stored on the lead record",
-          ],
-          solved:
-            '"We generate 500 leads a month from ads but only have 5 agents. Most leads never even get called." — Saanvi calls all 500. Automatically. Your human agents only speak to the Hot leads that Saanvi has already qualified — maximizing conversion from your existing lead volume without adding headcount.',
+          title: "Call Logs, Recordings & Reports",
+          desc: "Monitor incoming calls, outgoing calls, missed calls, call time, notes and recordings, for better accountability of the sales team.",
         },
         {
-          title: "Call Recordings & AI Transcription",
-          desc: "SkyUp CRM's Android app enables field agents to record their calls on-device. Those recordings are synced to the platform for supervisory review and AI-powered analysis.",
-          bullets: [
-            "Recording playback: admins listen to any agent call directly in the browser",
-            "AI Transcription (ElevenLabs): one click converts audio to accurate text transcripts",
-            "AI Call Summary (OpenAI): the transcript is analysed by GPT to produce a structured summary — key points, next actions, and sentiment",
-            "Sentiment scoring: Positive, Neutral, or Negative — displayed per call",
-            "Auto temperature update: if the AI detects a Hot call, the lead temperature is updated automatically",
-            "Secure cloud storage via Cloudinary — recordings are never stored on the server",
-          ],
+          title: "AI Call Transcription & Summary",
+          desc: "Transform sales calls into transcripts and summaries, enabling managers to quickly catch up on what clients are saying without having to listen to all sales calls.",
         },
         {
-          title: "Reports & Analytics",
-          desc: "The best CRM software is defined by the quality of its reporting. SkyUp CRM gives managers the data they need to make better decisions — without needing to export to spreadsheets.",
-          bullets: [
-            "Full lead report with advanced filters: date range, source, status, agent, temperature",
-            "Source-wise bar chart: visual breakdown of lead volume by acquisition channel",
-            "Per-agent conversion table: conversion rate for every agent on the team",
-            "Daily Report: automatic email summary of all team activity — leads created, calls made, conversions, follow-ups",
-            "Full call log: every call ever made, filterable by agent, date, and outcome",
-            "CSV Export: download any report as a spreadsheet",
-            "Phone masking: agents see masked numbers for privacy compliance; super-admins see full numbers",
-          ],
-        },
-        {
-          title: "Attendance Tracking",
-          desc: "SkyUp CRM includes a built-in attendance management system — eliminating the need for a separate HR tool and giving managers complete visibility into field agent work hours.",
-          bullets: [
-            "Clock-in / Clock-out via web or Android app, time-stamped to the second",
-            "Break tracking with reason codes and automatic duration calculation",
-            "Idle detection: agents are marked idle after a configurable period of inactivity",
-            "CRM status override: admins can manually set Present / Absent / Late / Half Day / Leave",
-            "Admin attendance view: filterable table for any date range, exportable to CSV",
-          ],
-        },
-        {
-          title: "Enterprise Security",
-          desc: "SkyUp CRM is built with enterprise-grade security — not bolted on as an afterthought.",
-          bullets: [
-            "End-to-end data encryption using BIP39 mnemonic keys — data is unreadable without the key",
-            "Role-based access control: every API endpoint protected by JWT authentication and role middleware",
-            "Complete company isolation: multi-tenant architecture means cross-company data access is architecturally impossible",
-            "Phone number masking: agents see only the first 2 and last 2 digits — full reveal is audit-logged",
-            "API rate limiting to prevent brute-force attacks",
-            "Meta webhook signature verification via HMAC-SHA256",
-          ],
-        },
-        {
-          title: "User & Team Management",
-          desc: "Add, edit, and manage your entire team without leaving the platform.",
-          bullets: [
-            "Add / Edit / Delete agents and sub-admins",
-            "Auto-generated usernames and passwords for new users",
-            "Role-based access — Super Admin, Admin, and User (Agent) — each with scoped data views and permissions",
-            "Password strength enforcement on account creation",
-            "Plan limit enforcement — the system blocks adding more users than your plan allows, with a clear upgrade prompt",
-          ],
-        },
-        {
-          title: "Mobile App (Android)",
-          desc: "Your field agents stay connected — even when they're away from their desks.",
-          bullets: [
-            "Clock-In / Clock-Out with GPS timestamp",
-            "Log call outcomes directly from their phone after a call",
-            "Upload call recordings from device to CRM automatically",
-            "View and manage assigned leads on the move",
-            "Push notifications (FCM) — real-time alerts for follow-up reminders and hot lead notifications",
-            "Device metadata captured per session for mobile auditing",
-          ],
+          title: "Attendance & Field Team Tracking",
+          desc: "Attendance Management, Clock-in/Clock-out, Break Management, GPS based location tracking, Field visits, Live Team status.",
         },
       ],
     },
-    audience: {
-      title: "Built for Sales Teams. Trusted by Growing Businesses.",
-      subtitle:
-        "SkyUp CRM is designed for any organization where leads, follow-ups, and conversions are the lifeblood of the business. If you are evaluating CRM companies or looking for the best CRM software for your team size, here is who SkyUp CRM serves best:",
-      points: [
-        {
-          title: "Real Estate & Property",
-          desc: "High lead volumes from digital ads, WhatsApp-first communication, and complex follow-up cycles — SkyUp CRM is built for exactly this.",
-        },
-        {
-          title: "EdTech & Coaching",
-          desc: "Manage admissions inquiries, automate WhatsApp and SMS follow-ups, and track counselor performance with full reporting.",
-        },
-        {
-          title: "Financial Services & Loans",
-          desc: "Strict data security, phone masking, and role-based access make SkyUp CRM ideal for regulated sales environments.",
-        },
-        {
-          title: "Insurance & Wealth",
-          desc: "AI voice bot qualification and automated follow-up campaigns ensure no prospect falls through the cracks.",
-        },
-        {
-          title: "Field Sales Teams",
-          desc: "Android mobile app for call logging, attendance, and lead management — entirely on the go.",
-        },
-      ],
-    },
-    integrationsTitle: "Connects to the Tools You Already Use",
-    integrationsIntro:
-      "SkyUp CRM integrates with the platforms your business runs on — so leads flow in automatically and communication goes out instantly.",
-    integrations: [
-      {
-        name: "Meta (Facebook) Ads",
-        desc: "Webhook receives leads from Facebook and Instagram lead forms in real time. Full campaign, ad set, and ad tagging on every lead.",
-      },
-      {
-        name: "Google Ads",
-        desc: "Webhook receives leads from Google Ads lead form extensions. Every lead tagged to its exact campaign.",
-      },
-      {
-        name: "WhatsApp Business",
-        desc: "MSG91 or Meta Cloud API. Two-way chat, template blasts, and auto-greeting on every new lead.",
-      },
-      {
-        name: "MSG91 SMS",
-        desc: "Transactional and promotional SMS. Delivery status tracking via webhook callbacks.",
-      },
-      {
-        name: "Brevo (Email)",
-        desc: "Transactional and blast emails. Per-company sending identity with HTML email editor.",
-      },
-      {
-        name: "Razorpay",
-        desc: "Online plan upgrades. Payment confirmed via webhook — subscription activated instantly.",
-      },
-      {
-        name: "ElevenLabs",
-        desc: "Speech-to-text transcription for call recordings. High-accuracy audio-to-text conversion.",
-      },
-      {
-        name: "OpenAI API",
-        desc: "Call transcript summarisation. Structured summaries with key points, next actions, and sentiment.",
-      },
-      {
-        name: "Cloudinary",
-        desc: "Secure cloud storage for all call recordings and uploaded media files.",
-      },
-      {
-        name: "Website / Web Form",
-        desc: "Generic webhook endpoint — drop one line of code on any website to start capturing leads.",
-      },
-    ],
+    processTitle:"Our Proven CRM Setup Process — Step by Step",
     processIntro:
-      "From the first lead to the closed deal, SkyUp CRM automates every step so nothing falls through the cracks.",
-    processTitle: "From First Lead to Closed Deal",
+      "We don't simply install CRM software. We know your business process, set up the correct workflow, integrate your lead sources, onboard your team and support you in your use of the CRM for higher conversions.",
     process: [
       {
-        title: "Lead Capture",
-        desc: "A lead fills in your Facebook ad form at 11 PM. Before they put their phone down, SkyUp has already captured it, created a lead record, and tagged it with the campaign, ad set, and ad name.",
+        title: "CRM Requirement Audit",
+        desc: "We learn your sales process, where your leads are coming from, your team makeup, how you follow-up, what you are using, and what conversions you are struggling with.",
       },
       {
-        title: "Auto-Assignment",
-        desc: "SkyUp's round-robin engine assigns the lead to the next available agent automatically and evenly, with no duplicates. The agent gets notified instantly.",
+        title: "Lead Source Integration",
+        desc: "We integrate your CRM with Meta Ads, Google Ads, website forms, WhatsApp and other tools where your business gets inquiries.",
       },
       {
-        title: "Auto-Greeting",
-        desc: "A personalized WhatsApp message, SMS, or email goes out to the lead automatically. Your business makes a great first impression — even at midnight.",
+        title: "Team, Role & Access Setup",
+        desc: "The team structure dictates who can have permissions, lead visibility, access to reporting, etc, and it is configured as the admin.",
       },
       {
-        title: "Agent Follow-Up",
-        desc: "The agent calls the lead, logs the outcome (status, remark, next step), and schedules a follow-up from inside SkyUp. Every action is logged on the lead's activity timeline.",
+        title: "Sales Pipeline & Automation Setup",
+        desc: "Lead stages, follow up reminders, auto messages, status workflows, call remarks and notifications are customized for your business.",
       },
       {
-        title: "AI Voice Bot",
-        desc: "For high-volume campaigns, the admin queues leads for Saanvi, the AI Voice Bot. Saanvi calls, qualifies, and classifies each lead. Hot leads are escalated to a human agent immediately.",
+        title: "Mobile App & Call Tracking Setup",
+        desc: "Your sales team gets trained on how to handle leads, calls, meetings, attendance and follow up via the CRM mobile app.",
       },
       {
-        title: "Conversion",
-        desc: "The agent marks the lead as Converted. The admin sees it in real time on the dashboard. Source, campaign, and agent are all credited automatically.",
-      },
-      {
-        title: "Reporting",
-        desc: "Every morning, a daily report lands in the admin's inbox: leads created, calls made, conversions, and follow-ups completed per agent and across the team.",
-      },
-    ],
-    benefitsTitle: "Why Sales Teams Choose SkyUp CRM",
-    benefits: [
-      {
-        title: "Never lose a lead",
-        desc: "Every lead from every source — Facebook, Google, website, CSV, or manual — is captured automatically, deduplicated, and assigned to an agent within seconds. No lead slips through the cracks.",
-      },
-      {
-        title: "Reach leads where they already are",
-        desc: "Your customers are on WhatsApp. SkyUp CRM lets your agents have real two-way WhatsApp conversations, send template messages, and share documents — all without leaving the CRM. No third-party tools, no extra subscriptions.",
-      },
-      {
-        title: "Qualify at scale with AI — not headcount",
-        desc: "Saanvi makes outbound calls to hundreds of leads, qualifies them with a professional conversation, and classifies each as hot, warm, or cold. Hot leads are escalated to your human agents immediately. Your team only spends time on prospects who are ready to buy.",
-      },
-      {
-        title: "Full team visibility, in real time",
-        desc: "The admin dashboard gives managers a live view of every lead, every agent, every campaign, and every conversion — right now. No waiting for end-of-day reports. No chasing your team for updates.",
-      },
-      {
-        title: "Enterprise security, without enterprise complexity",
-        desc: "End-to-end data encryption (BIP39), role-based access control, phone number masking, company data isolation, and Meta webhook signature verification — all built in, out of the box.",
-      },
-      {
-        title: "One platform — not a stack of tools",
-        desc: "CRM + WhatsApp + SMS + Email + Campaigns + Attendance + AI Calls + Analytics. SkyUp replaces the need for 5–7 separate tools. One login. One dashboard. One monthly bill.",
-      },
-    ],
-    securityTitle: "Enterprise-Grade Security, Built in From Day One",
-    securityIntro:
-      "Your customer data is your most valuable asset. SkyUp CRM is built with security as a core requirement — not an afterthought.",
-    security: [
-      {
-        title: "End-to-End Encryption (BIP39)",
-        desc: "Sensitive lead fields are encrypted at rest using a company-specific BIP39 mnemonic key. Data is unreadable without the key.",
-      },
-      {
-        title: "Role-Based Access Control",
-        desc: "Every API endpoint is protected by JWT authentication and role middleware. Users see only what they're permitted to see.",
-      },
-      {
-        title: "Complete Company Isolation",
-        desc: "All data is scoped to your company. Cross-tenant access is architecturally impossible. Your data never touches another company's records.",
-      },
-      {
-        title: "Phone Number Masking",
-        desc: "Agents see only the first 2 and last 2 digits of a phone number. Full reveal is logged in the audit trail for compliance.",
-      },
-      {
-        title: "Rate Limiting",
-        desc: "API rate limiting protects against brute-force attacks and abuse.",
-      },
-      {
-        title: "Meta Webhook Signature Verification",
-        desc: "All inbound Meta webhooks are validated using HMAC-SHA256 signature checks.",
-      },
-      {
-        title: "Auth Navigation Guard",
-        desc: "The browser back button is disabled while logged in, preventing session exposure through browser history.",
+        title: "Reports & Performance Optimization",
+        desc: "Lead response time, employee activity, campaign performance, missed follow-up and conversion reports are reviewed to get better sales results.",
       },
     ],
     whyChooseUs: {
-      title: "Why Sales Leaders Trust SkyUp CRM",
+      title: "Why Businesses Choose SkyUp CRM",
       points: [
         {
-          title: "Experience — Built for How Indian Sales Teams Actually Work",
-          desc: "SkyUp CRM is purpose-built for the Indian sales environment — where WhatsApp is the primary communication channel, digital ads are the dominant lead source, and sales teams often lack access to expensive enterprise CRM software. Every workflow, integration, and pricing tier reflects this deep contextual knowledge.",
+          title: "Built for Indian sales teams",
+          desc: "SkyUp CRM is ideal for companies that have calls, WhatsApp and field visits as part of their daily sales activities, along with fast follow-up actions.",
         },
         {
-          title: "Expertise — Modern Engineering Meets Sales Operations",
-          desc: "SkyUp CRM is built on a production-grade technology stack: React 18, Node.js, MongoDB, Socket.io, and a native Android application. The platform handles real-time data across multiple tenant organizations with complete data isolation — a level of engineering rigor typically found only in enterprise CRM companies charging 10x more.",
+          title: "More than a basic CRM",
+          desc: "It's not only for customer information. It is helpful when it comes to capturing leads, assigning them, preventing lead duplication, tracking calls, follow up automations, and performance monitoring.",
         },
         {
-          title:
-            "Authoritativeness — A Complete Platform, Not a Point Solution",
-          desc: "Most CRM tools focus on one area — some on lead management, others on email marketing, others on reporting. SkyUp CRM integrates all of these into a single, cohesive platform: lead capture, assignment, communication, AI qualification, campaign automation, call recording, analytics, attendance, and subscription management — all in one place.",
+          title: "Better control over every lead",
+          desc: "Managers will be able to view the status of each lead, who it is being followed up by, when it was last called, and what the next step should be.",
         },
         {
-          title: "Trustworthiness — Security You Can Rely On",
-          desc: "End-to-end encryption using BIP39 mnemonic keys, JWT authentication on every API endpoint, complete multi-tenant data isolation, phone number masking for privacy compliance, and a full audit trail on every lead action, phone reveal, and data access.",
+          title: "Stronger sales accountability",
+          desc: "Your sales process becomes transparent and measurable with call logs, recording, attendance, location tracking and reports.",
+        },
+        {
+          title: "AI-powered CRM intelligence",
+          desc: "Your team knows what customers are looking to achieve quicker with AI call summaries, transcriptions, and lead insights and can then follow up accordingly.",
+        },
+         {
+          title: "CRM Impact Highlight",
+          desc: "With SkyUp CRM, businesses can decrease missed follow-ups, shorten lead response time, avoid duplicate leads, monitor the efforts of sales executives and turn more marketing leads into actual sales prospects.",
         },
       ],
     },
-
-    faqTitle: "Frequently Asked Questions",
+    // Dummy — replace with a real client result.
+    caseStudy: {
+      industry: "D2C Skincare Brand, Bangalore",
+      problem:
+        "Rs 80K/month on Google Ads, near-zero organic traffic, and no content strategy in place.",
+      whatWeDid:
+        "A full technical audit, 40+ keyword-mapped blogs, category-page optimisation, and 60 quality backlinks over five months.",
+      result:
+        "Organic sessions grew from 900 to 11,400/month. Ad spend cut by 55% while revenue grew.",
+    },
+    testimonial: {
+      quote:
+        "We'd been burned by two SEO agencies before Skyup. Within 60 days our traffic started climbing. By month four we ranked in the top 3 for our main product keywords — and the monthly report actually made sense.",
+      author: "Rohan K.",
+      role: "Founder, D2C Wellness Brand",
+    },
+    faqTitle: "Honest Answers to Your Questions",
     faqs: [
       {
-        q: "What is SkyUp CRM and who is it for?",
-        a: "SkyUp CRM is a cloud-based sales CRM platform built for sales-driven businesses of all sizes — from a 3-person startup to a 200-agent enterprise team. It covers the full lead lifecycle: capture, assignment, communication, AI qualification, conversion, and reporting — all in one platform.",
+        q: "What is SkyUp CRM?",
+        a: "SkyUp CRM is a lead management CRM software that helps businesses capture leads, assign them to sales teams, track calls, automate follow-ups, manage attendance, and monitor sales performance from one platform.",
       },
       {
-        q: "Does SkyUp CRM integrate with WhatsApp?",
-        a: "Yes — natively. SkyUp CRM includes a built-in WhatsApp Business integration via MSG91 and Meta WhatsApp Cloud API. Your agents can have two-way WhatsApp conversations with leads directly inside the CRM, send template messages, share documents, and run WhatsApp blast campaigns. No third-party app required.",
+        q: "Who can use SkyUp CRM?",
+        a: "SkyUp CRM is suitable for real estate businesses, education companies, financial services, agencies, field sales teams, and any business that depends on enquiries, calls, follow-ups, and lead conversion.",
       },
       {
-        q: "How does the AI Voice Bot (Saanvi) work?",
-        a: "Saanvi is SkyUp's built-in AI outbound calling bot. You select a group of leads, queue them for the bot, and Saanvi calls each one automatically. After each call, the bot classifies the lead as Hot, Warm, or Cold and updates the lead record instantly. Hot leads trigger an immediate alert to your admin. Warm leads are automatically reassigned to a human agent for follow-up.",
+        q: "Can SkyUp CRM capture leads from Meta Ads and Google Ads?",
+        a: "Yes. SkyUp CRM can capture leads from Meta Ads, Google Ads, website forms, and manual entries, helping your team manage all enquiries in one place.",
       },
       {
-        q: "Can I capture leads automatically from Facebook and Google Ads?",
-        a: "Yes. SkyUp CRM connects to Meta (Facebook/Instagram) and Google Ads via webhook. The moment a lead fills in your ad form, it appears in SkyUp — tagged with the exact campaign, ad set, and ad name. No manual export/import needed.",
+        q: "Does SkyUp CRM help prevent duplicate leads?",
+        a: "Yes. SkyUp CRM checks phone numbers and helps prevent duplicate lead entries, reducing repeated calls, confusion among sales executives, and poor customer experience.",
       },
       {
-        q: "Is there a free trial? What happens when it ends?",
-        a: "Every new company gets a 14-day free trial — no credit card required. A warning banner appears 7 days before your trial or subscription expires. Once expired, a suspension screen is shown with an upgrade prompt. You can upgrade online via Razorpay in minutes, and your subscription activates immediately.",
+        q: "Can SkyUp CRM automatically assign leads to sales executives?",
+        a: "Yes. New leads can be automatically assigned to sales executives based on round robin, helping your team respond faster and avoid manual lead allocation delays.",
       },
       {
-        q: "Is my data secure? Is it shared across companies?",
-        a: "No — your data is never shared. SkyUp CRM is a fully multi-tenant platform, meaning every company's data is completely isolated. Cross-tenant access is architecturally impossible. All sensitive data is encrypted at rest using BIP39 encryption, and every API endpoint is protected by JWT authentication and role-based access control.",
+        q: "Does SkyUp CRM support WhatsApp, SMS, and email automation?",
+        a: "Yes. SkyUp CRM supports WhatsApp, SMS, and email communication for instant replies, follow-up messages, reminders, and customer updates.",
+      },
+      {
+        q: "Can managers track sales team performance in SkyUp CRM?",
+        a: "Yes. Managers can track lead status, call activity, call remarks, follow-ups, attendance, location updates, and performance reports from the CRM dashboard.",
+      },
+      {
+        q: "Does SkyUp CRM have call tracking features?",
+        a: "Yes. SkyUp CRM helps track incoming calls, outgoing calls, missed calls, call duration, call remarks, and call recordings, giving managers better visibility into sales activity.",
+      },
+      {
+        q: "Does SkyUp CRM have AI features?",
+        a: "Yes. SkyUp CRM includes AI-powered features such as call transcription, call summaries, and lead insights to help teams understand customer conversations faster.",
       },
       {
         q: "Does SkyUp CRM have a mobile app?",
-        a: "Yes. SkyUp CRM includes a native Android app for field agents. Agents can clock in/out with GPS timestamps, log call outcomes, upload call recordings, manage their leads, and receive push notifications for follow-up reminders and hot lead alerts — all from their phone.",
-      },
-      {
-        q: "What integrations does SkyUp CRM support?",
-        a: "SkyUp CRM integrates with Meta (Facebook) Ads, Google Ads, WhatsApp Business (MSG91 + Meta Cloud API), MSG91 SMS, Brevo (email), Razorpay (payments), ElevenLabs (AI transcription), OpenAI (call summaries), Cloudinary (file storage), and any website or web form via webhook.",
-      },
-      {
-        q: "Can I manage my team's attendance inside SkyUp CRM?",
-        a: "Yes. SkyUp includes a built-in attendance system — no separate HR tool needed. Agents clock in and out via web or mobile app. Admins can view work hours, break times, idle periods, and override statuses (present / absent / late / half day / leave) for any team member on any date.",
-      },
-      {
-        q: "What are SkyUp CRM's pricing plans?",
-        a: "SkyUp CRM has three plans: Basic at ₹999/month (5 users, 1,000 leads), Pro at ₹2,999/month (20 users, 10,000 leads — includes campaigns, ad integrations, and AI call features), and Enterprise at ₹9,999/month (unlimited users and leads, custom reports, white-label). All plans include a 14-day free trial.",
+        a: "Yes. SkyUp CRM has a mobile app for sales executives to manage leads, calls, follow-ups, meetings, attendance, and field sales activities on the go.",
       },
     ],
     cta: {
-      title: "Ready to Transform Your Sales Operations with SkyUp CRM?",
+      title: "Desperate to prevent losing leads after they enquire?",
       subtitle:
-        "You have seen what SkyUp CRM can do. Now it is time to experience it for yourself. Join hundreds of sales teams across India who have replaced scattered spreadsheets, disconnected WhatsApp groups, and expensive CRM software with one unified, powerful, and affordable platform.",
-      primaryLabel: "Book a Free Demo ",
+        "Get a CRM that collects all leads, assigns leads instantly, keeps track of all calls, automates follow-up, monitors your sales team and helps you convert faster.",
     },
     related: [
       {
-        slug: "ai-automation",
-        desc: "Extend your CRM with custom AI workflows across marketing, ops, and support.",
-      },
-      {
-        slug: "performance-marketing",
-        desc: "Feed high-quality leads into the CRM from fully tracked Google, Meta, and LinkedIn campaigns.",
+        slug: "graphic-design",
+        desc: "Great content needs great visuals. Design makes your blogs readable and your brand memorable — and supports your SEO.",
       },
       {
         slug: "web-development",
-        desc: "Connect your website and web forms to the CRM for instant, automatic lead capture.",
+        desc: "A poorly structured site caps your technical SEO. We fix it at the root.",
+      },
+      {
+        slug: "performance-marketing",
+        desc: "Run PPC while SEO gains traction, so you capture leads across the whole funnel.",
       },
     ],
   },

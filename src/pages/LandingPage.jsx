@@ -1038,7 +1038,7 @@ function Hero() {
                   </div>
                 ) : (
                   <form
-                    onSubmit={handleSubmit}
+                    onSubmit={(e) => { e.preventDefault(); handleSubmit(e); }}
                     style={{
                       marginTop: "24px",
                       display: "flex",
@@ -1156,7 +1156,8 @@ function Hero() {
                     )}
 
                     <button
-                      type="submit"
+                      type="button"
+                      onClick={handleSubmit}
                       disabled={loading}
                       className="btn-primary"
                       style={{

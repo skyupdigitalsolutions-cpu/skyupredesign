@@ -90,12 +90,12 @@ export default function ProcessSection() {
               >
                 {/* off-center colored tab */}
                 <header
-                  className={`relative left-[15px] bg-gray-400 z-10 ml-[18px] flex min-h-[58px] flex-col justify-center gap-[2px] overflow-hidden px-4 py-[11px] shadow-[0_10px_24px_-14px_rgba(15,23,41,0.4)] after:pointer-events-none after:absolute after:inset-0 after:rounded-[4px] after:content-[''] after:[background-image:linear-gradient(180deg,rgba(255,255,255,0.18),transparent_55%)] `}
+                  className={`relative left-[15px] bg-gray-200 z-10 ml-[18px] flex min-h-[58px] flex-col justify-center gap-[2px] overflow-hidden px-4 py-[11px] shadow-[0_10px_24px_-14px_rgba(15,23,41,0.4)] after:pointer-events-none after:absolute after:inset-0 after:rounded-[4px] after:content-[''] after:[background-image:linear-gradient(180deg,rgba(255,255,255,0.18),transparent_55%)] `}
                 >
                   <span className="font-['JetBrains_Mono',ui-monospace,monospace] text-[12px] font-semibold uppercase tracking-[0.18em] text-[#0037CA]">
                     Step {step.n}
                   </span>
-                  <h3 className="relative m-0 text-[clamp(18px,1.15vw,16.5px)] font-semibold leading-[1.12] text-transparent bg-clip-text bg-gradient-to-r from-[#e9efff] via-[#f4a358] to-[#ff9a3c]">
+                  <h3 className="relative m-0 text-[clamp(18px,1.15vw,16.5px)] font-semibold leading-[1.12] text-transparent bg-clip-text bg-gradient-to-r from-[#618bff] via-[#f4a358] to-[#ff9a3c]">
                     {step.title}
                   </h3>
                 </header>

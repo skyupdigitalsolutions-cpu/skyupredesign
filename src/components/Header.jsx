@@ -57,7 +57,7 @@ export default function Header() {
             className="shrink-0 transition-transform duration-300 hover:scale-[1.03]"
           >
             <img
-              src="/images/logo_skyup.svg"
+              src="/images/skyup-logo.webp"
               alt="Logo"
               className="w-[167px] h-[48px] object-contain"
             />

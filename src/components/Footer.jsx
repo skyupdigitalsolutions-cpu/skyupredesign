@@ -38,7 +38,7 @@ const SOCIAL_LINKS = [
 function BrandMark() {
   return (
     <img
-      src="/images/logo_skyup.svg"
+      src="/images/skyup-logo.webp"
       alt="SkyUp logo"
       className="h-auto w-full"
     />

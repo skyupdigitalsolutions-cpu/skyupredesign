@@ -210,22 +210,22 @@ const NAV_LINKS = [
 
 const SOCIAL_LINKS_NAV = [
   {
-    iconSrc: "https://www.skyupdigitalsolutions.com/images/FB.svg",
+    iconSrc: "/images/facebook.svg",
     href: "https://www.facebook.com/profile.php?id=61584820941998",
     label: "Facebook",
   },
   {
-    iconSrc: "https://www.skyupdigitalsolutions.com/images/Insta.svg",
+    iconSrc: "/images/instagram.svg",
     href: "https://www.instagram.com/skyupdigitalsolutions/",
     label: "Instagram",
   },
   {
-    iconSrc: "https://www.skyupdigitalsolutions.com/images/Twitter.svg",
+    iconSrc: "/images/Linkedin.svg",
     href: "https://www.linkedin.com/company/110886969",
     label: "LinkedIn",
   },
   {
-    iconSrc: "https://www.skyupdigitalsolutions.com/images/YT.svg",
+    iconSrc: "/images/youtube.svg",
     href: "https://www.youtube.com/@SKYUPDigitalSolutionsBengaluru",
     label: "YouTube",
   },
@@ -1819,22 +1819,22 @@ function FooterLogo() {
 
 const FOOTER_SOCIAL = [
   {
-    iconSrc: "https://www.skyupdigitalsolutions.com/images/FB.svg",
+    iconSrc: "/images/facebook.svg",
     href: "https://www.facebook.com/profile.php?id=61584820941998",
     label: "Facebook",
   },
   {
-    iconSrc: "https://www.skyupdigitalsolutions.com/images/Insta.svg",
+    iconSrc: "/images/instagram.svg",
     href: "https://www.instagram.com/skyupdigitalsolutions/",
     label: "Instagram",
   },
   {
-    iconSrc: "https://www.skyupdigitalsolutions.com/images/Twitter.svg",
+    iconSrc: "/images/Linkedin.svg",
     href: "https://www.linkedin.com/company/110886969/admin/",
     label: "LinkedIn",
   },
   {
-    iconSrc: "https://www.skyupdigitalsolutions.com/images/YT.svg",
+    iconSrc: "/images/youtube.svg",
     href: "https://www.youtube.com/@SKYUPDigitalSolutionsBengaluru",
     label: "YouTube",
   },

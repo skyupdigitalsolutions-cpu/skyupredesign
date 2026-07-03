@@ -773,24 +773,21 @@ function Hero() {
     setError("");
     setLoading(true);
 
-    const extra = [
-      form.company && `Company/Builder: ${form.company}`,
-      form.location && `Project Location: ${form.location}`,
-      form.budget && `Monthly Budget: ${form.budget}`,
-    ]
-      .filter(Boolean)
-      .join("\n");
-
     const payload = {
       name: form.name,
-      mobile: form.phone.replace(/\D/g, ""),
-      email: form.email || "",
-      subject: "Real Estate Lead — Homepage Form",
-      message: extra || "Homepage consultation request",
+      company: form.company || "Not specified",
+      email: form.email || "not-provided@skyupdigitalsolutions.com",
+      phone: form.phone.replace(/\D/g, ""),
+      service: "Real Estate Digital Marketing",
+      budget: form.budget || "Not specified",
+      message:
+        [form.location && `Project Location: ${form.location}`]
+          .filter(Boolean)
+          .join("\n") || "Homepage consultation request",
     };
 
     try {
-      const res = await fetch(`${API_BASE}/add-contact`, {
+      const res = await fetch(`${API_BASE}/api/contacts`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),

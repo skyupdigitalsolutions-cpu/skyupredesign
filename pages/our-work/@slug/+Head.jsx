@@ -6,7 +6,7 @@ export default function Head() {
   const slug = routeParams?.slug;
   const cs = CASE_STUDIES.find((c) => c.slug === slug);
 
-  const url = `https://www.skyupdigitalsolutions.com/work/${slug}`;
+  const url = `https://www.skyupdigitalsolutions.com/our-work/${slug}`;
   const title = cs?.seo?.metaTitle || cs?.title || "Case Study | SkyUp Digital Solutions";
   const description = cs?.seo?.metaDescription || cs?.summary || "";
 

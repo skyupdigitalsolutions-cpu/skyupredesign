@@ -4,15 +4,15 @@ const breadcrumbSchema = {
   "@type": "BreadcrumbList",
   "itemListElement": [
     { "@type": "ListItem", "position": "1", "name": "Skyup Digital Solutions", "item": "https://www.skyupdigitalsolutions.com/" },
-    { "@type": "ListItem", "position": "2", "name": "Work", "item": "https://www.skyupdigitalsolutions.com/works" },
+    { "@type": "ListItem", "position": "2", "name": "Work", "item": "https://www.skyupdigitalsolutions.com/our-work" },
   ],
 };
 
 const webPageSchema = {
   "@context": "https://schema.org",
   "@type": "WebPage",
-  "@id": "https://www.skyupdigitalsolutions.com/work/#webpage",
-  "url": "https://www.skyupdigitalsolutions.com/works",
+  "@id": "https://www.skyupdigitalsolutions.com/our-work/#webpage",
+  "url": "https://www.skyupdigitalsolutions.com/our-work",
   "name": "Real Growth. Real Results. Real Businesses.",
   "description": "Explore SkyUp's work in SEO, social media, performance marketing, AI automation, Machine Learning, CRM, UI/UX, graphic design and web development projects.",
   "isPartOf": {

@@ -104,7 +104,7 @@ function Card({ study, cover }) {
 
   return (
     <a
-      href={`/work/${study.slug}`}
+      href={`/our-work/${study.slug}`}
       className="group flex flex-col overflow-hidden rounded-2xl border border-slate-100 bg-white no-underline shadow-[0_10px_30px_rgba(0,0,0,0.06)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_18px_45px_rgba(0,0,0,0.12)]"
     >
       {/* Cover */}

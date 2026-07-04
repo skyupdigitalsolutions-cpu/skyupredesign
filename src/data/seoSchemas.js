@@ -41,7 +41,7 @@ export function serviceSchemas(svc) {
 export function workSchemas(cs) {
   if (!cs) return [];
   if (cs.seo?.schema) return cs.seo.schema;
-  const url = `https://www.skyupdigitalsolutions.com/work/${cs.slug}`;
+  const url = `https://www.skyupdigitalsolutions.com/our-work/${cs.slug}`;
   const description = cs.seo?.metaDescription || cs.summary || "";
   const list = [
     {

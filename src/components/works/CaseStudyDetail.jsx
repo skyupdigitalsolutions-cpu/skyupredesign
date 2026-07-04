@@ -30,7 +30,7 @@ export default function CaseStudyDetail({ slug: slugProp }) {
           The project you're looking for may have moved or been renamed.
         </p>
         <a
-          href="/works"
+          href="/our-work"
           className="inline-block rounded-full bg-[#0037CA] px-7 py-3 font-semibold text-white transition hover:-translate-y-0.5 hover:bg-[#002896] motion-reduce:transition-none"
         >
           Back to all work
@@ -73,7 +73,7 @@ export default function CaseStudyDetail({ slug: slugProp }) {
       {/* ── HERO ─────────────────────────────────────────────── */}
       <header className="mx-auto max-w-6xl px-6 pt-12 pb-10">
         <a
-          href="/works"
+          href="/our-work"
           className="mb-6 inline-flex items-center gap-1 text-sm font-medium text-[#0037CA] hover:underline"
         >
           ← All work

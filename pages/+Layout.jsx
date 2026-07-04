@@ -44,7 +44,7 @@ export default function Layout({ children }) {
     }
 
     // ── Work / case-study slug pages ──────────────────────────
-    const workMatch = path.match(/^\/work\/(.+)$/);
+    const workMatch = path.match(/^\/our-work\/(.+)$/);
     if (workMatch) {
       const c = CASE_STUDIES.find((x) => x.slug === workMatch[1]);
       if (c) {

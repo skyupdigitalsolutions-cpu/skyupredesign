@@ -2,5 +2,5 @@
 import { SERVICES } from "@/data/services";
 
 export function onBeforePrerenderStart() {
-  return SERVICES.map((s) => `/service/${s.slug}`);
+  return SERVICES.map((s) => `/services/${s.slug}`);
 }

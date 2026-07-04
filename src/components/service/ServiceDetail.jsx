@@ -113,7 +113,7 @@ export default function ServiceDetail() {
         <section className="mx-auto max-w-3xl px-6 py-24">
           <p className="text-slate-700">Service not found.</p>
           <a
-            href="/service"
+            href="/services"
             className="mt-3 inline-flex items-center gap-2 font-semibold text-[#0037CA] no-underline"
           >
             <ArrowLeft size={16} /> Back to all services
@@ -252,7 +252,7 @@ export default function ServiceDetail() {
       <DemoHero
         breadcrumb={[
           { label: "Home", href: "/" },
-          { label: "Services", href: "/service" },
+          { label: "Services", href: "/services" },
           { label: name },
         ]}
         title={heroHeadline || name}

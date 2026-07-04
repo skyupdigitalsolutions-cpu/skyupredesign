@@ -20,7 +20,7 @@ const faqPage = (faqs) => ({
 export function serviceSchemas(svc) {
   if (!svc) return [];
   if (svc.seo?.schema) return svc.seo.schema; // hand-written (e.g. CRM)
-  const url = `https://www.skyupdigitalsolutions.com/service/${svc.slug}`;
+  const url = `https://www.skyupdigitalsolutions.com/services/${svc.slug}`;
   const description = svc.seo?.metaDescription || svc.heroSubline || svc.tagline || "";
   const list = [
     {

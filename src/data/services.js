@@ -35,13 +35,13 @@ export const SERVICES = [
               "@type": "ListItem",
               position: "2",
               name: "Services Page",
-              item: "https://www.skyupdigitalsolutions.com/service",
+              item: "https://www.skyupdigitalsolutions.com/services",
             },
             {
               "@type": "ListItem",
               position: "3",
               name: "Search Engine Optimization",
-              item: "https://www.skyupdigitalsolutions.com/service/seo",
+              item: "https://www.skyupdigitalsolutions.com/services/seo",
             },
           ],
         },
@@ -135,14 +135,14 @@ export const SERVICES = [
           "@context": "https://schema.org",
           "@type": "ItemList",
           name: "SEO: Rank Higher. Get Found. Grow organically.",
-          url: "https://www.skyupdigitalsolutions.com/service/seo",
+          url: "https://www.skyupdigitalsolutions.com/services/seo",
           itemListElement: [
             {
               "@type": "ListItem",
               item: {
                 "@type": "Service",
                 name: "Search Engine Optimisation",
-                url: "https://www.skyupdigitalsolutions.com/service/seo",
+                url: "https://www.skyupdigitalsolutions.com/services/seo",
                 description:
                   "SkyUp helps businesses improve Google rankings with technical SEO, keyword research, content, backlinks, local SEO and transparent reporting.",
                 provider: {
@@ -181,7 +181,7 @@ export const SERVICES = [
       ],
     },
     Icon: Search,
-    href: "/service/search-engine-optimization",
+    href: "/services/search-engine-optimization",
     from: "#FEF3C7",
     to: "#FFEDD5",
     accent: "#F59E0B",
@@ -410,13 +410,13 @@ export const SERVICES = [
               "@type": "ListItem",
               position: "2",
               name: "Services Page",
-              item: "https://www.skyupdigitalsolutions.com/service",
+              item: "https://www.skyupdigitalsolutions.com/services",
             },
             {
               "@type": "ListItem",
               position: "3",
               name: "Social Media Marketing",
-              item: "https://www.skyupdigitalsolutions.com/service/social-media-marketing",
+              item: "https://www.skyupdigitalsolutions.com/services/social-media-marketing",
             },
           ],
         },
@@ -510,14 +510,14 @@ export const SERVICES = [
           "@context": "https://schema.org",
           "@type": "ItemList",
           name: "Grow Faster with Professional Social Media Marketing Services in Bangalore",
-          url: "https://www.skyupdigitalsolutions.com/service/social-media-marketing",
+          url: "https://www.skyupdigitalsolutions.com/services/social-media-marketing",
           itemListElement: [
             {
               "@type": "ListItem",
               item: {
                 "@type": "Service",
                 name: "Social Media Marketing",
-                url: "https://www.skyupdigitalsolutions.com/service/social-media-marketing",
+                url: "https://www.skyupdigitalsolutions.com/services/social-media-marketing",
                 description:
                   "SkyUp helps brands grow on Instagram, Facebook, LinkedIn, YouTube and more with content, engagement and lead-focused reporting.",
                 provider: {
@@ -534,7 +534,7 @@ export const SERVICES = [
       ],
     },
     Icon: Share2,
-    href: "/service/social-media-marketing",
+    href: "/services/social-media-marketing",
     from: "#E0F2FE",
     to: "#F0F9FF",
     accent: "#0EA5E9",
@@ -765,13 +765,13 @@ export const SERVICES = [
               "@type": "ListItem",
               position: "2",
               name: "Services Page",
-              item: "https://www.skyupdigitalsolutions.com/service",
+              item: "https://www.skyupdigitalsolutions.com/services",
             },
             {
               "@type": "ListItem",
               position: "3",
               name: "Performance Marketing",
-              item: "https://www.skyupdigitalsolutions.com/service/performance-marketing",
+              item: "https://www.skyupdigitalsolutions.com/services/performance-marketing",
             },
           ],
         },
@@ -865,14 +865,14 @@ export const SERVICES = [
           "@context": "https://schema.org",
           "@type": "ItemList",
           name: "Performance Marketing That Turns Ad Spend Into Measurable Revenue",
-          url: "https://www.skyupdigitalsolutions.com/service/performance-marketing",
+          url: "https://www.skyupdigitalsolutions.com/services/performance-marketing",
           itemListElement: [
             {
               "@type": "ListItem",
               item: {
                 "@type": "Service",
                 name: "Performance Marketing",
-                url: "https://www.skyupdigitalsolutions.com/service/performance-marketing",
+                url: "https://www.skyupdigitalsolutions.com/services/performance-marketing",
                 description:
                   "Generate consistent leads and maximize ROI with our performance-driven Google Ads and PPC campaigns.",
                 provider: {
@@ -889,7 +889,7 @@ export const SERVICES = [
       ],
     },
     Icon: Target,
-    href: "/service/performance-marketing",
+    href: "/services/performance-marketing",
     from: "#DBEAFE",
     to: "#EFF6FF",
     accent: "#0037CA",
@@ -1377,13 +1377,13 @@ export const SERVICES = [
               "@type": "ListItem",
               position: "2",
               name: "Services Page",
-              item: "https://www.skyupdigitalsolutions.com/service",
+              item: "https://www.skyupdigitalsolutions.com/services",
             },
             {
               "@type": "ListItem",
               position: "3",
               name: "Email Marketing",
-              item: "https://www.skyupdigitalsolutions.com/service/email-marketing",
+              item: "https://www.skyupdigitalsolutions.com/services/email-marketing",
             },
           ],
         },
@@ -1477,14 +1477,14 @@ export const SERVICES = [
           "@context": "https://schema.org",
           "@type": "ItemList",
           name: "Email Marketing That Converts — Not Just Communicates",
-          url: "https://www.skyupdigitalsolutions.com/service/email-marketing",
+          url: "https://www.skyupdigitalsolutions.com/services/email-marketing",
           itemListElement: [
             {
               "@type": "ListItem",
               item: {
                 "@type": "Service",
                 name: "Email Marketing",
-                url: "https://www.skyupdigitalsolutions.com/service/email-marketing",
+                url: "https://www.skyupdigitalsolutions.com/services/email-marketing",
                 description:
                   "Drive real revenue with proven email marketing services in Bangalore. Strategy, automation, design & analytics — all under one roof. Get your free audit today.",
                 provider: {
@@ -1501,7 +1501,7 @@ export const SERVICES = [
       ],
     },
     Icon: Mail,
-    href: "/service/email-marketing",
+    href: "/services/email-marketing",
     from: "#FFE4E6",
     to: "#FFF1F2",
     accent: "#F43F5E",
@@ -1789,13 +1789,13 @@ export const SERVICES = [
               "@type": "ListItem",
               position: "2",
               name: "Services Page",
-              item: "https://www.skyupdigitalsolutions.com/service",
+              item: "https://www.skyupdigitalsolutions.com/services",
             },
             {
               "@type": "ListItem",
               position: "3",
               name: "AI Automation",
-              item: "https://www.skyupdigitalsolutions.com/service/ai-automation",
+              item: "https://www.skyupdigitalsolutions.com/services/ai-automation",
             },
           ],
         },
@@ -1889,14 +1889,14 @@ export const SERVICES = [
           "@context": "https://schema.org",
           "@type": "ItemList",
           name: "Stop Doing It Manually. Start Scaling with AI Automation Services in Bangalore.",
-          url: "https://www.skyupdigitalsolutions.com/service/ai-automation",
+          url: "https://www.skyupdigitalsolutions.com/services/ai-automation",
           itemListElement: [
             {
               "@type": "ListItem",
               item: {
                 "@type": "Service",
                 name: "AI Automation",
-                url: "https://www.skyupdigitalsolutions.com/service/ai-automation",
+                url: "https://www.skyupdigitalsolutions.com/services/ai-automation",
                 description:
                   "SkyUp automates business workflows with AI chatbots, CRM automation, WhatsApp automation, voice AI, document processing, support and reporting.",
                 provider: {
@@ -1913,7 +1913,7 @@ export const SERVICES = [
       ],
     },
     Icon: Bot,
-    href: "/service/ai-automation",
+    href: "/services/ai-automation",
     from: "#EDE9FE",
     to: "#F5F3FF",
     accent: "#7C3AED",
@@ -2162,13 +2162,13 @@ export const SERVICES = [
               "@type": "ListItem",
               position: "2",
               name: "Services Page",
-              item: "https://www.skyupdigitalsolutions.com/service",
+              item: "https://www.skyupdigitalsolutions.com/services",
             },
             {
               "@type": "ListItem",
               position: "3",
               name: "Machine Learning",
-              item: "https://www.skyupdigitalsolutions.com/service/machine-learning",
+              item: "https://www.skyupdigitalsolutions.com/services/machine-learning",
             },
           ],
         },
@@ -2262,14 +2262,14 @@ export const SERVICES = [
           "@context": "https://schema.org",
           "@type": "ItemList",
           name: "Machine Learning Services in Bangalore for Smarter Business Growth",
-          url: "https://www.skyupdigitalsolutions.com/service/machine-learning",
+          url: "https://www.skyupdigitalsolutions.com/services/machine-learning",
           itemListElement: [
             {
               "@type": "ListItem",
               item: {
                 "@type": "Service",
                 name: "Machine Learning",
-                url: "https://www.skyupdigitalsolutions.com/service/machine-learning",
+                url: "https://www.skyupdigitalsolutions.com/services/machine-learning",
                 description:
                   "SkyUp delivers machine learning consulting, custom ML models, predictive analytics, NLP, computer vision, MLOps, maintenance and business-ready AI integration.",
                 provider: {
@@ -2286,7 +2286,7 @@ export const SERVICES = [
       ],
     },
     Icon: BrainCircuit,
-    href: "/service/machine-learning",
+    href: "/services/machine-learning",
     from: "#E0E7FF",
     to: "#EEF2FF",
     accent: "#4F46E5",
@@ -2568,13 +2568,13 @@ export const SERVICES = [
               "@type": "ListItem",
               position: "2",
               name: "Services Page",
-              item: "https://www.skyupdigitalsolutions.com/service",
+              item: "https://www.skyupdigitalsolutions.com/services",
             },
             {
               "@type": "ListItem",
               position: "3",
               name: "UI/UX Design",
-              item: "https://www.skyupdigitalsolutions.com/service/ui-ux-design",
+              item: "https://www.skyupdigitalsolutions.com/services/ui-ux-design",
             },
           ],
         },
@@ -2668,14 +2668,14 @@ export const SERVICES = [
           "@context": "https://schema.org",
           "@type": "ItemList",
           name: "UI/UX Design Services in Bangalore That Enhance User Experience & Drive Conversions",
-          url: "https://www.skyupdigitalsolutions.com/service/ui-ux-design",
+          url: "https://www.skyupdigitalsolutions.com/services/ui-ux-design",
           itemListElement: [
             {
               "@type": "ListItem",
               item: {
                 "@type": "Service",
                 name: "UI/UX Design",
-                url: "https://www.skyupdigitalsolutions.com/service/ui-ux-design",
+                url: "https://www.skyupdigitalsolutions.com/services/ui-ux-design",
                 description:
                   "SkyUp helps brands improve websites and apps with UX audits, user journeys, information architecture, wireframes, prototypes, UI design and testing.",
                 provider: {
@@ -2692,7 +2692,7 @@ export const SERVICES = [
       ],
     },
     Icon: PenTool,
-    href: "/service/ui-ux-design",
+    href: "/services/ui-ux-design",
     from: "#CCFBF1",
     to: "#F0FDFA",
     accent: "#0D9488",
@@ -2967,13 +2967,13 @@ export const SERVICES = [
               "@type": "ListItem",
               position: "2",
               name: "Services Page",
-              item: "https://www.skyupdigitalsolutions.com/service",
+              item: "https://www.skyupdigitalsolutions.com/services",
             },
             {
               "@type": "ListItem",
               position: "3",
               name: "Graphic Design",
-              item: "https://www.skyupdigitalsolutions.com/service/graphic-design",
+              item: "https://www.skyupdigitalsolutions.com/services/graphic-design",
             },
           ],
         },
@@ -3067,14 +3067,14 @@ export const SERVICES = [
           "@context": "https://schema.org",
           "@type": "ItemList",
           name: "Graphic Design Services in Bangalore That Finally Look Like Your Business Deserves Them",
-          url: "https://www.skyupdigitalsolutions.com/service/graphic-design",
+          url: "https://www.skyupdigitalsolutions.com/services/graphic-design",
           itemListElement: [
             {
               "@type": "ListItem",
               item: {
                 "@type": "Service",
                 name: "Graphic Design",
-                url: "https://www.skyupdigitalsolutions.com/service/graphic-design",
+                url: "https://www.skyupdigitalsolutions.com/services/graphic-design",
                 description:
                   "SkyUp creates logo design, branding, social media creatives, ad designs, brochures, company profiles, infographics and pitch decks for businesses.",
                 provider: {
@@ -3091,7 +3091,7 @@ export const SERVICES = [
       ],
     },
     Icon: Palette,
-    href: "/service/graphic-design",
+    href: "/services/graphic-design",
     from: "#FCE7F3",
     to: "#FDF2F8",
     accent: "#DB2777",
@@ -3329,13 +3329,13 @@ export const SERVICES = [
               "@type": "ListItem",
               position: "2",
               name: "Services Page",
-              item: "https://www.skyupdigitalsolutions.com/service",
+              item: "https://www.skyupdigitalsolutions.com/services",
             },
             {
               "@type": "ListItem",
               position: "3",
               name: "Web Development",
-              item: "https://www.skyupdigitalsolutions.com/service/web-development",
+              item: "https://www.skyupdigitalsolutions.com/services/web-development",
             },
           ],
         },
@@ -3429,14 +3429,14 @@ export const SERVICES = [
           "@context": "https://schema.org",
           "@type": "ItemList",
           name: "Web Development Services in Bangalore That Drive Real Business Results",
-          url: "https://www.skyupdigitalsolutions.com/service/web-development",
+          url: "https://www.skyupdigitalsolutions.com/services/web-development",
           itemListElement: [
             {
               "@type": "ListItem",
               item: {
                 "@type": "Service",
                 name: "Web Development",
-                url: "https://www.skyupdigitalsolutions.com/service/web-development",
+                url: "https://www.skyupdigitalsolutions.com/services/web-development",
                 description:
                   "SkyUp builds fast, responsive websites, e-commerce stores, web apps, ERP, LMS, dashboards, PWAs and CMS platforms that convert visitors.",
                 provider: {
@@ -3453,7 +3453,7 @@ export const SERVICES = [
       ],
     },
     Icon: Code2,
-    href: "/service/web-development",
+    href: "/services/web-development",
     from: "#CFFAFE",
     to: "#ECFEFF",
     accent: "#0891B2",
@@ -3722,13 +3722,13 @@ export const SERVICES = [
               "@type": "ListItem",
               position: "2",
               name: "Services Page",
-              item: "https://www.skyupdigitalsolutions.com/service",
+              item: "https://www.skyupdigitalsolutions.com/services",
             },
             {
               "@type": "ListItem",
               position: "3",
               name: "CRM",
-              item: "https://www.skyupdigitalsolutions.com/service/crm",
+              item: "https://www.skyupdigitalsolutions.com/services/crm",
             },
           ],
         },
@@ -3822,14 +3822,14 @@ export const SERVICES = [
           "@context": "https://schema.org",
           "@type": "ItemList",
           name: "Skyup CRM",
-          url: "https://www.skyupdigitalsolutions.com/service/crm",
+          url: "https://www.skyupdigitalsolutions.com/services/crm",
           itemListElement: [
             {
               "@type": "ListItem",
               item: {
                 "@type": "Service",
                 name: "CRM",
-                url: "https://www.skyupdigitalsolutions.com/service/crm",
+                url: "https://www.skyupdigitalsolutions.com/services/crm",
                 description:
                   "SkyUp provides CRM solutions to manage leads, automate follow-ups, track sales activity, improve customer communication and increase business conversions.",
                 provider: {
@@ -3846,7 +3846,7 @@ export const SERVICES = [
       ],
     },
     Icon: Users,
-    href: "/service/crm",
+    href: "/services/crm",
     from: "#D1FAE5",
     to: "#ECFDF5",
     accent: "#059669",

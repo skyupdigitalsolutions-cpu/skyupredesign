@@ -39,7 +39,7 @@ export default function PartnerCta() {
               <ArrowRight size={16} strokeWidth={2.5} />
             </a>
             <a
-              href="/service"
+              href="/services"
               className="inline-flex items-center gap-2 rounded-xl border border-white/30 px-7 py-3.5 text-sm font-semibold text-white transition-all hover:-translate-y-0.5 hover:bg-white/10"
             >
               Explore our services

@@ -21,17 +21,17 @@ const SERVICES = [
   {
     name: "Content & Graphic Design",
     benefit: "On-brand content and visuals that turn rankings into engagement.",
-    href: "/service/design",
+    href: "/services/design",
   },
   {
     name: "Web Development",
     benefit: "Fast, SEO-ready websites built to convert the traffic we send you.",
-    href: "/service/web-development",
+    href: "/services/web-development",
   },
   {
     name: "Performance Marketing",
     benefit: "Paid campaigns that complement your organic growth for faster wins.",
-    href: "/service/performance-marketing",
+    href: "/services/performance-marketing",
   },
 ];
 

@@ -96,7 +96,7 @@ export default function Demo() {
       <DemoHero
         breadcrumb={[
           { label: "Home", href: "/" },
-          { label: "Services", href: "/service" },
+          { label: "Services", href: "/services" },
           { label: "SEO Services" },
         ]}
         title="Rank Higher, Get Found, Grow Faster with Expert SEO"

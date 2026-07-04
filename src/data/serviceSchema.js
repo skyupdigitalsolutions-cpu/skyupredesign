@@ -19,7 +19,7 @@ const serviceSchema = {
   "@context": "https://schema.org",
   "@type": "ItemList",
   "name": "Skyup Digital solutions LLP",
-  "url": "https://www.skyupdigitalsolutions.com/service",
+  "url": "https://www.skyupdigitalsolutions.com/services",
   "itemListElement": [
     svc(1, "Search Engine Optimisation", "search-engine-optimisation", "SkyUp helps businesses improve Google rankings with technical SEO, keyword research, content, backlinks, local SEO and transparent reporting.", "Search Engine Optimisation"),
     svc(2, "Social Media Marketing", "social-media-marketing", "SkyUp helps brands grow on Instagram, Facebook, LinkedIn, YouTube and more with content, engagement and lead-focused reporting.", "Social Media Marketing"),

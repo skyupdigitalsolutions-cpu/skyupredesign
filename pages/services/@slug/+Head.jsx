@@ -10,7 +10,7 @@ export default function Head() {
   const slug = routeParams?.slug;
   const svc = SERVICES.find((s) => s.slug === slug);
 
-  const url = `https://www.skyupdigitalsolutions.com/service/${slug}`;
+  const url = `https://www.skyupdigitalsolutions.com/services/${slug}`;
   const schemas = serviceSchemas(svc);
 
   return (

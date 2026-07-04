@@ -6,27 +6,28 @@ const BRAND = "#0037CA";
 const QUICK_LINKS = [
   { label: "Home", href: "/" },
   { label: "About Us", href: "/about-us" },
-  { label: "Services", href: "/service" },
+  { label: "Services", href: "/services" },
   { label: "Blogs", href: "/blogs" },
   { label: "Works", href: "/works" },
-  { label: "Contact us", href: "/contact" },
+  { label: "Contact us", href: "/contact-us" },
 ];
 
 const Service_Links = [
-  { label: "Social Media Marketing", href: "#" },
-  { label: "SEO", href: "#" },
-  { label: "Google Ads", href: "#" },
-  { label: "Email Marketing", href: "#" },
-  { label: "Branding", href: "#" },
-  { label: "Web Development", href: "#" },
-  { label: "UI UX Design", href: "#" },
-  { label: "Graphic Design", href: "#" },
-  { label: "AI Automation", href: "#" },
+  { label: "SEO", href: "/services/search-engine-optimization" },
+  { label: "Social Media Marketing", href: "/services/social-media-marketing" },
+  { label: "Performance Marketing", href: "/services/performance-marketing" },
+  { label: "Email Marketing", href: "/services/email-marketing" },
+  { label: "AI Automation", href: "/services/ai-automation" },
+  { label: "Machine Learning", href: "/services/machine-learning" },
+  { label: "UI UX Design", href: "/services/ui-ux-design" },
+  { label: "Graphic Design", href: "/services/graphic-design" },
+  { label: "Web Development", href: "/services/web-development" },
+  { label: "CRM", href: "/services/crm" },
 ];
 
 const LEGAL_LINKS = [
   { label: "Terms of service", href: "/termsconditions" },
-  { label: "Privacy policy", href: "/privacypolicy" },
+  { label: "Privacy policy", href: "/privacy-policy" },
 ];
 
 const SOCIAL_LINKS = [

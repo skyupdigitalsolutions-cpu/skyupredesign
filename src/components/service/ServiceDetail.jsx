@@ -1,7 +1,8 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { usePageContext } from "vike-react/usePageContext";
 import { SERVICES } from "@/data/services";
 import { serviceSchemas } from "@/data/seoSchemas";
+import JsonLd from "@/components/JsonLd";
 import {
   ArrowLeft,
   EyeOff,
@@ -74,37 +75,14 @@ export default function ServiceDetail() {
   const slug = routeParams?.slug;
   const service = SERVICES.find((s) => s.slug === slug);
 
-  // ── Keep JSON-LD in sync across client-side navigation ──────────────
-  // React 19 caches inline <script> tags and will NOT update the JSON-LD
-  // rendered by +Head.jsx when navigating between service pages. +Head
-  // still handles the initial server-rendered / prerendered load (so
-  // crawlers and hard reloads get correct schema); this effect replaces
-  // the schema imperatively whenever the slug changes.
-  useEffect(() => {
-    if (typeof document === "undefined") return;
-
-    // Remove any JSON-LD we previously injected (and the SSR ones in head).
-    document
-      .querySelectorAll('head script[type="application/ld+json"]')
-      .forEach((el) => el.remove());
-
-    // Inject the current service's schema.
-    const schemas = serviceSchemas(service);
-    schemas.filter(Boolean).forEach((schema) => {
-      const el = document.createElement("script");
-      el.type = "application/ld+json";
-      el.setAttribute("data-skyup-schema", "");
-      el.textContent = JSON.stringify(schema);
-      document.head.appendChild(el);
-    });
-
-    // Clean up on unmount / before next run so nothing leaks to other pages.
-    return () => {
-      document
-        .querySelectorAll('head script[data-skyup-schema]')
-        .forEach((el) => el.remove());
-    };
-  }, [slug]);
+  // ── JSON-LD ──────────────────────────────────────────────────────────
+  // Schemas are rendered in the BODY via <JsonLd> (see the main return
+  // below) — the same pattern as BlogDetail / CaseStudyDetail. This is the
+  // SINGLE owner of the schemas: they are prerendered for crawlers and
+  // React updates them naturally on client-side navigation. Do NOT also
+  // render them in +Head.jsx (a static SSR string React never updates) or
+  // inject them imperatively — dual ownership causes duplicate entities
+  // in the Schema.org validator.
 
   if (!service) {
     return (
@@ -246,6 +224,7 @@ export default function ServiceDetail() {
 
   return (
     <div>
+      <JsonLd schemas={serviceSchemas(service)} />
       <Header />
 
       {/* 01 — Hero */}

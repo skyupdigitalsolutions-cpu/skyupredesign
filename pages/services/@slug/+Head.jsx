@@ -1,30 +1,21 @@
 import { usePageContext } from "vike-react/usePageContext";
-import { SERVICES } from "@/data/services";
-import { serviceSchemas } from "@/data/seoSchemas";
 
-// NOTE: <title> and <meta name="description"> are handled by +config.js
-// (vike-react `title` / `description` settings) so they update correctly on
-// client-side navigation. This Head only adds robots, canonical and JSON-LD.
+// NOTE: <title> and <meta name="description"> are handled by vike-react's
+// `title`/`description` settings (+title.js / +description.js).
+// JSON-LD schemas are rendered in the BODY by ServiceDetail.jsx via the
+// <JsonLd> component (same pattern as BlogDetail / CaseStudyDetail) —
+// body JSON-LD is valid for Google and updates correctly on client-side
+// navigation. Do NOT add schemas here: head HTML is a static SSR string
+// that React never updates, and a second copy causes duplicate entities.
 export default function Head() {
   const { routeParams } = usePageContext();
   const slug = routeParams?.slug;
-  const svc = SERVICES.find((s) => s.slug === slug);
-
   const url = `https://www.skyupdigitalsolutions.com/services/${slug}`;
-  const schemas = serviceSchemas(svc);
 
   return (
     <>
       <meta name="robots" content="index, follow" />
       <link rel="canonical" href={url} />
-
-      {schemas.filter(Boolean).map((schema, i) => (
-        <script
-          key={i}
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-        />
-      ))}
     </>
   );
 }

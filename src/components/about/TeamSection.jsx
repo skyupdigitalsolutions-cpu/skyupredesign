@@ -5,16 +5,9 @@ import SectionHeader from "./SectionHeader";
 
 /* Replace MEMBERS with your real team. `photo` optional — initials render until it exists. */
 const MEMBERS = [
-  {
-    name: "chinii the spiderman",
-    role: "Software Engineer",
-    photo: "/images/jasss.webp",
-  },
-  { name: "chinii the spiderman", role: "Software Engineer", photo: "/images/jasss.webp" },
-  { name: "Halli pooja", role: "Software Developer", photo: "/images/pooja.webp" },
-  { name: "chinii the spiderman", role: "Lead Developer", photo: "/images/jasss.webp" },
-  { name: "Team Member", role: "Designer", photo: "/images/shashi.webp" },
-  { name: "Halli pooja", role: "Design Lead", photo: "/images/pooja.webp" },
+  { name: "Srinivas J Sutar", role: "Full Stack Web Engineer", photo: "/images/jasss.webp" },
+  { name: "Pooja Kadwadi", role: "Frontend Developer", photo: "/images/pooja.webp" },
+  { name: "Shashikant S Bilgundi", role: "Full Stack Web Developer", photo: "/images/shashi.webp" },
 ];
 
 function MemberCard({ name, role, photo, active }) {

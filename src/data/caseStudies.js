@@ -1051,7 +1051,7 @@ export const CASE_STUDIES = [
     title: "New Website for Rathna Bhoomi Developers",
     client: "Rathna Bhoomi Developers",
     agency: "SkyUp Digital Solutions",
-    category: "Real Estate",
+    category: "Website development",
     summary:
       "SkyUp Digital Solutions designed and built the first-ever website for Rathna Bhoomi Developers — a fast, mobile-first real estate website that presents every project clearly and turns visitors into enquiries and site visits.",
     heroImage: "/images/case-studies/rathna-bhoomi/hero.jpg",
@@ -1241,6 +1241,140 @@ export const CASE_STUDIES = [
       title: "Want a Website Like This?",
       description:
         "At SkyUp Digital Solutions, we help real estate, farmland, construction, and service-based businesses build modern, SEO-friendly, and lead-focused websites. From UI/UX design to web development, content structure, mobile responsiveness, and conversion optimization, we create websites that support trust, enquiries, and business growth.",
+      primaryLabel: "Start Your Project With Us",
+    },
+  },
+
+    {
+    id: 8,
+    slug: "ai-voice-calling-agent",
+    title: "AI Voice Calling Agent",
+    client: "",
+    agency: "SkyUp Digital Solutions",
+    category: "Automation",
+    summary:
+      "A fully automated AI voice calling agent that talks to your leads and customers over real phone calls  in natural Indian-accented English and regional languages. It filters the prospects, responds to frequently asked questions and arranges appointments day and night, without human agent picking up the phone.",
+    heroImage: "/images/case-studies/novara/hero.jpg",
+    meta: {
+      industry: "AI Agent/Automation",
+      location: "",
+      services: "",
+      project: "AI Voice Agent",
+    },
+    gallery: [
+      "/images/home.jpg",
+      "/images/amenities.jpg",
+      "/images/mobile.jpg",
+    ],
+    seo: {
+      metaTitle:
+        "AI Voice Calling Agent for Lead Calls & Appointment Booking",
+      metaDescription:
+        "Automate inbound and outbound calls with an AI voice agent that qualifies leads, handles FAQs, books appointments, logs conversations and works 24/7.",
+      keywords: [
+        
+      ],
+    },
+    // Each section renders a heading plus optional paragraphs and an optional list.
+    sections: [
+      {
+        id: "project-overview",
+        heading: "Project Overview",
+        paragraphs: [
+          "We built and launched a fully functional AI voice agent that can manage inbound and outbound calls on a large scale. Instead of a pre-recorded IVR menu, the system listens, understands and responds in real time with a human-sounding voice, actively engaging in a two-way conversation with the caller. It is directly linked with actual Indian numbers, providing a normal conversation to the caller instead of a recording of a robot.",
+          "Built for businesses drowning in repetitive phone work, the agent automates lead qualification, FAQ handling, follow-ups, and appointment scheduling. Every conversation is logged, transcribed, and pushed into the team's workflow. The result is a tireless front-line voice that works 24/7, scales instantly on demand, and frees the human team to focus only on conversations that actually need a person.",
+        ],
+        list: [],
+      },
+      {
+        id: "client-requirement",
+        heading: "Client Requirement",
+        paragraphs: 
+          ["The requirement was a phone-based system that could handle a steady daily volume of calls without expanding the human calling team. The business needed every inbound enquiry answered immediately  even after hours  and outbound follow-ups made consistently, without leads slipping through the cracks. Most importantly, callers needed to seem like they are conversing with a actual human, nicely spoken, instead of a clear robot. The brief was very specific and included regional language support, ability to understanding Indian names and addresses and also reliable connectivity on local +91 numbers.",],
+      },
+      {
+        id: "the-problem",
+        heading: "The Problem",
+        paragraphs: [
+          "Phone-based businesses face a hard ceiling: a human team can only handle so many calls in a day, and calls outside working hours simply go unanswered. Hiring more callers is expensive, slow to train, and inconsistent  quality drops on busy days, scripts get skipped, and follow-ups are forgotten. Meanwhile, every missed call is often a lost lead handed straight to a competitor.",
+          "Off-the-shelf IVR systems were not an answer either. Customers hate pressing buttons through endless menus, and rigid recorded flows can't understand a real question or hold a conversation. Generic voice bots also stumble badly on Indian accents, names, and regional languages, producing awkward, unusable interactions. The business needed something that could understand naturally, speak naturally, and scale instantly  none of which existing tools delivered.",
+        ],
+        list: [],
+      },
+      {
+        id: "our-strategy",
+        heading: "Our Strategy",
+        paragraphs: [
+          "We approached the agent as three tightly integrated layers: ears, brain, and voice. For the 'ears,' we benchmarked multiple speech-to-text engines for accuracy on Indian speech, accents, and regional languages, then selected the best performer for the use case. For the 'brain,' we used a cost-efficient large language model to interpret intent, follow the conversation logic, and decide each response on the fly. For the 'voice,' we tested several text-to-speech options to land on the most natural, human-sounding output at a sustainable cost.",
+          "We then stitched these into a real-time pipeline connected to live Indian telephony, with full call logging and transcription. This modular approach let us swap any layer independently and tune the cost-to-quality ratio precisely to the client's call volume.",
+        ],
+        list: [],
+      },
+      {
+        id: "scope-of-work",
+        heading: "Scope of Work",
+        paragraphs: [
+          "The project involved not only the architecture but also the entire build process up until it was deployed into live. We created the real-time voice pipeline that combines speech-to-text, the conversational AI brain and text-to-speech into a natural, low-latency voice experience. The conversation logic was designed such that the agent can qualify leads, answer the most frequently asked questions, gather important information and arrange appointments, and gracefully hand off to a human when asked a question that the agent can't answer.",
+          "Telephony – we provisioned and verified live numbers in India (+91) and finished the reseller compliance application and GST-linked business application to operate a compliant calling number in India. We enabled inbound answering and outbound dialling, enabled full call transcription and logging, and created dashboards to enable the team to review all conversations. Last but not least we created a detailed cost model over different voice quality levels and provided the client with a clear control over their monthly expenditure depending on the number of calls and desired voice naturalness.",
+        ],
+       },
+      {
+        id: "tools-and-technologies",
+        heading: "Tools & Technologies Used",
+        paragraphs: [
+          "Speech-to-text engines benchmarked across Deepgram, Sarvam AI Saaras v3, and ElevenLabs; text-to-speech via ElevenLabs and alternative providers; a cost-efficient large language model as the conversational brain; Plivo for live Indian +91 telephony and call routing; plus custom Node.js orchestration for the real-time pipeline, transcription storage, and call logging dashboards.",
+        ],
+        list: [],
+      },
+      {
+        id: "how-we-executed",
+        heading: "Project Execution",
+        paragraphs: [
+          "Execution began with rigorous benchmarking. We ran sample Indian-language and accented audio through each speech-to-text engine, measuring accuracy on names, numbers, and regional phrases, then did the same for text-to-speech naturalness. With the best components chosen, we assembled the real-time pipeline and tuned it relentlessly for low latency, because even a one-second delay breaks the illusion of a live conversation.",
+          "In parallel, we handled telephony provisioning  submitting the reseller compliance application, verifying the India-registered, GST-linked business details, and activating live +91 numbers. We then wired up inbound and outbound calling, conversation logic, and full transcription.",
+          "Before launch, we tested the agent against a realistic daily call volume, refining its handling of interruptions, accents, and edge-case questions. We delivered a clear multi-tier cost model so the client could choose their voice quality and budget, then deployed the agent into live operation.",
+        ],
+        list: [],
+      },
+      {
+        id: "key-features",
+        heading: "Key Features",
+        paragraphs: [
+          "The delivered agent handles real two-way phone conversations in natural English and regional languages, with no button-pressing menus. It manages both inbound and outbound calls, qualifies leads automatically, answers frequently asked questions, captures caller details, and books appointments end to end. It runs 24/7 and scales on demand, so call spikes never go unanswered.",
+          "Every call is transcribed and logged for review, giving the team a searchable record of each conversation. The agent hands off cleanly to a human when needed, ensuring complex queries are never dropped. It runs on compliant live Indian +91 numbers, and the underlying pipeline is modular  each component can be upgraded independently as better engines emerge.",
+        ],
+      },
+      {
+        id: "project-snapshots",
+        heading: "Visuals",
+        paragraphs: [
+          "Visuals consist of the live call dashboard showing call status in real-time, a sample of a conversation transcript view, a multi-tier cost breakdown sheet, and an architecture diagram that depicts the speech-to-text pipeline, the AI brain, and the text-to-speech pipeline connected to live telephony.",
+        ],
+        list: [],
+        gallery: [], // add screenshot image paths here, e.g. "/images/case-studies/novara/home.jpg"
+      },
+      {
+        id: "results-delivered",
+        heading: "Results Delivered",
+        paragraphs: [
+          "The agent now answers calls instantly, day or night, eliminating missed-call leakage entirely on the lines it covers. In a deployment handling roughly 30 calls per day, every enquiry was answered on the first ring and every outbound follow-up was made on schedule  work that previously required a dedicated human caller. Average response latency was tuned low enough that callers consistently engaged in full conversations rather than hanging up.",
+          "The business reduced its dependence on a growing calling team while increasing coverage to a full 24/7 window. All-in running costs landed in a predictable â‚¹18,000â€“â‚¹40,000 per month range depending on the chosen voice-quality tier, making the unit economics dramatically cheaper than equivalent human calling capacity.",
+        ],
+        list: [],
+      },
+      {
+        id: "business-impact",
+        heading: "Business Impact",
+        paragraphs: [
+          "The AI voice agent turned a hard staffing bottleneck into a scalable, on-demand resource. The business gained round-the-clock phone coverage at a fraction of the cost of additional hires, with consistent quality on every single call  no off days, no skipped scripts, no forgotten follow-ups. Leads that once leaked away after hours are now captured and qualified automatically. With a transparent monthly cost model and a modular pipeline that improves as voice technology improves, the client has a future-proof front line that grows with call volume instead of fighting against it.",
+        ],
+        list: [],
+      },
+    ],
+    cta: {
+      title: "Ready to stop losing leads to missed calls?",
+      description:
+        "Our AI voice calling agent answers every call, qualifies every lead, and works around the clock  in natural Indian languages and accents  at a fraction of the cost of a calling team. Let's map your call flows and deploy a voice agent built for your business. Talk to us today.",
       primaryLabel: "Start Your Project With Us",
     },
   },

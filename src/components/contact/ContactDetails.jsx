@@ -83,6 +83,24 @@ export default function ContactDetails() {
       const data = await res.json();
       if (!res.ok) throw new Error(data.message || "Something went wrong.");
 
+      // ── Meta CRM lead tracking ────────────────────────────────────────────
+      // Fires ONLY after a successful API submission. Note: this form's phone
+      // field is named `phone` (there is no `mobile` field), so form_mobile is
+      // mapped from values.phone. Guarded for SSR/prerender (Vike) where
+      // `window` may be undefined at module/render time.
+      if (typeof window !== "undefined") {
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+          event:        "crm_lead",
+          form_name:    values.name,
+          form_mobile:  values.phone,
+          form_email:   values.email,
+          form_message: values.message,
+          form_source:  "Skyup_contactform",
+        });
+      }
+      // ──────────────────────────────────────────────────────────────────────
+
       setSubmitted(true);
       resetForm();
     } catch (error) {

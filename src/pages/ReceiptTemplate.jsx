@@ -100,7 +100,9 @@ export default function ReceiptTemplate({ data }) {
       </div>
 
       {/* New Table Layout with Borders */}
-      <div className="mb-5 px-4 sm:px-6 lg:px-8 min-h-[410px] flex items-start justify-center">
+      {/* px-[60px] matches the FROM/TO/bank-details sections so the table's
+          left & right edges align with the rest of the invoice content. */}
+      <div className="mb-5 px-[60px] min-h-[410px]">
         <table
   style={{
     width: "100%",

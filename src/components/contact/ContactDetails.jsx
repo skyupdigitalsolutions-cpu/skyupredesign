@@ -67,18 +67,43 @@ const CheckIcon = (p) => (
 export default function ContactDetails() {
   const [submitted, setSubmitted] = useState(false);
 
-  // ── Meta CRM lead tracking ──────────────────────────────────────────────
-  // Pushed to the dataLayer so GTM can fire the CRM webhook tag. This is
-  // INTENTIONALLY decoupled from the /api/contacts save below: the CRM lead
-  // must be captured even if our own database write is slow, down, or errors.
-  // Note: this form's phone field is named `phone` (there is no `mobile`
-  // field), so form_mobile is mapped from values.phone. Guarded for
-  // SSR/prerender (Vike) where `window` may be undefined at render time.
+  // ── Meta CRM lead tracking (GTM path) ────────────────────────────────────
+  // This ONLY pushes the lead into the GTM dataLayer. The actual HTTP call to
+  // the CRM's /website-webhook endpoint is made by a GTM Custom HTML tag that
+  // fires on the `crm_lead` event (see the GTM tag in the accompanying notes).
+  //
+  // The CRM webhook controller reads EXACTLY these body keys:
+  //     webhook_secret, name, mobile, email, message
+  // So the dataLayer keys below are named to map 1:1 in the GTM tag with no
+  // guessing. `lead_*` are the canonical keys the tag should read; the legacy
+  // `form_*` keys are kept so any pre-existing tags keep working.
+  //
+  // The webhook_secret is intentionally NOT put in the dataLayer — it lives in
+  // the GTM tag itself. (In a client-side form the secret is browser-visible
+  // either way, but keeping it in one place — the tag — is cleaner to rotate.)
+  //
+  // Guarded for SSR/prerender (Vike) where `window` is undefined at render.
   const pushCrmLead = (values) => {
     if (typeof window === "undefined") return;
+
+    // The CRM only stores name / mobile / email / message, so fold the extra
+    // qualifying context (company, service, budget) into the message text.
+    const enrichedMessage =
+      `Company: ${values.company} | Service: ${values.service} | ` +
+      `Budget: ${values.budget} | Message: ${values.message}`;
+
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({
-      event:        "crm_lead",
+      event: "crm_lead",
+
+      // ── canonical keys → map these straight into the GTM webhook tag ──
+      lead_name:    values.name,
+      lead_mobile:  values.phone, // this form's field is `phone` (no `mobile`)
+      lead_email:   values.email,
+      lead_message: enrichedMessage,
+      lead_source:  "Skyup_contactform",
+
+      // ── legacy keys (kept for backward compatibility with old tags) ──
       form_name:    values.name,
       form_mobile:  values.phone,
       form_email:   values.email,

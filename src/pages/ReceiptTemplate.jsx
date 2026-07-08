@@ -33,7 +33,9 @@ export default function ReceiptTemplate({ data }) {
       }}
     >
       {/* Header */}
-      <div className="flex justify-between items-center mb-6 pt-4 pb-3 px-[60px]">
+      {/* pt-12 (was pt-4) adds a bit more top space so the INVOICE heading and
+          everything below it start slightly lower on the page. */}
+      <div className="flex justify-between items-center mb-6 pt-12 pb-3 px-[60px]">
         <div>
           <h1 className="text-5xl font-extrabold text-black mb-4">INVOICE</h1>
         </div>

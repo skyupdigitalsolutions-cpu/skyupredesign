@@ -1,4 +1,9 @@
-import html2canvas from 'html2canvas';
+// NOTE: switched from 'html2canvas' to 'html2canvas-pro'.
+// Tailwind v4 emits colors as oklch(); the old html2canvas@1.4.1 (2021)
+// cannot parse oklch/oklab/lab/lch/color() and throws, which is what
+// triggered the "Failed to generate PDF" alert. html2canvas-pro is a
+// drop-in fork with the same API that supports these modern color functions.
+import html2canvas from 'html2canvas-pro';
 import jsPDF from 'jspdf';
 
 export const generatePDF = async (element, invoiceNumber) => {

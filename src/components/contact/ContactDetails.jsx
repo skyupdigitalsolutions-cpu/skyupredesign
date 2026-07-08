@@ -67,7 +67,32 @@ const CheckIcon = (p) => (
 export default function ContactDetails() {
   const [submitted, setSubmitted] = useState(false);
 
+  // ── Meta CRM lead tracking ──────────────────────────────────────────────
+  // Pushed to the dataLayer so GTM can fire the CRM webhook tag. This is
+  // INTENTIONALLY decoupled from the /api/contacts save below: the CRM lead
+  // must be captured even if our own database write is slow, down, or errors.
+  // Note: this form's phone field is named `phone` (there is no `mobile`
+  // field), so form_mobile is mapped from values.phone. Guarded for
+  // SSR/prerender (Vike) where `window` may be undefined at render time.
+  const pushCrmLead = (values) => {
+    if (typeof window === "undefined") return;
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event:        "crm_lead",
+      form_name:    values.name,
+      form_mobile:  values.phone,
+      form_email:   values.email,
+      form_message: values.message,
+      form_source:  "Skyup_contactform",
+    });
+  };
+
   const handleSubmit = async (values, { setSubmitting, resetForm, setStatus }) => {
+    // Fire CRM tracking FIRST, independent of our own backend. This is what
+    // triggers the GTM CRM webhook tag, and it should never be blocked by an
+    // unrelated /api/contacts failure.
+    pushCrmLead(values);
+
     try {
       const apiBase =
         import.meta.env.VITE_API_BASE_URL ||
@@ -82,24 +107,6 @@ export default function ContactDetails() {
 
       const data = await res.json();
       if (!res.ok) throw new Error(data.message || "Something went wrong.");
-
-      // ── Meta CRM lead tracking ────────────────────────────────────────────
-      // Fires ONLY after a successful API submission. Note: this form's phone
-      // field is named `phone` (there is no `mobile` field), so form_mobile is
-      // mapped from values.phone. Guarded for SSR/prerender (Vike) where
-      // `window` may be undefined at module/render time.
-      if (typeof window !== "undefined") {
-        window.dataLayer = window.dataLayer || [];
-        window.dataLayer.push({
-          event:        "crm_lead",
-          form_name:    values.name,
-          form_mobile:  values.phone,
-          form_email:   values.email,
-          form_message: values.message,
-          form_source:  "Skyup_contactform",
-        });
-      }
-      // ──────────────────────────────────────────────────────────────────────
 
       setSubmitted(true);
       resetForm();

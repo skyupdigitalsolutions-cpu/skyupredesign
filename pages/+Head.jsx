@@ -31,24 +31,26 @@ export default function Head() {
       <meta name="theme-color" content="#0037CA" />
       <meta name="robots" content="index, follow" />
 
-      {/* GTM deferred — loads after the page is interactive */}
+      {/* GTM — loads on DOMContentLoaded, no artificial delay.
+          The previous `load + 2500ms` delay could take several seconds on
+          media-heavy pages, and any visitor who submitted the contact form
+          and closed/left the tab before that timer fired would never get
+          their crm_lead event delivered — GTM simply hadn't loaded yet. */}
       <script
         dangerouslySetInnerHTML={{
           __html: `
-          window.addEventListener('load', function() {
-            setTimeout(function() {
-              (function(w,d,s,l,i){
-                w[l]=w[l]||[];
-                w[l].push({'gtm.start': new Date().getTime(), event:'gtm.js'});
-                var f=d.getElementsByTagName(s)[0],
-                j=d.createElement(s),
-                dl=l!='dataLayer'?'&l='+l:'';
-                j.async=true;
-                j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
-                f.parentNode.insertBefore(j,f);
-              })(window,document,'script','dataLayer','GTM-P9ZNGSFR');
-            }, 2500);
-          });
+          (function initGTM() {
+            (function(w,d,s,l,i){
+              w[l]=w[l]||[];
+              w[l].push({'gtm.start': new Date().getTime(), event:'gtm.js'});
+              var f=d.getElementsByTagName(s)[0],
+              j=d.createElement(s),
+              dl=l!='dataLayer'?'&l='+l:'';
+              j.async=true;
+              j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+              f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-P9ZNGSFR');
+          })();
         `,
         }}
       />

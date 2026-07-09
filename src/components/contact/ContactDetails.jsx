@@ -253,28 +253,28 @@ export default function ContactDetails() {
                         <label htmlFor="name" className={labelClass}>
                           Full Name <span className="text-[#0037CA]">*</span>
                         </label>
-                        <Field id="name" name="name" placeholder="Jane Sharma" className={fieldClass("name")} />
+                        <Field id="name" name="name" className={fieldClass("name")} />
                         <ErrText name="name" />
                       </div>
                       <div>
                         <label htmlFor="company" className={labelClass}>
                           Business / Company Name <span className="text-[#0037CA]">*</span>
                         </label>
-                        <Field id="company" name="company" placeholder="Acme Pvt Ltd" className={fieldClass("company")} />
+                        <Field id="company" name="company" className={fieldClass("company")} />
                         <ErrText name="company" />
                       </div>
                       <div>
                         <label htmlFor="email" className={labelClass}>
                           Email Address <span className="text-[#0037CA]">*</span>
                         </label>
-                        <Field id="email" name="email" type="email" placeholder="jane@company.com" className={fieldClass("email")} />
+                        <Field id="email" name="email" type="email" className={fieldClass("email")} />
                         <ErrText name="email" />
                       </div>
                       <div>
                         <label htmlFor="phone" className={labelClass}>
                           Phone Number <span className="text-[#0037CA]">*</span>
                         </label>
-                        <Field id="phone" name="phone" type="tel" placeholder="+91 98765 43210" className={fieldClass("phone")} />
+                        <Field id="phone" name="phone" type="tel" className={fieldClass("phone")} />
                         <ErrText name="phone" />
                       </div>
                     </div>
@@ -353,7 +353,6 @@ export default function ContactDetails() {
                         id="message"
                         name="message"
                         rows={5}
-                        placeholder="Tell us about your business, goals, and the challenges you're facing."
                         className={`${fieldClass("message")} min-h-[118px] resize-y`}
                       />
                       <ErrText name="message" />

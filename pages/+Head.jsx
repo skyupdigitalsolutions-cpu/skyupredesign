@@ -25,10 +25,8 @@ export default function Head() {
       />
 
       {/* Icons — point at the file that actually exists in /public */}
-      <link rel="icon" href="/favicon.svg" />
-      <link rel="apple-touch-icon" href="/favicon.svg" />
-      <link rel="icon" type="image/svg+xml" href="/images/skyup_logo1.svg" />
-      <link rel="manifest" href="/manifest.json" />
+      <link rel="icon" href="/images/skyup_logo1.svg" />
+      <link rel="apple-touch-icon" href="/images/skyup_logo1.svg" />
       <meta name="theme-color" content="#0037CA" />
       <meta name="robots" content="index, follow" />
 

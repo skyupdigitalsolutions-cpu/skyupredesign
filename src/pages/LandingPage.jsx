@@ -901,7 +901,7 @@ function Hero() {
               </a>
               <a
                 href="tel:+918867867775"
-                className="inline-flex items-center gap-2 font-semibold"
+                className="inline-flex items-center justify-center gap-2 font-semibold bg-white rounded-full px-7 py-3.5"
                 style={{ fontSize: "14px" }}
               >
                 Call a Marketing Expert

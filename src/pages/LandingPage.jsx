@@ -652,7 +652,7 @@ function Header() {
               </div>
             </nav>
             <div className="flex items-center gap-3">
-              <div className="hidden lg:flex items-center gap-2">
+              <div className="hidden lg:flex items-center gap-3">
                 {SOCIAL_LINKS_NAV.map(({ iconSrc, href, label }) => (
                   <a
                     key={label}
@@ -660,11 +660,7 @@ function Header() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={label}
-                    className="h-9 w-9 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110"
-                    style={{
-                      background: "white",
-                      boxShadow: "0 1px 4px rgba(0,0,0,0.10)",
-                    }}
+                    className="h-8 w-8 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110"  
                   >
                     <img src={iconSrc} alt={label} width={35} height={35} />
                   </a>

@@ -176,7 +176,6 @@ export default function ServicesGrid({
           {services.map(({ title: t, body, href, Icon }) => (
             <a
               key={t}
-              href={href}
               className="group flex w-full flex-col rounded-2xl border border-slate-200/70 bg-white p-6 no-underline shadow-[0_10px_30px_-24px_rgba(11,26,59,0.45)] transition-transform duration-200 hover:-translate-y-1 hover:shadow-[0_22px_46px_-26px_rgba(0,55,202,0.45)] sm:w-[calc(50%-0.85rem)] lg:w-[calc(25%-1.2rem)]"
             >
               <span

@@ -761,48 +761,94 @@ function Hero() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
+  // ── Meta CRM lead tracking (GTM path) ────────────────────────────────────
+// Pushes the lead into the GTM dataLayer only. The actual HTTP call to the
+// CRM's /website-webhook endpoint is made by the GTM Custom HTML tag that
+// fires on the `crm_lead` event — same tag used by the contact form.
+//
+// The webhook controller reads EXACTLY: webhook_secret, name, mobile, email, message
+// so these dataLayer keys map 1:1 into that tag. `lead_*` are canonical;
+// `form_*` are kept for backward compatibility with any existing tags.
+const pushCrmLead = (values) => {
+  if (typeof window === "undefined") return;
+
+  // Hero form has no single "message" field, so fold company/location/budget
+  // into one enriched message string (same approach as the contact form).
+  const enrichedMessage = [
+    values.company && `Company: ${values.company}`,
+    values.location && `Project Location: ${values.location}`,
+    values.budget && `Budget: ${values.budget}`,
+  ]
+    .filter(Boolean)
+    .join(" | ") || "Homepage consultation request";
+
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    event: "crm_lead",
+
+    // ── canonical keys → map these into the GTM webhook tag ──
+    lead_name: values.name,
+    lead_mobile: values.phone,
+    lead_email: values.email,
+    lead_message: enrichedMessage,
+    lead_source: "Skyup_homepage_hero",
+
+    // ── legacy keys (kept for backward compatibility) ──
+    form_name: values.name,
+    form_mobile: values.phone,
+    form_email: values.email,
+    form_message: enrichedMessage,
+    form_source: "Skyup_homepage_hero",
+  });
+};
+  
   const handleChange = (e) =>
     setForm((p) => ({ ...p, [e.target.name]: e.target.value }));
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setError("");
-    setLoading(true);
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  setError("");
+  setLoading(true);
 
-    const payload = {
-      name: form.name,
-      company: form.company || "Not specified",
-      email: form.email || "not-provided@skyupdigitalsolutions.com",
-      phone: form.phone.replace(/\D/g, ""),
-      service: "Real Estate Digital Marketing",
-      budget: form.budget || "Not specified",
-      message:
-        [form.location && `Project Location: ${form.location}`]
-          .filter(Boolean)
-          .join("\n") || "Homepage consultation request",
-    };
+  // Fire CRM tracking FIRST, independent of the backend call — this is what
+  // triggers the GTM CRM webhook tag and should never be blocked by an
+  // unrelated /api/contacts failure.
+  pushCrmLead(form);
 
-    try {
-      const res = await fetch(`${API_BASE}/api/contacts`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      });
-      if (!res.ok) {
-        const data = await res.json().catch(() => ({}));
-        throw new Error(data.message || `Request failed (${res.status})`);
-      }
-      setSubmitted(true);
-    } catch (err) {
-      setError(
-        err.message === "Failed to fetch"
-          ? "Couldn't reach the server. Please check your connection and try again."
-          : err.message,
-      );
-    } finally {
-      setLoading(false);
-    }
+  const payload = {
+    name: form.name,
+    company: form.company || "Not specified",
+    email: form.email || "not-provided@skyupdigitalsolutions.com",
+    phone: form.phone.replace(/\D/g, ""),
+    service: "Real Estate Digital Marketing",
+    budget: form.budget || "Not specified",
+    message:
+      [form.location && `Project Location: ${form.location}`]
+        .filter(Boolean)
+        .join("\n") || "Homepage consultation request",
   };
+
+  try {
+    const res = await fetch(`${API_BASE}/api/contacts`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    });
+    if (!res.ok) {
+      const data = await res.json().catch(() => ({}));
+      throw new Error(data.message || `Request failed (${res.status})`);
+    }
+    setSubmitted(true);
+  } catch (err) {
+    setError(
+      err.message === "Failed to fetch"
+        ? "Couldn't reach the server. Please check your connection and try again."
+        : err.message,
+    );
+  } finally {
+    setLoading(false);
+  }
+};
 
   const inputStyle = {
     width: "100%",

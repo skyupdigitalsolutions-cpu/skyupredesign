@@ -189,12 +189,12 @@ export default function ServicesGrid({
               <p className="mt-2 flex-1 text-[14px] leading-relaxed text-slate-600">
                 {body}
               </p>
-              <span
+              {/* <span
                 className="mt-4 inline-flex items-center gap-1.5 text-[13px] font-bold transition-transform group-hover:gap-2.5"
                 style={{ color: BRAND }}
               >
                 Learn more <ArrowRight />
-              </span>
+              </span> */}
             </a>
           ))}
         </div>

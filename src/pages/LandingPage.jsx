@@ -1849,7 +1849,7 @@ function FooterLogo() {
   return (
     <a href="/" className="flex items-center gap-2 !no-underline">
       <img
-        src="/images/SKYUP_Logo_white.webp"
+        src="/images/skyup_logo.webp"
         alt="SkyUp Digital Solutions"
         className="w-[170px] h-auto"
       />

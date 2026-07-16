@@ -136,7 +136,7 @@ export default function HeroSection() {
               className="flex flex-wrap gap-3 mt-4 lg:mt-10 justify-center"
             >
               <motion.a
-                href="/"
+                href="/contact-us"
                 whileHover={shouldReduceMotion ? {} : { scale: 1.03, y: -2 }}
                 whileTap={shouldReduceMotion ? {} : { scale: 0.97 }}
                 transition={{ type: "spring", stiffness: 320, damping: 22 }}

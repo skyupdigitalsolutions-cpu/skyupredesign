@@ -150,7 +150,7 @@ export default function HeroSection() {
                 />
               </motion.a>
 
-              <motion.a
+              {/* <motion.a
                 href="#"
                 whileHover={shouldReduceMotion ? {} : { scale: 1.03, y: -2 }}
                 whileTap={shouldReduceMotion ? {} : { scale: 0.97 }}
@@ -161,11 +161,11 @@ export default function HeroSection() {
                   <ArrowUpRight size={12} strokeWidth={2.4} />
                 </span>
                 See Our Work
-              </motion.a>
+              </motion.a> */}
             </motion.div>
 
             {/* Trust badges */}
-            <motion.div
+            {/* <motion.div
               variants={heroItem}
               className="flex flex-wrap gap-x-5 gap-y-2 mt-10 font-mono text-sm font-semibold tracking-wide justify-center"
             >
@@ -182,7 +182,7 @@ export default function HeroSection() {
                   </span>
                 ),
               )}
-            </motion.div>
+            </motion.div> */}
           </motion.div>
         </div>
 

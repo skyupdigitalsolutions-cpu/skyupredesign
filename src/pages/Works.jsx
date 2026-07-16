@@ -45,8 +45,8 @@ export default function Work() {
           description:
             "Serving companies of every scale across Bangalore. Connect with us to start the conversation.",
           primaryLabel: "Get Started",
-          secondaryLabel: "Whatsapp Us",
-          secondaryHref: "tel:+918867867775",
+         secondaryLabel: "Whatsapp Us",
+         secondaryHref: "https://wa.me/918867867775",
         }}
       />
     </div>

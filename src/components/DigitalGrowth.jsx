@@ -24,7 +24,7 @@ const services = [
     description:
       "SEO delivers highest ROI when done right. Our team handles technical health, keyword strategy & content optimisation, building organic visibility that compounds. Based in Bangalore, we focus on rankings generating revenue—not just traffic.",
     cta: "Grow Organically",
-    href: "#seo",
+    href: "search-engine-optimization",
     icon: Search,
     color: COBALT,
   },
@@ -34,7 +34,7 @@ const services = [
     description:
       "We deliver data-driven performance marketing solutions designed to maximise your return on ad spend, accelerate customer acquisition, and generate revenue that scales — with full transparency at every step.",
     cta: "Launch Smarter Campaigns",
-    href: "#ppc",
+    href: "performance-marketing",
     icon: TrendingUp,
     color: TEAL,
   },
@@ -44,7 +44,7 @@ const services = [
     description:
       "Customers are on social media—your brand builds trust or gets ignored. We create bespoke strategies for Instagram, LinkedIn, Facebook, YouTube that build awareness, cultivate engagement, turn followers into repeat paying customers.",
     cta: "Build Your Brand Presence",
-    href: "#social",
+    href: "social-media-marketing",
     icon: Share2,
     color: COBALT,
   },
@@ -54,7 +54,7 @@ const services = [
     description:
       "Email marketing offers highest ROI of any channel. We create personalized flows & automated sequences keeping audience engaged, nurturing prospects through buyer journey, bringing customers back repeatedly. Set once. Works nonstop.",
     cta: "Automate Customer Engagement",
-    href: "#email",
+    href: "email-marketing",
     icon: Mail,
     color: TEAL,
   },
@@ -64,7 +64,7 @@ const services = [
     description:
       "Imagine your business updating CRM in real time while sending personalized messages. This is AI automation. We use smart workflows saving time, minimizing human error, making sales & marketing process much more efficient.",
     cta: "Automate Your Business",
-    href: "#ai",
+    href: "ai-automation",
     icon: Zap,
     color: COBALT,
   },
@@ -74,7 +74,7 @@ const services = [
     description:
       "Your business creates data daily—most goes unused. Our ML solutions analyse behavior, predict converting leads, optimise campaigns, and surface insights. Intelligence that separates market leaders from followers.",
     cta: "Explore AI Intelligence",
-    href: "#ml",
+    href: "machine-learning",
     icon: Cpu,
     color: TEAL,
   },
@@ -84,7 +84,7 @@ const services = [
     description:
       "Your website is your most important marketing asset. We create fast, mobile-first, SEO-friendly websites that convert, designing the best user experience. Need a new site or rebuild? Our team builds digital foundations marketing can build on.",
     cta: "Build a Better Website",
-    href: "#web",
+    href: "web-development",
     icon: Code2,
     color: COBALT,
   },
@@ -94,7 +94,7 @@ const services = [
     description:
       "Good design isn't looking professional—it's helping users find what they want. Our UI/UX work removes friction, builds trust, increases engagement time. Better experience means better conversions, lower bounces, more happy customers.",
     cta: "Improve User Experience",
-    href: "#uiux",
+    href: "ui-ux-design",
     icon: PenTool,
     color: TEAL,
   },
@@ -104,7 +104,7 @@ const services = [
     description:
       "In a crowded digital landscape, visual identity is a powerful tool. We develop brand assets, social visuals, and digital creatives that communicate value clearly and stay consistent—helping your business stand out wherever your audience sees you.",
     cta: "Strengthen Your Brand",
-    href: "#graphic",
+    href: "graphic-design",
     icon: Palette,
     color: COBALT,
   },

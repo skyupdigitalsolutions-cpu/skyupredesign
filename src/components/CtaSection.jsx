@@ -26,7 +26,7 @@ export default function CtaSection({
   substitle = "",
   description = "Most companies know they need to level up their digital marketing — they just need a team they can trust to get results. At SkyUp Digital Solutions, we combine strategy, technology, automation, and communication to grow your business.",
   primaryLabel = "Let's build your growth plan",
-  primaryHref = "/contact",
+  primaryHref = "/contact-us",
   secondaryLabel = null,
   secondaryHref = "",
   className = "",

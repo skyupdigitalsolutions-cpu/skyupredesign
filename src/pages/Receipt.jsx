@@ -391,11 +391,11 @@ function EditReceiptModal({ receipt, token, onClose, onSaved }) {
                               <div className="grid grid-cols-3 gap-3">
                                 <div>
                                   <label className="block text-xs font-semibold text-gray-600 mb-1">Qty *</label>
-                                  <Field type="number" name={`items.${index}.qty`} min="1" className={ic} placeholder="Qty" />
+                                  <Field type="text" inputMode="decimal" name={`items.${index}.qty`} min="1" className={ic} placeholder="Qty" />
                                 </div>
                                 <div>
                                   <label className="block text-xs font-semibold text-gray-600 mb-1">Rate (₹) *</label>
-                                  <Field type="number" name={`items.${index}.rate`} min="0" step="0.01" className={ic} placeholder="Rate" />
+                                  <Field type="text" inputMode="decimal" name={`items.${index}.rate`} min="0" step="0.01" className={ic} placeholder="Rate" />
                                 </div>
                                 <div>
                                   <label className="block text-xs font-semibold text-gray-600 mb-1">Amount</label>
@@ -429,7 +429,7 @@ function EditReceiptModal({ receipt, token, onClose, onSaved }) {
                         {[["cgst_percentage","CGST %"],["sgst_percentage","SGST %"],["igst_percentage","IGST %"]].map(([n, l]) => (
                           <div key={n}>
                             <label className="block text-xs font-semibold text-gray-600 mb-1">{l}</label>
-                            <Field type="number" name={n} min="0" max="100" step="0.01" className={ic} />
+                            <Field type="text" inputMode="decimal" name={n} min="0" max="100" step="0.01" className={ic} />
                           </div>
                         ))}
                       </div>
@@ -438,7 +438,7 @@ function EditReceiptModal({ receipt, token, onClose, onSaved }) {
                         {[["cgst_manual","CGST (₹)"],["sgst_manual","SGST (₹)"],["igst_manual","IGST (₹)"]].map(([n, l]) => (
                           <div key={n}>
                             <label className="block text-xs font-semibold text-gray-600 mb-1">{l}</label>
-                            <Field type="number" name={n} min="0" step="0.01" className={ic} placeholder="0" />
+                            <Field type="text" inputMode="decimal" name={n} min="0" step="0.01" className={ic} placeholder="0" />
                           </div>
                         ))}
                       </div>
@@ -1179,11 +1179,11 @@ export function Receipt() {
                                   <div className="grid grid-cols-3 gap-4">
                                     <div>
                                       <label className="block text-sm font-semibold text-gray-700 mb-2">Quantity *</label>
-                                      <Field type="number" name={`items.${index}.qty`} min="1" className={ic} placeholder="Qty" />
+                                      <Field type="text" inputMode="decimal" name={`items.${index}.qty`} min="1" className={ic} placeholder="Qty" />
                                     </div>
                                     <div>
                                       <label className="block text-sm font-semibold text-gray-700 mb-2">Rate (₹) *</label>
-                                      <Field type="number" name={`items.${index}.rate`} min="0" step="0.01" className={ic} placeholder="Rate" />
+                                      <Field type="text" inputMode="decimal" name={`items.${index}.rate`} min="0" step="0.01" className={ic} placeholder="Rate" />
                                     </div>
                                     <div>
                                       <label className="block text-sm font-semibold text-gray-700 mb-2">Amount</label>
@@ -1285,14 +1285,14 @@ export function Receipt() {
                           <label className="block text-sm font-semibold text-gray-700 mb-2">
                             {values.advance_amount_type === "exclusive" ? "Amount (₹, before GST)" : "Amount Received (₹, incl. GST)"}
                           </label>
-                          <Field type="number" name="advance_received" min="0" step="0.01" className={ic} placeholder="e.g. 5000" />
+                          <Field type="text" inputMode="decimal" name="advance_received" min="0" step="0.01" className={ic} placeholder="e.g. 5000" />
                         </div>
                       </div>
 
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
                           <label className="block text-sm font-semibold text-gray-700 mb-2">GST Rate (%)</label>
-                          <Field type="number" name="advance_rate" min="0" max="100" step="0.01" className={ic} placeholder="18" />
+                          <Field type="text" inputMode="decimal" name="advance_rate" min="0" max="100" step="0.01" className={ic} placeholder="18" />
                         </div>
                         <div>
                           <label className="block text-sm font-semibold text-gray-700 mb-2">GST Type</label>

@@ -1289,21 +1289,19 @@ export function Receipt() {
                         </div>
                       </div>
 
-                      {values.advance_amount_type === "inclusive" && (
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                          <div>
-                            <label className="block text-sm font-semibold text-gray-700 mb-2">GST Rate (%)</label>
-                            <Field type="number" name="advance_rate" min="0" max="100" step="0.01" className={ic} placeholder="18" />
-                          </div>
-                          <div>
-                            <label className="block text-sm font-semibold text-gray-700 mb-2">GST Type</label>
-                            <Field as="select" name="advance_mode" className={ic}>
-                              <option value="intra">Intra-state (CGST + SGST)</option>
-                              <option value="inter">Inter-state (IGST)</option>
-                            </Field>
-                          </div>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                          <label className="block text-sm font-semibold text-gray-700 mb-2">GST Rate (%)</label>
+                          <Field type="number" name="advance_rate" min="0" max="100" step="0.01" className={ic} placeholder="18" />
                         </div>
-                      )}
+                        <div>
+                          <label className="block text-sm font-semibold text-gray-700 mb-2">GST Type</label>
+                          <Field as="select" name="advance_mode" className={ic}>
+                            <option value="intra">Intra-state (CGST + SGST)</option>
+                            <option value="inter">Inter-state (IGST)</option>
+                          </Field>
+                        </div>
+                      </div>
 
                       {values.advance_amount_type === "inclusive" ? (
                         (() => {
@@ -1323,17 +1321,32 @@ export function Receipt() {
                           );
                         })()
                       ) : (
-                        (parseFloat(values.advance_received) || 0) > 0 && (
-                          <div className="mt-5 bg-white border border-amber-200 rounded-lg p-4">
-                            <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-3">Breakdown preview</p>
-                            <div className="space-y-2 text-sm">
-                              <div className="flex justify-between"><span className="text-gray-600">Taxable base</span><span className="font-semibold">₹{inr2(parseFloat(values.advance_received) || 0)}</span></div>
-                              <div className="flex justify-between"><span className="text-gray-600">GST</span><span className="font-semibold text-gray-500">Set type &amp; rate in GST Details below</span></div>
+                        (parseFloat(values.advance_received) || 0) > 0 && (() => {
+                          const exBase = parseFloat(values.advance_received) || 0;
+                          const exRate = parseFloat(values.advance_rate) || 0;
+                          const exGst = exBase * exRate / 100;
+                          const exTotal = exBase + exGst;
+                          return (
+                            <div className="mt-5 bg-white border border-amber-200 rounded-lg p-4">
+                              <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-3">Breakdown preview</p>
+                              <div className="space-y-2 text-sm">
+                                <div className="flex justify-between"><span className="text-gray-600">Taxable base</span><span className="font-semibold">₹{inr2(exBase)}</span></div>
+                                {exGst > 0 && (values.advance_mode === "inter" ? (
+                                  <div className="flex justify-between"><span className="text-gray-600">IGST @ {exRate}%</span><span className="font-semibold">₹{inr2(exGst)}</span></div>
+                                ) : (
+                                  <>
+                                    <div className="flex justify-between"><span className="text-gray-600">CGST @ {exRate / 2}%</span><span className="font-semibold">₹{inr2(exGst / 2)}</span></div>
+                                    <div className="flex justify-between"><span className="text-gray-600">SGST @ {exRate / 2}%</span><span className="font-semibold">₹{inr2(exGst / 2)}</span></div>
+                                  </>
+                                ))}
+                                <div className="border-t pt-2 flex justify-between"><span className="font-bold text-gray-800">Total</span><span className="font-bold text-amber-700">₹{inr2(exTotal)}</span></div>
+                              </div>
                             </div>
-                          </div>
-                        )
+                          );
+                        })()
                       )}
 
+                      <div className="mt-4 flex flex-col sm:flex-row gap-3">
                       <button
                         type="button"
                         onClick={() => {
@@ -1392,31 +1405,41 @@ export function Receipt() {
                             setFieldValue("items", [...existingItems, { description: "Advance Received", qty: 1, rate: base }]);
                           }
 
-                          if (values.advance_amount_type === "exclusive") {
-                            setFieldValue("gst_type", values.advance_mode || "intra");
-                          } else if (values.advance_mode === "inter") {
+                          const applyRate = values.advance_amount_type === "exclusive"
+                            ? (parseFloat(values.advance_rate) || 0)
+                            : rate;
+                          if (values.advance_mode === "inter") {
                             setFieldValue("gst_type", "inter");
-                            setFieldValue("igst_percentage", rate);
+                            setFieldValue("igst_percentage", applyRate);
                           } else {
                             setFieldValue("gst_type", "intra");
-                            setFieldValue("cgst_percentage", rate / 2);
-                            setFieldValue("sgst_percentage", rate / 2);
+                            setFieldValue("cgst_percentage", applyRate / 2);
+                            setFieldValue("sgst_percentage", applyRate / 2);
                           }
                         }}
-                        className="mt-4 w-full bg-amber-600 hover:bg-amber-700 text-white font-semibold py-3 px-6 rounded-lg transition shadow-sm hover:shadow-md flex items-center justify-center gap-2"
+                        className="flex-1 bg-amber-600 hover:bg-amber-700 text-white font-semibold py-3 px-6 rounded-lg transition shadow-sm hover:shadow-md flex items-center justify-center gap-2"
                       >
-                        {values.advance_amount_type === "exclusive" ? "Apply Base Amount (add GST manually)" : "Calculate & Apply GST from Advance"}
+                        {"Calculate & Apply GST from Advance"}
                       </button>
+                      <button
+                        type="submit"
+                        disabled={isSubmitting}
+                        className="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition disabled:opacity-50 shadow-sm hover:shadow-md flex items-center justify-center gap-2"
+                      >
+                        {isSubmitting ? <><IconSpinner /> Creating Receipt…</> : <><IconDownload /> Create &amp; Download Receipt</>}
+                      </button>
+                      </div>
                       <p className="text-xs text-gray-500 mt-2">
                         {(values.advance_target_items || []).length > 0
                           ? "Adds the calculated base amount into the selected item(s)' rate — split proportionally if more than one is selected — and applies the matching GST type & rate. Other items are kept as-is."
                           : values.advance_amount_type === "exclusive"
-                          ? "Adds a separate \"Advance Received\" line item (the base amount) and selects the GST type — pick CGST+SGST or IGST and set the rate in GST Details below. Your existing items are kept as-is."
+                          ? "Adds a separate \"Advance Received\" line item (the base amount) and applies the GST type & rate you set above. Your existing items are kept as-is."
                           : "Adds a separate \"Advance Received\" line item (base amount) and the matching GST type & rate so the receipt total equals the amount received. Your existing items are kept as-is."}
                         {" "}You can still edit the description and line items afterwards.
                       </p>
                     </div>
 
+                    {values.advance_amount_type !== "exclusive" && (
                     <div className="bg-amber-50 border border-amber-200 rounded-lg p-6">
                       <h3 className="text-lg font-semibold text-gray-800 mb-4">GST Details</h3>
                       <div className="mb-4 md:max-w-xs">
@@ -1446,6 +1469,7 @@ export function Receipt() {
                         </div>
                       )}
                     </div>
+                    )}
 
                     {subtotal > 0 && (
                       <div className="bg-gray-50 rounded-lg p-6 border border-gray-200">
@@ -1463,17 +1487,6 @@ export function Receipt() {
                         </div>
                       </div>
                     )}
-
-                    <div className="pt-6">
-                      <button type="submit" disabled={isSubmitting}
-                        className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-4 px-8 rounded-lg transition disabled:opacity-50 shadow-md hover:shadow-lg flex items-center gap-2">
-                        {isSubmitting ? <><IconSpinner /> Creating Receipt…</> : (
-                          <><svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                          </svg> Create & Download Receipt</>
-                        )}
-                      </button>
-                    </div>
                   </Form>
                 );
               }}

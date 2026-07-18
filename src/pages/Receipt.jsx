@@ -1439,38 +1439,6 @@ export function Receipt() {
                       </p>
                     </div>
 
-                    {values.advance_amount_type !== "exclusive" && (
-                    <div className="bg-amber-50 border border-amber-200 rounded-lg p-6">
-                      <h3 className="text-lg font-semibold text-gray-800 mb-4">GST Details</h3>
-                      <div className="mb-4 md:max-w-xs">
-                        <label className="block text-sm font-semibold text-gray-700 mb-2">GST Type</label>
-                        <Field as="select" name="gst_type" className={ic}>
-                          <option value="intra">CGST + SGST</option>
-                          <option value="inter">IGST</option>
-                        </Field>
-                      </div>
-                      {values.gst_type === "inter" ? (
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                          <div>
-                            <label className="block text-sm font-semibold text-gray-700 mb-2">IGST %</label>
-                            <Field type="number" name="igst_percentage" min="0" max="100" step="0.01" className={ic} />
-                          </div>
-                        </div>
-                      ) : (
-                        <div className="grid grid-cols-2 gap-6">
-                          <div>
-                            <label className="block text-sm font-semibold text-gray-700 mb-2">CGST %</label>
-                            <Field type="number" name="cgst_percentage" min="0" max="100" step="0.01" className={ic} />
-                          </div>
-                          <div>
-                            <label className="block text-sm font-semibold text-gray-700 mb-2">SGST %</label>
-                            <Field type="number" name="sgst_percentage" min="0" max="100" step="0.01" className={ic} />
-                          </div>
-                        </div>
-                      )}
-                    </div>
-                    )}
-
                     {subtotal > 0 && (
                       <div className="bg-gray-50 rounded-lg p-6 border border-gray-200">
                         <h3 className="text-lg font-semibold text-gray-800 mb-4">Calculation Summary</h3>

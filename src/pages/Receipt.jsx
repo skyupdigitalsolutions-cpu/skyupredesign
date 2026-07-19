@@ -1221,10 +1221,21 @@ export function Receipt() {
                           .filter((o) => o.label.length > 0);
                         const selected = values.advance_target_items || [];
                         const toggle = (idxStr) => {
-                          setFieldValue(
-                            "advance_target_items",
-                            selected.includes(idxStr) ? selected.filter((v) => v !== idxStr) : [...selected, idxStr]
-                          );
+                          const nextSelected = selected.includes(idxStr)
+                            ? selected.filter((v) => v !== idxStr)
+                            : [...selected, idxStr];
+                          setFieldValue("advance_target_items", nextSelected);
+
+                          // Auto-fill "Amount Received" with the combined amount (qty × rate)
+                          // of the selected item(s). Selecting an item pulls its own amount
+                          // into the advance field so it doesn't have to be retyped.
+                          const r2 = (x) => Math.round((x + Number.EPSILON) * 100) / 100;
+                          const sum = nextSelected.reduce((total, s) => {
+                            const it = (values.items || [])[parseInt(s, 10)];
+                            if (!it) return total;
+                            return total + (parseFloat(it.qty) || 0) * (parseFloat(it.rate) || 0);
+                          }, 0);
+                          setFieldValue("advance_received", nextSelected.length > 0 ? r2(sum) : "");
                         };
                         return (
                           <div className="mb-6">
@@ -1256,8 +1267,8 @@ export function Receipt() {
                               {selected.length === 0
                                 ? "None selected — this will add a new \"Advance Received\" line item."
                                 : selected.length === 1
-                                ? "The advance amount will be added into this item's rate."
-                                : "The advance amount will be split across the selected items in proportion to their current amounts (evenly if they're all zero)."}
+                                ? "This item's amount is used as the amount received and split into base + GST, so GST is applied only once."
+                                : "The amount received is split into base + GST across the selected items in proportion to their amounts, so GST is applied only once."}
                             </p>
                           </div>
                         );
@@ -1391,8 +1402,12 @@ export function Receipt() {
                               const pos = targetIdxs.indexOf(i);
                               if (pos === -1) return it;
                               const qty = parseFloat(it.qty) || 1;
-                              const existingAmount = (parseFloat(it.rate) || 0) * qty;
-                              const newRate = round2((existingAmount + shares[pos]) / qty);
+                              // REPLACE the item's amount with its share of the taxable base
+                              // (do NOT add on top of the existing amount). The item's amount
+                              // already represents the money received; here we only split it
+                              // into base + GST so the GST rate is applied exactly once.
+                              // Adding on top is what caused GST to be counted twice.
+                              const newRate = round2(shares[pos] / qty);
                               return { ...it, rate: newRate };
                             });
                             setFieldValue("items", updatedItems);
@@ -1431,7 +1446,7 @@ export function Receipt() {
                       </div>
                       <p className="text-xs text-gray-500 mt-2">
                         {(values.advance_target_items || []).length > 0
-                          ? "Adds the calculated base amount into the selected item(s)' rate — split proportionally if more than one is selected — and applies the matching GST type & rate. Other items are kept as-is."
+                          ? "Splits the amount received into base + GST across the selected item(s) — proportionally if more than one is selected — and applies the matching GST type & rate, so GST is charged exactly once. Other items are kept as-is."
                           : values.advance_amount_type === "exclusive"
                           ? "Adds a separate \"Advance Received\" line item (the base amount) and applies the GST type & rate you set above. Your existing items are kept as-is."
                           : "Adds a separate \"Advance Received\" line item (base amount) and the matching GST type & rate so the receipt total equals the amount received. Your existing items are kept as-is."}

@@ -935,8 +935,13 @@ export function Receipt() {
     } else {
       const cP2 = parseFloat(cP) || 0, sP2 = parseFloat(sP) || 0, totalPct = cP2 + sP2;
       const gstTotal = r2(subtotal * (totalPct / 100));
-      cgst = totalPct > 0 ? r2((gstTotal * cP2) / totalPct) : 0;
-      sgst = r2(gstTotal - cgst); // cgst + sgst === gstTotal exactly (no rounding drift)
+      // Split GST across CGST/SGST by their percentages, keeping half-paise so
+      // equal rates (the normal case) produce two identical halves (e.g. both
+      // ₹114.405) that still sum to the total GST exactly — no ₹x.41 / ₹x.40 gap.
+      const r3 = (x) => Math.round((x + Number.EPSILON) * 1000) / 1000;
+      const cgstRaw = totalPct > 0 ? (gstTotal * cP2) / totalPct : 0;
+      cgst = r3(cgstRaw);
+      sgst = r3(gstTotal - cgstRaw);
     }
     return { subtotal, cgst, sgst, igst, total: r2(subtotal + cgst + sgst + igst) };
   };
@@ -952,13 +957,20 @@ export function Receipt() {
     const base = round2((amount * 100) / (100 + r));
     const gstTotal = round2(amount - base); // base + gstTotal === amount, to the paise
     if (mode === "inter") return { amount, base, gstTotal, cgst: 0, sgst: 0, igst: gstTotal };
-    const cgst = round2(gstTotal / 2);
-    const sgst = round2(gstTotal - cgst); // cgst + sgst === gstTotal, to the paise
+    // Split evenly into two identical halves (keep half-paise so both sides match
+    // exactly and still sum to the total GST). e.g. ₹228.81 -> ₹114.405 + ₹114.405.
+    const r3 = (x) => Math.round((x + Number.EPSILON) * 1000) / 1000;
+    const cgst = r3(gstTotal / 2);
+    const sgst = r3(gstTotal - cgst);
     return { amount, base, gstTotal, cgst, sgst, igst: 0 };
   };
 
   // Format a number as Indian currency keeping paise (always 2 decimals).
   const inr2 = (n) => Number(n || 0).toLocaleString("en-IN", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+
+  // CGST/SGST can carry a half-paise (e.g. ₹114.405) when the GST splits evenly,
+  // so show up to 3 decimals for those. Whole-paise values (₹114.00) stay clean.
+  const inr3 = (n) => Number(n || 0).toLocaleString("en-IN", { minimumFractionDigits: 2, maximumFractionDigits: 3 });
 
   const handleSubmit = async (values, { setSubmitting, resetForm }) => {
     const { subtotal, cgst, sgst, igst, total } = calculateTotals(
@@ -1323,8 +1335,8 @@ export function Receipt() {
                               <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-3">Breakdown preview</p>
                               <div className="space-y-2 text-sm">
                                 <div className="flex justify-between"><span className="text-gray-600">Taxable base</span><span className="font-semibold">₹{inr2(adv.base)}</span></div>
-                                {adv.cgst > 0 && <div className="flex justify-between"><span className="text-gray-600">CGST @ {(parseFloat(values.advance_rate) || 0) / 2}%</span><span className="font-semibold">₹{inr2(adv.cgst)}</span></div>}
-                                {adv.sgst > 0 && <div className="flex justify-between"><span className="text-gray-600">SGST @ {(parseFloat(values.advance_rate) || 0) / 2}%</span><span className="font-semibold">₹{inr2(adv.sgst)}</span></div>}
+                                {adv.cgst > 0 && <div className="flex justify-between"><span className="text-gray-600">CGST @ {(parseFloat(values.advance_rate) || 0) / 2}%</span><span className="font-semibold">₹{inr3(adv.cgst)}</span></div>}
+                                {adv.sgst > 0 && <div className="flex justify-between"><span className="text-gray-600">SGST @ {(parseFloat(values.advance_rate) || 0) / 2}%</span><span className="font-semibold">₹{inr3(adv.sgst)}</span></div>}
                                 {adv.igst > 0 && <div className="flex justify-between"><span className="text-gray-600">IGST @ {parseFloat(values.advance_rate) || 0}%</span><span className="font-semibold">₹{inr2(adv.igst)}</span></div>}
                                 <div className="border-t pt-2 flex justify-between"><span className="font-bold text-gray-800">Total received</span><span className="font-bold text-amber-700">₹{inr2(adv.amount)}</span></div>
                               </div>
@@ -1346,8 +1358,8 @@ export function Receipt() {
                                   <div className="flex justify-between"><span className="text-gray-600">IGST @ {exRate}%</span><span className="font-semibold">₹{inr2(exGst)}</span></div>
                                 ) : (
                                   <>
-                                    <div className="flex justify-between"><span className="text-gray-600">CGST @ {exRate / 2}%</span><span className="font-semibold">₹{inr2(exGst / 2)}</span></div>
-                                    <div className="flex justify-between"><span className="text-gray-600">SGST @ {exRate / 2}%</span><span className="font-semibold">₹{inr2(exGst / 2)}</span></div>
+                                    <div className="flex justify-between"><span className="text-gray-600">CGST @ {exRate / 2}%</span><span className="font-semibold">₹{inr3(exGst / 2)}</span></div>
+                                    <div className="flex justify-between"><span className="text-gray-600">SGST @ {exRate / 2}%</span><span className="font-semibold">₹{inr3(exGst / 2)}</span></div>
                                   </>
                                 ))}
                                 <div className="border-t pt-2 flex justify-between"><span className="font-bold text-gray-800">Total</span><span className="font-bold text-amber-700">₹{inr2(exTotal)}</span></div>
@@ -1459,8 +1471,8 @@ export function Receipt() {
                         <h3 className="text-lg font-semibold text-gray-800 mb-4">Calculation Summary</h3>
                         <div className="space-y-3">
                           <div className="flex justify-between"><span className="text-gray-600">Subtotal</span><span className="font-semibold">₹{inr2(subtotal)}</span></div>
-                          {cgst > 0 && <div className="flex justify-between"><span className="text-gray-600">{`CGST @ ${values.cgst_percentage}%`}</span><span className="font-semibold">₹{inr2(cgst)}</span></div>}
-                          {sgst > 0 && <div className="flex justify-between"><span className="text-gray-600">{`SGST @ ${values.sgst_percentage}%`}</span><span className="font-semibold">₹{inr2(sgst)}</span></div>}
+                          {cgst > 0 && <div className="flex justify-between"><span className="text-gray-600">{`CGST @ ${values.cgst_percentage}%`}</span><span className="font-semibold">₹{inr3(cgst)}</span></div>}
+                          {sgst > 0 && <div className="flex justify-between"><span className="text-gray-600">{`SGST @ ${values.sgst_percentage}%`}</span><span className="font-semibold">₹{inr3(sgst)}</span></div>}
                           {igst > 0 && <div className="flex justify-between"><span className="text-gray-600">{`IGST @ ${values.igst_percentage}%`}</span><span className="font-semibold">₹{inr2(igst)}</span></div>}
                           <div className="border-t pt-3 flex justify-between">
                             <span className="text-lg font-bold text-gray-800">Total Amount</span>

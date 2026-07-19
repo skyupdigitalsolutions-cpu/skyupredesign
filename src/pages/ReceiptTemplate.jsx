@@ -5,6 +5,12 @@ export default function ReceiptTemplate({ data }) {
   const money = (n) =>
     Number(n || 0).toLocaleString("en-IN", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 
+  // CGST/SGST can be a half-paise (e.g. ₹114.405) when the GST splits evenly.
+  // Show up to 3 decimals for those so the two halves match and the line items
+  // still add up to the total exactly.
+  const money3 = (n) =>
+    Number(n || 0).toLocaleString("en-IN", { minimumFractionDigits: 2, maximumFractionDigits: 3 });
+
   const formatDate = (dateString) => {
     if (!dateString) return "";
     const date = new Date(dateString);
@@ -159,7 +165,7 @@ export default function ReceiptTemplate({ data }) {
       <tr>
         <td colSpan="4" style={{ border: "1px solid #2b2b2b", padding: "8px 6px" }}></td>
         <td style={{ border: "1px solid #2b2b2b", padding: "8px 6px", fontSize: "14px", fontWeight: "500", color: "#374151" }}>{data.cgstLabel || "CGST @ 9%"}</td>
-        <td style={{ border: "1px solid #2b2b2b", padding: "8px 6px", fontSize: "14px", color: "#374151" }}>{money(data.cgst)}</td>
+        <td style={{ border: "1px solid #2b2b2b", padding: "8px 6px", fontSize: "14px", color: "#374151" }}>{money3(data.cgst)}</td>
       </tr>
     )}
 
@@ -167,7 +173,7 @@ export default function ReceiptTemplate({ data }) {
       <tr>
         <td colSpan="4" style={{ border: "1px solid #2b2b2b", padding: "8px 6px" }}></td>
         <td style={{ border: "1px solid #2b2b2b", padding: "8px 6px", fontSize: "14px", fontWeight: "500", color: "#374151" }}>{data.sgstLabel || "SGST @ 9%"}</td>
-        <td style={{ border: "1px solid #2b2b2b", padding: "8px 6px", fontSize: "14px", color: "#374151" }}>{money(data.sgst)}</td>
+        <td style={{ border: "1px solid #2b2b2b", padding: "8px 6px", fontSize: "14px", color: "#374151" }}>{money3(data.sgst)}</td>
       </tr>
     )}
 

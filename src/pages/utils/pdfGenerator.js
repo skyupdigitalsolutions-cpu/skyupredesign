@@ -6,6 +6,40 @@
 import html2canvas from 'html2canvas-pro';
 import jsPDF from 'jspdf';
 
+// Wait until every <img> inside the element has actually loaded AND decoded,
+// and until web fonts are ready, before we snapshot it.
+//
+// This is what fixes the intermittent "broken logo / messed-up layout" PDFs:
+// the old code just waited a fixed 300ms and then captured, so on a slower
+// load the logo/signature .webp images (or the fonts) hadn't finished yet and
+// html2canvas snapshotted a half-rendered receipt. Now we wait for the real
+// load events instead of guessing with a timer.
+const waitForAssets = async (element) => {
+  // 1) Fonts — prevents text reflow/structure shifting mid-capture.
+  try {
+    if (document?.fonts?.ready) await document.fonts.ready;
+  } catch { /* ignore — fonts API not critical */ }
+
+  // 2) Images — wait for each to be fully loaded, then decoded.
+  const imgs = Array.from(element.querySelectorAll('img'));
+  await Promise.all(
+    imgs.map((img) => {
+      if (img.complete && img.naturalWidth > 0) {
+        return img.decode ? img.decode().catch(() => {}) : Promise.resolve();
+      }
+      return new Promise((resolve) => {
+        const done = () =>
+          (img.decode ? img.decode().catch(() => {}) : Promise.resolve()).then(resolve);
+        img.addEventListener('load', done, { once: true });
+        img.addEventListener('error', () => resolve(), { once: true });
+      });
+    })
+  );
+
+  // 3) Two animation frames so the browser has painted the final layout.
+  await new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(r)));
+};
+
 export const generatePDF = async (element, invoiceNumber) => {
   if (!element) {
     console.error('Element not found for PDF generation');
@@ -13,6 +47,9 @@ export const generatePDF = async (element, invoiceNumber) => {
   }
 
   try {
+    // Make sure the logo, signature and fonts are fully ready BEFORE capture.
+    await waitForAssets(element);
+
     // Create canvas from HTML element with better quality
     const canvas = await html2canvas(element, {
       scale: 3,  // Higher scale for better quality
@@ -20,6 +57,7 @@ export const generatePDF = async (element, invoiceNumber) => {
       logging: false,
       useCORS: true,
       allowTaint: true,
+      imageTimeout: 15000, // let slow images finish instead of capturing blank
       x: 0, // Start from x = 0
       y: 0, // Start from y = 0
       width: element.offsetWidth,  // Ensure it matches the container width

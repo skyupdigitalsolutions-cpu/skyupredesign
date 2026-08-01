@@ -6,6 +6,24 @@ import { generatePDF } from "./utils/pdfGenerator";
 import API_URL from "../config/api";
 import { useAuth } from "../context/AuthContext";
 
+// Sort receipts by their invoice number (newest first) instead of DB insert
+// time, so the list always reads in proper serial order — e.g.
+// SDS/020 → 019 → 018 → 017 … — even if invoices were created or edited out
+// of order. Primary key: financial year (newer first); tiebreaker: serial no.
+// Anything that doesn't match the SDS/<serial>/<FY> pattern falls back to
+// createdAt so it still has a stable position.
+const invoiceParts = (r) => {
+  const parts = (r?.invoice_no || "").split("/");
+  const serial = parseInt(parts[1], 10);
+  return { fy: parts[2] || "", serial: Number.isNaN(serial) ? -1 : serial };
+};
+const byInvoiceNoDesc = (a, b) => {
+  const A = invoiceParts(a), B = invoiceParts(b);
+  if (A.serial === -1 && B.serial === -1) return new Date(b.createdAt) - new Date(a.createdAt);
+  if (A.fy !== B.fy) return B.fy.localeCompare(A.fy); // newer financial year first
+  return B.serial - A.serial;                          // higher serial first
+};
+
 const IconLogout = () => (
   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
@@ -553,7 +571,7 @@ function ReceiptListModal({ isOpen, onClose, token, onDownloadPdf, downloadingId
     try {
       const res = await fetch(`${API_URL}/receipts`, { headers: { Authorization: `Bearer ${token}` } });
       const data = await res.json();
-      if (res.ok) setReceipts([...data].sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)));
+      if (res.ok) setReceipts([...data].sort(byInvoiceNoDesc));
       else setError("Failed to fetch receipts");
     } catch (err) { setError("Error: " + err.message); }
     finally { setLoading(false); }
@@ -565,7 +583,7 @@ function ReceiptListModal({ isOpen, onClose, token, onDownloadPdf, downloadingId
   };
 
   const handleSaved = (updated) => {
-    setReceipts(prev => prev.map(r => r._id.toString() === updated._id.toString() ? { ...r, ...updated } : r));
+    setReceipts(prev => prev.map(r => r._id.toString() === updated._id.toString() ? { ...r, ...updated } : r).sort(byInvoiceNoDesc));
     if (selectedReceipt?._id?.toString() === updated._id?.toString()) setSelectedReceipt({ ...selectedReceipt, ...updated });
     setEditingReceipt(null);
   };

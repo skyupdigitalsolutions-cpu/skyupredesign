@@ -78,8 +78,8 @@ const CSS = `
 .ei .co-ids b{font-weight:bold;}
 .ei .title{font-size:24pt;font-weight:800;line-height:1.08;letter-spacing:.01em;}
 
-.ei table.grid{width:100%;border-collapse:collapse;margin-top:8pt;}
-.ei table.grid td{border:0.75pt solid #2b2b2b;vertical-align:top;padding:4pt 6pt;width:25%;height:34pt;}
+.ei table.grid{width:100%;border-collapse:collapse;margin-top:8pt;table-layout:fixed;}
+.ei table.grid td{border:0.75pt solid #2b2b2b;vertical-align:top;padding:4pt 6pt;width:25%;height:34pt;word-wrap:break-word;}
 .ei .lbl{font-size:8pt;font-weight:bold;display:block;margin-bottom:2pt;}
 .ei .val{font-size:8.5pt;line-height:1.6;}
 
@@ -109,14 +109,16 @@ const CSS = `
 .ei table.tot tr.grand td{background:#2563eb;color:#fff;font-weight:bold;font-size:9.5pt;border-color:#1e40af;}
 
 .ei table.foot{width:100%;border-collapse:collapse;margin-top:8pt;}
-.ei table.foot>tbody>tr>td{border:0.75pt solid #2b2b2b;vertical-align:top;padding:5pt 6pt;width:50%;}
+.ei table.foot>tbody>tr>td{border:0.75pt solid #2b2b2b;vertical-align:top;padding:5pt 6pt;width:100%;}
 .ei .decl{font-size:8pt;line-height:1.5;}
 .ei .decl ol{margin:2pt 0 0;padding-left:14pt;list-style:decimal;list-style-position:outside;}
 .ei .decl li{margin-bottom:2pt;}
 .ei .bank .bank-name{font-weight:bold;margin-bottom:2pt;}
 .ei .bank .note{margin-top:3pt;}
 
-.ei .sig-row{text-align:right;margin-top:10pt;}
+.ei .bottom-row{display:table;width:100%;margin-top:12pt;}
+.ei .bank-col{display:table-cell;width:55%;vertical-align:bottom;}
+.ei .sig-col{display:table-cell;width:45%;text-align:right;vertical-align:bottom;}
 .ei .sig-img{width:230pt;display:inline-block;}
 
 .ei .pv{display:inline-block;min-width:60pt;border-bottom:0.75pt solid #8a9099;line-height:1.5;}
@@ -349,17 +351,6 @@ export function ExportInvoice() {
 
             <table className="foot"><tbody><tr>
               <td>
-                <div className="sec-h">BANK DETAILS</div>
-                <div className="kv bank">
-                  <div className="bank-name">Kotak Mahindra Bank</div>
-                  <div><span className="k">Account Name:</span> SKYUP DIGITAL SOLUTIONS LLP</div>
-                  <div><span className="k">Account No:</span> 1019032325</div>
-                  <div><span className="k">IFSC Code:</span> KKBK0008045</div>
-                  <div><span className="k">Branch:</span> Sahakara Nagar</div>
-                  <div className="note"><span className="k">Note:</span> Payment Beyond 30 Days Will Attract 18% Interest</div>
-                </div>
-              </td>
-              <td>
                 <div className="sec-h">DECLARATION</div>
                 <div className="decl"><ol>
                   <li>This invoice is issued for export of services under Letter of Undertaking (LUT) without payment of Integrated Tax.</li>
@@ -371,8 +362,21 @@ export function ExportInvoice() {
               </td>
             </tr></tbody></table>
 
-            <div className="sig-row">
-              <img className="sig-img" src="/images/signature.webp" alt="Signature" />
+            <div className="bottom-row">
+              <div className="bank-col">
+                <div className="sec-h">BANK DETAILS</div>
+                <div className="kv bank">
+                  <div className="bank-name">Kotak Mahindra Bank</div>
+                  <div><span className="k">Account Name:</span> SKYUP DIGITAL SOLUTIONS LLP</div>
+                  <div><span className="k">Account No:</span> 1019032325</div>
+                  <div><span className="k">IFSC Code:</span> KKBK0008045</div>
+                  <div><span className="k">Branch:</span> Sahakara Nagar</div>
+                  <div className="note"><span className="k">Note:</span> Payment Beyond 30 Days Will Attract 18% Interest</div>
+                </div>
+              </div>
+              <div className="sig-col">
+                <img className="sig-img" src="/images/signature.webp" alt="Signature" />
+              </div>
             </div>
           </div>
         </div>

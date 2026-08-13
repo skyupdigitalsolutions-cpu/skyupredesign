@@ -36,8 +36,6 @@ const INIT = {
   place_filing: "Bangalore", place_supply: "Outside India",
   nature_supply: "Export of Services", igst: "Nil under LUT",
   svc_desc: "", proj_ref: "", sac: "", qty: "1", rate: "", roundoff: "0",
-  bank_name: "", acct_name: "SKYUP DIGITAL SOLUTIONS LLP", acct_no: "",
-  ifsc: "", branch: "", swift: "", payref: "",
 };
 
 const CSS = `
@@ -73,12 +71,12 @@ const CSS = `
   background-image:url('/images/watermark.png');background-size:cover;background-position:center;background-repeat:no-repeat;}
 
 .ei .hd{display:table;width:100%;padding-bottom:6pt;}
-.ei .hd .l{display:table-cell;vertical-align:middle;}
-.ei .hd .r{display:table-cell;vertical-align:middle;text-align:right;}
-.ei .co-ids{font-size:9pt;margin-top:6pt;line-height:1.6;}
+.ei .hd .l{display:table-cell;vertical-align:middle;width:55%;}
+.ei .hd .r{display:table-cell;vertical-align:top;text-align:right;width:45%;}
+.ei .logo{height:46pt;display:block;margin-left:auto;margin-bottom:8pt;}
+.ei .co-ids{font-size:9pt;line-height:1.7;}
 .ei .co-ids b{font-weight:bold;}
-.ei .logo{height:52pt;}
-.ei .title{font-size:26pt;font-weight:800;line-height:1.05;letter-spacing:.01em;}
+.ei .title{font-size:24pt;font-weight:800;line-height:1.08;letter-spacing:.01em;}
 
 .ei table.grid{width:100%;border-collapse:collapse;margin-top:8pt;}
 .ei table.grid td{border:0.75pt solid #2b2b2b;vertical-align:top;padding:4pt 6pt;width:25%;height:34pt;}
@@ -115,14 +113,11 @@ const CSS = `
 .ei .decl{font-size:8pt;line-height:1.5;}
 .ei .decl ol{margin:2pt 0 0;padding-left:14pt;list-style:decimal;list-style-position:outside;}
 .ei .decl li{margin-bottom:2pt;}
+.ei .bank .bank-name{font-weight:bold;margin-bottom:2pt;}
+.ei .bank .note{margin-top:3pt;}
 
-.ei .sig-for{font-size:9.5pt;font-weight:bold;text-align:center;margin:6mm 0 4mm;}
-.ei .sig-wrap{display:table;width:100%;}
-.ei .sig-r{display:table-cell;width:55%;text-align:right;vertical-align:bottom;}
-.ei .sig-l{display:table-cell;width:45%;text-align:center;vertical-align:bottom;}
-.ei .sig-r .a{font-size:9pt;font-weight:bold;} .ei .sig-r .n{font-size:8.5pt;line-height:1.6;}
-.ei .sig-img{width:150pt;margin-bottom:4pt;}
-.ei .ty{font-size:9.5pt;font-weight:bold;letter-spacing:.08em;} .ei .cg{font-size:8pt;}
+.ei .sig-row{text-align:right;margin-top:10pt;}
+.ei .sig-img{width:230pt;display:inline-block;}
 
 .ei .pv{display:inline-block;min-width:60pt;border-bottom:0.75pt solid #8a9099;line-height:1.5;}
 .ei .pt{display:inline;}
@@ -141,7 +136,6 @@ const CSS = `
   .ei-app{display:block !important;}
   .ei-preview{overflow:visible !important;padding:0 !important;}
   .ei .page{width:auto !important;min-height:0 !important;margin:0 !important;padding:0 !important;box-shadow:none !important;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
-  .ei .page.p2{page-break-before:always;}
   .ei table.items th,.ei .banner,.ei table.tot tr.grand td{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
 }
 `;
@@ -257,17 +251,6 @@ export function ExportInvoice() {
             <div className="r"><span>Round Off</span><span>{fmt(roundoff)}</span></div>
             <div className="r big"><span>Total ({currencyCode || "—"})</span><span>{fmt(grand)}</span></div>
           </div>
-
-          <h2>Foreign remittance / bank</h2>
-          <div className="ei-fg"><label>Bank Name</label><input value={f.bank_name} onChange={set("bank_name")} /></div>
-          <div className="ei-fg"><label>Account Name</label><input value={f.acct_name} onChange={set("acct_name")} /></div>
-          <div className="ei-fg"><label>Account No.</label><input value={f.acct_no} onChange={set("acct_no")} /></div>
-          <div className="ei-row2">
-            <div className="ei-fg"><label>IFSC</label><input value={f.ifsc} onChange={set("ifsc")} /></div>
-            <div className="ei-fg"><label>Branch</label><input value={f.branch} onChange={set("branch")} /></div>
-          </div>
-          <div className="ei-fg"><label>SWIFT / BIC</label><input value={f.swift} onChange={set("swift")} /></div>
-          <div className="ei-fg"><label>Payment Reference / UTR</label><input value={f.payref} onChange={set("payref")} /></div>
         </div>
 
         {/* ---------------- PREVIEW ---------------- */}
@@ -366,14 +349,14 @@ export function ExportInvoice() {
 
             <table className="foot"><tbody><tr>
               <td>
-                <div className="sec-h">FOREIGN REMITTANCE / BANK DETAILS</div>
-                <div className="kv">
-                  <div><span className="k">Bank Name:</span> <PV>{f.bank_name}</PV></div>
-                  <div><span className="k">Account Name:</span> <PT>{f.acct_name}</PT></div>
-                  <div><span className="k">Account No.:</span> <PV>{f.acct_no}</PV></div>
-                  <div><span className="k">IFSC:</span> <PV w="60pt">{f.ifsc}</PV> <span className="k">Branch:</span> <PV w="60pt">{f.branch}</PV></div>
-                  <div><span className="k">SWIFT / BIC:</span> <PV>{f.swift}</PV></div>
-                  <div><span className="k">Payment Reference / UTR:</span> <PV>{f.payref}</PV></div>
+                <div className="sec-h">BANK DETAILS</div>
+                <div className="kv bank">
+                  <div className="bank-name">Kotak Mahindra Bank</div>
+                  <div><span className="k">Account Name:</span> SKYUP DIGITAL SOLUTIONS LLP</div>
+                  <div><span className="k">Account No:</span> 1019032325</div>
+                  <div><span className="k">IFSC Code:</span> KKBK0008045</div>
+                  <div><span className="k">Branch:</span> Sahakara Nagar</div>
+                  <div className="note"><span className="k">Note:</span> Payment Beyond 30 Days Will Attract 18% Interest</div>
                 </div>
               </td>
               <td>
@@ -387,13 +370,9 @@ export function ExportInvoice() {
                 </ol></div>
               </td>
             </tr></tbody></table>
-          </div>
 
-          <div className="page p2">
-            <div className="sig-for">For SKYUP DIGITAL SOLUTIONS LLP</div>
-            <div className="sig-wrap">
-              <div className="sig-l"><div className="ty">THANK YOU</div><div className="cg">This is a computer-generated invoice.</div></div>
-              <div className="sig-r"><img className="sig-img" src="/images/signature.webp" alt="Signature" /><div className="a">Authorised Signatory</div><div className="n">Name: Pooja<br />Designation: Designated Partner</div></div>
+            <div className="sig-row">
+              <img className="sig-img" src="/images/signature.webp" alt="Signature" />
             </div>
           </div>
         </div>

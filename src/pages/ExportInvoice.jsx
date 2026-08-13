@@ -79,8 +79,7 @@ const CSS = `
 .ei .title{font-size:24pt;font-weight:800;line-height:1.08;letter-spacing:.01em;}
 
 .ei table.grid{width:100%;border-collapse:collapse;margin-top:8pt;table-layout:fixed;}
-.ei table.grid col{width:25%;}
-.ei table.grid td{border:0.75pt solid #2b2b2b;vertical-align:top;padding:4pt 6pt;height:34pt;word-wrap:break-word;overflow-wrap:anywhere;}
+.ei table.grid td{border:0.75pt solid #2b2b2b;vertical-align:top;padding:4pt 6pt;width:25%;height:34pt;word-wrap:break-word;overflow-wrap:anywhere;}
 .ei table.grid .pv{max-width:100%;}
 .ei .lbl{font-size:8pt;font-weight:bold;display:block;margin-bottom:2pt;}
 .ei .val{font-size:8.5pt;line-height:1.6;}
@@ -270,9 +269,7 @@ export function ExportInvoice() {
               </div>
             </div>
 
-            <table className="grid">
-              <colgroup><col /><col /><col /><col /></colgroup>
-              <tbody>
+            <table className="grid"><tbody>
               <tr>
                 <td><span className="lbl">Invoice No.</span><span className="val">{f.prefix}/<PV w="46pt">{f.inv_no}</PV>/2026-27</span></td>
                 <td><span className="lbl">Invoice Date</span><span className="val"><PV w="22pt">{dd}</PV> / <PV w="22pt">{mm}</PV> / <PV w="30pt">{yyyy}</PV></span></td>

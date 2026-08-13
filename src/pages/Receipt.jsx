@@ -7,6 +7,32 @@ import { generatePDF } from "./utils/pdfGenerator";
 import API_URL from "../config/api";
 import { useAuth } from "../context/AuthContext";
 
+// ── Split-view layout (form left, live preview right) ─────────────
+// Mirrors the ExportInvoice generator: a fixed full-screen shell with a
+// scrollable form column on the left and an independently scrollable live
+// preview on the right. Scoped under .rcpt-split so it never collides with
+// the Tailwind utilities used inside the form or the ReceiptTemplate.
+const SPLIT_CSS = `
+.rcpt-split{position:fixed;inset:0;display:flex;min-height:0;background:#eef0f2;}
+.rcpt-split *{box-sizing:border-box;}
+.rcpt-form-pane{width:560px;flex:0 0 560px;overflow-y:auto;background:transparent;border-right:1px solid #d5d9dd;padding:24px 20px 60px;}
+.rcpt-preview-pane{flex:1 1 auto;overflow:auto;padding:24px;min-width:0;background:#e4e7ea;}
+.rcpt-preview-pane .rcpt-scaler{transform-origin:top center;}
+.rcpt-preview-doc{margin:0 auto;background:#fff;box-shadow:0 2px 18px rgba(0,0,0,.15);width:210mm;}
+@media screen and (max-width:1100px){
+  .rcpt-split{position:static;display:block;}
+  .rcpt-form-pane{width:auto;flex:none;border-right:0;border-bottom:1px solid #d5d9dd;}
+  .rcpt-preview-pane{padding:16px;}
+}
+@media print{
+  .rcpt-split{position:static !important;display:block !important;background:#fff !important;}
+  .rcpt-form-pane{display:none !important;}
+  .rcpt-preview-pane{overflow:visible !important;padding:0 !important;background:#fff !important;}
+  .rcpt-preview-pane .rcpt-scaler{transform:none !important;}
+  .rcpt-preview-doc{width:auto !important;margin:0 !important;box-shadow:none !important;}
+}
+`;
+
 // Sort receipts by their invoice number (newest first) instead of DB insert
 // time, so the list always reads in proper serial order — e.g.
 // SDS/020 → 019 → 018 → 017 … — even if invoices were created or edited out
@@ -1073,7 +1099,8 @@ export function Receipt() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 py-8 px-4 font-poppins">
+    <div className="font-poppins">
+      <style>{SPLIT_CSS}</style>
       <ReceiptListModal
         isOpen={showReceiptList}
         onClose={() => setShowReceiptList(false)}
@@ -1082,19 +1109,83 @@ export function Receipt() {
         downloadingId={listDownloadingId}
       />
 
-      <div className="max-w-5xl mx-auto">
-        {!showPreview ? (
-          <div className="bg-white rounded-xl shadow-lg p-8">
-            {/* Header */}
-            <div className="mb-8 border-b pb-6 flex items-start justify-between">
-              <div>
-                <h1 className="text-3xl font-bold text-gray-800 mb-2">Create New Receipt</h1>
-                <p className="text-gray-600">Generate professional invoice for your client</p>
+      {/* Hidden off-screen render target used only to generate the PDF on submit
+          and for silent receipt-list downloads. Kept exactly as before so the
+          download/print/list flows are unchanged; it just no longer takes over
+          the whole screen. */}
+      {showPreview && (
+        <div style={{ position: "fixed", left: "-99999px", top: 0 }}>
+          <div ref={receiptRef}><ReceiptTemplate data={receiptData} /></div>
+        </div>
+      )}
+
+      <div className="rcpt-split">
+        <Formik
+          initialValues={{
+            to: "", client_gst: "",
+            date: new Date().toISOString().split("T")[0],
+            invoice_due: "", hsn_no: "",
+            items: [{ description: "", qty: "", rate: "" }],
+            cgst_percentage: 9, sgst_percentage: 9, igst_percentage: 18,
+            gst_type: "intra",
+            advance_received: "", advance_rate: 18, advance_mode: "intra", advance_amount_type: "inclusive",
+            advance_target_items: [],
+          }}
+          validationSchema={validationSchema}
+          onSubmit={handleSubmit}
+        >
+          {({ values, errors, touched, isSubmitting, setFieldValue }) => {
+            const { subtotal, cgst, sgst, igst, total } = calculateTotals(
+              values.items || [], values.cgst_percentage, values.sgst_percentage,
+              values.igst_percentage, values.gst_type
+            );
+
+            // ── Live preview data ─────────────────────────────────────
+            // Assemble the exact same shape ReceiptTemplate expects, but
+            // from the CURRENT form values (not just on submit). This is
+            // what makes the right-hand preview update as you type. Uses
+            // the same helpers (calculateTotals, numberToWords) and the
+            // same buildTemplateData merge (company + bank + GST labels)
+            // as handleSubmit, so the preview matches the final PDF.
+            const livePreviewData = buildTemplateData({
+              to: values.to || "",
+              client_gst: values.client_gst || "URD",
+              invoice_no: generateInvoiceNumber(nextInvoiceSerial),
+              date: values.date,
+              invoice_due: values.invoice_due || null,
+              hsn_no: values.hsn_no || "",
+              items: (values.items || []).map((i) => {
+                const qty = parseFloat(i.qty) || 0;
+                const rate = parseFloat(i.rate) || 0;
+                return {
+                  description: i.description,
+                  qty,
+                  rate,
+                  amount: Math.round((qty * rate + Number.EPSILON) * 100) / 100,
+                };
+              }),
+              subtotal, cgst, sgst, igst, total,
+              cgst_percentage: values.gst_type === "inter" ? 0 : (values.cgst_percentage || 0),
+              sgst_percentage: values.gst_type === "inter" ? 0 : (values.sgst_percentage || 0),
+              igst_percentage: values.gst_type === "inter" ? (values.igst_percentage || 0) : 0,
+              amount_in_words: numberToWords(total),
+            });
+
+            return (
+            <>
+            {/* ─────────────── LEFT: FORM PANE ─────────────── */}
+            <div className="rcpt-form-pane">
+              <div className="bg-white rounded-xl shadow-lg p-6">
+                {/* Header */}
+                <div className="mb-6 border-b pb-5">
+              <div className="mb-4">
+                <h1 className="text-2xl font-bold text-gray-800 mb-1">Create New Receipt</h1>
+                <p className="text-gray-600 text-sm">Edit on the left — preview updates live on the right</p>
                 {user?.email && (
                   <p className="text-xs text-gray-400 mt-1">Logged in as <span className="font-medium text-gray-500">{user.email}</span></p>
                 )}
               </div>
-              <div className="flex items-center gap-2 flex-shrink-0">
+              <div className="flex items-center gap-2 flex-wrap">
                 <button onClick={() => navigate("/admin/export-invoice")}
                   title="Open the Export Service Invoice generator"
                   className="flex items-center gap-2 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold py-2.5 px-5 rounded-lg transition shadow-sm hover:shadow-md text-sm">
@@ -1127,26 +1218,6 @@ export function Receipt() {
               </div>
             </div>
 
-            <Formik
-              initialValues={{
-                to: "", client_gst: "",
-                date: new Date().toISOString().split("T")[0],
-                invoice_due: "", hsn_no: "",
-                items: [{ description: "", qty: "", rate: "" }],
-                cgst_percentage: 9, sgst_percentage: 9, igst_percentage: 18,
-                gst_type: "intra",
-                advance_received: "", advance_rate: 18, advance_mode: "intra", advance_amount_type: "inclusive",
-                advance_target_items: [],
-              }}
-              validationSchema={validationSchema}
-              onSubmit={handleSubmit}
-            >
-              {({ values, errors, touched, isSubmitting, setFieldValue }) => {
-                const { subtotal, cgst, sgst, igst, total } = calculateTotals(
-                  values.items || [], values.cgst_percentage, values.sgst_percentage,
-                  values.igst_percentage, values.gst_type
-                );
-                return (
                   <Form className="space-y-6">
                     <div className="bg-blue-50 border-l-4 border-blue-500 p-4 rounded-r-lg">
                       <p className="text-sm font-medium text-blue-800 mb-1">Next Invoice Number</p>
@@ -1511,38 +1582,24 @@ export function Receipt() {
                       </div>
                     )}
                   </Form>
-                );
-              }}
-            </Formik>
-          </div>
-        ) : (
-          <div className="space-y-6">
-            {/* Only show action bar when NOT doing a silent list download */}
-            {!listDownloadingId && (
-              <div className="bg-white rounded-xl shadow-lg p-6 flex flex-wrap gap-4 print:hidden">
-                <button onClick={() => generatePDF(receiptRef.current, receiptData.invoice_no)}
-                  className="flex-1 min-w-[200px] bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition shadow-md flex items-center justify-center gap-2">
-                  <IconDownload /> Download PDF
-                </button>
-                <button onClick={handlePrint}
-                  className="flex-1 min-w-[200px] bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-lg transition shadow-md flex items-center justify-center gap-2">
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
-                  </svg>
-                  Print Receipt
-                </button>
-                <button onClick={() => setShowPreview(false)}
-                  className="flex-1 min-w-[200px] bg-gray-600 hover:bg-gray-700 text-white font-semibold py-3 px-6 rounded-lg transition shadow-md flex items-center justify-center gap-2">
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-                  </svg>
-                  Create New Receipt
-                </button>
               </div>
-            )}
-            <div ref={receiptRef}><ReceiptTemplate data={receiptData} /></div>
-          </div>
-        )}
+            </div>
+
+            {/* ─────────────── RIGHT: LIVE PREVIEW PANE ───────────────
+                Rendered inside the Formik render-prop so it can read the
+                current values. The A4 document keeps its true 210mm width
+                internally so the on-screen preview matches the generated PDF. */}
+            <div className="rcpt-preview-pane">
+              <div className="rcpt-scaler">
+                <div className="rcpt-preview-doc">
+                  <ReceiptTemplate data={livePreviewData} />
+                </div>
+              </div>
+            </div>
+            </>
+            );
+          }}
+        </Formik>
       </div>
     </div>
   );

@@ -178,7 +178,7 @@ export function ExportInvoice() {
           <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" /></svg>
           Back to Receipt
         </button>
-        <span className="ei-title">Export Service Invoice</span>
+        <span className="ei-title">Export Service Invoice · build v6</span>
         <button className="ei-tbtn go" onClick={() => window.print()}>Download / Save as PDF</button>
         <button className="ei-tbtn" onClick={clear}>Clear form</button>
       </div>

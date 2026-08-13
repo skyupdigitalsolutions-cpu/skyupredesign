@@ -86,15 +86,15 @@ const CSS = `
 
 .ei .banner{margin:8pt 0;background:#fed7aa;border:0.75pt solid #2b2b2b;text-align:center;font-size:8.5pt;font-weight:bold;padding:5pt 6pt;}
 
-.ei table.info{width:100%;border-collapse:collapse;}
-.ei table.info>tbody>tr>td{border:0.75pt solid #2b2b2b;vertical-align:top;padding:5pt 6pt;width:33.33%;}
+.ei table.info{width:100%;border-collapse:collapse;table-layout:fixed;}
+.ei table.info>tbody>tr>td{border:0.75pt solid #2b2b2b;vertical-align:top;padding:5pt 6pt;width:33.33%;word-wrap:break-word;overflow-wrap:anywhere;}
 .ei .sec-h{font-size:8.5pt;font-weight:bold;margin-bottom:3pt;}
 .ei .fx{font-size:8.5pt;line-height:1.55;}
 .ei .kv{font-size:8.5pt;line-height:1.75;}
 .ei .kv .k{font-weight:bold;}
 .ei .lut-col .row{line-height:1.65;}
 
-.ei table.items{width:100%;border-collapse:collapse;margin-top:8pt;}
+.ei table.items{width:100%;border-collapse:collapse;margin-top:8pt;table-layout:fixed;}
 .ei table.items th{background:#fed7aa;border:0.75pt solid #2b2b2b;font-size:8pt;font-weight:bold;padding:4pt 5pt;}
 .ei table.items td{border:0.75pt solid #2b2b2b;font-size:8.5pt;padding:4pt 5pt;vertical-align:top;}
 .ei .c-sl{width:8%;text-align:center;} .ei .c-sac{width:12%;} .ei .c-qty{width:8%;text-align:center;}
@@ -103,13 +103,13 @@ const CSS = `
 .ei .desc-fixed{font-size:8.5pt;} .ei .desc-sub{font-size:8pt;margin-top:3pt;font-weight:bold;}
 .ei .tot-lbl{text-align:right;font-weight:bold;} .ei .num{text-align:right;}
 
-.ei table.tot{width:100%;border-collapse:collapse;}
+.ei table.tot{width:100%;border-collapse:collapse;table-layout:fixed;}
 .ei table.tot td{border:0.75pt solid #2b2b2b;font-size:8.5pt;padding:5pt 6pt;}
 .ei table.tot td.tl{width:60%;font-weight:bold;}
 .ei table.tot td.tr{width:40%;text-align:right;}
 .ei table.tot tr.grand td{background:#2563eb;color:#fff;font-weight:bold;font-size:9.5pt;border-color:#1e40af;}
 
-.ei table.foot{width:100%;border-collapse:collapse;margin-top:8pt;}
+.ei table.foot{width:100%;border-collapse:collapse;margin-top:8pt;table-layout:fixed;}
 .ei table.foot>tbody>tr>td{border:0.75pt solid #2b2b2b;vertical-align:top;padding:5pt 6pt;width:100%;}
 .ei .decl{font-size:8pt;line-height:1.5;}
 .ei .decl ol{margin:2pt 0 0;padding-left:14pt;list-style:decimal;list-style-position:outside;}

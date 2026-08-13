@@ -29,7 +29,7 @@ function amountInWords(v, cur) {
 const fmt = (n) => n.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 
 const INIT = {
-  inv_no: "", inv_date: "", currency: "USD", cur_other: "",
+  prefix: "EXP", inv_no: "", inv_date: "", currency: "USD", cur_other: "",
   pay_due: "", po_no: "", po_date: "", pay_terms: "", dest: "",
   cust_name: "", addr: "", city_state: "", country: "", taxid: "", email: "",
   lut_fy: "2026-27", lut_date: "12/08/2026", lut_arn: "",
@@ -69,25 +69,26 @@ const CSS = `
 .ei-amt .r.big{font-weight:bold;color:#2e5496;border-top:1px solid #dbe4f0;margin-top:4px;padding-top:6px;}
 
 .ei-preview{flex:1;overflow:auto;padding:18px;min-width:0;}
-.ei .page{width:210mm;min-height:296mm;margin:0 auto 18px;background:#fff;padding:12mm 14mm;box-shadow:0 2px 18px rgba(0,0,0,.15);}
+.ei .page{position:relative;width:210mm;min-height:296mm;margin:0 auto 18px;background:#fff;padding:12mm 14mm;box-shadow:0 2px 18px rgba(0,0,0,.15);
+  background-image:url('/images/watermark.png');background-size:cover;background-position:center;background-repeat:no-repeat;}
 
-.ei .hd{display:table;width:100%;border-bottom:1.5pt solid #000;padding-bottom:6pt;}
-.ei .hd .l{display:table-cell;vertical-align:top;}
-.ei .hd .r{display:table-cell;vertical-align:top;text-align:right;}
-.ei .co-name{font-size:11pt;font-weight:bold;}
-.ei .co-addr{font-size:8.5pt;line-height:1.35;}
-.ei .co-ids{font-size:8.5pt;margin-top:2pt;}
-.ei .title{font-size:20pt;font-weight:bold;line-height:1.12;}
+.ei .hd{display:table;width:100%;padding-bottom:6pt;}
+.ei .hd .l{display:table-cell;vertical-align:middle;}
+.ei .hd .r{display:table-cell;vertical-align:middle;text-align:right;}
+.ei .co-ids{font-size:9pt;margin-top:6pt;line-height:1.6;}
+.ei .co-ids b{font-weight:bold;}
+.ei .logo{height:52pt;}
+.ei .title{font-size:26pt;font-weight:800;line-height:1.05;letter-spacing:.01em;}
 
 .ei table.grid{width:100%;border-collapse:collapse;margin-top:8pt;}
-.ei table.grid td{border:0.75pt solid #000;vertical-align:top;padding:4pt 6pt;width:25%;height:34pt;}
+.ei table.grid td{border:0.75pt solid #2b2b2b;vertical-align:top;padding:4pt 6pt;width:25%;height:34pt;}
 .ei .lbl{font-size:8pt;font-weight:bold;display:block;margin-bottom:2pt;}
 .ei .val{font-size:8.5pt;line-height:1.6;}
 
-.ei .banner{margin:8pt 0;background:#dce6f3;border:0.75pt solid #2e5496;text-align:center;font-size:8.5pt;font-weight:bold;padding:5pt 6pt;}
+.ei .banner{margin:8pt 0;background:#fed7aa;border:0.75pt solid #2b2b2b;text-align:center;font-size:8.5pt;font-weight:bold;padding:5pt 6pt;}
 
 .ei table.info{width:100%;border-collapse:collapse;}
-.ei table.info>tbody>tr>td{border:0.75pt solid #000;vertical-align:top;padding:5pt 6pt;width:33.33%;}
+.ei table.info>tbody>tr>td{border:0.75pt solid #2b2b2b;vertical-align:top;padding:5pt 6pt;width:33.33%;}
 .ei .sec-h{font-size:8.5pt;font-weight:bold;margin-bottom:3pt;}
 .ei .fx{font-size:8.5pt;line-height:1.55;}
 .ei .kv{font-size:8.5pt;line-height:1.75;}
@@ -95,8 +96,8 @@ const CSS = `
 .ei .lut-col .row{line-height:1.65;}
 
 .ei table.items{width:100%;border-collapse:collapse;margin-top:8pt;}
-.ei table.items th{background:#dce6f3;border:0.75pt solid #000;font-size:8pt;font-weight:bold;padding:4pt 5pt;}
-.ei table.items td{border:0.75pt solid #000;font-size:8.5pt;padding:4pt 5pt;vertical-align:top;}
+.ei table.items th{background:#fed7aa;border:0.75pt solid #2b2b2b;font-size:8pt;font-weight:bold;padding:4pt 5pt;}
+.ei table.items td{border:0.75pt solid #2b2b2b;font-size:8.5pt;padding:4pt 5pt;vertical-align:top;}
 .ei .c-sl{width:8%;text-align:center;} .ei .c-sac{width:12%;} .ei .c-qty{width:8%;text-align:center;}
 .ei .c-rate{width:15%;} .ei .c-amt{width:16%;}
 .ei th.c-rate,.ei th.c-amt,.ei td.c-rate,.ei td.c-amt{text-align:right;}
@@ -104,22 +105,23 @@ const CSS = `
 .ei .tot-lbl{text-align:right;font-weight:bold;} .ei .num{text-align:right;}
 
 .ei table.tot{width:100%;border-collapse:collapse;}
-.ei table.tot td{border:0.75pt solid #000;font-size:8.5pt;padding:5pt 6pt;}
+.ei table.tot td{border:0.75pt solid #2b2b2b;font-size:8.5pt;padding:5pt 6pt;}
 .ei table.tot td.tl{width:60%;font-weight:bold;}
 .ei table.tot td.tr{width:40%;text-align:right;}
-.ei table.tot tr.grand td{background:#2e5496;color:#fff;font-weight:bold;font-size:9.5pt;}
+.ei table.tot tr.grand td{background:#2563eb;color:#fff;font-weight:bold;font-size:9.5pt;border-color:#1e40af;}
 
 .ei table.foot{width:100%;border-collapse:collapse;margin-top:8pt;}
-.ei table.foot>tbody>tr>td{border:0.75pt solid #000;vertical-align:top;padding:5pt 6pt;width:50%;}
+.ei table.foot>tbody>tr>td{border:0.75pt solid #2b2b2b;vertical-align:top;padding:5pt 6pt;width:50%;}
 .ei .decl{font-size:8pt;line-height:1.5;}
 .ei .decl ol{margin:2pt 0 0;padding-left:14pt;list-style:decimal;list-style-position:outside;}
 .ei .decl li{margin-bottom:2pt;}
 
-.ei .sig-for{font-size:9.5pt;font-weight:bold;text-align:center;margin:6mm 0 22mm;}
+.ei .sig-for{font-size:9.5pt;font-weight:bold;text-align:center;margin:6mm 0 4mm;}
 .ei .sig-wrap{display:table;width:100%;}
-.ei .sig-r{display:table-cell;width:55%;text-align:right;vertical-align:top;}
-.ei .sig-l{display:table-cell;width:45%;text-align:center;vertical-align:top;}
+.ei .sig-r{display:table-cell;width:55%;text-align:right;vertical-align:bottom;}
+.ei .sig-l{display:table-cell;width:45%;text-align:center;vertical-align:bottom;}
 .ei .sig-r .a{font-size:9pt;font-weight:bold;} .ei .sig-r .n{font-size:8.5pt;line-height:1.6;}
+.ei .sig-img{width:150pt;margin-bottom:4pt;}
 .ei .ty{font-size:9.5pt;font-weight:bold;letter-spacing:.08em;} .ei .cg{font-size:8pt;}
 
 .ei .pv{display:inline-block;min-width:60pt;border-bottom:0.75pt solid #8a9099;line-height:1.5;}
@@ -138,7 +140,7 @@ const CSS = `
   .ei-toolbar,.ei-form{display:none !important;}
   .ei-app{display:block !important;}
   .ei-preview{overflow:visible !important;padding:0 !important;}
-  .ei .page{width:auto !important;min-height:0 !important;margin:0 !important;padding:0 !important;box-shadow:none !important;}
+  .ei .page{width:auto !important;min-height:0 !important;margin:0 !important;padding:0 !important;box-shadow:none !important;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
   .ei .page.p2{page-break-before:always;}
   .ei table.items th,.ei .banner,.ei table.tot tr.grand td{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
 }
@@ -187,8 +189,16 @@ export function ExportInvoice() {
         {/* ---------------- FORM ---------------- */}
         <div className="ei-form">
           <h2>Invoice details</h2>
-          <div className="ei-fg"><label>Invoice No.</label><input value={f.inv_no} onChange={set("inv_no")} placeholder="001" /></div>
-          <div className="ei-hint">Prints as SDS/EXP/&lt;this&gt;/2026-27</div>
+          <div className="ei-row2">
+            <div className="ei-fg"><label>Series</label>
+              <select value={f.prefix} onChange={set("prefix")}>
+                <option value="EXP">EXP</option>
+                <option value="SDS">SDS</option>
+              </select>
+            </div>
+            <div className="ei-fg"><label>Serial No.</label><input value={f.inv_no} onChange={set("inv_no")} placeholder="001" /></div>
+          </div>
+          <div className="ei-hint">Prints as {f.prefix}/&lt;serial&gt;/2026-27. Switching series keeps the same serial — it doesn't reset.</div>
           <div className="ei-fg"><label>Invoice Date</label><input type="date" value={f.inv_date} onChange={set("inv_date")} /></div>
           <div className="ei-fg"><label>Currency</label>
             <select value={f.currency} onChange={set("currency")}>
@@ -265,16 +275,17 @@ export function ExportInvoice() {
           <div className="page p1">
             <div className="hd">
               <div className="l">
-                <div className="co-name">SKYUP DIGITAL SOLUTIONS LLP</div>
-                <div className="co-addr">No. 23, PARINIDHI, E Block, 14A Main Road,<br />Sahakaranagar, Bengaluru Urban, Karnataka - 560092</div>
-                <div className="co-ids"><b>GSTIN:</b> 29AFUFS6710E1ZJ{"\u00a0\u00a0\u00a0"}<b>IEC:</b> AFUFS6710E</div>
+                <div className="title">EXPORT<br />SERVICE<br />INVOICE</div>
               </div>
-              <div className="r"><div className="title">EXPORT<br />SERVICE<br />INVOICE</div></div>
+              <div className="r">
+                <img className="logo" src="/images/rbd-logo.webp" alt="SKYUP Digital Solutions" />
+                <div className="co-ids"><b>GSTIN:</b> 29AFUFS6710E1ZJ<br /><b>IEC:</b> AFUFS6710E</div>
+              </div>
             </div>
 
             <table className="grid"><tbody>
               <tr>
-                <td><span className="lbl">Invoice No.</span><span className="val">SDS/EXP/<PV w="46pt">{f.inv_no}</PV>/2026-27</span></td>
+                <td><span className="lbl">Invoice No.</span><span className="val">{f.prefix}/<PV w="46pt">{f.inv_no}</PV>/2026-27</span></td>
                 <td><span className="lbl">Invoice Date</span><span className="val"><PV w="22pt">{dd}</PV> / <PV w="22pt">{mm}</PV> / <PV w="30pt">{yyyy}</PV></span></td>
                 <td><span className="lbl">Currency</span><span className="val">
                   <span className={"ccode" + (f.currency === "USD" ? " on" : "")}>USD</span> / <span className={"ccode" + (f.currency === "EUR" ? " on" : "")}>EUR</span> / <span className={"ccode" + (f.currency === "GBP" ? " on" : "")}>GBP</span> / <span className={"otherlbl" + (f.currency === "Other" ? " on" : "")}>Other:</span> <PT>{f.currency === "Other" ? f.cur_other : ""}</PT>
@@ -294,7 +305,7 @@ export function ExportInvoice() {
             <table className="info"><tbody><tr>
               <td>
                 <div className="sec-h">SUPPLIER / EXPORTER</div>
-                <div className="fx"><b>Skyup Digital Solutions LLP</b><br />No. 23, PARINIDHI, E Block, 14A Main Road,<br />Sahakaranagar, Bengaluru Urban, Karnataka - 560092<br /><b>GSTIN:</b> 29AFUFS6710E1ZJ<br /><b>IEC:</b> AFUFS6710E<br /><b>Nature of Concern:</b> Limited Liability Partnership</div>
+                <div className="fx"><b>Skyup Digital Solutions LLP</b><br />No. 23, PARINIDHI, E Block, 14A Main Road,<br />Sahakaranagar, Bengaluru Urban, Karnataka - 560092<br /><b>Nature of Concern:</b> Limited Liability Partnership</div>
               </td>
               <td>
                 <div className="sec-h">BILL TO / OVERSEAS CUSTOMER</div>
@@ -382,7 +393,7 @@ export function ExportInvoice() {
             <div className="sig-for">For SKYUP DIGITAL SOLUTIONS LLP</div>
             <div className="sig-wrap">
               <div className="sig-l"><div className="ty">THANK YOU</div><div className="cg">This is a computer-generated invoice.</div></div>
-              <div className="sig-r"><div className="a">Authorised Signatory</div><div className="n">Name: Pooja<br />Designation: Designated Partner</div></div>
+              <div className="sig-r"><img className="sig-img" src="/images/signature.webp" alt="Signature" /><div className="a">Authorised Signatory</div><div className="n">Name: Pooja<br />Designation: Designated Partner</div></div>
             </div>
           </div>
         </div>

@@ -67,8 +67,8 @@ const CSS = `
 .ei-amt .r.big{font-weight:bold;color:#2e5496;border-top:1px solid #dbe4f0;margin-top:4px;padding-top:6px;}
 
 .ei-preview{flex:1;overflow:auto;padding:18px;min-width:0;}
-.ei .page{position:relative;width:210mm;min-height:296mm;margin:0 auto 18px;background:#fff;padding:12mm 14mm;box-shadow:0 2px 18px rgba(0,0,0,.15);
-  background-image:url('/images/watermark.png');background-size:cover;background-position:center;background-repeat:no-repeat;}
+.ei .page{position:relative;width:210mm;min-height:297mm;margin:0 auto 18px;background:#fff;padding:12mm 14mm;box-shadow:0 2px 18px rgba(0,0,0,.15);
+  background-image:url('/images/watermark.png');background-size:cover;background-position:center;background-repeat:no-repeat;background-origin:border-box;background-clip:border-box;}
 
 .ei .hd{display:table;width:100%;padding-bottom:6pt;}
 .ei .hd .l{display:table-cell;vertical-align:middle;width:55%;}

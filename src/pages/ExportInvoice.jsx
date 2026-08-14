@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { navigate } from "vike/client/router";
 import { generatePDF } from "./utils/pdfGenerator";
 import API_URL from "../config/api";
@@ -992,48 +992,252 @@ function ExportInvoiceTemplate({ data, showBank = true }) {
 // Shows all saved export invoices; supports re-download PDF and delete.
 // Mirrors the ReceiptListModal pattern from Receipt.jsx.
 // ─────────────────────────────────────────────────────────────────────────────
-function ExportInvoiceListModal({ isOpen, onClose, token, onDownload, downloadingId }) {
-  const [invoices, setInvoices]   = useState([]);
-  const [loading,  setLoading]    = useState(false);
-  const [error,    setError]      = useState(null);
-  const [search,   setSearch]     = useState("");
-  const [deleting, setDeleting]   = useState(null);
 
-  const s = { fontFamily: "inherit" }; // pass-through for inline inputs
+// ─────────────────────────────────────────────────────────────────────────────
+// Helpers shared across list components
+// ─────────────────────────────────────────────────────────────────────────────
+const fmtN = (n) =>
+  Number(n || 0).toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+const fmtD = (d) =>
+  d ? new Date(d).toLocaleDateString("en-GB", { day:"2-digit", month:"short", year:"numeric" }) : "—";
+
+// ─────────────────────────────────────────────────────────────────────────────
+// EditExportInvoiceModal — full edit form, mirrors EditReceiptModal
+// ─────────────────────────────────────────────────────────────────────────────
+function EditExportInvoiceModal({ invoice, token, onClose, onSaved }) {
+  const toD = (v) => { try { return v ? new Date(v).toISOString().split("T")[0] : ""; } catch { return ""; } };
+  const [vals, setVals] = useState({
+    inv_date: toD(invoice.inv_date), currency: invoice.currency||"USD", cur_other: invoice.cur_other||"",
+    pay_due: invoice.pay_due||"", po_no: invoice.po_no||"", po_date: invoice.po_date||"",
+    pay_terms: invoice.pay_terms||"", dest: invoice.dest||"",
+    cust_name: invoice.cust_name||"", addr: invoice.addr||"", city_state: invoice.city_state||"",
+    country: invoice.country||"", taxid: invoice.taxid||"", email: invoice.email||"",
+    lut_fy: invoice.lut_fy||"2026-27", lut_date: invoice.lut_date||"12/08/2026",
+    lut_arn: invoice.lut_arn||"AD2908260210809", place_filing: invoice.place_filing||"Bangalore",
+    place_supply: invoice.place_supply||"Outside India", nature_supply: invoice.nature_supply||"Export of Services",
+    igst: invoice.igst||"Nil under LUT",
+    items: invoice.items?.length
+      ? invoice.items.map(i => ({ svc_desc:i.svc_desc||"", proj_ref:i.proj_ref||"", sac:i.sac||"", qty:i.qty||"1", rate:i.rate||"" }))
+      : [{ svc_desc:"", proj_ref:"", sac:"", qty:"1", rate:"" }],
+    roundoff: invoice.roundoff||"",
+  });
+  const [saving, setSaving] = useState(false);
+  const [error,  setError]  = useState(null);
+
+  const set    = (k) => (e) => setVals(p => ({ ...p, [k]: e.target.value }));
+  const setItm = (i, k) => (e) => setVals(p => ({ ...p, items: p.items.map((it,idx) => idx===i ? {...it,[k]:e.target.value} : it) }));
+  const addItm = () => setVals(p => ({ ...p, items: [...p.items, { svc_desc:"", proj_ref:"", sac:"", qty:"1", rate:"" }] }));
+  const delItm = (i) => setVals(p => ({ ...p, items: p.items.filter((_,idx) => idx!==i) }));
+
+  const subtotal  = (vals.items||[]).reduce((s,it) => s+(parseFloat(it.qty)||0)*(parseFloat(it.rate)||0), 0);
+  const roundoffV = parseFloat(vals.roundoff)||0;
+  const total     = roundoffV > 0 ? roundoffV : subtotal;
+  const currCode  = vals.currency==="Other" ? vals.cur_other : vals.currency;
+
+  const inp = { width:"100%", padding:"7px 10px", border:"1px solid #d1d5db", borderRadius:7, fontFamily:"inherit", fontSize:13, boxSizing:"border-box" };
+  const Row = ({ label, children }) => (
+    <div style={{ marginBottom:10 }}>
+      <label style={{ display:"block", fontSize:11, fontWeight:700, color:"#374151", marginBottom:3 }}>{label}</label>
+      {children}
+    </div>
+  );
+  const Inp = ({ k, ...rest }) => <input value={vals[k]} onChange={set(k)} style={inp} {...rest} />;
+  const G2  = ({ children }) => <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:"0 14px" }}>{children}</div>;
+  const SectionTitle = ({ t }) => (
+    <div style={{ margin:"16px 0 10px", fontSize:12, fontWeight:700, color:"#2e5496", textTransform:"uppercase", letterSpacing:".06em", borderBottom:"1px solid #dce6f3", paddingBottom:5 }}>{t}</div>
+  );
+
+  const handleSave = async () => {
+    setSaving(true); setError(null);
+    const payload = { ...vals, invoice_no:invoice.invoice_no, subtotal, roundoff:roundoffV, total, amount_in_words:amountInWords(total, currCode) };
+    try {
+      const res = await fetch(`${API_URL}/export-invoice/${invoice._id}`, {
+        method:"PUT", headers:{"Content-Type":"application/json", Authorization:`Bearer ${token}`}, body:JSON.stringify(payload),
+      });
+      const result = await res.json();
+      if (res.ok) { onSaved({ ...invoice, ...payload }); }
+      else { setError(result.message||"Failed to update"); }
+    } catch(err) { setError("Error: "+err.message); }
+    finally { setSaving(false); }
+  };
+
+  return (
+    <div style={{ position:"fixed", inset:0, zIndex:70, display:"flex", alignItems:"center", justifyContent:"center", backgroundColor:"rgba(0,0,0,0.65)", backdropFilter:"blur(3px)" }}>
+      <div style={{ background:"#fff", borderRadius:16, boxShadow:"0 4px 40px rgba(0,0,0,.25)", width:"min(96vw,820px)", maxHeight:"92vh", display:"flex", flexDirection:"column" }}>
+        <div style={{ display:"flex", alignItems:"center", justifyContent:"space-between", padding:"20px 28px 14px", borderBottom:"1px solid #e5e9ed" }}>
+          <div>
+            <h2 style={{ margin:0, fontSize:19, fontWeight:700, color:"#16232e" }}>Edit Export Invoice</h2>
+            <p style={{ margin:"3px 0 0", fontSize:13, color:"#2e5496", fontFamily:"monospace" }}>{invoice.invoice_no}</p>
+          </div>
+          <button onClick={onClose} style={{ background:"none", border:"none", cursor:"pointer", fontSize:26, color:"#9ca3af" }}>×</button>
+        </div>
+
+        <div style={{ overflowY:"auto", flex:1, padding:"18px 28px" }}>
+          {error && <div style={{ marginBottom:12, padding:"10px 14px", background:"#fef2f2", border:"1px solid #fca5a5", borderRadius:8, fontSize:13, color:"#b91c1c" }}>{error}</div>}
+
+          <SectionTitle t="Invoice Details" />
+          <G2><Row label="Invoice Date"><Inp k="inv_date" type="date" /></Row>
+              <Row label="Currency">
+                <select value={vals.currency} onChange={set("currency")} style={inp}>
+                  <option>USD</option><option>EUR</option><option>GBP</option><option value="Other">Other…</option>
+                </select>
+              </Row></G2>
+          {vals.currency==="Other" && <Row label="Currency code"><Inp k="cur_other" placeholder="e.g. AUD" /></Row>}
+          <G2><Row label="Payment Due"><Inp k="pay_due" /></Row><Row label="Payment Terms"><Inp k="pay_terms" /></Row></G2>
+          <G2><Row label="PO / Work Order No."><Inp k="po_no" /></Row><Row label="PO / Order Date"><Inp k="po_date" /></Row></G2>
+          <Row label="Country of Destination"><Inp k="dest" /></Row>
+
+          <SectionTitle t="Bill To / Overseas Customer" />
+          <Row label="Customer / Company Name"><Inp k="cust_name" /></Row>
+          <Row label="Registered Address"><textarea value={vals.addr} onChange={set("addr")} rows={2} style={{ ...inp, resize:"vertical" }} /></Row>
+          <G2><Row label="City / State"><Inp k="city_state" /></Row><Row label="Country"><Inp k="country" /></Row></G2>
+          <G2><Row label="Tax ID / VAT / Reg No."><Inp k="taxid" /></Row><Row label="Email"><Inp k="email" type="email" /></Row></G2>
+
+          <SectionTitle t="Export / LUT Details" />
+          <G2><Row label="LUT Financial Year"><Inp k="lut_fy" /></Row><Row label="LUT Filing Date"><Inp k="lut_date" /></Row></G2>
+          <Row label="LUT ARN / Reference"><Inp k="lut_arn" /></Row>
+          <G2><Row label="Place of Filing"><Inp k="place_filing" /></Row><Row label="Place of Supply"><Inp k="place_supply" /></Row></G2>
+          <G2><Row label="Nature of Supply"><Inp k="nature_supply" /></Row><Row label="IGST"><Inp k="igst" /></Row></G2>
+
+          <SectionTitle t="Line Items" />
+          {(vals.items||[]).map((item, i) => (
+            <div key={i} style={{ border:"1px solid #e5e9ed", borderRadius:10, padding:"12px 14px", marginBottom:10, background:"#f9fafb" }}>
+              <div style={{ display:"flex", justifyContent:"space-between", alignItems:"center", marginBottom:8 }}>
+                <span style={{ fontSize:11, fontWeight:700, color:"#2e5496", background:"#dce6f3", padding:"2px 8px", borderRadius:4 }}>Item {i+1}</span>
+                {vals.items.length > 1 && (
+                  <button onClick={() => delItm(i)} style={{ background:"#fee2e2", border:"1px solid #fca5a5", color:"#b91c1c", borderRadius:5, padding:"2px 9px", fontSize:11, fontWeight:700, cursor:"pointer", fontFamily:"inherit" }}>Remove</button>
+                )}
+              </div>
+              <Row label="Service description">
+                <textarea value={item.svc_desc} onChange={setItm(i,"svc_desc")} rows={2} style={{ ...inp, resize:"vertical" }} />
+              </Row>
+              <Row label="Project / Contract reference">
+                <input value={item.proj_ref} onChange={setItm(i,"proj_ref")} style={inp} />
+              </Row>
+              <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr 1fr", gap:"0 12px" }}>
+                <Row label="SAC"><input value={item.sac} onChange={setItm(i,"sac")} placeholder="998314" style={inp} /></Row>
+                <Row label="Qty"><input type="number" min="0" value={item.qty} onChange={setItm(i,"qty")} style={inp} /></Row>
+                <Row label="Rate">
+                  <input type="number" step="0.01" value={item.rate} onChange={setItm(i,"rate")} placeholder="0.00" style={inp} />
+                  <span style={{ fontSize:11, color:"#6c7a86", marginTop:2, display:"block" }}>
+                    Amt: {fmtN((parseFloat(item.qty)||0)*(parseFloat(item.rate)||0))}
+                  </span>
+                </Row>
+              </div>
+            </div>
+          ))}
+          <button onClick={addItm} style={{ width:"100%", padding:"8px", border:"2px dashed #2e5496", borderRadius:8, background:"#eef4ff", color:"#2e5496", fontWeight:700, fontSize:13, cursor:"pointer", fontFamily:"inherit", marginBottom:14 }}>+ Add Line Item</button>
+
+          <Row label="Round Off — Final Invoice Total (leave blank to use calculated subtotal)">
+            <input type="number" step="0.01" value={vals.roundoff} onChange={set("roundoff")}
+              placeholder={`Calculated: ${fmtN(subtotal)}`} style={inp} />
+          </Row>
+          <div style={{ background:"#eff6ff", border:"1px solid #bfdbfe", borderRadius:8, padding:"12px 14px", fontSize:13 }}>
+            <div style={{ display:"flex", justifyContent:"space-between", padding:"2px 0" }}>
+              <span style={{ color:"#6c7a86" }}>Subtotal</span><span style={{ fontWeight:600 }}>{currCode} {fmtN(subtotal)}</span>
+            </div>
+            <div style={{ display:"flex", justifyContent:"space-between", padding:"8px 0 2px", borderTop:"1px solid #bfdbfe", marginTop:6, fontWeight:700, color:"#1d4ed8" }}>
+              <span>Total Invoice Value</span><span>{currCode} {fmtN(total)}</span>
+            </div>
+          </div>
+        </div>
+
+        <div style={{ display:"flex", gap:12, padding:"16px 28px", borderTop:"1px solid #e5e9ed" }}>
+          <button onClick={onClose} style={{ flex:1, padding:"11px", border:"1px solid #d1d5db", borderRadius:8, fontFamily:"inherit", fontSize:14, fontWeight:600, color:"#374151", background:"#fff", cursor:"pointer" }}>Cancel</button>
+          <button onClick={handleSave} disabled={saving} style={{ flex:1, padding:"11px", border:0, borderRadius:8, fontFamily:"inherit", fontSize:14, fontWeight:600, color:"#fff", background:"#2e5496", cursor:"pointer", opacity:saving?0.65:1 }}>
+            {saving ? "Saving…" : "Save Changes"}
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// ExportInvoiceActions — per-row Edit / Delete (with confirm) / PDF buttons
+// ─────────────────────────────────────────────────────────────────────────────
+function ExportInvoiceActions({ invoice, token, onDeleted, onEdit, onDownload, downloadingId }) {
+  const [showConfirm, setShowConfirm] = useState(false);
+  const [deleting,    setDeleting]    = useState(false);
+  const isLoading = downloadingId === invoice._id.toString();
+
+  const handleDelete = async () => {
+    setDeleting(true);
+    try {
+      const res = await fetch(`${API_URL}/export-invoice/${invoice._id}`, {
+        method:"DELETE", headers:{ Authorization:`Bearer ${token}` },
+      });
+      if (res.ok) { setShowConfirm(false); onDeleted(invoice._id.toString()); }
+      else { alert("Failed to delete"); setDeleting(false); }
+    } catch { alert("Error deleting"); setDeleting(false); }
+  };
+
+  const ab = (col, bg, bo) => ({ fontSize:11, fontWeight:700, padding:"5px 10px", borderRadius:6, border:`1px solid ${bo}`, background:bg, color:col, cursor:"pointer", fontFamily:"inherit" });
+
+  return (
+    <>
+      {showConfirm && (
+        <div style={{ position:"fixed", inset:0, zIndex:80, display:"flex", alignItems:"center", justifyContent:"center", backgroundColor:"rgba(0,0,0,0.65)", backdropFilter:"blur(3px)" }}>
+          <div style={{ background:"#fff", borderRadius:16, padding:"32px 28px", width:"min(90vw,380px)", textAlign:"center", boxShadow:"0 4px 32px rgba(0,0,0,.25)" }}>
+            <div style={{ width:52, height:52, borderRadius:"50%", background:"#fee2e2", display:"flex", alignItems:"center", justifyContent:"center", margin:"0 auto 14px", fontSize:24 }}>⚠️</div>
+            <h3 style={{ margin:"0 0 6px", fontSize:16, fontWeight:700 }}>Delete Invoice?</h3>
+            <p style={{ margin:"0 0 4px", fontSize:13, color:"#374151", fontFamily:"monospace", fontWeight:600 }}>{invoice.invoice_no}</p>
+            <p style={{ margin:"0 0 22px", fontSize:13, color:"#9ca3af" }}>This action cannot be undone.</p>
+            <div style={{ display:"flex", gap:10 }}>
+              <button onClick={() => setShowConfirm(false)} disabled={deleting}
+                style={{ flex:1, padding:"10px", border:"1px solid #e5e9ed", borderRadius:8, fontFamily:"inherit", fontSize:14, fontWeight:600, cursor:"pointer" }}>Cancel</button>
+              <button onClick={handleDelete} disabled={deleting}
+                style={{ flex:1, padding:"10px", border:0, borderRadius:8, fontFamily:"inherit", fontSize:14, fontWeight:600, color:"#fff", background:"#dc2626", cursor:"pointer", opacity:deleting?0.6:1 }}>
+                {deleting ? "Deleting…" : "Yes, Delete"}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+      <div style={{ display:"flex", gap:6, alignItems:"center", flexShrink:0 }}>
+        <button onClick={e => { e.stopPropagation(); onEdit(invoice); }} style={ab("#92400e","#fef3c7","#fde68a")}>Edit</button>
+        <button onClick={e => { e.stopPropagation(); setShowConfirm(true); }} style={ab("#b91c1c","#fef2f2","#fecaca")}>Delete</button>
+        <button onClick={e => { e.stopPropagation(); onDownload(invoice); }} disabled={!!downloadingId}
+          style={{ ...ab("#1d4ed8","#eff6ff","#bfdbfe"), opacity:downloadingId?0.55:1, cursor:downloadingId?"not-allowed":"pointer" }}>
+          {isLoading ? "…" : "PDF"}
+        </button>
+      </div>
+    </>
+  );
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// ExportInvoiceListModal — split-panel list + detail, mirrors ReceiptListModal
+// ─────────────────────────────────────────────────────────────────────────────
+function ExportInvoiceListModal({ isOpen, onClose, token, onDownload, downloadingId }) {
+  const [invoices,        setInvoices]       = useState([]);
+  const [loading,         setLoading]        = useState(false);
+  const [error,           setError]          = useState(null);
+  const [search,          setSearch]         = useState("");
+  const [selectedInvoice, setSelectedInvoice] = useState(null);
+  const [editingInvoice,  setEditingInvoice]  = useState(null);
+
+  useEffect(() => { if (isOpen) fetchInvoices(); }, [isOpen]);
 
   const fetchInvoices = async () => {
     setLoading(true); setError(null);
     try {
-      const res  = await fetch(`${API_URL}/export-invoices`, {
-        headers: { Authorization: `Bearer ${token}` },
-      });
+      const res  = await fetch(`${API_URL}/export-invoices`, { headers:{ Authorization:`Bearer ${token}` } });
       const data = await res.json();
-      if (res.ok) setInvoices(data);
-      else setError("Failed to load invoices");
+      if (res.ok) setInvoices(data); else setError("Failed to load invoices");
     } catch { setError("Network error"); }
     finally { setLoading(false); }
   };
 
-  // Fetch on open
-  if (isOpen && !loading && invoices.length === 0 && !error) fetchInvoices();
-
-  const handleDelete = async (inv) => {
-    if (!window.confirm(`Delete ${inv.invoice_no}? This cannot be undone.`)) return;
-    setDeleting(inv._id.toString());
-    try {
-      const res = await fetch(`${API_URL}/export-invoice/${inv._id}`, {
-        method: "DELETE",
-        headers: { Authorization: `Bearer ${token}` },
-      });
-      if (res.ok) setInvoices(prev => prev.filter(i => i._id.toString() !== inv._id.toString()));
-      else alert("Failed to delete invoice.");
-    } catch { alert("Error deleting invoice."); }
-    finally { setDeleting(null); }
+  const handleDeleted = (id) => {
+    setInvoices(prev => prev.filter(i => i._id.toString() !== id));
+    if (selectedInvoice?._id?.toString() === id) setSelectedInvoice(null);
   };
-
-  const fd = (d) => d
-    ? new Date(d).toLocaleDateString("en-GB", { day: "2-digit", month: "short", year: "numeric" })
-    : "—";
+  const handleSaved = (updated) => {
+    setInvoices(prev => prev.map(i => i._id.toString() === updated._id?.toString() ? {...i,...updated} : i));
+    if (selectedInvoice?._id?.toString() === updated._id?.toString()) setSelectedInvoice({...selectedInvoice,...updated});
+    setEditingInvoice(null);
+  };
 
   const filtered = invoices.filter(i =>
     i.invoice_no?.toLowerCase().includes(search.toLowerCase()) ||
@@ -1042,98 +1246,192 @@ function ExportInvoiceListModal({ isOpen, onClose, token, onDownload, downloadin
 
   if (!isOpen) return null;
 
+  const si    = selectedInvoice;
+  const siCur = si?.currency==="Other" ? (si?.cur_other||"") : (si?.currency||"USD");
+
   return (
-    <div style={{ position:"fixed", inset:0, zIndex:60, display:"flex", alignItems:"center", justifyContent:"center",
-                  backgroundColor:"rgba(0,0,0,0.55)", backdropFilter:"blur(2px)" }}>
-      <div style={{ background:"#fff", borderRadius:16, boxShadow:"0 4px 32px rgba(0,0,0,.22)",
-                    width:"min(96vw,760px)", maxHeight:"88vh", display:"flex", flexDirection:"column" }}>
+    <>
+      {editingInvoice && (
+        <EditExportInvoiceModal invoice={editingInvoice} token={token}
+          onClose={() => setEditingInvoice(null)} onSaved={handleSaved} />
+      )}
 
-        {/* header */}
-        <div style={{ display:"flex", alignItems:"center", justifyContent:"space-between",
-                      padding:"20px 28px 14px", borderBottom:"1px solid #e5e9ed" }}>
-          <div>
-            <h2 style={{ margin:0, fontSize:20, fontWeight:700, color:"#16232e" }}>Export Invoices</h2>
-            <p style={{ margin:"2px 0 0", fontSize:13, color:"#6c7a86" }}>
-              {invoices.length} invoice{invoices.length !== 1 ? "s" : ""} saved
-            </p>
+      <div style={{ position:"fixed", inset:0, zIndex:50, display:"flex", alignItems:"center", justifyContent:"center", backgroundColor:"rgba(0,0,0,0.55)", backdropFilter:"blur(2px)" }}>
+        <div style={{ background:"#fff", borderRadius:16, boxShadow:"0 4px 32px rgba(0,0,0,.22)", width:"min(96vw,1060px)", maxHeight:"90vh", display:"flex", flexDirection:"column" }}>
+
+          {/* header */}
+          <div style={{ display:"flex", alignItems:"center", justifyContent:"space-between", padding:"20px 28px 14px", borderBottom:"1px solid #e5e9ed" }}>
+            <div>
+              <h2 style={{ margin:0, fontSize:22, fontWeight:700, color:"#16232e" }}>All Export Invoices</h2>
+              <p style={{ margin:"3px 0 0", fontSize:13, color:"#6c7a86" }}>{invoices.length} invoice{invoices.length!==1?"s":""} saved</p>
+            </div>
+            <button onClick={onClose} style={{ background:"none", border:"none", cursor:"pointer", fontSize:28, color:"#9ca3af", lineHeight:1 }}>×</button>
           </div>
-          <button onClick={onClose}
-            style={{ background:"none", border:"none", cursor:"pointer", fontSize:24, color:"#6c7a86", lineHeight:1 }}>
-            ×
-          </button>
-        </div>
 
-        {/* search */}
-        <div style={{ padding:"12px 28px", borderBottom:"1px solid #eef0f2" }}>
-          <input value={search} onChange={e => setSearch(e.target.value)}
-            placeholder="Search by invoice no or customer…"
-            style={{ ...s, width:"100%", padding:"8px 12px", border:"1px solid #d5d9dd",
-                     borderRadius:8, fontSize:13, boxSizing:"border-box" }} />
-        </div>
+          {/* search */}
+          <div style={{ padding:"12px 28px", borderBottom:"1px solid #eef0f2", background:"#fafbfc" }}>
+            <input value={search} onChange={e => setSearch(e.target.value)}
+              placeholder="Search by invoice no or customer…"
+              style={{ width:"min(100%,380px)", padding:"8px 12px", border:"1px solid #d1d5db", borderRadius:8, fontSize:13, fontFamily:"inherit", boxSizing:"border-box" }} />
+          </div>
 
-        {/* list body */}
-        <div style={{ flex:1, overflowY:"auto" }}>
-          {loading ? (
-            <div style={{ padding:48, textAlign:"center", color:"#6c7a86", fontSize:14 }}>Loading…</div>
-          ) : error ? (
-            <div style={{ padding:48, textAlign:"center", color:"#b91c1c", fontSize:14 }}>{error}</div>
-          ) : filtered.length === 0 ? (
-            <div style={{ padding:48, textAlign:"center", color:"#6c7a86", fontSize:14 }}>
-              {search ? "No invoices match your search." : "No export invoices saved yet."}
-            </div>
-          ) : filtered.map(inv => (
-            <div key={inv._id}
-              style={{ display:"flex", alignItems:"center", gap:12,
-                       padding:"14px 28px", borderBottom:"1px solid #f1f3f5" }}>
-              <div style={{ flex:1, minWidth:0 }}>
-                <div style={{ display:"flex", alignItems:"center", gap:10, marginBottom:2 }}>
-                  <span style={{ fontWeight:700, fontSize:13, color:"#2e5496", fontFamily:"monospace" }}>
-                    {inv.invoice_no}
-                  </span>
-                  <span style={{ fontSize:12, color:"#9ca3af" }}>{fd(inv.inv_date || inv.createdAt)}</span>
+          {/* body */}
+          <div style={{ display:"flex", flex:1, overflow:"hidden" }}>
+
+            {/* list panel */}
+            <div style={{ overflowY:"auto", width:si?"48%":"100%", transition:"width .18s", borderRight:si?"1px solid #e5e9ed":"none" }}>
+              {loading ? (
+                <div style={{ padding:60, textAlign:"center", color:"#6c7a86" }}>Loading…</div>
+              ) : error ? (
+                <div style={{ padding:60, textAlign:"center", color:"#b91c1c" }}>{error}<br />
+                  <button onClick={fetchInvoices} style={{ marginTop:8, fontSize:13, color:"#2e5496", background:"none", border:"none", cursor:"pointer", fontFamily:"inherit" }}>Try again</button>
                 </div>
-                <div style={{ fontSize:13, fontWeight:600, color:"#16232e" }}>{inv.cust_name || "—"}</div>
-                <div style={{ fontSize:12, color:"#6c7a86", marginTop:1 }}>
-                  {inv.currency} {Number(inv.total || 0).toLocaleString("en-US", { minimumFractionDigits:2 })}
+              ) : filtered.length===0 ? (
+                <div style={{ padding:60, textAlign:"center", color:"#6c7a86" }}>
+                  {search ? "No invoices match your search." : "No export invoices saved yet."}
+                </div>
+              ) : filtered.map(inv => {
+                const isSel = si?._id?.toString()===inv._id?.toString();
+                return (
+                  <div key={inv._id}
+                    onClick={() => setSelectedInvoice(isSel ? null : inv)}
+                    style={{ display:"flex", alignItems:"start", gap:12, padding:"14px 22px",
+                             borderBottom:"1px solid #f1f3f5", cursor:"pointer",
+                             background:isSel?"#eff6ff":"#fff",
+                             borderLeft:isSel?"4px solid #2e5496":"4px solid transparent" }}>
+                    <div style={{ flex:1, minWidth:0 }}>
+                      <div style={{ display:"flex", alignItems:"center", gap:8, marginBottom:2 }}>
+                        <span style={{ fontWeight:700, fontSize:13, color:"#2e5496", fontFamily:"monospace" }}>{inv.invoice_no}</span>
+                        <span style={{ fontSize:11, color:"#9ca3af" }}>{fmtD(inv.inv_date||inv.createdAt)}</span>
+                      </div>
+                      <p style={{ margin:"0 0 2px", fontSize:13, fontWeight:600, color:"#16232e" }}>{inv.cust_name||"—"}</p>
+                      <p style={{ margin:0, fontSize:12, color:"#6c7a86" }}>
+                        {inv.currency==="Other"?(inv.cur_other||""):inv.currency} {fmtN(inv.total||0)}
+                      </p>
+                    </div>
+                    <ExportInvoiceActions invoice={inv} token={token}
+                      onDeleted={handleDeleted} onEdit={i => setEditingInvoice(i)}
+                      onDownload={onDownload} downloadingId={downloadingId} />
+                  </div>
+                );
+              })}
+            </div>
+
+            {/* detail panel */}
+            {si && (
+              <div style={{ flex:1, overflowY:"auto", background:"#fafbfc", padding:20 }}>
+                <div style={{ display:"flex", justifyContent:"space-between", alignItems:"center", marginBottom:14 }}>
+                  <h3 style={{ margin:0, fontSize:15, fontWeight:700, color:"#16232e" }}>Invoice Details</h3>
+                  <button onClick={() => setSelectedInvoice(null)} style={{ background:"none", border:"none", cursor:"pointer", fontSize:20, color:"#9ca3af" }}>×</button>
+                </div>
+
+                {/* action buttons */}
+                <div style={{ display:"flex", gap:8, marginBottom:14 }}>
+                  <button onClick={() => setEditingInvoice(si)}
+                    style={{ flex:1, padding:"9px", border:"1px solid #fde68a", borderRadius:8, background:"#fef3c7", color:"#92400e", fontWeight:700, fontSize:13, cursor:"pointer", fontFamily:"inherit", display:"flex", alignItems:"center", justifyContent:"center", gap:5 }}>
+                    ✏️ Edit
+                  </button>
+                  <button onClick={() => onDownload(si)} disabled={!!downloadingId}
+                    style={{ flex:1, padding:"9px", border:"1px solid #bfdbfe", borderRadius:8, background:"#eff6ff", color:"#1d4ed8", fontWeight:700, fontSize:13, cursor:"pointer", fontFamily:"inherit", display:"flex", alignItems:"center", justifyContent:"center", gap:5, opacity:downloadingId?0.55:1 }}>
+                    {downloadingId===si._id.toString() ? "Generating…" : "⬇ Download PDF"}
+                  </button>
+                </div>
+
+                {/* meta card */}
+                <div style={{ background:"#fff", border:"1px solid #e5e9ed", borderRadius:10, padding:"13px 16px", marginBottom:10 }}>
+                  {[["Invoice No",si.invoice_no,true],["Date",fmtD(si.inv_date)],["Currency",si.currency==="Other"?si.cur_other:si.currency],["Payment Due",si.pay_due],["PO No.",si.po_no],["Destination",si.dest]]
+                    .filter(([,v]) => v)
+                    .map(([l,val,mono]) => (
+                      <div key={l} style={{ display:"flex", justifyContent:"space-between", fontSize:13, padding:"3px 0", borderBottom:"1px solid #f9fafb" }}>
+                        <span style={{ color:"#6c7a86", fontWeight:500 }}>{l}</span>
+                        <span style={{ fontWeight:600, color:"#16232e", fontFamily:mono?"monospace":"inherit" }}>{val}</span>
+                      </div>
+                    ))}
+                </div>
+
+                {/* customer card */}
+                <div style={{ background:"#fff", border:"1px solid #e5e9ed", borderRadius:10, padding:"13px 16px", marginBottom:10 }}>
+                  <p style={{ margin:"0 0 8px", fontSize:10, fontWeight:700, color:"#9ca3af", textTransform:"uppercase", letterSpacing:".08em" }}>Customer</p>
+                  <p style={{ margin:"0 0 3px", fontSize:13, fontWeight:700, color:"#16232e" }}>{si.cust_name||"—"}</p>
+                  {si.addr && <p style={{ margin:"0 0 2px", fontSize:12, color:"#6c7a86", whiteSpace:"pre-line" }}>{si.addr}</p>}
+                  {si.city_state && <p style={{ margin:"0 0 2px", fontSize:12, color:"#6c7a86" }}>{si.city_state}</p>}
+                  {si.country && <p style={{ margin:"0 0 2px", fontSize:12, color:"#6c7a86" }}>{si.country}</p>}
+                  {si.email && <p style={{ margin:"0 0 2px", fontSize:12, color:"#6c7a86" }}>{si.email}</p>}
+                  {si.taxid && <p style={{ margin:0, fontSize:11, color:"#9ca3af" }}>Tax ID: {si.taxid}</p>}
+                </div>
+
+                {/* LUT card */}
+                <div style={{ background:"#fff", border:"1px solid #e5e9ed", borderRadius:10, padding:"13px 16px", marginBottom:10 }}>
+                  <p style={{ margin:"0 0 8px", fontSize:10, fontWeight:700, color:"#9ca3af", textTransform:"uppercase", letterSpacing:".08em" }}>Export / LUT Details</p>
+                  {[["LUT FY",si.lut_fy],["Filing Date",si.lut_date],["ARN / Ref",si.lut_arn],["Place of Filing",si.place_filing],["Place of Supply",si.place_supply],["Nature of Supply",si.nature_supply],["IGST",si.igst]]
+                    .filter(([,v]) => v).map(([l,val]) => (
+                      <div key={l} style={{ display:"flex", justifyContent:"space-between", fontSize:12, padding:"2px 0" }}>
+                        <span style={{ color:"#6c7a86" }}>{l}</span><span style={{ fontWeight:600, color:"#16232e" }}>{val}</span>
+                      </div>
+                    ))}
+                </div>
+
+                {/* items card */}
+                {si.items?.length>0 && (
+                  <div style={{ background:"#fff", border:"1px solid #e5e9ed", borderRadius:10, overflow:"hidden", marginBottom:10 }}>
+                    <p style={{ margin:0, padding:"10px 14px 6px", fontSize:10, fontWeight:700, color:"#9ca3af", textTransform:"uppercase", letterSpacing:".08em" }}>Line Items</p>
+                    <table style={{ width:"100%", borderCollapse:"collapse", fontSize:12 }}>
+                      <thead>
+                        <tr style={{ background:"#f9fafb", borderTop:"1px solid #f1f3f5", borderBottom:"1px solid #f1f3f5" }}>
+                          <th style={{ textAlign:"left", padding:"6px 14px", fontWeight:600, color:"#6c7a86" }}>Description</th>
+                          <th style={{ textAlign:"center", padding:"6px 6px", fontWeight:600, color:"#6c7a86", width:40 }}>Qty</th>
+                          <th style={{ textAlign:"right", padding:"6px 14px", fontWeight:600, color:"#6c7a86", width:90 }}>Amount</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {si.items.map((it,i) => (
+                          <tr key={i} style={{ borderBottom:"1px solid #f9fafb" }}>
+                            <td style={{ padding:"7px 14px", lineHeight:1.4 }}>
+                              {it.svc_desc && <div style={{ fontSize:12, fontWeight:600, color:"#374151" }}>{it.svc_desc}</div>}
+                              {it.proj_ref && <div style={{ fontSize:11, color:"#9ca3af" }}>{it.proj_ref}</div>}
+                              {it.sac      && <div style={{ fontSize:10, color:"#9ca3af" }}>SAC: {it.sac}</div>}
+                            </td>
+                            <td style={{ padding:"7px 6px", textAlign:"center", color:"#374151" }}>{it.qty}</td>
+                            <td style={{ padding:"7px 14px", textAlign:"right", fontWeight:600, color:"#16232e" }}>
+                              {fmtN((parseFloat(it.qty)||0)*(parseFloat(it.rate)||0))}
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                )}
+
+                {/* totals card */}
+                <div style={{ background:"#fff", border:"1px solid #e5e9ed", borderRadius:10, padding:"13px 16px" }}>
+                  {[["Subtotal",fmtN(si.subtotal)],["IGST","NIL"],si.roundoff>0?["Round Off",fmtN(si.roundoff)]:null]
+                    .filter(Boolean).map(([l,val]) => (
+                      <div key={l} style={{ display:"flex", justifyContent:"space-between", fontSize:13, padding:"3px 0" }}>
+                        <span style={{ color:"#6c7a86" }}>{l}</span><span style={{ fontWeight:600 }}>{val}</span>
+                      </div>
+                    ))}
+                  <div style={{ display:"flex", justifyContent:"space-between", borderTop:"1px solid #e5e9ed", marginTop:6, paddingTop:8, fontWeight:700, fontSize:14 }}>
+                    <span style={{ color:"#16232e" }}>Total</span>
+                    <span style={{ color:"#2e5496" }}>{siCur} {fmtN(si.total||0)}</span>
+                  </div>
+                  {si.amount_in_words && <p style={{ margin:"5px 0 0", fontSize:11, color:"#9ca3af", fontStyle:"italic" }}>{si.amount_in_words}</p>}
                 </div>
               </div>
-              <div style={{ display:"flex", gap:8, flexShrink:0 }}>
-                <button onClick={() => onDownload(inv)} disabled={!!downloadingId}
-                  style={{ ...s, fontSize:12, fontWeight:700, padding:"6px 14px", borderRadius:7,
-                           border:"1px solid #bfdbfe", background:"#eff6ff", color:"#1d4ed8",
-                           cursor: downloadingId ? "not-allowed" : "pointer",
-                           opacity: downloadingId ? 0.55 : 1 }}>
-                  {downloadingId === inv._id.toString() ? "…" : "PDF"}
-                </button>
-                <button onClick={() => handleDelete(inv)} disabled={deleting === inv._id.toString()}
-                  style={{ ...s, fontSize:12, fontWeight:700, padding:"6px 14px", borderRadius:7,
-                           border:"1px solid #fecaca", background:"#fef2f2", color:"#b91c1c",
-                           cursor:"pointer" }}>
-                  {deleting === inv._id.toString() ? "…" : "Delete"}
-                </button>
-              </div>
-            </div>
-          ))}
-        </div>
+            )}
+          </div>
 
-        {/* footer */}
-        <div style={{ display:"flex", justifyContent:"space-between", alignItems:"center",
-                      padding:"10px 28px", borderTop:"1px solid #eef0f2" }}>
-          <span style={{ fontSize:12, color:"#6c7a86" }}>{filtered.length} of {invoices.length} shown</span>
-          <button onClick={fetchInvoices}
-            style={{ ...s, fontSize:12, fontWeight:600, color:"#2e5496", background:"none",
-                     border:"none", cursor:"pointer" }}>
-            Refresh
-          </button>
-        </div>
+          {/* footer */}
+          <div style={{ display:"flex", justifyContent:"space-between", alignItems:"center", padding:"10px 28px", borderTop:"1px solid #eef0f2" }}>
+            <p style={{ margin:0, fontSize:12, color:"#9ca3af" }}>{filtered.length} of {invoices.length} shown</p>
+            <button onClick={fetchInvoices} style={{ fontSize:12, fontWeight:600, color:"#2e5496", background:"none", border:"none", cursor:"pointer", fontFamily:"inherit" }}>Refresh</button>
+          </div>
 
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 
-// Stand-alone bank details + signature page — rendered as page 2 when there
-// are 2 or more line items and the invoice content doesn't fit on one page.
 function ExportInvoiceBankPage() {
   return (
     <div style={{

@@ -170,58 +170,151 @@ const downloadBlob = (blob, filename) => {
   setTimeout(() => URL.revokeObjectURL(url), 4000);
 };
 
-export const generatePDF = async (element, invoiceNumber) => {
-  if (!element) {
+export const generatePDF = async (elementOrElements, invoiceNumber, { pageWidth } = {}) => {
+  // Normalise: accept a single element or an array of elements.
+  // Each element in the array becomes its own section in the PDF.
+  const elements = (Array.isArray(elementOrElements)
+    ? elementOrElements
+    : [elementOrElements]
+  ).filter(Boolean);
+
+  if (!elements.length) {
     console.error('Element not found for PDF generation');
     return;
   }
 
   try {
-    // Make sure the logo, signature and fonts are fully ready BEFORE capture.
+    const filename = `Invoice_${invoiceNumber.replace(/\//g, '_')}.pdf`;
+
+    // ── Multi-page PDF (Export Invoice) ──────────────────────────────────────
+    // When pageWidth is supplied, capture EACH element separately and add it
+    // to the PDF. Within each element, a smart page-break scan prevents rows
+    // from being cut mid-pixel. The array approach lets the caller explicitly
+    // decide what goes on page 1 vs page 2 (e.g. invoice vs bank details).
+    if (pageWidth) {
+      const A4_H_MM = (297 / 210) * pageWidth;  // 297 mm for pageWidth = 210
+
+      const pdf = new jsPDF({
+        orientation: 'portrait',
+        unit: 'mm',
+        format: 'a4',
+        putOnlyUsedFonts: true,
+        compress: true,
+      });
+
+      let firstPage = true;
+
+      for (const el of elements) {
+        // Wait for assets, then pre-inline images (same as single-page path).
+        await waitForAssets(el);
+        const imageMap = await buildImageMap(el);
+        const w = el.offsetWidth;
+        const h = el.offsetHeight;
+
+        let scale = 3;
+        if (isSafari()) {
+          const MAX_AREA = 4.8e6;
+          const fit = Math.sqrt(MAX_AREA / Math.max(1, w * h));
+          scale = Math.max(1.5, Math.min(2.5, fit));
+        }
+
+        // Warm-up passes (settle layout before the real capture).
+        for (let i = 0; i < 2; i++) {
+          try {
+            const warm = await renderCanvas(el, 1, imageMap, w, h);
+            disposeCanvas(warm);
+            await nextPaint();
+          } catch { /* ignore */ }
+        }
+
+        const canvas = await renderCanvas(el, scale, imageMap, w, h);
+        const pageHtPx = Math.round(canvas.width * (297 / 210));
+        const ctx2d = canvas.getContext('2d');
+
+        // Scan backwards from nearY to find a row with no dark content
+        // (< 3% of pixels dark), avoiding cuts through text or borders.
+        const findCleanBreak = (nearY) => {
+          const scanPx    = Math.round(pageHtPx * 0.10);
+          const darkLimit = Math.round(canvas.width * 0.03);
+          for (let y = nearY; y >= Math.max(0, nearY - scanPx); y--) {
+            const row = ctx2d.getImageData(0, y, canvas.width, 1).data;
+            let dark = 0;
+            for (let i = 0; i < row.length; i += 4) {
+              if (row[i] < 160 && row[i + 1] < 160 && row[i + 2] < 160)
+                if (++dark > darkLimit) break;
+            }
+            if (dark <= darkLimit) return y;
+          }
+          return nearY;
+        };
+
+        // Build page slices for this element.
+        const pages = [];
+        let startY = 0;
+        while (startY < canvas.height) {
+          const rawEnd  = startY + pageHtPx;
+          const breakAt = rawEnd >= canvas.height
+            ? canvas.height
+            : findCleanBreak(rawEnd);
+          pages.push({ start: startY, end: breakAt });
+          startY = breakAt;
+        }
+
+        for (const { start, end } of pages) {
+          if (!firstPage) pdf.addPage();
+          firstPage = false;
+
+          const sliceH = end - start;
+          const slice  = document.createElement('canvas');
+          slice.width  = canvas.width;
+          slice.height = pageHtPx;
+          const ctx = slice.getContext('2d');
+          ctx.fillStyle = '#ffffff';
+          ctx.fillRect(0, 0, slice.width, slice.height);
+          ctx.drawImage(
+            canvas,
+            0, start, canvas.width, sliceH,
+            0, 0,     canvas.width, sliceH,
+          );
+          pdf.addImage(slice.toDataURL('image/png'), 'PNG', 0, 0, pageWidth, A4_H_MM);
+        }
+      }
+
+      try {
+        const blob = pdf.output('blob');
+        downloadBlob(blob, filename);
+      } catch {
+        pdf.save(filename);
+      }
+      console.log(`PDF generated: ${filename}`);
+      return;
+    }
+
+    // ── Single-page PDF (Receipt — original behaviour, completely unchanged) ──
+    const element = elements[0];
     await waitForAssets(element);
-
-    // Pre-inline all images as data URLs so nothing has to be fetched *during*
-    // the html2canvas capture — a big reason the first PDF came out broken.
     const imageMap = await buildImageMap(element);
-
-    const width = element.offsetWidth;
+    const width  = element.offsetWidth;
     const height = element.offsetHeight;
 
-    // Keep Chrome at scale 3 (unchanged output). On Safari, cap the scale so
-    // the canvas stays under Safari's silent area limit — otherwise it returns
-    // a truncated/blank capture. Structure/layout is identical either way;
-    // only the raster sharpness changes very slightly on Safari.
     let scale = 3;
     if (isSafari()) {
-      const MAX_AREA = 4.8e6; // safe even for constrained iOS/iPad Safari
+      const MAX_AREA = 4.8e6;
       const fit = Math.sqrt(MAX_AREA / Math.max(1, width * height));
       scale = Math.max(1.5, Math.min(2.5, fit));
     }
 
-    // ── Warm-up passes ───────────────────────────────────────────────────────
-    // On high-DPI Retina displays (e.g. the M4 Pro's Liquid Retina XDR), the
-    // VERY FIRST html2canvas pass on a freshly-mounted invoice occasionally
-    // snapshots before the layout has fully settled and every inlined image has
-    // decoded — producing a warped first PDF that "fixes itself" only on the
-    // 2nd/3rd click. We run a couple of cheap throwaway passes at scale 1 here
-    // to force that settling up front, so the REAL capture below is correct on
-    // the user's very first click. Low-DPI screens settle instantly, so this is
-    // a no-op there other than a brief delay.
     for (let i = 0; i < 2; i++) {
       try {
         const warm = await renderCanvas(element, 1, imageMap, width, height);
         disposeCanvas(warm);
         await nextPaint();
-      } catch { /* warm-up failures never block the real capture */ }
+      } catch { /* ignore */ }
     }
 
-    // ── Real capture ─────────────────────────────────────────────────────────
     const canvas = await renderCanvas(element, scale, imageMap, width, height);
-
-    // Get image data from canvas
     const imgData = canvas.toDataURL('image/png');
 
-    // Create PDF in A4 size
     const pdf = new jsPDF({
       orientation: 'portrait',
       unit: 'mm',
@@ -230,33 +323,17 @@ export const generatePDF = async (element, invoiceNumber) => {
       compress: true,
     });
 
-    // Page placement — kept exactly as before so the Chrome output is unchanged.
-    const pdfWidth = 271;
-    const pdfHeight = 316;
+    pdf.addImage(imgData, 'PNG', 0, 0, 271, 316);
 
-    // Add image to PDF - fit exactly to A4
-    pdf.addImage(
-      imgData,
-      'PNG',
-      0,  // x position
-      0,  // y position
-      pdfWidth,  // width - full A4 width
-      pdfHeight  // height - full A4 height
-    );
-
-    // Generate filename
-    const filename = `Invoice_${invoiceNumber.replace(/\//g, '_')}.pdf`;
-
-    // Save PDF via a Blob download (consistent across Chrome & Safari).
     try {
       const blob = pdf.output('blob');
       downloadBlob(blob, filename);
     } catch {
-      // Fallback to jsPDF's built-in save if Blob output is unavailable.
       pdf.save(filename);
     }
 
     console.log(`PDF generated successfully: ${filename}`);
+
   } catch (error) {
     console.error('Error generating PDF:', error);
     alert('Failed to generate PDF. Please try again.');

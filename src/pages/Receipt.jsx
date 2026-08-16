@@ -970,10 +970,38 @@ export function Receipt() {
     return (result + " only").replace(/\s+/g, " ");
   };
 
-  const calculateTotals = (items, cP, sP, iP, gstType) => {
+  // calculateTotals normally derives GST + total from the line items and rates.
+  //
+  // `lock` is an optional override set by "Calculate & Apply GST from Advance":
+  //   { total, gst }  where total is the whole-rupee amount received and gst is
+  //   the GST that reconciles to it (total = subtotal + gst, to the paise).
+  // When a lock is active we pin the total to the requested whole rupee and set
+  // GST = total − subtotal, so the receipt reads e.g. exactly ₹15,000 instead of
+  // ₹14,999.99. The GST value absorbs the ±1 paise rounding remainder so the
+  // three lines (subtotal + GST = total) always add up on the face of the invoice.
+  const calculateTotals = (items, cP, sP, iP, gstType, lock) => {
     const r2 = (x) => Math.round((x + Number.EPSILON) * 100) / 100;
+    const r3 = (x) => Math.round((x + Number.EPSILON) * 1000) / 1000;
     if (!items || !Array.isArray(items)) return { subtotal: 0, cgst: 0, sgst: 0, igst: 0, total: 0 };
     const subtotal = r2(items.reduce((s, i) => s + (parseFloat(i.qty) || 0) * (parseFloat(i.rate) || 0), 0));
+
+    // ── Locked path: pin the total, reconcile GST to it ────────────────
+    const lockedTotal = lock ? r2(parseFloat(lock.total) || 0) : 0;
+    if (lock && lockedTotal > 0) {
+      const gstTotal = r2(lockedTotal - subtotal);
+      if (gstTotal >= 0) {
+        if (gstType === "inter") {
+          return { subtotal, cgst: 0, sgst: 0, igst: gstTotal, total: lockedTotal };
+        }
+        const cgst = r3(gstTotal / 2);
+        const sgst = r3(gstTotal - cgst);
+        return { subtotal, cgst, sgst, igst: 0, total: lockedTotal };
+      }
+      // subtotal already exceeds the locked total (items were edited up) → fall
+      // through to normal recompute so we never show a negative GST.
+    }
+
+    // ── Normal path: derive GST from the rates ─────────────────────────
     let cgst = 0, sgst = 0, igst = 0;
     if (gstType === "inter") {
       igst = r2(subtotal * ((parseFloat(iP) || 0) / 100));
@@ -983,7 +1011,6 @@ export function Receipt() {
       // Split GST across CGST/SGST by their percentages, keeping half-paise so
       // equal rates (the normal case) produce two identical halves (e.g. both
       // ₹114.405) that still sum to the total GST exactly — no ₹x.41 / ₹x.40 gap.
-      const r3 = (x) => Math.round((x + Number.EPSILON) * 1000) / 1000;
       const cgstRaw = totalPct > 0 ? (gstTotal * cP2) / totalPct : 0;
       cgst = r3(cgstRaw);
       sgst = r3(gstTotal - cgstRaw);
@@ -1018,9 +1045,14 @@ export function Receipt() {
   const inr3 = (n) => Number(n || 0).toLocaleString("en-IN", { minimumFractionDigits: 2, maximumFractionDigits: 3 });
 
   const handleSubmit = async (values, { setSubmitting, resetForm }) => {
+    // Honor a pinned whole-rupee total (from "Calculate & Apply") so the saved
+    // receipt matches the on-screen preview exactly.
+    const activeLock = values.locked_total !== "" && values.locked_total != null
+      ? { total: values.locked_total }
+      : undefined;
     const { subtotal, cgst, sgst, igst, total } = calculateTotals(
       values.items, values.cgst_percentage, values.sgst_percentage,
-      values.igst_percentage, values.gst_type
+      values.igst_percentage, values.gst_type, activeLock
     );
     const invoiceNumber = generateInvoiceNumber(nextInvoiceSerial);
     const formData = {
@@ -1130,14 +1162,24 @@ export function Receipt() {
             gst_type: "intra",
             advance_received: "", advance_rate: 18, advance_mode: "intra", advance_amount_type: "inclusive",
             advance_target_items: [],
+            // Set by "Calculate & Apply GST from Advance" to pin the receipt total
+            // to the whole-rupee amount received. Empty string = no lock (normal
+            // rate-based recompute). Cleared automatically when line items change.
+            locked_total: "",
           }}
           validationSchema={validationSchema}
           onSubmit={handleSubmit}
         >
           {({ values, errors, touched, isSubmitting, setFieldValue }) => {
+            // A non-empty locked_total pins the receipt total to the whole-rupee
+            // amount received (set by "Calculate & Apply"); otherwise GST/total
+            // recompute normally from the rates.
+            const activeLock = values.locked_total !== "" && values.locked_total != null
+              ? { total: values.locked_total }
+              : undefined;
             const { subtotal, cgst, sgst, igst, total } = calculateTotals(
               values.items || [], values.cgst_percentage, values.sgst_percentage,
-              values.igst_percentage, values.gst_type
+              values.igst_percentage, values.gst_type, activeLock
             );
 
             // ── Live preview data ─────────────────────────────────────
@@ -1273,7 +1315,7 @@ export function Receipt() {
                             {values.items.map((item, index) => (
                               <div key={index} className="bg-white border border-gray-300 rounded-lg p-6 relative">
                                 {values.items.length > 1 && (
-                                  <button type="button" onClick={() => remove(index)}
+                                  <button type="button" onClick={() => { remove(index); if (values.locked_total !== "") setFieldValue("locked_total", ""); }}
                                     className="absolute top-4 right-4 text-red-600 hover:text-red-800 hover:bg-red-50 p-2 rounded-full transition">
                                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
@@ -1290,11 +1332,13 @@ export function Receipt() {
                                   <div className="grid grid-cols-3 gap-4">
                                     <div>
                                       <label className="block text-sm font-semibold text-gray-700 mb-2">Quantity *</label>
-                                      <Field type="text" inputMode="decimal" name={`items.${index}.qty`} min="1" className={ic} placeholder="Qty" />
+                                      <Field type="text" inputMode="decimal" name={`items.${index}.qty`} min="1" className={ic} placeholder="Qty"
+                                        onInput={() => { if (values.locked_total !== "") setFieldValue("locked_total", ""); }} />
                                     </div>
                                     <div>
                                       <label className="block text-sm font-semibold text-gray-700 mb-2">Rate (₹) *</label>
-                                      <Field type="text" inputMode="decimal" name={`items.${index}.rate`} min="0" step="0.01" className={ic} placeholder="Rate" />
+                                      <Field type="text" inputMode="decimal" name={`items.${index}.rate`} min="0" step="0.01" className={ic} placeholder="Rate"
+                                        onInput={() => { if (values.locked_total !== "") setFieldValue("locked_total", ""); }} />
                                     </div>
                                     <div>
                                       <label className="block text-sm font-semibold text-gray-700 mb-2">Amount</label>
@@ -1306,7 +1350,7 @@ export function Receipt() {
                                 </div>
                               </div>
                             ))}
-                            <button type="button" onClick={() => push({ description: "", qty: "", rate: "" })}
+                            <button type="button" onClick={() => { push({ description: "", qty: "", rate: "" }); if (values.locked_total !== "") setFieldValue("locked_total", ""); }}
                               className="w-full bg-blue-50 hover:bg-blue-100 text-blue-600 font-semibold py-3 px-6 rounded-lg transition border-2 border-dashed border-blue-300 flex items-center justify-center gap-2">
                               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
@@ -1427,7 +1471,11 @@ export function Receipt() {
 
                       {values.advance_amount_type === "inclusive" ? (
                         (() => {
-                          const adv = reverseGstFromInclusive(values.advance_received, values.advance_rate, values.advance_mode);
+                          // Round the received amount to a whole rupee first so the
+                          // breakdown preview matches the final invoice total exactly
+                          // (no ₹x.99 drift after Calculate & Apply).
+                          const roundedAmt = Math.round(parseFloat(values.advance_received) || 0);
+                          const adv = reverseGstFromInclusive(roundedAmt, values.advance_rate, values.advance_mode);
                           if (adv.amount <= 0) return null;
                           return (
                             <div className="mt-5 bg-white border border-amber-200 rounded-lg p-4">
@@ -1444,7 +1492,8 @@ export function Receipt() {
                         })()
                       ) : (
                         (parseFloat(values.advance_received) || 0) > 0 && (() => {
-                          const exBase = parseFloat(values.advance_received) || 0;
+                          // Round the base to a whole rupee so the total lands clean.
+                          const exBase = Math.round(parseFloat(values.advance_received) || 0);
                           const exRate = parseFloat(values.advance_rate) || 0;
                           const exGst = exBase * exRate / 100;
                           const exTotal = exBase + exGst;
@@ -1478,14 +1527,17 @@ export function Receipt() {
                           const round2 = (x) => Math.round((x + Number.EPSILON) * 100) / 100;
 
                           // Resolve the taxable base amount (and GST rate, for inclusive mode) from the advance.
+                          // The received amount is first rounded to a whole rupee so that base + GST lands on a
+                          // clean total and the final invoice doesn't drift to e.g. ₹14,999.99.
                           let base, rate;
                           if (values.advance_amount_type === "exclusive") {
-                            base = amt;
+                            base = Math.round(amt);
                             rate = null;
                           } else {
-                            const adv = reverseGstFromInclusive(amt, values.advance_rate || 18, values.advance_mode);
-                            base = adv.base;
-                            rate = parseFloat(values.advance_rate) || 18;
+                            const roundedAmt = Math.round(amt);
+                            const r = parseFloat(values.advance_rate) || 18;
+                            rate = r;
+                            base = round2((roundedAmt * 100) / (100 + r));
                           }
 
                           const targetIdxs = (values.advance_target_items || [])
@@ -1542,6 +1594,20 @@ export function Receipt() {
                             setFieldValue("cgst_percentage", applyRate / 2);
                             setFieldValue("sgst_percentage", applyRate / 2);
                           }
+
+                          // Pin the receipt total to the whole-rupee amount received.
+                          // Inclusive: the rounded amount received IS the target total.
+                          // Exclusive: target = base + GST at the chosen rate, rounded.
+                          // The summary/preview/PDF read this lock so the total shows
+                          // exactly (e.g. ₹15,000) instead of drifting to ₹14,999.99;
+                          // GST absorbs the ±1 paise remainder so subtotal + GST = total.
+                          let lockedTotal;
+                          if (values.advance_amount_type === "exclusive") {
+                            lockedTotal = round2(base + base * (applyRate / 100));
+                          } else {
+                            lockedTotal = Math.round(amt);
+                          }
+                          setFieldValue("locked_total", lockedTotal);
                         }}
                         className="flex-1 bg-amber-600 hover:bg-amber-700 text-white font-semibold py-3 px-6 rounded-lg transition shadow-sm hover:shadow-md flex items-center justify-center gap-2"
                       >

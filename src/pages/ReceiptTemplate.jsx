@@ -235,7 +235,7 @@ export default function ReceiptTemplate({ data }) {
 
         {/* Thank You with Geometric Design */}
         {/* pr-[60px] keeps the signature off the page edge (matches the gutter). */}
-        <div className="pt-6 pr-[60px]">
+        <div className="pt-6 ">
           <img
             src="/images/signature.webp"
             className="w-[325px]"

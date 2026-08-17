@@ -836,6 +836,43 @@ export function Receipt() {
   const [clientSuggestions, setClientSuggestions] = useState([]);
   const receiptRef = useRef();
 
+  // ── Live-preview scaling ────────────────────────────────────────────
+  // The preview document is rendered at its true 210mm (~793px) width so it
+  // matches the generated PDF exactly. That's often wider than the preview
+  // pane itself (especially with the 560px form pane taking up space), so we
+  // measure the pane and scale the document down to fit — instead of letting
+  // it get silently clipped by `overflow` at native size. previewDocRef holds
+  // the actual A4-width node so we can read its real (unscaled) height and
+  // reserve that height, scaled, on the wrapper — otherwise the CSS transform
+  // would leave a tall blank gap (or a clipped scrollbar) below the shrunk doc.
+  const previewPaneRef = useRef(null);
+  const previewDocRef = useRef(null);
+  const [previewScale, setPreviewScale] = useState(1);
+  const [previewDocHeight, setPreviewDocHeight] = useState(0);
+
+  useEffect(() => {
+    const paneEl = previewPaneRef.current;
+    const docEl = previewDocRef.current;
+    if (!paneEl || !docEl) return;
+
+    const PANE_PADDING = 48; // 24px padding on each side (see .rcpt-preview-pane)
+
+    const recompute = () => {
+      const availableWidth = paneEl.clientWidth - PANE_PADDING;
+      const docWidth = docEl.offsetWidth || 1;
+      const nextScale = Math.min(1, availableWidth / docWidth);
+      setPreviewScale(nextScale > 0 ? nextScale : 1);
+      setPreviewDocHeight(docEl.offsetHeight);
+    };
+
+    recompute();
+
+    const ro = new ResizeObserver(recompute);
+    ro.observe(paneEl);
+    ro.observe(docEl);
+    return () => ro.disconnect();
+  }, []);
+
   const { token, logout, user, loading: authLoading } = useAuth();
   useEffect(() => {
     // Wait until AuthContext has finished restoring the session from localStorage
@@ -1654,11 +1691,21 @@ export function Receipt() {
             {/* ─────────────── RIGHT: LIVE PREVIEW PANE ───────────────
                 Rendered inside the Formik render-prop so it can read the
                 current values. The A4 document keeps its true 210mm width
-                internally so the on-screen preview matches the generated PDF. */}
-            <div className="rcpt-preview-pane">
-              <div className="rcpt-scaler">
-                <div className="rcpt-preview-doc">
-                  <ReceiptTemplate data={livePreviewData} />
+                internally so the on-screen preview matches the generated PDF;
+                previewDocRef/previewScale (measured above via ResizeObserver)
+                shrink it to fit the pane instead of letting the right edge get
+                clipped, and the outer wrapper reserves scaled height so no
+                blank gap is left below the shrunk document. */}
+            <div className="rcpt-preview-pane" ref={previewPaneRef}>
+              <div
+                style={{
+                  height: previewDocHeight ? previewDocHeight * previewScale : undefined,
+                }}
+              >
+                <div className="rcpt-scaler" style={{ transform: `scale(${previewScale})` }}>
+                  <div className="rcpt-preview-doc" ref={previewDocRef}>
+                    <ReceiptTemplate data={livePreviewData} />
+                  </div>
                 </div>
               </div>
             </div>

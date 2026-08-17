@@ -30,7 +30,7 @@ export default function ReceiptTemplate({ data }) {
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
         width: "210mm",
-        minHeight: "297mm",
+        height: "297mm",
         fontFamily: "Arial, sans-serif",
         boxSizing: "border-box",
         padding: 0,

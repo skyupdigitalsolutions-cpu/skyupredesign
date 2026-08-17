@@ -33,6 +33,7 @@ export default function ReceiptTemplate({ data }) {
         minHeight: "297mm",
         fontFamily: "Arial, sans-serif",
         boxSizing: "border-box",
+        overflow: "hidden", // clip nothing beyond 210mm from bleeding into the PDF capture
         padding: 0,
         margin: 0,
         display: "block",
@@ -113,95 +114,93 @@ export default function ReceiptTemplate({ data }) {
           (was px-4 sm:px-6 lg:px-8 → 32px at desktop; now 60px each side). */}
       <div className="mb-5 px-[60px] min-h-[410px]">
         <table
-  style={{
-    width: "100%",
-    tableLayout: "fixed",
-    borderCollapse: "collapse",
-    textAlign: "center",
-  }}
->
-  <thead>
-    <tr style={{ backgroundColor: "#fed7aa" }}>
-      <th style={{ border: "1px solid #2b2b2b", padding: "8px 6px", width: "8%" }}>SL.No.</th>
-      <th style={{ border: "1px solid #2b2b2b", padding: "8px 6px", width: "40%" }}>Description</th>
-      <th style={{ border: "1px solid #2b2b2b", padding: "8px 6px", width: "12%" }}>Tax Rate</th>
-      <th style={{ border: "1px solid #2b2b2b", padding: "8px 6px", width: "10%" }}>Qty</th>
-      <th style={{ border: "1px solid #2b2b2b", padding: "8px 6px", width: "15%" }}>Rate</th>
-      <th style={{ border: "1px solid #2b2b2b", padding: "8px 6px", width: "15%" }}>Amount</th>
-    </tr>
-  </thead>
-  <tbody>
-    {data.items &&
-      (() => {
-        let itemCounter = 0;
-        return data.items.map((item, index) => {
-          const isAdvance = (item.description || "").trim() === "Advance Received";
-          if (!isAdvance) itemCounter += 1;
-          return (
-            <tr key={index}>
-              <td style={{ border: "1px solid #2b2b2b", padding: "8px 6px" }}>{index + 1}</td>
-              <td style={{ border: "1px solid #2b2b2b", padding: "8px 6px", whiteSpace: "pre-wrap", wordBreak: "break-word", textAlign: "left" }}>
-                <div style={{ fontWeight: 700, marginBottom: item.description ? "2px" : 0 }}>
-                  {isAdvance ? "Advance Received" : `Item ${itemCounter}`}
-                </div>
-                {!isAdvance && item.description}
-              </td>
-              <td style={{ border: "1px solid #2b2b2b", padding: "8px 6px" }}>18%</td>
-              <td style={{ border: "1px solid #2b2b2b", padding: "8px 6px" }}>{item.qty}</td>
-              <td style={{ border: "1px solid #2b2b2b", padding: "8px 6px" }}>{money(item.rate)}</td>
-              <td style={{ border: "1px solid #2b2b2b", padding: "8px 6px", fontWeight: 700 }}>{money(item.amount)}</td>
+          style={{
+            width: "100%",
+            tableLayout: "fixed",
+            borderCollapse: "collapse",
+            textAlign: "center",
+          }}
+        >
+          <thead>
+            <tr style={{ backgroundColor: "#fed7aa" }}>
+              <th style={{ border: "1px solid #2b2b2b", padding: "8px 6px", width: "8%" }}>SL.No.</th>
+              <th style={{ border: "1px solid #2b2b2b", padding: "8px 6px", width: "40%" }}>Description</th>
+              <th style={{ border: "1px solid #2b2b2b", padding: "8px 6px", width: "12%" }}>Tax Rate</th>
+              <th style={{ border: "1px solid #2b2b2b", padding: "8px 6px", width: "10%" }}>Qty</th>
+              <th style={{ border: "1px solid #2b2b2b", padding: "8px 6px", width: "15%" }}>Rate</th>
+              <th style={{ border: "1px solid #2b2b2b", padding: "8px 6px", width: "15%" }}>Amount</th>
             </tr>
-          );
-        });
-      })()}
+          </thead>
+          <tbody>
+            {data.items &&
+              (() => {
+                let itemCounter = 0;
+                return data.items.map((item, index) => {
+                  const isAdvance = (item.description || "").trim() === "Advance Received";
+                  if (!isAdvance) itemCounter += 1;
+                  return (
+                    <tr key={index}>
+                      <td style={{ border: "1px solid #2b2b2b", padding: "8px 6px" }}>{index + 1}</td>
+                      <td style={{ border: "1px solid #2b2b2b", padding: "8px 6px", whiteSpace: "pre-wrap", wordBreak: "break-word", textAlign: "left" }}>
+                        <div style={{ fontWeight: 700, marginBottom: item.description ? "2px" : 0 }}>
+                          {isAdvance ? "Advance Received" : `Item ${itemCounter}`}
+                        </div>
+                        {!isAdvance && item.description}
+                      </td>
+                      <td style={{ border: "1px solid #2b2b2b", padding: "8px 6px" }}>18%</td>
+                      <td style={{ border: "1px solid #2b2b2b", padding: "8px 6px" }}>{item.qty}</td>
+                      <td style={{ border: "1px solid #2b2b2b", padding: "8px 6px" }}>{money(item.rate)}</td>
+                      <td style={{ border: "1px solid #2b2b2b", padding: "8px 6px", fontWeight: 700 }}>{money(item.amount)}</td>
+                    </tr>
+                  );
+                });
+              })()}
 
-    <tr>
-      <td colSpan="4" style={{ border: "1px solid #2b2b2b", padding: "8px 6px" }}></td>
-      <td style={{ border: "1px solid #2b2b2b", padding: "8px 6px", fontSize: "14px", fontWeight: "500", color: "#374151" }}>Total</td>
-      <td style={{ border: "1px solid #2b2b2b", padding: "8px 6px", fontSize: "14px", color: "#374151" }}>{money(data.subtotal)}</td>
-    </tr>
+            <tr>
+              <td colSpan="4" style={{ border: "1px solid #2b2b2b", padding: "8px 6px" }}></td>
+              <td style={{ border: "1px solid #2b2b2b", padding: "8px 6px", fontSize: "14px", fontWeight: "500", color: "#374151" }}>Total</td>
+              <td style={{ border: "1px solid #2b2b2b", padding: "8px 6px", fontSize: "14px", color: "#374151" }}>{money(data.subtotal)}</td>
+            </tr>
 
-    {data.cgst > 0 && (
-      <tr>
-        <td colSpan="4" style={{ border: "1px solid #2b2b2b", padding: "8px 6px" }}></td>
-        <td style={{ border: "1px solid #2b2b2b", padding: "8px 6px", fontSize: "14px", fontWeight: "500", color: "#374151" }}>{data.cgstLabel || "CGST @ 9%"}</td>
-        <td style={{ border: "1px solid #2b2b2b", padding: "8px 6px", fontSize: "14px", color: "#374151" }}>{money3(data.cgst)}</td>
-      </tr>
-    )}
+            {data.cgst > 0 && (
+              <tr>
+                <td colSpan="4" style={{ border: "1px solid #2b2b2b", padding: "8px 6px" }}></td>
+                <td style={{ border: "1px solid #2b2b2b", padding: "8px 6px", fontSize: "14px", fontWeight: "500", color: "#374151" }}>{data.cgstLabel || "CGST @ 9%"}</td>
+                <td style={{ border: "1px solid #2b2b2b", padding: "8px 6px", fontSize: "14px", color: "#374151" }}>{money3(data.cgst)}</td>
+              </tr>
+            )}
 
-    {data.sgst > 0 && (
-      <tr>
-        <td colSpan="4" style={{ border: "1px solid #2b2b2b", padding: "8px 6px" }}></td>
-        <td style={{ border: "1px solid #2b2b2b", padding: "8px 6px", fontSize: "14px", fontWeight: "500", color: "#374151" }}>{data.sgstLabel || "SGST @ 9%"}</td>
-        <td style={{ border: "1px solid #2b2b2b", padding: "8px 6px", fontSize: "14px", color: "#374151" }}>{money3(data.sgst)}</td>
-      </tr>
-    )}
+            {data.sgst > 0 && (
+              <tr>
+                <td colSpan="4" style={{ border: "1px solid #2b2b2b", padding: "8px 6px" }}></td>
+                <td style={{ border: "1px solid #2b2b2b", padding: "8px 6px", fontSize: "14px", fontWeight: "500", color: "#374151" }}>{data.sgstLabel || "SGST @ 9%"}</td>
+                <td style={{ border: "1px solid #2b2b2b", padding: "8px 6px", fontSize: "14px", color: "#374151" }}>{money3(data.sgst)}</td>
+              </tr>
+            )}
 
-    {data.igst > 0 && (
-      <tr>
-        <td colSpan="4" style={{ border: "1px solid #2b2b2b", padding: "8px 6px" }}></td>
-        <td style={{ border: "1px solid #2b2b2b", padding: "8px 6px", fontSize: "14px", fontWeight: "500", color: "#374151" }}>{data.igstLabel || "IGST @ 18%"}</td>
-        <td style={{ border: "1px solid #2b2b2b", padding: "8px 6px", fontSize: "14px", color: "#374151" }}>{money(data.igst)}</td>
-      </tr>
-    )}
+            {data.igst > 0 && (
+              <tr>
+                <td colSpan="4" style={{ border: "1px solid #2b2b2b", padding: "8px 6px" }}></td>
+                <td style={{ border: "1px solid #2b2b2b", padding: "8px 6px", fontSize: "14px", fontWeight: "500", color: "#374151" }}>{data.igstLabel || "IGST @ 18%"}</td>
+                <td style={{ border: "1px solid #2b2b2b", padding: "8px 6px", fontSize: "14px", color: "#374151" }}>{money(data.igst)}</td>
+              </tr>
+            )}
 
-    <tr style={{ backgroundColor: "#2563eb" }}>
-      <td colSpan="4" style={{ border: "1px solid #1e40af", padding: "8px 6px", fontSize: "14px", color: "white" }}>
-        {data.amount_in_words}
-      </td>
-      <td style={{ border: "1px solid #1e40af", padding: "8px 6px", fontSize: "14px", fontWeight: "bold", color: "white" }}>TOTAL</td>
-      <td style={{ border: "1px solid #1e40af", padding: "8px 6px", fontSize: "14px", fontWeight: "bold", color: "white" }}>{money(data.total)}</td>
-    </tr>
-  </tbody>
-</table>
+            <tr style={{ backgroundColor: "#2563eb" }}>
+              <td colSpan="4" style={{ border: "1px solid #1e40af", padding: "8px 6px", fontSize: "14px", color: "white" }}>
+                {data.amount_in_words}
+              </td>
+              <td style={{ border: "1px solid #1e40af", padding: "8px 6px", fontSize: "14px", fontWeight: "bold", color: "white" }}>TOTAL</td>
+              <td style={{ border: "1px solid #1e40af", padding: "8px 6px", fontSize: "14px", fontWeight: "bold", color: "white" }}>{money(data.total)}</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
 
       {/* Bank Details and Thank You Section */}
       <div className="flex justify-between">
         {/* Bank Details */}
         <div className="flex-1 py-2 px-[60px]">
-          {" "}
-          {/* Added mt-4 to push it up */}
           <div className="font-bold text-sm mb-1">BANK DETAILS</div>
           <div className="text-sm">
             <div>
@@ -231,7 +230,9 @@ export default function ReceiptTemplate({ data }) {
         </div>
 
         {/* Thank You with Geometric Design */}
-        <div className="pt-6">
+        {/* pr-[60px] added so the signature/Managing Director image doesn't hug
+            the page edge and get clipped — matches the 60px gutter everywhere else. */}
+        <div className="pt-6 pr-[60px]">
           <img
             src="/images/signature.webp"
             className="w-[325px]"

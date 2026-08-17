@@ -290,7 +290,7 @@ export const generatePDF = async (elementOrElements, invoiceNumber, { pageWidth 
       return;
     }
 
-    // ── Single-page PDF (Receipt — original behaviour, completely unchanged) ──
+  // ── Single-page PDF (Receipt — original behaviour, completely unchanged) ──
     const element = elements[0];
     await waitForAssets(element);
     const imageMap = await buildImageMap(element);
@@ -323,7 +323,12 @@ export const generatePDF = async (elementOrElements, invoiceNumber, { pageWidth 
       compress: true,
     });
 
-    pdf.addImage(imgData, 'PNG', 0, 0, 271, 316);
+    // Fit the full captured width onto the 210mm A4 page and derive height from
+    // the canvas aspect ratio. Using fixed 271×316 (the old values) placed the
+    // image 61mm wider than the page, so jsPDF clipped the entire right edge.
+    const pageWidthMm = 210;
+    const imgHeightMm = (canvas.height * pageWidthMm) / canvas.width;
+    pdf.addImage(imgData, 'PNG', 0, 0, pageWidthMm, imgHeightMm);
 
     try {
       const blob = pdf.output('blob');

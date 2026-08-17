@@ -202,7 +202,7 @@ export default function ReceiptTemplate({ data }) {
       <div style={{ flex: "1 1 auto" }} />
 
       {/* Bank Details and Thank You Section — pinned to the bottom */}
-      <div className="flex justify-between pb-10">
+      <div className="flex justify-between ">
         {/* Bank Details */}
         <div className="flex-1 py-2 px-[60px]">
           <div className="font-bold text-sm mb-1">BANK DETAILS</div>

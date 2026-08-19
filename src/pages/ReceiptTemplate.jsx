@@ -140,58 +140,58 @@ export default function ReceiptTemplate({ data }) {
                   if (!isAdvance) itemCounter += 1;
                   return (
                     <tr key={index}>
-                      <td style={{ border: "1px solid #2b2b2b", padding: "8px 6px" }}>{index + 1}</td>
-                      <td style={{ border: "1px solid #2b2b2b", padding: "8px 6px", whiteSpace: "pre-wrap", wordBreak: "break-word", textAlign: "left" }}>
+                      <td style={{ border: "1px solid #2b2b2b", padding: "6px 6px" }}>{index + 1}</td>
+                      <td style={{ border: "1px solid #2b2b2b", padding: "6px 6px", whiteSpace: "pre-wrap", wordBreak: "break-word", textAlign: "left" }}>
                         <div style={{ fontWeight: 700, marginBottom: item.description ? "2px" : 0 }}>
                           {isAdvance ? "Advance Received" : `Item ${itemCounter}`}
                         </div>
                         {!isAdvance && item.description}
                       </td>
-                      <td style={{ border: "1px solid #2b2b2b", padding: "8px 6px" }}>18%</td>
-                      <td style={{ border: "1px solid #2b2b2b", padding: "8px 6px" }}>{item.qty}</td>
-                      <td style={{ border: "1px solid #2b2b2b", padding: "8px 6px" }}>{money(item.rate)}</td>
-                      <td style={{ border: "1px solid #2b2b2b", padding: "8px 6px", fontWeight: 700 }}>{money(item.amount)}</td>
+                      <td style={{ border: "1px solid #2b2b2b", padding: "6px 6px" }}>18%</td>
+                      <td style={{ border: "1px solid #2b2b2b", padding: "6px 6px" }}>{item.qty}</td>
+                      <td style={{ border: "1px solid #2b2b2b", padding: "6px 6px" }}>{money(item.rate)}</td>
+                      <td style={{ border: "1px solid #2b2b2b", padding: "6px 6px", fontWeight: 700 }}>{money(item.amount)}</td>
                     </tr>
                   );
                 });
               })()}
 
             <tr>
-              <td colSpan="4" style={{ border: "1px solid #2b2b2b", padding: "8px 6px" }}></td>
-              <td style={{ border: "1px solid #2b2b2b", padding: "8px 6px", fontSize: "14px", fontWeight: "500", color: "#374151" }}>Total</td>
-              <td style={{ border: "1px solid #2b2b2b", padding: "8px 6px", fontSize: "14px", color: "#374151" }}>{money(data.subtotal)}</td>
+              <td colSpan="4" style={{ border: "1px solid #2b2b2b", padding: "6px 6px" }}></td>
+              <td style={{ border: "1px solid #2b2b2b", padding: "6px 6px", fontSize: "14px", fontWeight: "500", color: "#374151" }}>Total</td>
+              <td style={{ border: "1px solid #2b2b2b", padding: "6px 6px", fontSize: "14px", color: "#374151" }}>{money(data.subtotal)}</td>
             </tr>
 
             {data.cgst > 0 && (
               <tr>
-                <td colSpan="4" style={{ border: "1px solid #2b2b2b", padding: "8px 6px" }}></td>
-                <td style={{ border: "1px solid #2b2b2b", padding: "8px 6px", fontSize: "14px", fontWeight: "500", color: "#374151" }}>{data.cgstLabel || "CGST @ 9%"}</td>
-                <td style={{ border: "1px solid #2b2b2b", padding: "8px 6px", fontSize: "14px", color: "#374151" }}>{money3(data.cgst)}</td>
+                <td colSpan="4" style={{ border: "1px solid #2b2b2b", padding: "6px 6px" }}></td>
+                <td style={{ border: "1px solid #2b2b2b", padding: "6px 6px", fontSize: "14px", fontWeight: "500", color: "#374151" }}>{data.cgstLabel || "CGST @ 9%"}</td>
+                <td style={{ border: "1px solid #2b2b2b", padding: "6px 6px", fontSize: "14px", color: "#374151" }}>{money3(data.cgst)}</td>
               </tr>
             )}
 
             {data.sgst > 0 && (
               <tr>
-                <td colSpan="4" style={{ border: "1px solid #2b2b2b", padding: "8px 6px" }}></td>
-                <td style={{ border: "1px solid #2b2b2b", padding: "8px 6px", fontSize: "14px", fontWeight: "500", color: "#374151" }}>{data.sgstLabel || "SGST @ 9%"}</td>
-                <td style={{ border: "1px solid #2b2b2b", padding: "8px 6px", fontSize: "14px", color: "#374151" }}>{money3(data.sgst)}</td>
+                <td colSpan="4" style={{ border: "1px solid #2b2b2b", padding: "6px 6px" }}></td>
+                <td style={{ border: "1px solid #2b2b2b", padding: "6px 6px", fontSize: "14px", fontWeight: "500", color: "#374151" }}>{data.sgstLabel || "SGST @ 9%"}</td>
+                <td style={{ border: "1px solid #2b2b2b", padding: "6px 6px", fontSize: "14px", color: "#374151" }}>{money3(data.sgst)}</td>
               </tr>
             )}
 
             {data.igst > 0 && (
               <tr>
-                <td colSpan="4" style={{ border: "1px solid #2b2b2b", padding: "8px 6px" }}></td>
-                <td style={{ border: "1px solid #2b2b2b", padding: "8px 6px", fontSize: "14px", fontWeight: "500", color: "#374151" }}>{data.igstLabel || "IGST @ 18%"}</td>
-                <td style={{ border: "1px solid #2b2b2b", padding: "8px 6px", fontSize: "14px", color: "#374151" }}>{money(data.igst)}</td>
+                <td colSpan="4" style={{ border: "1px solid #2b2b2b", padding: "6px 6px" }}></td>
+                <td style={{ border: "1px solid #2b2b2b", padding: "6px 6px", fontSize: "14px", fontWeight: "500", color: "#374151" }}>{data.igstLabel || "IGST @ 18%"}</td>
+                <td style={{ border: "1px solid #2b2b2b", padding: "6px 6px", fontSize: "14px", color: "#374151" }}>{money(data.igst)}</td>
               </tr>
             )}
 
             <tr style={{ backgroundColor: "#2563eb" }}>
-              <td colSpan="4" style={{ border: "1px solid #1e40af", padding: "8px 6px", fontSize: "14px", color: "white" }}>
+              <td colSpan="4" style={{ border: "1px solid #1e40af", padding: "6px 6px", fontSize: "14px", color: "white" }}>
                 {data.amount_in_words}
               </td>
-              <td style={{ border: "1px solid #1e40af", padding: "8px 6px", fontSize: "14px", fontWeight: "bold", color: "white" }}>TOTAL</td>
-              <td style={{ border: "1px solid #1e40af", padding: "8px 6px", fontSize: "14px", fontWeight: "bold", color: "white" }}>{money(data.total)}</td>
+              <td style={{ border: "1px solid #1e40af", padding: "6px 6px", fontSize: "14px", fontWeight: "bold", color: "white" }}>TOTAL</td>
+              <td style={{ border: "1px solid #1e40af", padding: "6px 6px", fontSize: "14px", fontWeight: "bold", color: "white" }}>{money(data.total)}</td>
             </tr>
           </tbody>
         </table>

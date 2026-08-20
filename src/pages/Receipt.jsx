@@ -310,6 +310,7 @@ function EditReceiptModal({ receipt, token, onClose, onSaved }) {
     date: toDateInput(receipt.date),
     invoice_due: toDateInput(receipt.invoice_due),
     hsn_no: receipt.hsn_no || "",
+    note: receipt.note || "",
     items: receipt.items?.length
       ? receipt.items.map(i => ({ description: i.description||"", qty: i.qty||"", rate: i.rate||"" }))
       : [{ description: "", qty: "", rate: "" }],
@@ -331,7 +332,7 @@ function EditReceiptModal({ receipt, token, onClose, onSaved }) {
     );
     const payload = {
       to: values.to, client_gst: values.client_gst || "URD",
-      date: values.date, invoice_due: values.invoice_due || null, hsn_no: values.hsn_no || "",
+      date: values.date, invoice_due: values.invoice_due || null, hsn_no: values.hsn_no || "", note: values.note || "",
       items: values.items.map(i => { const qty = parseFloat(i.qty) || 0; const rate = parseFloat(i.rate) || 0; return { description: i.description, qty, rate, amount: Math.round((qty * rate + Number.EPSILON) * 100) / 100 }; }),
       subtotal, cgst, sgst, igst,
       cgst_percentage: values.use_manual_gst ? 0 : values.cgst_percentage || 0,
@@ -408,6 +409,14 @@ function EditReceiptModal({ receipt, token, onClose, onSaved }) {
                   <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-1.5">HSN/SAC Number</label>
                     <Field type="text" name="hsn_no" className={ic} placeholder="HSN/SAC code" />
+                  </div>
+                 
+                  <div>
+                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                      Note <span className="text-gray-400 text-xs">(Optional — printed beside the Total row)</span>
+                    </label>
+                    <Field as="textarea" name="note" rows="2" className={`${ic} resize-none`}
+                      placeholder="e.g. Advance adjusted against PO #123" />
                   </div>
 
                   <div className="bg-gray-50 border border-gray-200 rounded-xl p-4">
@@ -1094,7 +1103,7 @@ export function Receipt() {
     const invoiceNumber = generateInvoiceNumber(nextInvoiceSerial);
     const formData = {
       to: values.to, client_gst: values.client_gst || "URD", invoice_no: invoiceNumber,
-      date: values.date, invoice_due: values.invoice_due || null, hsn_no: values.hsn_no || "",
+      date: values.date, invoice_due: values.invoice_due || null, hsn_no: values.hsn_no || "", note: values.note || "",
       items: values.items.map(i => { const qty = parseFloat(i.qty) || 0; const rate = parseFloat(i.rate) || 0; return { description: i.description, qty, rate, amount: Math.round((qty * rate + Number.EPSILON) * 100) / 100 }; }),
       subtotal, cgst, sgst, igst,
       cgst_percentage: values.gst_type === "inter" ? 0 : (values.cgst_percentage || 0),
@@ -1193,7 +1202,7 @@ export function Receipt() {
           initialValues={{
             to: "", client_gst: "",
             date: new Date().toISOString().split("T")[0],
-            invoice_due: "", hsn_no: "",
+            invoice_due: "", hsn_no: "",note: "",
             items: [{ description: "", qty: "", rate: "" }],
             cgst_percentage: 9, sgst_percentage: 9, igst_percentage: 18,
             gst_type: "intra",
@@ -1233,6 +1242,7 @@ export function Receipt() {
               date: values.date,
               invoice_due: values.invoice_due || null,
               hsn_no: values.hsn_no || "",
+              note: values.note || "",
               items: (values.items || []).map((i) => {
                 const qty = parseFloat(i.qty) || 0;
                 const rate = parseFloat(i.rate) || 0;
@@ -1342,6 +1352,14 @@ export function Receipt() {
                     <div>
                       <label className="block text-sm font-semibold text-gray-700 mb-2">HSN/SAC Number <span className="text-gray-400 text-xs">(Optional)</span></label>
                       <Field type="text" name="hsn_no" className={ic} placeholder="Enter HSN/SAC code" />
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-semibold text-gray-700 mb-2">
+                        Note <span className="text-gray-400 text-xs">(Optional — printed beside the Total row)</span>
+                      </label>
+                      <Field as="textarea" name="note" rows="2" className={`${ic} resize-none`}
+                        placeholder="e.g. Advance adjusted against PO #123" />
                     </div>
 
                     <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">

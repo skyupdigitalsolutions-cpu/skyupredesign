@@ -153,11 +153,30 @@ export default function ReceiptTemplate({ data }) {
                 );
               })}
 
-            <tr>
-              <td colSpan="4" style={{ border: "1px solid #2b2b2b", padding: "6px 6px" }}>  </td>
-              <td style={{ border: "1px solid #2b2b2b", padding: "6px 6px", fontSize: "14px", fontWeight: "500", color: "#374151" }}>Total</td>
-              <td style={{ border: "1px solid #2b2b2b", padding: "6px 6px", fontSize: "14px", color: "#374151" }}>{money(data.subtotal)}</td>
-            </tr>
+           <tr>
+            <td
+              colSpan="4"
+              style={{
+                border: "1px solid #2b2b2b",
+                padding: "6px 6px",
+                fontSize: "13px",
+                textAlign: "left",
+                verticalAlign: "top",
+                whiteSpace: "pre-wrap",
+                wordBreak: "break-word",
+                color: "#374151",
+              }}
+            >
+              {data.note ? (
+                <>
+                  <span style={{ fontWeight: 700 }}>Note: </span>
+                  {data.note}
+                </>
+              ) : null}
+            </td>
+            <td style={{ border: "1px solid #2b2b2b", padding: "6px 6px", fontSize: "14px", fontWeight: "500", color: "#374151" }}>Total</td>
+            <td style={{ border: "1px solid #2b2b2b", padding: "6px 6px", fontSize: "14px", color: "#374151" }}>{money(data.subtotal)}</td>
+          </tr>
 
             {data.cgst > 0 && (
               <tr>

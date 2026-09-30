@@ -290,30 +290,18 @@ export const generatePDF = async (elementOrElements, invoiceNumber, { pageWidth 
       return;
     }
 
-  // ── Single-page PDF (Receipt — original behaviour, completely unchanged) ──
+  // ── Receipt / Invoice PDF ────────────────────────────────────────────────
+    // ReceiptTemplate now renders one <div data-pdf-page> per A4 page (exactly
+    // 210mm × 297mm each). We capture every page separately and put each on its
+    // own PDF page, so long invoices continue onto page 2, 3, … instead of being
+    // squashed onto one sheet. If no page elements exist (older markup), the
+    // whole element is captured as a single page — the original behaviour.
     const element = elements[0];
     await waitForAssets(element);
     const imageMap = await buildImageMap(element);
-    const width  = element.offsetWidth;
-    const height = element.offsetHeight;
 
-    let scale = 3;
-    if (isSafari()) {
-      const MAX_AREA = 4.8e6;
-      const fit = Math.sqrt(MAX_AREA / Math.max(1, width * height));
-      scale = Math.max(1.5, Math.min(2.5, fit));
-    }
-
-    for (let i = 0; i < 2; i++) {
-      try {
-        const warm = await renderCanvas(element, 1, imageMap, width, height);
-        disposeCanvas(warm);
-        await nextPaint();
-      } catch { /* ignore */ }
-    }
-
-    const canvas = await renderCanvas(element, scale, imageMap, width, height);
-    const imgData = canvas.toDataURL('image/png');
+    const pageEls = Array.from(element.querySelectorAll('[data-pdf-page]'));
+    const targets = pageEls.length ? pageEls : [element];
 
     const pdf = new jsPDF({
       orientation: 'portrait',
@@ -323,12 +311,43 @@ export const generatePDF = async (elementOrElements, invoiceNumber, { pageWidth 
       compress: true,
     });
 
-    // Fit the full captured width onto the 210mm A4 page and derive height from
-    // the canvas aspect ratio. Using fixed 271×316 (the old values) placed the
-    // image 61mm wider than the page, so jsPDF clipped the entire right edge.
-   const pageWidthMm = 210;
+    // Every page is captured at the full A4 size (210 × 297 mm). Using fixed
+    // 271×316 (the very old values) placed the image wider than the page, so
+    // jsPDF clipped the right edge.
+    const pageWidthMm = 210;
     const pageHeightMm = 297;
-    pdf.addImage(imgData, 'PNG', 0, 0, pageWidthMm, pageHeightMm);
+
+    for (let idx = 0; idx < targets.length; idx++) {
+      const target = targets[idx];
+      const width  = target.offsetWidth;
+      const height = target.offsetHeight;
+
+      let scale = 3;
+      if (isSafari()) {
+        const MAX_AREA = 4.8e6;
+        const fit = Math.sqrt(MAX_AREA / Math.max(1, width * height));
+        scale = Math.max(1.5, Math.min(2.5, fit));
+      }
+
+      // Warm-up passes settle layout/fonts; one round on the first page is enough.
+      if (idx === 0) {
+        for (let i = 0; i < 2; i++) {
+          try {
+            const warm = await renderCanvas(target, 1, imageMap, width, height);
+            disposeCanvas(warm);
+            await nextPaint();
+          } catch { /* ignore */ }
+        }
+      }
+
+      const canvas = await renderCanvas(target, scale, imageMap, width, height);
+      const imgData = canvas.toDataURL('image/png');
+      disposeCanvas(canvas); // free the large bitmap before the next page
+
+      if (idx > 0) pdf.addPage();
+      pdf.addImage(imgData, 'PNG', 0, 0, pageWidthMm, pageHeightMm);
+      await nextPaint(); // keep the UI responsive between pages
+    }
 
     try {
       const blob = pdf.output('blob');
@@ -337,7 +356,7 @@ export const generatePDF = async (elementOrElements, invoiceNumber, { pageWidth 
       pdf.save(filename);
     }
 
-    console.log(`PDF generated successfully: ${filename}`);
+    console.log(`PDF generated successfully: ${filename} (${targets.length} page${targets.length > 1 ? 's' : ''})`);
 
   } catch (error) {
     console.error('Error generating PDF:', error);

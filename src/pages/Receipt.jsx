@@ -310,6 +310,7 @@ function EditReceiptModal({ receipt, token, onClose, onSaved }) {
     date: toDateInput(receipt.date),
     invoice_due: toDateInput(receipt.invoice_due),
     hsn_no: receipt.hsn_no || "",
+    transaction_id: receipt.transaction_id || "",
     note: receipt.note || "",
     items: receipt.items?.length
       ? receipt.items.map(i => ({ description: i.description||"", qty: i.qty||"", rate: i.rate||"" }))
@@ -332,7 +333,7 @@ function EditReceiptModal({ receipt, token, onClose, onSaved }) {
     );
     const payload = {
       to: values.to, client_gst: values.client_gst || "URD",
-      date: values.date, invoice_due: values.invoice_due || null, hsn_no: values.hsn_no || "", note: values.note || "",
+      date: values.date, invoice_due: values.invoice_due || null, hsn_no: values.hsn_no || "", transaction_id: (values.transaction_id || "").trim(), note: values.note || "",
       items: values.items.map(i => { const qty = parseFloat(i.qty) || 0; const rate = parseFloat(i.rate) || 0; return { description: i.description, qty, rate, amount: Math.round((qty * rate + Number.EPSILON) * 100) / 100 }; }),
       subtotal, cgst, sgst, igst,
       cgst_percentage: values.use_manual_gst ? 0 : values.cgst_percentage || 0,
@@ -409,6 +410,10 @@ function EditReceiptModal({ receipt, token, onClose, onSaved }) {
                   <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-1.5">HSN/SAC Number</label>
                     <Field type="text" name="hsn_no" className={ic} placeholder="HSN/SAC code" />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-semibold text-gray-700 mb-1.5">Transaction ID</label>
+                    <Field type="text" name="transaction_id" className={ic} placeholder="Payment / UTR / reference no." />
                   </div>
                  
                   <div>
@@ -764,6 +769,7 @@ function ReceiptListModal({ isOpen, onClose, token, onDownloadPdf, downloadingId
                     <div className="flex justify-between text-sm"><span className="text-gray-500 font-medium">Date</span><span>{fd(selectedReceipt.date)}</span></div>
                     {selectedReceipt.invoice_due && <div className="flex justify-between text-sm"><span className="text-gray-500 font-medium">Due Date</span><span>{fd(selectedReceipt.invoice_due)}</span></div>}
                     {selectedReceipt.hsn_no && <div className="flex justify-between text-sm"><span className="text-gray-500 font-medium">HSN/SAC</span><span>{selectedReceipt.hsn_no}</span></div>}
+                    {selectedReceipt.transaction_id && <div className="flex justify-between text-sm"><span className="text-gray-500 font-medium">Transaction ID</span><span>{selectedReceipt.transaction_id}</span></div>}
                   </div>
 
                   <div className="bg-white rounded-xl border border-gray-200 p-4 mb-4">
@@ -977,6 +983,7 @@ export function Receipt() {
     date: Yup.date().required("Invoice date is required"),
     invoice_due: Yup.date().nullable(),
     hsn_no: Yup.string(),
+    transaction_id: Yup.string(),
     items: Yup.array().of(Yup.object({
       description: Yup.string().required("Description is required"),
       qty: Yup.number().positive("Quantity must be positive").required("Quantity is required"),
@@ -1103,7 +1110,7 @@ export function Receipt() {
     const invoiceNumber = generateInvoiceNumber(nextInvoiceSerial);
     const formData = {
       to: values.to, client_gst: values.client_gst || "URD", invoice_no: invoiceNumber,
-      date: values.date, invoice_due: values.invoice_due || null, hsn_no: values.hsn_no || "", note: values.note || "",
+      date: values.date, invoice_due: values.invoice_due || null, hsn_no: values.hsn_no || "", transaction_id: (values.transaction_id || "").trim(), note: values.note || "",
       items: values.items.map(i => { const qty = parseFloat(i.qty) || 0; const rate = parseFloat(i.rate) || 0; return { description: i.description, qty, rate, amount: Math.round((qty * rate + Number.EPSILON) * 100) / 100 }; }),
       subtotal, cgst, sgst, igst,
       cgst_percentage: values.gst_type === "inter" ? 0 : (values.cgst_percentage || 0),
@@ -1154,10 +1161,14 @@ export function Receipt() {
 
   const handlePrint = () => {
     const pw = window.open("", "_blank");
+    // Multi-page invoices: strip the hidden measuring copy (and any preview gaps)
+    // so only the real A4 pages are printed; each page breaks onto its own sheet.
+    const printable = receiptRef.current.cloneNode(true);
+    printable.querySelectorAll("[data-pdf-ignore]").forEach((n) => n.remove());
     pw.document.write(`<!DOCTYPE html><html><head><title>Invoice ${receiptData?.invoice_no}</title>
       <script src="https://cdn.tailwindcss.com"></script>
       <style>@media print{body{margin:0;padding:0;}@page{size:A4;margin:0;}}</style>
-      </head><body>${receiptRef.current.innerHTML}</body></html>`);
+      </head><body>${printable.innerHTML}</body></html>`);
     pw.document.close();
     setTimeout(() => { pw.print(); }, 250);
   };
@@ -1202,7 +1213,7 @@ export function Receipt() {
           initialValues={{
             to: "", client_gst: "",
             date: new Date().toISOString().split("T")[0],
-            invoice_due: "", hsn_no: "",note: "",
+            invoice_due: "", hsn_no: "", transaction_id: "", note: "",
             items: [{ description: "", qty: "", rate: "" }],
             cgst_percentage: 9, sgst_percentage: 9, igst_percentage: 18,
             gst_type: "intra",
@@ -1242,6 +1253,7 @@ export function Receipt() {
               date: values.date,
               invoice_due: values.invoice_due || null,
               hsn_no: values.hsn_no || "",
+              transaction_id: (values.transaction_id || "").trim(),
               note: values.note || "",
               items: (values.items || []).map((i) => {
                 const qty = parseFloat(i.qty) || 0;
@@ -1352,6 +1364,11 @@ export function Receipt() {
                     <div>
                       <label className="block text-sm font-semibold text-gray-700 mb-2">HSN/SAC Number <span className="text-gray-400 text-xs">(Optional)</span></label>
                       <Field type="text" name="hsn_no" className={ic} placeholder="Enter HSN/SAC code" />
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-semibold text-gray-700 mb-2">Transaction ID <span className="text-gray-400 text-xs">(Optional)</span></label>
+                      <Field type="text" name="transaction_id" className={ic} placeholder="Payment / UTR / reference no." />
                     </div>
 
                     <div>
@@ -1722,7 +1739,7 @@ export function Receipt() {
               >
                 <div className="rcpt-scaler" style={{ transform: `scale(${previewScale})` }}>
                   <div className="rcpt-preview-doc" ref={previewDocRef}>
-                    <ReceiptTemplate data={livePreviewData} />
+                    <ReceiptTemplate data={livePreviewData} pageGap={16} />
                   </div>
                 </div>
               </div>
